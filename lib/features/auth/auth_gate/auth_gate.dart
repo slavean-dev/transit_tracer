@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:transit_tracer/core/data/repositories/auth_repository/abstract_auth_repository.dart';
+import 'package:transit_tracer/features/auth/auth_repository/abstract_auth_repository.dart';
 import 'package:transit_tracer/app/router/router.dart';
 
 @RoutePage(name: 'AuthGateRoute')

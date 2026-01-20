@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/app/ui/widgets/base_button.dart';
-import 'package:transit_tracer/app/ui/widgets/base_container.dart';
+import 'package:transit_tracer/core/widgets/base_button.dart';
+import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/core/utils/date_time_utils.dart';
 import 'package:transit_tracer/core/utils/map_launcher.dart';
 import 'package:transit_tracer/core/utils/num_utils.dart';
@@ -29,7 +29,6 @@ class OrderDetailsScreen extends StatelessWidget {
       listener: (context, state) {
         if (state is OrderDeletedSuccessfull) {
           context.router.pop();
-          context.read<OrdersBloc>().add(LoadUserOrders());
         }
       },
       child: Scaffold(

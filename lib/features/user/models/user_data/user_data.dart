@@ -1,4 +1,4 @@
-import 'package:transit_tracer/core/models/user_role/user_role.dart';
+import 'package:transit_tracer/features/user/models/user_role/user_role.dart';
 
 class UserData {
   UserData({

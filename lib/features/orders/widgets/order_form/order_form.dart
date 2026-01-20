@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/app/ui/widgets/base_container.dart';
-import 'package:transit_tracer/app/ui/widgets/city_autocomplete_field.dart';
+import 'package:transit_tracer/core/widgets/base_container.dart';
+import 'package:transit_tracer/core/widgets/city_autocomplete_field.dart';
 import 'package:transit_tracer/core/utils/num_utils.dart';
 import 'package:transit_tracer/core/validators/autocomplete_validate.dart';
 import 'package:transit_tracer/core/validators/order_validators.dart';

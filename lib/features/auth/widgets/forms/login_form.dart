@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/core/validators/auth_validate.dart';
 import 'package:transit_tracer/features/auth/bloc/auth_bloc.dart';
-import 'package:transit_tracer/app/ui/widgets/base_button.dart';
+import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/features/auth/widgets/form_field/form_field.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 

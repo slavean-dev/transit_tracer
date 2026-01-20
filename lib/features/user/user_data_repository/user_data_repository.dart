@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:transit_tracer/core/data/repositories/user_data_repository/abstract_user_data.dart';
-import 'package:transit_tracer/core/models/user_data/user_data.dart';
+import 'package:transit_tracer/features/user/user_data_repository/abstract_user_data.dart';
+import 'package:transit_tracer/features/user/models/user_data/user_data.dart';
 
 class UserDataRepository implements AbstractUserDataRepository {
   UserDataRepository({

@@ -10,6 +10,6 @@ abstract class AbstractOrderRepository {
     WeightRange weight,
     String price,
   );
-  Future<List<OrderData>> loadOrders();
+  Stream<List<OrderData>> getOrders();
   Future<void> deleteOrder(String oid);
 }

@@ -2,9 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/app/router/router.dart';
 
-import 'package:transit_tracer/app/ui/widgets/base_button.dart';
-import 'package:transit_tracer/app/ui/widgets/base_container.dart';
-import 'package:transit_tracer/app/ui/widgets/city_autocomplete_field.dart';
+import 'package:transit_tracer/core/widgets/base_button.dart';
+import 'package:transit_tracer/core/widgets/base_container.dart';
+import 'package:transit_tracer/core/widgets/city_autocomplete_field.dart';
 import 'package:transit_tracer/core/utils/string_utils.dart';
 import 'package:transit_tracer/core/validators/autocomplete_validate.dart';
 import 'package:transit_tracer/features/orders/models/city_point/city_point.dart';

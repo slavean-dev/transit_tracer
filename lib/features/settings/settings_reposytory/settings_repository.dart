@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:transit_tracer/core/settings/settings_reposytory/abstract_settings_repository.dart';
+import 'package:transit_tracer/features/settings/settings_reposytory/abstract_settings_repository.dart';
 
 class SettingsRepository implements AbstractSettingsRepository {
   SettingsRepository({

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get_it/get_it.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/core/settings/cubit/settings_cubit.dart';
-import 'package:transit_tracer/app/ui/theme/theme.dart';
+import 'package:transit_tracer/features/settings/cubit/settings_cubit.dart';
+import 'package:transit_tracer/core/theme/theme.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 class TransitTracerApp extends StatefulWidget {

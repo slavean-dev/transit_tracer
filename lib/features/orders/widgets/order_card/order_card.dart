@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/app/ui/widgets/base_container.dart';
+import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/core/utils/num_utils.dart';
 import 'package:transit_tracer/core/utils/string_utils.dart';
 import 'package:transit_tracer/features/orders/models/order_data/order_data.dart';

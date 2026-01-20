@@ -5,9 +5,9 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transit_tracer/app.dart';
-import 'package:transit_tracer/core/settings/cubit/settings_cubit.dart';
-import 'package:transit_tracer/services/app_info/app_info.dart';
-import 'package:transit_tracer/services/di_service/di_service.dart';
+import 'package:transit_tracer/features/settings/cubit/settings_cubit.dart';
+import 'package:transit_tracer/core/services/app_info/app_info.dart';
+import 'package:transit_tracer/core/services/di_service/di_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

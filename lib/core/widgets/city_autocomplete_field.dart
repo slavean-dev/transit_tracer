@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:google_places_autocomplete_text_field/google_places_autocomplete_text_field.dart';
 import 'package:transit_tracer/generated/l10n.dart';
-import 'package:transit_tracer/services/env_service/env_service.dart';
+import 'package:transit_tracer/core/services/env_service/env_service.dart';
 
 class CityAutocompleteField extends StatelessWidget {
   const CityAutocompleteField({

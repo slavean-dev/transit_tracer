@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/core/settings/cubit/settings_cubit.dart';
+import 'package:transit_tracer/features/settings/cubit/settings_cubit.dart';
 import 'package:transit_tracer/features/settings/widgets/language_change/language_change.dart';
 import 'package:transit_tracer/features/settings/widgets/theme_switch/theme_switch.dart';
 import 'package:transit_tracer/generated/l10n.dart';

@@ -7,29 +7,29 @@ import 'package:get_it/get_it.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:transit_tracer/core/bloc/app_user_bloc.dart';
+import 'package:transit_tracer/features/user/bloc/app_user_bloc.dart';
 import 'package:transit_tracer/core/data/repositories/media_repository/abstract_media_repository.dart';
 import 'package:transit_tracer/core/data/repositories/media_repository/firebase_media_repository.dart';
 import 'package:transit_tracer/features/orders/bloc/orders_bloc.dart';
 import 'package:transit_tracer/features/orders/order_data_repository/abstract_order_repository.dart';
 import 'package:transit_tracer/features/orders/order_data_repository/order_data_repository.dart';
-import 'package:transit_tracer/core/data/repositories/user_data_repository/abstract_user_data.dart';
-import 'package:transit_tracer/core/data/repositories/user_data_repository/user_data_repository.dart';
-import 'package:transit_tracer/core/settings/cubit/settings_cubit.dart';
-import 'package:transit_tracer/core/settings/settings_reposytory/abstract_settings_repository.dart';
-import 'package:transit_tracer/core/settings/settings_reposytory/settings_repository.dart';
+import 'package:transit_tracer/features/user/user_data_repository/abstract_user_data.dart';
+import 'package:transit_tracer/features/user/user_data_repository/user_data_repository.dart';
+import 'package:transit_tracer/features/settings/cubit/settings_cubit.dart';
+import 'package:transit_tracer/features/settings/settings_reposytory/abstract_settings_repository.dart';
+import 'package:transit_tracer/features/settings/settings_reposytory/settings_repository.dart';
 
 import 'package:transit_tracer/features/auth/bloc/auth_bloc.dart';
-import 'package:transit_tracer/core/data/repositories/auth_repository/abstract_auth_repository.dart';
-import 'package:transit_tracer/core/data/repositories/auth_repository/auth_repository.dart';
+import 'package:transit_tracer/features/auth/auth_repository/abstract_auth_repository.dart';
+import 'package:transit_tracer/features/auth/auth_repository/auth_repository.dart';
 import 'package:transit_tracer/features/profile/cubit/profile_cubit.dart';
 import 'package:transit_tracer/features/profile/repository/abstract_profile_repository.dart';
 import 'package:transit_tracer/features/profile/repository/profile_repository.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/services/app_info/app_info.dart';
-import 'package:transit_tracer/services/env_service/env_service.dart';
-import 'package:transit_tracer/services/google_route_service/google_route_service.dart';
-import 'package:transit_tracer/services/media_service/media_service.dart';
+import 'package:transit_tracer/core/services/app_info/app_info.dart';
+import 'package:transit_tracer/core/services/env_service/env_service.dart';
+import 'package:transit_tracer/core/services/google_route_service/google_route_service.dart';
+import 'package:transit_tracer/core/services/media_service/media_service.dart';
 
 class DiService {
   void initDI(SharedPreferences prefs) async {

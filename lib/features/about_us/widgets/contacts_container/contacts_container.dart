@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/core/constants/sup_email.dart';
-import 'package:transit_tracer/app/ui/widgets/base_container.dart';
+import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/generated/l10n.dart';
-import 'package:transit_tracer/services/app_info/app_info.dart';
+import 'package:transit_tracer/core/services/app_info/app_info.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactsContainer extends StatelessWidget {
