@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/app/ui/widgets/base_button.dart';
+import 'package:transit_tracer/core/widgets/base_button.dart';
 
 class OrderFormButton extends StatelessWidget {
   const OrderFormButton({super.key, required this.submit, required this.title});

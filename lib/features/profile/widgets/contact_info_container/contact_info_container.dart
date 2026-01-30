@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/core/models/user_data/user_data.dart';
-import 'package:transit_tracer/app/ui/widgets/base_container.dart';
+import 'package:transit_tracer/features/user/models/user_data/user_data.dart';
+import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 class ContactInfoContainer extends StatelessWidget {

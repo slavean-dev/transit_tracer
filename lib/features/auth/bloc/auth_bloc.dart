@@ -2,8 +2,8 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/core/models/auth_error_type/auth_error_type.dart';
 import 'package:transit_tracer/features/auth/errors/auth_failure.dart';
-import 'package:transit_tracer/core/models/user_role/user_role.dart';
-import 'package:transit_tracer/core/data/repositories/auth_repository/abstract_auth_repository.dart';
+import 'package:transit_tracer/features/user/models/user_role/user_role.dart';
+import 'package:transit_tracer/features/auth/auth_repository/abstract_auth_repository.dart';
 
 part 'auth_state.dart';
 part 'auth_event.dart';

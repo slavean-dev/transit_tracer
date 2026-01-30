@@ -36,37 +36,46 @@ class _OrdersListScreenState extends State<OrdersListScreen> {
           ),
         ],
       ),
-      body: BlocListener<OrdersBloc, OrdersState>(
-        listener: (context, state) {
-          if (state is OrderSavedSuccessfull) {
-            context.read<OrdersBloc>().add(LoadUserOrders());
-          }
-        },
-        child: BlocBuilder<OrdersBloc, OrdersState>(
-          builder: (context, state) {
-            if (state is OrdersLoading) {
-              return const Center(child: CircularProgressIndicator());
-            } else if (state is OrdersLoaded) {
-              final orders = state.orders;
-              return ListView.builder(
-                itemCount: orders.length,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: index == orders.length - 1
-                        ? EdgeInsets.only(bottom: 16)
-                        : EdgeInsets.zero,
-                    child: OrderCard(theme: theme, order: orders[index]),
-                  );
-                },
-              );
-            } else if (state is OrdersEmpty) {
-              return const Center(child: Text('You don`t have orders'));
-            } else {
-              return const Center(child: Text('Somethisg went wrong'));
-            }
-          },
-        ),
-      ),
+      body:
+          //BlocListener<OrdersBloc, OrdersState>(
+          //   listener: (context, state) {
+          //     if (state is OrderSavedSuccessfull) {
+          //       context.read<OrdersBloc>().add(LoadUserOrders());
+          //     }
+          //   },
+          //   child:
+          BlocBuilder<OrdersBloc, OrdersState>(
+            buildWhen: (previous, current) {
+              return current is OrdersLoading ||
+                  current is OrdersLoaded ||
+                  current is OrdersEmpty ||
+                  current
+                      is OrderFailure; // чтобы показать ошибку, если загрузка не удалась
+            },
+            builder: (context, state) {
+              if (state is OrdersLoading) {
+                return const Center(child: CircularProgressIndicator());
+              } else if (state is OrdersLoaded) {
+                final orders = state.orders;
+                return ListView.builder(
+                  itemCount: orders.length,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: index == orders.length - 1
+                          ? EdgeInsets.only(bottom: 16)
+                          : EdgeInsets.zero,
+                      child: OrderCard(theme: theme, order: orders[index]),
+                    );
+                  },
+                );
+              } else if (state is OrdersEmpty) {
+                return const Center(child: Text('You don`t have orders'));
+              } else {
+                return const Center(child: Text('Somethisg went wrong'));
+              }
+            },
+          ),
+      // ),
     );
   }
 }

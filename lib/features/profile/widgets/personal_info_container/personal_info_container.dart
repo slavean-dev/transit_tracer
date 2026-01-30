@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/app/ui/widgets/base_container.dart';
+import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 class PersonalInfoContainer extends StatelessWidget {

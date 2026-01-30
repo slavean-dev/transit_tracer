@@ -5,7 +5,7 @@ import 'package:get_it/get_it.dart';
 import 'package:transit_tracer/features/profile/cubit/profile_cubit.dart';
 import 'package:transit_tracer/features/profile/widgets/modal_sheet_list_tile/modal_sheet_list_tile.dart';
 import 'package:transit_tracer/generated/l10n.dart';
-import 'package:transit_tracer/services/media_service/media_service.dart';
+import 'package:transit_tracer/core/services/media_service/media_service.dart';
 
 class ModalBottomSheet extends StatelessWidget {
   const ModalBottomSheet({super.key, required this.theme, required this.uid});

@@ -34,15 +34,30 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
     }
   }
 
-  void _loadOrders(LoadUserOrders event, Emitter<OrdersState> emit) async {
+  Future<void> _loadOrders(
+    LoadUserOrders event,
+    Emitter<OrdersState> emit,
+  ) async {
     try {
       emit(OrdersLoading());
-      final orders = await repository.loadOrders();
-      if (orders.isEmpty) {
-        emit(OrdersEmpty());
-      } else {
-        emit(OrdersLoaded(orders: orders));
-      }
+      await emit.forEach<List<OrderData>>(
+        repository.getOrders(),
+        onData: (orders) {
+          if (orders.isEmpty) {
+            return OrdersEmpty();
+          } else {
+            return OrdersLoaded(orders: orders);
+          }
+        },
+        onError: (error, stackTrace) =>
+            OrderFailure(exception: error.toString()),
+      );
+      // final orders = await repository.loadOrders();
+      // if (orders.isEmpty) {
+      //   emit(OrdersEmpty());
+      // } else {
+      //   emit(OrdersLoaded(orders: orders));
+      // }
     } catch (e) {
       emit(OrderFailure(exception: e.toString()));
     }

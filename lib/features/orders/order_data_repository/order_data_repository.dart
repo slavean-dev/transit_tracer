@@ -56,18 +56,27 @@ class OrderDataRepository implements AbstractOrderRepository {
   }
 
   @override
-  Future<List<OrderData>> loadOrders() async {
+  Stream<List<OrderData>> getOrders() {
     final currentUser = _firebaseAuth.currentUser;
     if (currentUser == null) throw Exception('Unauthenticated');
     final uid = currentUser.uid;
-    final snapshot = await _firebaseFirestore
+    return _firebaseFirestore
         .collection('orders')
         .where('uid', isEqualTo: uid)
-        .get();
-    final orders = snapshot.docs
-        .map((doc) => OrderData.fromJson(doc.data()))
-        .toList();
-    return orders;
+        .snapshots()
+        .map(
+          (snapshot) => snapshot.docs
+              .map((doc) => OrderData.fromJson(doc.data()))
+              .toList(),
+        );
+    // final snapshot = await _firebaseFirestore
+    //     .collection('orders')
+    //     .where('uid', isEqualTo: uid)
+    //     .get();
+    // final orders = snapshot.docs
+    //     .map((doc) => OrderData.fromJson(doc.data()))
+    //     .toList();
+    // return orders;
   }
 
   @override

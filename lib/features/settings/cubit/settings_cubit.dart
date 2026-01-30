@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/core/settings/settings_reposytory/abstract_settings_repository.dart';
+import 'package:transit_tracer/features/settings/settings_reposytory/abstract_settings_repository.dart';
 
 part 'settings_state.dart';
 

@@ -1,5 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:transit_tracer/core/models/user_role/user_role.dart';
+import 'package:transit_tracer/features/user/models/user_role/user_role.dart';
 
 abstract class AbstractAuthRepository {
   Stream<User?> authStateChanges();

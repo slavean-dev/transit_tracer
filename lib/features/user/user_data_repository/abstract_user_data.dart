@@ -1,4 +1,4 @@
-import 'package:transit_tracer/core/models/user_data/user_data.dart';
+import 'package:transit_tracer/features/user/models/user_data/user_data.dart';
 
 abstract class AbstractUserDataRepository {
   Future<UserData> loadUserData(
