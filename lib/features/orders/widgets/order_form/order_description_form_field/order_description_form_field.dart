@@ -18,11 +18,13 @@ class OrderDescriptionFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return OrderFormField(
+      keyboardType: null,
+      inputFormatters: null,
       validator: (value) => OrderValidators.description(value),
       theme: theme,
       controller: _descriptionController,
-      label: s.cargoDiscriptionLabel,
-      hint: s.cargoDiscriptionHint,
+      label: s.cargoDescriptionLabel,
+      hint: s.cargoDescriptionHint,
       maxLength: 200,
       maxLines: 4,
       minLines: 3,

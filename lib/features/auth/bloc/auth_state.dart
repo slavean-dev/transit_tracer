@@ -17,16 +17,16 @@ class RegiterActive extends AuthState {}
 
 class RegisterFailureState extends AuthState {
   RegisterFailureState(this.errorEmailType, this.errorPasswordType);
-  final AuthErrorType? errorEmailType;
-  final AuthErrorType? errorPasswordType;
+  final FirebaseErrorType? errorEmailType;
+  final FirebaseErrorType? errorPasswordType;
   @override
-  List<AuthErrorType?> get props => [errorEmailType, errorPasswordType];
+  List<FirebaseErrorType?> get props => [errorEmailType, errorPasswordType];
 }
 
 class LoginFailureState extends AuthState {
   LoginFailureState(this.errorEmailType, this.errorPasswordType);
-  final AuthErrorType? errorEmailType;
-  final AuthErrorType? errorPasswordType;
+  final FirebaseErrorType? errorEmailType;
+  final FirebaseErrorType? errorPasswordType;
   @override
-  List<AuthErrorType?> get props => [errorEmailType, errorPasswordType];
+  List<FirebaseErrorType?> get props => [errorEmailType, errorPasswordType];
 }

@@ -13,24 +13,16 @@ class SaveUserOrder extends OrdersEvent {
   const SaveUserOrder({
     required this.from,
     required this.to,
-    required this.discription,
+    required this.description,
     required this.weight,
     required this.price,
   });
   final CityPoint from;
   final CityPoint to;
-  final String discription;
+  final String description;
   final WeightRange weight;
   final String price;
 
   @override
-  List<Object> get props => [from, to, discription, weight, price];
-}
-
-class DeleteUserOrder extends OrdersEvent {
-  const DeleteUserOrder({required this.oid});
-  final String oid;
-
-  @override
-  List<String> get props => [oid];
+  List<Object> get props => [from, to, description, weight, price];
 }

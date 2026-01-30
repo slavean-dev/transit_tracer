@@ -12,4 +12,12 @@ class FirebaseErrors {
   static const String invalidCredential = 'invalid-credential';
 
   static const String tooManyRequests = 'too-many-requests';
+
+  static const String primissionDenied = 'permission-denied';
+
+  static const String notFound = 'not-found';
+
+  static const String unavailable = 'unavailable';
+
+  static const String networkError = 'network-error';
 }

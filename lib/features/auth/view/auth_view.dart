@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/core/models/auth_error_type/auth_error_type.dart';
+import 'package:transit_tracer/core/firebase_error_handler/error_translator/error_translator.dart';
+import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
 import 'package:transit_tracer/features/auth/bloc/auth_bloc.dart';
 import 'package:transit_tracer/features/auth/widgets/forms/login_form.dart';
 import 'package:transit_tracer/features/auth/widgets/forms/register_form.dart';
-import 'package:transit_tracer/generated/l10n.dart';
 
 class AuthView extends StatefulWidget {
   const AuthView({
@@ -17,10 +17,10 @@ class AuthView extends StatefulWidget {
     this.registerPasswordErrorType,
   });
 
-  final AuthErrorType? loginEmailErrorType;
-  final AuthErrorType? loginPasswordErrorType;
-  final AuthErrorType? registerEmailErrorType;
-  final AuthErrorType? registerPasswordErrorType;
+  final FirebaseErrorType? loginEmailErrorType;
+  final FirebaseErrorType? loginPasswordErrorType;
+  final FirebaseErrorType? registerEmailErrorType;
+  final FirebaseErrorType? registerPasswordErrorType;
 
   final GlobalKey<FormState> formKey;
   final AuthState state;
@@ -36,26 +36,26 @@ class _AuthViewState extends State<AuthView> {
     context.read<AuthBloc>().add(StartLogin());
   }
 
-  String? _mapErrorToText(AuthErrorType? type) {
-    if (type == null) return null;
+  // String? _mapErrorToText(FirebaseErrorType? type) {
+  //   if (type == null) return null;
 
-    final s = S.of(context);
+  //   final s = S.of(context);
 
-    switch (type) {
-      case AuthErrorType.emailAlreadyInUse:
-        return s.firebaseValidationEmailInUse;
-      case AuthErrorType.invalidEmail:
-        return s.firebaseValidationInvalidEmail;
-      case AuthErrorType.weakPassword:
-        return s.firebaseValidationWeekPassword;
-      case AuthErrorType.userNotFound:
-        return s.firebaseValidationUserNotFound;
-      case AuthErrorType.wrongPassword:
-        return s.firebaseValidationWrongPassword;
-      default:
-        return s.firebaseValidationSomethingWrong;
-    }
-  }
+  //   switch (type) {
+  //     case FirebaseErrorType.emailAlreadyInUse:
+  //       return s.firebaseValidationEmailInUse;
+  //     case FirebaseErrorType.invalidEmail:
+  //       return s.firebaseValidationInvalidEmail;
+  //     case FirebaseErrorType.weakPassword:
+  //       return s.firebaseValidationWeekPassword;
+  //     case FirebaseErrorType.userNotFound:
+  //       return s.firebaseValidationUserNotFound;
+  //     case FirebaseErrorType.wrongPassword:
+  //       return s.firebaseValidationWrongPassword;
+  //     default:
+  //       return s.firebaseValidationSomethingWrong;
+  //   }
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -65,14 +65,24 @@ class _AuthViewState extends State<AuthView> {
       return LoginForm(
         formKey: widget.formKey,
         state: widget.state,
-        externalEmailError: _mapErrorToText(widget.loginEmailErrorType),
-        externalPasswordError: _mapErrorToText(widget.loginPasswordErrorType),
+        externalEmailError: ErrorTranslator.translate(
+          context,
+          widget.loginEmailErrorType,
+        ),
+        externalPasswordError: ErrorTranslator.translate(
+          context,
+          widget.loginPasswordErrorType,
+        ),
       );
     } else {
       return RegisterForm(
         formKey: widget.formKey,
-        externalEmailError: _mapErrorToText(widget.registerEmailErrorType),
-        externalPasswordError: _mapErrorToText(
+        externalEmailError: ErrorTranslator.translate(
+          context,
+          widget.registerEmailErrorType,
+        ),
+        externalPasswordError: ErrorTranslator.translate(
+          context,
           widget.registerPasswordErrorType,
         ),
       );

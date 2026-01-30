@@ -47,6 +47,19 @@ var darkTheme = ThemeData(
     bodyColor: Colors.white,
     displayColor: Colors.white,
   ),
+
+  iconTheme: IconThemeData(color: Colors.white),
+
+  snackBarTheme: SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: const Color(0xFF2D3238),
+    contentTextStyle: const TextStyle(color: Colors.white, fontSize: 16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+      side: const BorderSide(color: Color(0xFF33373B), width: 1),
+    ),
+    elevation: 10,
+  ),
 );
 
 var lightTheme = ThemeData(
@@ -85,9 +98,21 @@ var lightTheme = ThemeData(
     unselectedItemColor: Colors.black54,
   ),
 
+  iconTheme: IconThemeData(color: Colors.black),
+
   textTheme: _baseTextTheme.apply(
     bodyColor: Colors.black,
     displayColor: Colors.black,
+  ),
+  snackBarTheme: SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: Colors.white,
+    contentTextStyle: const TextStyle(color: Colors.black, fontSize: 16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+      side: BorderSide(color: Colors.grey.shade600, width: 1),
+    ),
+    elevation: 8,
   ),
 );
 

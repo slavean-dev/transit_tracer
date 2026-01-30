@@ -41,10 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "bottNavBarOrders": MessageLookupByLibrary.simpleMessage("Ordine"),
     "bottNavBarProfile": MessageLookupByLibrary.simpleMessage("Profilo"),
     "bottNavBarSearch": MessageLookupByLibrary.simpleMessage("Ricerca"),
-    "cargoDiscriptionHint": MessageLookupByLibrary.simpleMessage(
+    "cargoDescriptionHint": MessageLookupByLibrary.simpleMessage(
       "Tipo, quantità, requisiti speciali",
     ),
-    "cargoDiscriptionLabel": MessageLookupByLibrary.simpleMessage(
+    "cargoDescriptionLabel": MessageLookupByLibrary.simpleMessage(
       "Descrizione del carico",
     ),
     "cargoWeightLabel": MessageLookupByLibrary.simpleMessage("Peso del carico"),
@@ -72,22 +72,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailForm": MessageLookupByLibrary.simpleMessage(
       "Inserisci la tua e-mail",
     ),
-    "firebaseValidationEmailInUse": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
       "Questa email è già registrata",
     ),
-    "firebaseValidationInvalidEmail": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorInvalidCredential": MessageLookupByLibrary.simpleMessage(
+      "Credenziali non valide",
+    ),
+    "firebaseErrorInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Formato email non valido",
     ),
-    "firebaseValidationSomethingWrong": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Errore di rete. Controlla la tua connessione o riprova più tardi.",
+    ),
+    "firebaseErrorNotFound": MessageLookupByLibrary.simpleMessage(
+      "Ordine non trovato. Può essere stato cancellato.",
+    ),
+    "firebaseErrorPrimissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Accesso negato. Non hai i permessi per modificare questo.",
+    ),
+    "firebaseErrorSomethingWrong": MessageLookupByLibrary.simpleMessage(
       "Qualcosa è andato storto. Riprova.",
     ),
-    "firebaseValidationUserNotFound": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorUnavailable": MessageLookupByLibrary.simpleMessage(
+      "Servizio non disponibile. Controlla la tua connessione o riprova più tardi.",
+    ),
+    "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "L\'utente con questa email non esiste",
     ),
-    "firebaseValidationWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
       "La password è troppo debole",
     ),
-    "firebaseValidationWrongPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Password errata",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),

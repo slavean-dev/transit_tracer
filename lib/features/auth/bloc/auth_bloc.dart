@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/core/models/auth_error_type/auth_error_type.dart';
-import 'package:transit_tracer/features/auth/errors/auth_failure.dart';
+import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/features/user/models/user_role/user_role.dart';
 import 'package:transit_tracer/features/auth/auth_repository/abstract_auth_repository.dart';
 
@@ -41,11 +41,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         password: event.password,
         role: event.userRole,
       );
-    } on AuthFailure catch (e) {
-      if (e.type == AuthErrorType.invalidEmail ||
-          e.type == AuthErrorType.emailAlreadyInUse) {
+    } on FirebaseFailure catch (e) {
+      if (e.type == FirebaseErrorType.invalidEmail ||
+          e.type == FirebaseErrorType.emailAlreadyInUse) {
         emit(RegisterFailureState(e.type, null));
-      } else if (e.type == AuthErrorType.weakPassword) {
+      } else if (e.type == FirebaseErrorType.weakPassword) {
         emit(RegisterFailureState(null, e.type));
       }
     }
@@ -55,11 +55,19 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     emit(LoginLoading());
     try {
       await authRepository.login(login: event.login, password: event.password);
-    } on AuthFailure catch (e) {
-      if (e.type == AuthErrorType.invalidEmail ||
-          e.type == AuthErrorType.userNotFound) {
+    } on FirebaseFailure catch (e) {
+      if (e.type == FirebaseErrorType.invalidCredential) {
+        emit(
+          LoginFailureState(
+            FirebaseErrorType.invalidCredential,
+            FirebaseErrorType.invalidCredential,
+          ),
+        );
+      }
+      if (e.type == FirebaseErrorType.invalidEmail ||
+          e.type == FirebaseErrorType.userNotFound) {
         emit(LoginFailureState(e.type, null));
-      } else if (e.type == AuthErrorType.wrongPassword) {
+      } else if (e.type == FirebaseErrorType.wrongPassword) {
         emit(LoginFailureState(null, e.type));
       }
     }

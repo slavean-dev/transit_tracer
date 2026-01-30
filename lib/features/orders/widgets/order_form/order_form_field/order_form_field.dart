@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class OrderFormField extends StatelessWidget {
   const OrderFormField({
@@ -11,8 +12,12 @@ class OrderFormField extends StatelessWidget {
     required this.label,
     required this.hint,
     required this.validator,
+    required this.keyboardType,
+    required this.inputFormatters,
   });
 
+  final TextInputType? keyboardType;
+  final List<TextInputFormatter>? inputFormatters;
   final ThemeData theme;
   final TextEditingController controller;
   final int maxLines;
@@ -32,6 +37,8 @@ class OrderFormField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: TextFormField(
+          inputFormatters: inputFormatters,
+          keyboardType: keyboardType,
           validator: validator,
           decoration: InputDecoration(
             labelText: label,

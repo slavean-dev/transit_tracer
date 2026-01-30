@@ -12,23 +12,28 @@ class GoogleRouteService {
     required double toLat,
     required double toLng,
   }) async {
-    final response = await dio.get<Map<String, dynamic>>(
-      'https://maps.googleapis.com/maps/api/directions/json',
-      queryParameters: {
-        'origin': '$fromLat,$fromLng',
-        'destination': '$toLat,$toLng',
-        'mode': 'driving',
-        'key': apiKey,
-      },
-    );
+    try {
+      final response = await dio.get<Map<String, dynamic>>(
+        'https://maps.googleapis.com/maps/api/directions/json',
+        queryParameters: {
+          'origin': '$fromLat,$fromLng',
+          'destination': '$toLat,$toLng',
+          'mode': 'driving',
+          'key': apiKey,
+        },
+      );
 
-    final data = response.data;
-    if (data == null) return null;
+      final data = response.data;
+      if (data == null) return null;
 
-    final routes = (data['routes'] as List?) ?? const [];
-    if (routes.isEmpty) return null;
+      final routes = (data['routes'] as List?) ?? const [];
+      if (routes.isEmpty) return null;
 
-    final overview = routes.first['overview_polyline'] as Map<String, dynamic>;
-    return overview['points'] as String?;
+      final overview =
+          routes.first['overview_polyline'] as Map<String, dynamic>;
+      return overview['points'] as String?;
+    } catch (e) {
+      return null;
+    }
   }
 }

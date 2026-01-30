@@ -13,7 +13,7 @@ class PasswordStrengthMeterCubit extends Cubit<PasswordStrengthMeterState> {
     final int uppercaseCount = RegExp(r'[A-Z]').allMatches(password).length;
     final int numberCount = RegExp(r'\d').allMatches(password).length;
     final int specialCount = RegExp(
-      r'!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"\<>,\.\?\/\\',
+      r'[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"\<>,\.\?\/\\]',
     ).allMatches(password).length;
 
     if (password.length <= 8 ||

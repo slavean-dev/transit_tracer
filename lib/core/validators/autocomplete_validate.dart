@@ -1,4 +1,4 @@
-import 'package:transit_tracer/features/orders/models/city_point/city_point.dart';
+import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 
 class AutocompleteValidate {
   static String? city(

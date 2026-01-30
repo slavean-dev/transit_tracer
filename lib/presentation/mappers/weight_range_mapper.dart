@@ -1,4 +1,4 @@
-import 'package:transit_tracer/features/orders/models/weight_range/weight_range.dart';
+import 'package:transit_tracer/features/orders/data/models/weight_range/weight_range.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 class WeightRangeMapper {

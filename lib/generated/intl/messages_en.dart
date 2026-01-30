@@ -39,11 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "bottNavBarOrders": MessageLookupByLibrary.simpleMessage("Orders"),
     "bottNavBarProfile": MessageLookupByLibrary.simpleMessage("Profile"),
     "bottNavBarSearch": MessageLookupByLibrary.simpleMessage("Search"),
-    "cargoDiscriptionHint": MessageLookupByLibrary.simpleMessage(
+    "cargoDescriptionHint": MessageLookupByLibrary.simpleMessage(
       "Type, quantity, special requirements",
     ),
-    "cargoDiscriptionLabel": MessageLookupByLibrary.simpleMessage(
-      "Cargo discription",
+    "cargoDescriptionLabel": MessageLookupByLibrary.simpleMessage(
+      "Cargo description",
     ),
     "cargoWeightLabel": MessageLookupByLibrary.simpleMessage("Cargo weight"),
     "cityFormHint": MessageLookupByLibrary.simpleMessage("Enter city"),
@@ -66,22 +66,37 @@ class MessageLookup extends MessageLookupByLibrary {
     "editProfileDropMenu": MessageLookupByLibrary.simpleMessage("Edit profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailForm": MessageLookupByLibrary.simpleMessage("Enter your Email"),
-    "firebaseValidationEmailInUse": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
       "This email is already registered",
     ),
-    "firebaseValidationInvalidEmail": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorInvalidCredential": MessageLookupByLibrary.simpleMessage(
+      "Invalid credentials",
+    ),
+    "firebaseErrorInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Invalid email format",
     ),
-    "firebaseValidationSomethingWrong": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Network error. Please check your internet or try later.",
+    ),
+    "firebaseErrorNotFound": MessageLookupByLibrary.simpleMessage(
+      "Order not found. It might have been deleted.",
+    ),
+    "firebaseErrorPrimissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Access denied. You don\'t have permission to edit this.",
+    ),
+    "firebaseErrorSomethingWrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong. Please try again",
     ),
-    "firebaseValidationUserNotFound": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorUnavailable": MessageLookupByLibrary.simpleMessage(
+      "Service unavailable. Please check your internet or try later.",
+    ),
+    "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "User with this email does not exist",
     ),
-    "firebaseValidationWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
       "Password is too weak",
     ),
-    "firebaseValidationWrongPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Incorrect password",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),
@@ -89,7 +104,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 kg"),
     "fromFormLable": MessageLookupByLibrary.simpleMessage("From"),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
-      "Have account? Tap here ro return!",
+      "Have account? Tap here to return!",
     ),
     "languageDropMenu": MessageLookupByLibrary.simpleMessage("Language"),
     "logButton": MessageLookupByLibrary.simpleMessage("Login"),

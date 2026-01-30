@@ -174,10 +174,10 @@ class S {
     );
   }
 
-  /// `Have account? Tap here ro return!`
+  /// `Have account? Tap here to return!`
   String get haveAccTextButton {
     return Intl.message(
-      'Have account? Tap here ro return!',
+      'Have account? Tap here to return!',
       name: 'haveAccTextButton',
       desc: '',
       args: [],
@@ -289,61 +289,111 @@ class S {
     );
   }
 
+  /// `Invalid credentials`
+  String get firebaseErrorInvalidCredential {
+    return Intl.message(
+      'Invalid credentials',
+      name: 'firebaseErrorInvalidCredential',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `This email is already registered`
-  String get firebaseValidationEmailInUse {
+  String get firebaseErrorEmailInUse {
     return Intl.message(
       'This email is already registered',
-      name: 'firebaseValidationEmailInUse',
+      name: 'firebaseErrorEmailInUse',
       desc: '',
       args: [],
     );
   }
 
   /// `Invalid email format`
-  String get firebaseValidationInvalidEmail {
+  String get firebaseErrorInvalidEmail {
     return Intl.message(
       'Invalid email format',
-      name: 'firebaseValidationInvalidEmail',
+      name: 'firebaseErrorInvalidEmail',
       desc: '',
       args: [],
     );
   }
 
   /// `Password is too weak`
-  String get firebaseValidationWeekPassword {
+  String get firebaseErrorWeekPassword {
     return Intl.message(
       'Password is too weak',
-      name: 'firebaseValidationWeekPassword',
+      name: 'firebaseErrorWeekPassword',
       desc: '',
       args: [],
     );
   }
 
   /// `User with this email does not exist`
-  String get firebaseValidationUserNotFound {
+  String get firebaseErrorUserNotFound {
     return Intl.message(
       'User with this email does not exist',
-      name: 'firebaseValidationUserNotFound',
+      name: 'firebaseErrorUserNotFound',
       desc: '',
       args: [],
     );
   }
 
   /// `Incorrect password`
-  String get firebaseValidationWrongPassword {
+  String get firebaseErrorWrongPassword {
     return Intl.message(
       'Incorrect password',
-      name: 'firebaseValidationWrongPassword',
+      name: 'firebaseErrorWrongPassword',
       desc: '',
       args: [],
     );
   }
 
   /// `Something went wrong. Please try again`
-  String get firebaseValidationSomethingWrong {
+  String get firebaseErrorSomethingWrong {
     return Intl.message(
       'Something went wrong. Please try again',
-      name: 'firebaseValidationSomethingWrong',
+      name: 'firebaseErrorSomethingWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Access denied. You don't have permission to edit this.`
+  String get firebaseErrorPrimissionDenied {
+    return Intl.message(
+      'Access denied. You don\'t have permission to edit this.',
+      name: 'firebaseErrorPrimissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order not found. It might have been deleted.`
+  String get firebaseErrorNotFound {
+    return Intl.message(
+      'Order not found. It might have been deleted.',
+      name: 'firebaseErrorNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service unavailable. Please check your internet or try later.`
+  String get firebaseErrorUnavailable {
+    return Intl.message(
+      'Service unavailable. Please check your internet or try later.',
+      name: 'firebaseErrorUnavailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Network error. Please check your internet or try later.`
+  String get firebaseErrorNetwork {
+    return Intl.message(
+      'Network error. Please check your internet or try later.',
+      name: 'firebaseErrorNetwork',
       desc: '',
       args: [],
     );
@@ -429,21 +479,21 @@ class S {
     return Intl.message('Create', name: 'create', desc: '', args: []);
   }
 
-  /// `Cargo discription`
-  String get cargoDiscriptionLabel {
+  /// `Cargo description`
+  String get cargoDescriptionLabel {
     return Intl.message(
-      'Cargo discription',
-      name: 'cargoDiscriptionLabel',
+      'Cargo description',
+      name: 'cargoDescriptionLabel',
       desc: '',
       args: [],
     );
   }
 
   /// `Type, quantity, special requirements`
-  String get cargoDiscriptionHint {
+  String get cargoDescriptionHint {
     return Intl.message(
       'Type, quantity, special requirements',
-      name: 'cargoDiscriptionHint',
+      name: 'cargoDescriptionHint',
       desc: '',
       args: [],
     );

@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/features/about_us/view/about_us_screen.dart';
-import 'package:transit_tracer/features/orders/models/order_data/order_data.dart';
+import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/features/orders/tabs/add_order_tab_page.dart';
 import 'package:transit_tracer/features/orders/view/create_order_screen.dart';
 import 'package:transit_tracer/features/orders/view/archive_orders_screen.dart';

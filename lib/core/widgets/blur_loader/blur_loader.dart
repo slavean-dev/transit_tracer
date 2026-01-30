@@ -8,9 +8,12 @@ class BlurLoader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned.fill(
-      child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-        child: Center(child: CircularProgressIndicator()),
+      child: AbsorbPointer(
+        absorbing: true,
+        child: BackdropFilter(
+          filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
+          child: Center(child: CircularProgressIndicator()),
+        ),
       ),
     );
   }

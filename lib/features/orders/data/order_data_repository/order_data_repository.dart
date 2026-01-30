@@ -1,10 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/features/orders/models/city_point/city_point.dart';
-import 'package:transit_tracer/features/orders/order_data_repository/abstract_order_repository.dart';
-import 'package:transit_tracer/features/orders/models/order_data/order_data.dart';
-import 'package:transit_tracer/features/orders/models/weight_range/weight_range.dart';
+import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
+import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
+import 'package:transit_tracer/features/orders/data/order_data_repository/abstract_order_repository.dart';
+import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
+import 'package:transit_tracer/features/orders/data/models/weight_range/weight_range.dart';
 import 'package:uuid/uuid.dart';
 
 class OrderDataRepository implements AbstractOrderRepository {
@@ -21,7 +22,7 @@ class OrderDataRepository implements AbstractOrderRepository {
   Future<void> saveOrder(
     CityPoint from,
     CityPoint to,
-    String discription,
+    String description,
     WeightRange weight,
     String price,
   ) async {
@@ -34,14 +35,10 @@ class OrderDataRepository implements AbstractOrderRepository {
         oid: oid,
         from: from,
         to: to,
-        // from: from,
-        // fromId: fromId,
-        // to: to,
-        // toId: toId,
-        discription: discription,
+        description: description,
         weight: weight,
         price: price,
-        isActive: true,
+        status: OrderStatus.active,
         createdAt: DateTime.now(),
       );
       await _firebaseFirestore
@@ -63,20 +60,14 @@ class OrderDataRepository implements AbstractOrderRepository {
     return _firebaseFirestore
         .collection('orders')
         .where('uid', isEqualTo: uid)
+        .where('status', whereIn: ['active', 'inProgress', 'completed'])
+        .orderBy('createdAt', descending: true)
         .snapshots()
         .map(
           (snapshot) => snapshot.docs
               .map((doc) => OrderData.fromJson(doc.data()))
               .toList(),
         );
-    // final snapshot = await _firebaseFirestore
-    //     .collection('orders')
-    //     .where('uid', isEqualTo: uid)
-    //     .get();
-    // final orders = snapshot.docs
-    //     .map((doc) => OrderData.fromJson(doc.data()))
-    //     .toList();
-    // return orders;
   }
 
   @override
@@ -85,6 +76,42 @@ class OrderDataRepository implements AbstractOrderRepository {
       await _firebaseFirestore.collection('orders').doc(oid).delete();
     } catch (e) {
       throw Exception(e.toString());
+    }
+  }
+
+  @override
+  Stream<OrderData> getOrderById(String oid) {
+    try {
+      return _firebaseFirestore
+          .collection('orders')
+          .doc(oid)
+          .snapshots()
+          .map((doc) => OrderData.fromJson(doc.data()!));
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  @override
+  Future<void> editOrderData(OrderData order) async {
+    try {
+      await _firebaseFirestore
+          .collection('orders')
+          .doc(order.oid)
+          .update(order.toJson());
+    } catch (e) {
+      throw Exception(e);
+    }
+  }
+
+  @override
+  Future<void> archiveOrder(String oid) async {
+    try {
+      await _firebaseFirestore.collection('orders').doc(oid).update({
+        'status': OrderStatus.archived.name,
+      });
+    } catch (e) {
+      throw Exception(e);
     }
   }
 }

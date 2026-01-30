@@ -39,10 +39,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "bottNavBarOrders": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "bottNavBarProfile": MessageLookupByLibrary.simpleMessage("Профіль"),
     "bottNavBarSearch": MessageLookupByLibrary.simpleMessage("Пошук"),
-    "cargoDiscriptionHint": MessageLookupByLibrary.simpleMessage(
+    "cargoDescriptionHint": MessageLookupByLibrary.simpleMessage(
       "Тип, кількість, особливі вимоги",
     ),
-    "cargoDiscriptionLabel": MessageLookupByLibrary.simpleMessage(
+    "cargoDescriptionLabel": MessageLookupByLibrary.simpleMessage(
       "Опис вантажу",
     ),
     "cargoWeightLabel": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
@@ -68,22 +68,37 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailForm": MessageLookupByLibrary.simpleMessage("Введіть ваш Email"),
-    "firebaseValidationEmailInUse": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
       "Ця електронна адреса вже зареєстрована",
     ),
-    "firebaseValidationInvalidEmail": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorInvalidCredential": MessageLookupByLibrary.simpleMessage(
+      "Недійсні дані",
+    ),
+    "firebaseErrorInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Недійсний формат електронної пошти",
     ),
-    "firebaseValidationSomethingWrong": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Помилка мережі. Перевірте підключення до Інтернету або спробуйте пізніше.",
+    ),
+    "firebaseErrorNotFound": MessageLookupByLibrary.simpleMessage(
+      "Замовлення не знайдено. Можливо було видалено.",
+    ),
+    "firebaseErrorPrimissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Доступ заборонений. Ви не маєте дозволу змінювати це.",
+    ),
+    "firebaseErrorSomethingWrong": MessageLookupByLibrary.simpleMessage(
       "Щось пішло не так. Спробуйте ще раз.",
     ),
-    "firebaseValidationUserNotFound": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorUnavailable": MessageLookupByLibrary.simpleMessage(
+      "Послуга недоступна. Перевірте ваше з\'єднання з інтернетом або спробуйте пізніше.",
+    ),
+    "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "Користувача з цією електронною адресою не існує",
     ),
-    "firebaseValidationWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
       "Пароль занадто слабкий",
     ),
-    "firebaseValidationWrongPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Невірний пароль",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 кг"),

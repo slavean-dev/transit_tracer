@@ -12,7 +12,7 @@ class ActionButton extends StatelessWidget {
 
   final ThemeData theme;
   final String lable;
-  final Color textColor;
+  final Color? textColor;
   final Color backgroundColor;
   final VoidCallback onPressed;
 

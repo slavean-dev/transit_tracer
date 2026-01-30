@@ -30,5 +30,3 @@ class OrderFailure extends OrdersState {
   @override
   List<String> get props => [exception];
 }
-
-class OrderDeletedSuccessfull extends OrdersState {}
