@@ -27,7 +27,7 @@ class WeightPicker extends StatelessWidget {
       style: theme.textTheme.bodyMedium,
       initialValue: initialValue,
       decoration: InputDecoration(
-        labelText: s.cargoWeightLabel,
+        labelText: s.orderFieldWeight,
         filled: true,
         fillColor: theme.colorScheme.surfaceContainer,
 

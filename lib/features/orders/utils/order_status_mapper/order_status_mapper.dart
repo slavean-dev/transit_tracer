@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
 import 'package:transit_tracer/features/orders/utils/order_status_mapper/model/order_status_ui.dart';
+import 'package:transit_tracer/generated/l10n.dart';
 
 OrderStatusUiModel getStatusStyle(OrderStatus status, BuildContext context) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
+  final s = S.of(context);
   switch (status) {
     case OrderStatus.active:
       return OrderStatusUiModel(
-        lable: 'Active',
+        lable: s.orderStatusActive,
         backgroundColor: isDark
             ? const Color(0xFF4ADE80).withValues(alpha: 0.15)
             : const Color(0xFFDCFCE7),
@@ -15,7 +17,7 @@ OrderStatusUiModel getStatusStyle(OrderStatus status, BuildContext context) {
       );
     case OrderStatus.inProgress:
       return OrderStatusUiModel(
-        lable: 'In progress',
+        lable: s.orderStatusInProgress,
         backgroundColor: isDark
             ? const Color(0xFF93C5FD).withValues(alpha: 0.15)
             : const Color(0xFFDBEAFE),
@@ -23,7 +25,7 @@ OrderStatusUiModel getStatusStyle(OrderStatus status, BuildContext context) {
       );
     case OrderStatus.completed:
       return OrderStatusUiModel(
-        lable: 'Completed',
+        lable: s.orderStatusInProgress,
         backgroundColor: isDark
             ? const Color(0xFF94A3B8).withValues(alpha: 0.15)
             : const Color(0xFFF1F5F9),
@@ -31,7 +33,7 @@ OrderStatusUiModel getStatusStyle(OrderStatus status, BuildContext context) {
       );
     case OrderStatus.archived:
       return OrderStatusUiModel(
-        lable: 'Archived',
+        lable: s.orderStatusArchived,
         backgroundColor: isDark
             ? const Color(0xFFFFB86C).withValues(alpha: 0.15)
             : const Color(0xFFFFEDD5),

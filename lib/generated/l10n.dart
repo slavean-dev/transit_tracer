@@ -164,11 +164,11 @@ class S {
     );
   }
 
-  /// `Coinfirm your password`
-  String get passwordCoinfirmForm {
+  /// `Confirm your password`
+  String get passwordConfirmForm {
     return Intl.message(
-      'Coinfirm your password',
-      name: 'passwordCoinfirmForm',
+      'Confirm your password',
+      name: 'passwordConfirmForm',
       desc: '',
       args: [],
     );
@@ -210,10 +210,10 @@ class S {
   }
 
   /// `Enter a valid surname`
-  String get validarionInvalidSurname {
+  String get validationInvalidSurname {
     return Intl.message(
       'Enter a valid surname',
-      name: 'validarionInvalidSurname',
+      name: 'validationInvalidSurname',
       desc: '',
       args: [],
     );
@@ -280,10 +280,10 @@ class S {
   }
 
   /// `Passwords didn't match`
-  String get validationInvalidCoinfirmPasswordDidntMatch {
+  String get validationInvalidConfirmPasswordDidntMatch {
     return Intl.message(
       'Passwords didn`t match',
-      name: 'validationInvalidCoinfirmPasswordDidntMatch',
+      name: 'validationInvalidConfirmPasswordDidntMatch',
       desc: '',
       args: [],
     );
@@ -360,10 +360,10 @@ class S {
   }
 
   /// `Access denied. You don't have permission to edit this.`
-  String get firebaseErrorPrimissionDenied {
+  String get firebaseErrorPermissionDenied {
     return Intl.message(
       'Access denied. You don\'t have permission to edit this.',
-      name: 'firebaseErrorPrimissionDenied',
+      name: 'firebaseErrorPermissionDenied',
       desc: '',
       args: [],
     );
@@ -400,33 +400,23 @@ class S {
   }
 
   /// `Search`
-  String get bottNavBarSearch {
-    return Intl.message('Search', name: 'bottNavBarSearch', desc: '', args: []);
+  String get navSearch {
+    return Intl.message('Search', name: 'navSearch', desc: '', args: []);
   }
 
   /// `Create`
-  String get bobottNavBarCreate {
-    return Intl.message(
-      'Create',
-      name: 'bobottNavBarCreate',
-      desc: '',
-      args: [],
-    );
+  String get navCreate {
+    return Intl.message('Create', name: 'navCreate', desc: '', args: []);
   }
 
   /// `Orders`
-  String get bottNavBarOrders {
-    return Intl.message('Orders', name: 'bottNavBarOrders', desc: '', args: []);
+  String get navOrders {
+    return Intl.message('Orders', name: 'navOrders', desc: '', args: []);
   }
 
   /// `Profile`
-  String get bottNavBarProfile {
-    return Intl.message(
-      'Profile',
-      name: 'bottNavBarProfile',
-      desc: '',
-      args: [],
-    );
+  String get navProfile {
+    return Intl.message('Profile', name: 'navProfile', desc: '', args: []);
   }
 
   /// `Search Transport`
@@ -450,18 +440,23 @@ class S {
   }
 
   /// `From`
-  String get fromFormLable {
-    return Intl.message('From', name: 'fromFormLable', desc: '', args: []);
+  String get fieldFrom {
+    return Intl.message('From', name: 'fieldFrom', desc: '', args: []);
   }
 
   /// `To`
-  String get toFormLable {
-    return Intl.message('To', name: 'toFormLable', desc: '', args: []);
+  String get fieldTo {
+    return Intl.message('To', name: 'fieldTo', desc: '', args: []);
   }
 
   /// `Enter city`
-  String get cityFormHint {
-    return Intl.message('Enter city', name: 'cityFormHint', desc: '', args: []);
+  String get hintEnterCity {
+    return Intl.message(
+      'Enter city',
+      name: 'hintEnterCity',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Create order`
@@ -480,30 +475,30 @@ class S {
   }
 
   /// `Cargo description`
-  String get cargoDescriptionLabel {
+  String get orderFieldCargo {
     return Intl.message(
       'Cargo description',
-      name: 'cargoDescriptionLabel',
+      name: 'orderFieldCargo',
       desc: '',
       args: [],
     );
   }
 
   /// `Type, quantity, special requirements`
-  String get cargoDescriptionHint {
+  String get orderFieldCargoHint {
     return Intl.message(
       'Type, quantity, special requirements',
-      name: 'cargoDescriptionHint',
+      name: 'orderFieldCargoHint',
       desc: '',
       args: [],
     );
   }
 
   /// `Cargo weight`
-  String get cargoWeightLabel {
+  String get orderFieldWeight {
     return Intl.message(
       'Cargo weight',
-      name: 'cargoWeightLabel',
+      name: 'orderFieldWeight',
       desc: '',
       args: [],
     );
@@ -550,15 +545,15 @@ class S {
   }
 
   /// `Price`
-  String get priceFormLable {
-    return Intl.message('Price', name: 'priceFormLable', desc: '', args: []);
+  String get orderFieldPrice {
+    return Intl.message('Price', name: 'orderFieldPrice', desc: '', args: []);
   }
 
   /// `Enter price`
-  String get priceFormHint {
+  String get orderFieldPriceHint {
     return Intl.message(
       'Enter price',
-      name: 'priceFormHint',
+      name: 'orderFieldPriceHint',
       desc: '',
       args: [],
     );
@@ -569,9 +564,9 @@ class S {
     return Intl.message('Orders', name: 'ordersTitle', desc: '', args: []);
   }
 
-  /// `Arhive`
+  /// `Arсhive`
   String get archiveTitle {
-    return Intl.message('Arhive', name: 'archiveTitle', desc: '', args: []);
+    return Intl.message('Arсhive', name: 'archiveTitle', desc: '', args: []);
   }
 
   /// `Profile`
@@ -582,6 +577,186 @@ class S {
   /// `Contacts`
   String get contactCont {
     return Intl.message('Contacts', name: 'contactCont', desc: '', args: []);
+  }
+
+  /// `Order details`
+  String get orderDetailsTitle {
+    return Intl.message(
+      'Order details',
+      name: 'orderDetailsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get orderStatusActive {
+    return Intl.message(
+      'Active',
+      name: 'orderStatusActive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In progress`
+  String get orderStatusInProgress {
+    return Intl.message(
+      'In progress',
+      name: 'orderStatusInProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completed`
+  String get orderStatusCompleted {
+    return Intl.message(
+      'Completed',
+      name: 'orderStatusCompleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Archive`
+  String get orderStatusArchived {
+    return Intl.message(
+      'Archive',
+      name: 'orderStatusArchived',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open in map`
+  String get btnOpenInMap {
+    return Intl.message(
+      'Open in map',
+      name: 'btnOpenInMap',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cargo`
+  String get orderCargoTitle {
+    return Intl.message('Cargo', name: 'orderCargoTitle', desc: '', args: []);
+  }
+
+  /// `Order ID`
+  String get orderIdLabel {
+    return Intl.message('Order ID', name: 'orderIdLabel', desc: '', args: []);
+  }
+
+  /// `Created`
+  String get orderCreatedDateLabel {
+    return Intl.message(
+      'Created',
+      name: 'orderCreatedDateLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get orderWeightLabel {
+    return Intl.message('Weight', name: 'orderWeightLabel', desc: '', args: []);
+  }
+
+  /// `Price`
+  String get orderPriceLabel {
+    return Intl.message('Price', name: 'orderPriceLabel', desc: '', args: []);
+  }
+
+  /// `Edit order`
+  String get btnOrderEdit {
+    return Intl.message('Edit order', name: 'btnOrderEdit', desc: '', args: []);
+  }
+
+  /// `Delete`
+  String get btnOrderDelete {
+    return Intl.message('Delete', name: 'btnOrderDelete', desc: '', args: []);
+  }
+
+  /// `Archive`
+  String get btnOrderArchive {
+    return Intl.message('Archive', name: 'btnOrderArchive', desc: '', args: []);
+  }
+
+  /// `Delete order`
+  String get orderDeleteTitle {
+    return Intl.message(
+      'Delete order',
+      name: 'orderDeleteTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this order? \n This action cannot be undone.`
+  String get orderDeleteMessage {
+    return Intl.message(
+      'Are you sure you want to delete this order? \n This action cannot be undone.',
+      name: 'orderDeleteMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get orderDeleteConfirm {
+    return Intl.message(
+      'Delete',
+      name: 'orderDeleteConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get orderDeleteCancel {
+    return Intl.message(
+      'Cancel',
+      name: 'orderDeleteCancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit order`
+  String get orderEditTitle {
+    return Intl.message(
+      'Edit order',
+      name: 'orderEditTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get orderEdit {
+    return Intl.message('Edit', name: 'orderEdit', desc: '', args: []);
+  }
+
+  /// `Offline mode`
+  String get offlineModeMessage {
+    return Intl.message(
+      'Offline mode',
+      name: 'offlineModeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved locally, will sync later`
+  String get offlineSaveMessage {
+    return Intl.message(
+      'Saved locally, will sync later',
+      name: 'offlineSaveMessage',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Email`

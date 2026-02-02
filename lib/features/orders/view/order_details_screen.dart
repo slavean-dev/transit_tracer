@@ -43,7 +43,7 @@ class OrderDetailsScreen extends StatelessWidget {
           }
         },
         child: Scaffold(
-          appBar: AppBar(title: Text('Order details')),
+          appBar: AppBar(title: Text(s.orderDetailsTitle)),
           body: BlocBuilder<OrderDetailsBloc, OrderDetailsState>(
             builder: (context, state) {
               return switch (state) {
@@ -157,7 +157,7 @@ class OrderDetailsContent extends StatelessWidget {
                       child: SizedBox(
                         child: ActionButton(
                           theme: theme,
-                          lable: 'Open in map',
+                          lable: s.btnOpenInMap,
                           textColor: Colors.black,
                           backgroundColor: theme.primaryColor,
                           onPressed: () => openRouteInGoogleMaps(
@@ -179,7 +179,7 @@ class OrderDetailsContent extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    Text('Cargo', style: theme.textTheme.titleMedium),
+                    Text(s.orderCargoTitle, style: theme.textTheme.titleMedium),
                     Text(
                       order.description,
                       style: theme.textTheme.bodyMedium!.copyWith(
@@ -200,7 +200,7 @@ class OrderDetailsContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Order ID',
+                          s.orderIdLabel,
                           style: theme.textTheme.bodyMedium!.copyWith(
                             color: theme.hintColor,
                           ),
@@ -213,7 +213,7 @@ class OrderDetailsContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Created',
+                          s.orderCreatedDateLabel,
                           style: theme.textTheme.bodyMedium!.copyWith(
                             color: theme.hintColor,
                           ),
@@ -230,7 +230,7 @@ class OrderDetailsContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Weight',
+                          s.orderWeightLabel,
                           style: theme.textTheme.bodyMedium!.copyWith(
                             color: theme.hintColor,
                           ),
@@ -243,7 +243,7 @@ class OrderDetailsContent extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Price',
+                          s.orderPriceLabel,
                           style: theme.textTheme.bodyMedium!.copyWith(
                             color: theme.hintColor,
                           ),
@@ -265,7 +265,7 @@ class OrderDetailsContent extends StatelessWidget {
                 onPressed: () {
                   context.router.push(EditOrderRoute(order: order));
                 },
-                text: 'Edit order',
+                text: s.btnOrderEdit,
               ),
               Row(
                 mainAxisSize: MainAxisSize.max,
@@ -273,7 +273,7 @@ class OrderDetailsContent extends StatelessWidget {
                   Expanded(
                     child: ActionButton(
                       theme: theme,
-                      lable: 'Archive',
+                      lable: s.btnOrderArchive,
                       textColor: null,
                       backgroundColor: theme.colorScheme.surface,
                       onPressed: () {
@@ -286,7 +286,7 @@ class OrderDetailsContent extends StatelessWidget {
                   SizedBox(width: 5),
                   Expanded(
                     child: ActionButton(
-                      lable: 'Delete',
+                      lable: s.btnOrderDelete,
                       theme: theme,
                       textColor: Colors.red,
                       backgroundColor: theme.colorScheme.surface,
@@ -295,17 +295,14 @@ class OrderDetailsContent extends StatelessWidget {
                         showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: Text('Delete order'),
-                            content: const Text(
-                              'Are you sure you want to delete this order?\n'
-                              'This action cannot be undone.',
-                            ),
+                            title: Text(s.orderDeleteTitle),
+                            content: Text(s.orderDeleteMessage),
                             actions: [
                               TextButton(
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('Cancel'),
+                                child: Text(s.orderDeleteCancel),
                               ),
                               TextButton(
                                 onPressed: () {
@@ -314,7 +311,7 @@ class OrderDetailsContent extends StatelessWidget {
                                   );
                                   Navigator.of(context).pop();
                                 },
-                                child: Text('Delete'),
+                                child: Text(s.orderDeleteConfirm),
                               ),
                             ],
                           ),

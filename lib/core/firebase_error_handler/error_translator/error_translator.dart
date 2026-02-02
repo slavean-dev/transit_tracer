@@ -23,7 +23,7 @@ class ErrorTranslator {
       // case FirebaseErrorType.toManyRequests:
       //   return s.firebaseValidationTooManyRequests;
       case FirebaseErrorType.primissionDenied:
-        return s.firebaseErrorPrimissionDenied;
+        return s.firebaseErrorPermissionDenied;
       case FirebaseErrorType.notFound:
         return s.firebaseErrorNotFound;
       case FirebaseErrorType.unavailable:

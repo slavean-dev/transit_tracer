@@ -107,8 +107,8 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                   CityAutocompleteField(
                     onChanged: (_) => fromCity = null,
                     validator: (v) => AutocompleteValidate.city(v, fromCity),
-                    //key: const ValueKey('from_field'),
-                    title: S.of(context).fromFormLable,
+
+                    title: S.of(context).fieldFrom,
                     controller: _fromCityController,
                     theme: theme,
                   ),
@@ -121,8 +121,8 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                   CityAutocompleteField(
                     onChanged: (_) => toCity = null,
                     validator: (v) => AutocompleteValidate.city(v, toCity),
-                    //key: const ValueKey('to_field'),
-                    title: S.of(context).toFormLable,
+
+                    title: S.of(context).fieldTo,
                     controller: _toCityController,
                     theme: theme,
                   ),

@@ -37,18 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "above2000": MessageLookupByLibrary.simpleMessage("Oltre 2000 kg"),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Archivio"),
     "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
-    "bobottNavBarCreate": MessageLookupByLibrary.simpleMessage("Creare"),
-    "bottNavBarOrders": MessageLookupByLibrary.simpleMessage("Ordine"),
-    "bottNavBarProfile": MessageLookupByLibrary.simpleMessage("Profilo"),
-    "bottNavBarSearch": MessageLookupByLibrary.simpleMessage("Ricerca"),
-    "cargoDescriptionHint": MessageLookupByLibrary.simpleMessage(
-      "Tipo, quantità, requisiti speciali",
-    ),
-    "cargoDescriptionLabel": MessageLookupByLibrary.simpleMessage(
-      "Descrizione del carico",
-    ),
-    "cargoWeightLabel": MessageLookupByLibrary.simpleMessage("Peso del carico"),
-    "cityFormHint": MessageLookupByLibrary.simpleMessage("Inserisci città"),
+    "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Apri sulla mappa"),
+    "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archiviare"),
+    "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Elimina"),
+    "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Modifica ordine"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Cliente"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contatti"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -72,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "emailForm": MessageLookupByLibrary.simpleMessage(
       "Inserisci la tua e-mail",
     ),
+    "fieldFrom": MessageLookupByLibrary.simpleMessage("Da dove"),
+    "fieldTo": MessageLookupByLibrary.simpleMessage("Dove"),
     "firebaseErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
       "Questa email è già registrata",
     ),
@@ -87,7 +81,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "firebaseErrorNotFound": MessageLookupByLibrary.simpleMessage(
       "Ordine non trovato. Può essere stato cancellato.",
     ),
-    "firebaseErrorPrimissionDenied": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorPermissionDenied": MessageLookupByLibrary.simpleMessage(
       "Accesso negato. Non hai i permessi per modificare questo.",
     ),
     "firebaseErrorSomethingWrong": MessageLookupByLibrary.simpleMessage(
@@ -108,16 +102,57 @@ class MessageLookup extends MessageLookupByLibrary {
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),
     "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 kg"),
-    "fromFormLable": MessageLookupByLibrary.simpleMessage("Da dove"),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
       "Hai già un account? Clicca qui per tornare!",
     ),
+    "hintEnterCity": MessageLookupByLibrary.simpleMessage("Inserisci città"),
     "languageDropMenu": MessageLookupByLibrary.simpleMessage("Lingua:"),
     "logButton": MessageLookupByLibrary.simpleMessage("Uscita"),
     "loginForm": MessageLookupByLibrary.simpleMessage("Inserisci il tuo login"),
     "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
     "logout": MessageLookupByLibrary.simpleMessage("Entrata"),
     "nameForm": MessageLookupByLibrary.simpleMessage("Inserisci il tuo nome"),
+    "navCreate": MessageLookupByLibrary.simpleMessage("Creare"),
+    "navOrders": MessageLookupByLibrary.simpleMessage("Ordine"),
+    "navProfile": MessageLookupByLibrary.simpleMessage("Profilo"),
+    "navSearch": MessageLookupByLibrary.simpleMessage("Ricerca"),
+    "offlineModeMessage": MessageLookupByLibrary.simpleMessage(
+      "Modalità offline",
+    ),
+    "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
+      "Salvato localmente, verrà sincronizzato più tardi",
+    ),
+    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
+    "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Creato"),
+    "orderDeleteCancel": MessageLookupByLibrary.simpleMessage("Annulla"),
+    "orderDeleteConfirm": MessageLookupByLibrary.simpleMessage("Elimina"),
+    "orderDeleteMessage": MessageLookupByLibrary.simpleMessage(
+      "Sei sicuro di voler eliminare questo ordine? \n Questa operazione non può essere annullata.",
+    ),
+    "orderDeleteTitle": MessageLookupByLibrary.simpleMessage("Elimina ordine"),
+    "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
+      "Dettagli dell\'ordine",
+    ),
+    "orderEdit": MessageLookupByLibrary.simpleMessage("Modifica"),
+    "orderEditTitle": MessageLookupByLibrary.simpleMessage("Modifica ordine"),
+    "orderFieldCargo": MessageLookupByLibrary.simpleMessage(
+      "Descrizione del carico",
+    ),
+    "orderFieldCargoHint": MessageLookupByLibrary.simpleMessage(
+      "Tipo, quantità, requisiti speciali",
+    ),
+    "orderFieldPrice": MessageLookupByLibrary.simpleMessage("Prezzo"),
+    "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage(
+      "Inserisci il prezzo",
+    ),
+    "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Peso del carico"),
+    "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID ordine"),
+    "orderPriceLabel": MessageLookupByLibrary.simpleMessage("Prezzo"),
+    "orderStatusActive": MessageLookupByLibrary.simpleMessage("Attivo"),
+    "orderStatusArchived": MessageLookupByLibrary.simpleMessage("Archivio"),
+    "orderStatusCompleted": MessageLookupByLibrary.simpleMessage("Completato"),
+    "orderStatusInProgress": MessageLookupByLibrary.simpleMessage("In corso"),
+    "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Peso"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Ordine"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Rendi la consegna delle merci veloce, accessibile e affidabile per tutti.",
@@ -125,7 +160,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "ourMissionTitle": MessageLookupByLibrary.simpleMessage(
       "La nostra missione",
     ),
-    "passwordCoinfirmForm": MessageLookupByLibrary.simpleMessage(
+    "passwordConfirmForm": MessageLookupByLibrary.simpleMessage(
       "Conferma password",
     ),
     "passwordCreateForm": MessageLookupByLibrary.simpleMessage(
@@ -141,10 +176,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "phoneForm": MessageLookupByLibrary.simpleMessage(
       "Inserisci la tua telefono",
     ),
-    "priceFormHint": MessageLookupByLibrary.simpleMessage(
-      "Inserisci il prezzo",
-    ),
-    "priceFormLable": MessageLookupByLibrary.simpleMessage("Prezzo"),
     "profileTitle": MessageLookupByLibrary.simpleMessage("Profilo"),
     "registerButton": MessageLookupByLibrary.simpleMessage("Registro"),
     "registrationTitle": MessageLookupByLibrary.simpleMessage("Registrazione"),
@@ -157,19 +188,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "takePhotoFromCamera": MessageLookupByLibrary.simpleMessage(
       "Scatta una foto dalla fotocamera",
     ),
-    "toFormLable": MessageLookupByLibrary.simpleMessage("Dove"),
     "transitTracerTitle": MessageLookupByLibrary.simpleMessage("TransitTracer"),
     "upTo500kg": MessageLookupByLibrary.simpleMessage("Fino a 500 kg"),
     "uploadPhotoFromGalery": MessageLookupByLibrary.simpleMessage(
       "Carica dalla galleria",
     ),
-    "validarionInvalidSurname": MessageLookupByLibrary.simpleMessage(
-      "Inserisci un cognome valido",
-    ),
     "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
       "Il campo non può essere vuoto",
     ),
-    "validationInvalidCoinfirmPasswordDidntMatch":
+    "validationInvalidConfirmPasswordDidntMatch":
         MessageLookupByLibrary.simpleMessage("Le password non corrispondono"),
     "validationInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Inserisci un\'e-mail valida",
@@ -191,6 +218,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "validationInvalidPhone": MessageLookupByLibrary.simpleMessage(
       "Inserisci un numero di telefono valido",
+    ),
+    "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
+      "Inserisci un cognome valido",
     ),
     "version": m0,
   };

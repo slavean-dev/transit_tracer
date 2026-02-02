@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                 items: [
                   BottomNavigationBarItem(
                     icon: const Icon(Icons.search),
-                    label: S.of(context).bottNavBarSearch,
+                    label: S.of(context).navSearch,
                   ),
                   BottomNavigationBarItem(
                     icon: const Icon(Icons.add),
@@ -51,7 +51,7 @@ class HomeScreen extends StatelessWidget {
                   ),
                   BottomNavigationBarItem(
                     icon: const Icon(Icons.person),
-                    label: S.of(context).bottNavBarProfile,
+                    label: S.of(context).navProfile,
                   ),
                 ],
               ),

@@ -157,7 +157,7 @@ class OrderFormState extends State<OrderForm> {
                 onChanged: (_) => fromCity = null,
                 validator: (v) => AutocompleteValidate.city(v, fromCity),
 
-                title: s.fromFormLable,
+                title: s.fieldFrom,
                 controller: _fromCityController,
                 theme: theme,
               ),
@@ -194,7 +194,7 @@ class OrderFormState extends State<OrderForm> {
                 key: ValueKey('to_$_autoEpoch'),
                 onChanged: (_) => toCity = null,
                 validator: (v) => AutocompleteValidate.city(v, toCity),
-                title: s.toFormLable,
+                title: s.fieldTo,
                 controller: _toCityController,
                 theme: theme,
               ),
@@ -222,8 +222,8 @@ class OrderFormState extends State<OrderForm> {
                 maxLines: 1,
                 minLines: 1,
                 maxLength: 50,
-                label: s.priceFormLable,
-                hint: s.priceFormHint,
+                label: s.orderFieldPrice,
+                hint: s.orderFieldPriceHint,
               ),
               SizedBox(height: 16),
               BaseButton(

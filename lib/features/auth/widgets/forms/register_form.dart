@@ -112,7 +112,7 @@ class _RegisterFormState extends State<RegisterForm> {
           validator: (value) => validateName(
             value,
             emptyField: S.of(context).validationFormEmpty,
-            invalidValue: S.of(context).validarionInvalidSurname,
+            invalidValue: S.of(context).validationInvalidSurname,
           ),
         ),
         SizedBox(height: 12),
@@ -196,14 +196,14 @@ class _RegisterFormState extends State<RegisterForm> {
           ),
           obscureText: _obscureCoinfirm,
           type: TextInputType.visiblePassword,
-          hint: S.of(context).passwordCoinfirmForm,
+          hint: S.of(context).passwordConfirmForm,
           validator: (value) => validateCoinfirmPassword(
             value,
             passwordController.text,
             emptyField: S.of(context).validationFormEmpty,
             passwordsDidntMatch: S
                 .of(context)
-                .validationInvalidCoinfirmPasswordDidntMatch,
+                .validationInvalidConfirmPasswordDidntMatch,
           ),
         ),
         BlocBuilder<PasswordStrengthMeterCubit, PasswordStrengthMeterState>(

@@ -8,6 +8,7 @@ import 'package:transit_tracer/features/orders/bloc/order_details/order_details_
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
 import 'package:transit_tracer/features/orders/widgets/order_form/order_form.dart';
+import 'package:transit_tracer/generated/l10n.dart';
 
 @RoutePage()
 class EditOrderScreen extends StatelessWidget {
@@ -17,6 +18,7 @@ class EditOrderScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return BlocProvider(
       create: (context) => GetIt.I<OrderDetailsBloc>(),
       child: GestureDetector(
@@ -59,8 +61,8 @@ class EditOrderScreen extends StatelessWidget {
                             mainAxisSize: MainAxisSize.min,
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Offline mode'),
-                              Text('Saved locally, will sync later'),
+                              Text(s.offlineModeMessage),
+                              Text(s.offlineSaveMessage),
                             ],
                           ),
                         ),
@@ -79,12 +81,12 @@ class EditOrderScreen extends StatelessWidget {
               return Stack(
                 children: [
                   Scaffold(
-                    appBar: AppBar(title: Text('Edit order')),
+                    appBar: AppBar(title: Text(s.orderEditTitle)),
                     body: Center(
                       child: OrderForm(
                         order: order,
-                        title: 'Edit',
-                        buttonText: 'Edit order',
+                        title: s.orderEdit,
+                        buttonText: s.btnOrderEdit,
                         onSubmit: (form) {
                           context.read<OrderDetailsBloc>().add(
                             EditOrderData(

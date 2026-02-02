@@ -51,7 +51,7 @@ class CityAutocompleteField extends StatelessWidget {
 
           decoration: InputDecoration(
             labelText: title,
-            hintText: S.of(context).cityFormHint,
+            hintText: S.of(context).hintEnterCity,
           ),
 
           onSuggestionClicked: (prediction) {

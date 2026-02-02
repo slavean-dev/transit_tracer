@@ -35,18 +35,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "above2000": MessageLookupByLibrary.simpleMessage("Понад 2000 кг"),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Архів"),
     "avatar": MessageLookupByLibrary.simpleMessage("Аватар"),
-    "bobottNavBarCreate": MessageLookupByLibrary.simpleMessage("Створити"),
-    "bottNavBarOrders": MessageLookupByLibrary.simpleMessage("Замовлення"),
-    "bottNavBarProfile": MessageLookupByLibrary.simpleMessage("Профіль"),
-    "bottNavBarSearch": MessageLookupByLibrary.simpleMessage("Пошук"),
-    "cargoDescriptionHint": MessageLookupByLibrary.simpleMessage(
-      "Тип, кількість, особливі вимоги",
+    "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Відкрити на карті"),
+    "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Видалити"),
+    "btnOrderEdit": MessageLookupByLibrary.simpleMessage(
+      "Редагувати замовлення",
     ),
-    "cargoDescriptionLabel": MessageLookupByLibrary.simpleMessage(
-      "Опис вантажу",
-    ),
-    "cargoWeightLabel": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
-    "cityFormHint": MessageLookupByLibrary.simpleMessage("Введіть місто"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Клієнт"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Контакти"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -68,6 +62,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailForm": MessageLookupByLibrary.simpleMessage("Введіть ваш Email"),
+    "fieldFrom": MessageLookupByLibrary.simpleMessage("Звідки"),
+    "fieldTo": MessageLookupByLibrary.simpleMessage("Куди"),
     "firebaseErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
       "Ця електронна адреса вже зареєстрована",
     ),
@@ -83,7 +79,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "firebaseErrorNotFound": MessageLookupByLibrary.simpleMessage(
       "Замовлення не знайдено. Можливо було видалено.",
     ),
-    "firebaseErrorPrimissionDenied": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorPermissionDenied": MessageLookupByLibrary.simpleMessage(
       "Доступ заборонений. Ви не маєте дозволу змінювати це.",
     ),
     "firebaseErrorSomethingWrong": MessageLookupByLibrary.simpleMessage(
@@ -104,22 +100,61 @@ class MessageLookup extends MessageLookupByLibrary {
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 кг"),
     "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 кг"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 кг"),
-    "fromFormLable": MessageLookupByLibrary.simpleMessage("Звідки"),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
       "Маєте аккаунт? Натисніть тут щоб повернутись!",
     ),
+    "hintEnterCity": MessageLookupByLibrary.simpleMessage("Введіть місто"),
     "languageDropMenu": MessageLookupByLibrary.simpleMessage("Мова:"),
     "logButton": MessageLookupByLibrary.simpleMessage("Вхід"),
     "loginForm": MessageLookupByLibrary.simpleMessage("Введіть ваш Логін"),
     "loginTitle": MessageLookupByLibrary.simpleMessage("Логін"),
     "logout": MessageLookupByLibrary.simpleMessage("Вихід"),
     "nameForm": MessageLookupByLibrary.simpleMessage("Введіть ваше Ім\'я"),
+    "navCreate": MessageLookupByLibrary.simpleMessage("Створити"),
+    "navOrders": MessageLookupByLibrary.simpleMessage("Замовлення"),
+    "navProfile": MessageLookupByLibrary.simpleMessage("Профіль"),
+    "navSearch": MessageLookupByLibrary.simpleMessage("Пошук"),
+    "offlineModeMessage": MessageLookupByLibrary.simpleMessage("Оффлайн режим"),
+    "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
+      "Збережено локально, буде відправлено пізніше",
+    ),
+    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
+    "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Створено"),
+    "orderDeleteCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
+    "orderDeleteConfirm": MessageLookupByLibrary.simpleMessage("Видалити"),
+    "orderDeleteMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете видалити це замовлення? \n Цю дію не можна скасувати.",
+    ),
+    "orderDeleteTitle": MessageLookupByLibrary.simpleMessage(
+      "Видалити замовлення",
+    ),
+    "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
+      "Деталі замовлення",
+    ),
+    "orderEdit": MessageLookupByLibrary.simpleMessage("Редагування"),
+    "orderEditTitle": MessageLookupByLibrary.simpleMessage(
+      "Редагування замовлення",
+    ),
+    "orderFieldCargo": MessageLookupByLibrary.simpleMessage("Опис вантажу"),
+    "orderFieldCargoHint": MessageLookupByLibrary.simpleMessage(
+      "Тип, кількість, особливі вимоги",
+    ),
+    "orderFieldPrice": MessageLookupByLibrary.simpleMessage("Ціна"),
+    "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Введіть ціну"),
+    "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
+    "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID замовлення"),
+    "orderPriceLabel": MessageLookupByLibrary.simpleMessage("Ціна"),
+    "orderStatusActive": MessageLookupByLibrary.simpleMessage("Активний"),
+    "orderStatusArchived": MessageLookupByLibrary.simpleMessage("Архів"),
+    "orderStatusCompleted": MessageLookupByLibrary.simpleMessage("Завершено"),
+    "orderStatusInProgress": MessageLookupByLibrary.simpleMessage("У процесі"),
+    "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Вага"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Зробити доставку вантажів швидкою, доступною та надійною для кожного.",
     ),
     "ourMissionTitle": MessageLookupByLibrary.simpleMessage("Наша місія"),
-    "passwordCoinfirmForm": MessageLookupByLibrary.simpleMessage(
+    "passwordConfirmForm": MessageLookupByLibrary.simpleMessage(
       "Підтвердіть пароль",
     ),
     "passwordCreateForm": MessageLookupByLibrary.simpleMessage(
@@ -131,8 +166,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "phone": MessageLookupByLibrary.simpleMessage("Телефон"),
     "phoneForm": MessageLookupByLibrary.simpleMessage("Введіть ваш телефон"),
-    "priceFormHint": MessageLookupByLibrary.simpleMessage("Введіть ціну"),
-    "priceFormLable": MessageLookupByLibrary.simpleMessage("Ціна"),
     "profileTitle": MessageLookupByLibrary.simpleMessage("Профіль"),
     "registerButton": MessageLookupByLibrary.simpleMessage("Зареєструвати"),
     "registrationTitle": MessageLookupByLibrary.simpleMessage("Реєстрація"),
@@ -145,19 +178,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "takePhotoFromCamera": MessageLookupByLibrary.simpleMessage(
       "Зробити фото з камери",
     ),
-    "toFormLable": MessageLookupByLibrary.simpleMessage("Куди"),
     "transitTracerTitle": MessageLookupByLibrary.simpleMessage("TransitTracer"),
     "upTo500kg": MessageLookupByLibrary.simpleMessage("До 500 кг"),
     "uploadPhotoFromGalery": MessageLookupByLibrary.simpleMessage(
       "Завантажити з галереї",
     ),
-    "validarionInvalidSurname": MessageLookupByLibrary.simpleMessage(
-      "Введіть дійсне прізвище",
-    ),
     "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
       "Поле не може бути порожнім",
     ),
-    "validationInvalidCoinfirmPasswordDidntMatch":
+    "validationInvalidConfirmPasswordDidntMatch":
         MessageLookupByLibrary.simpleMessage("Паролі не збігалися"),
     "validationInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсну електронну адресу",
@@ -179,6 +208,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "validationInvalidPhone": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсний номер телефону",
+    ),
+    "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
+      "Введіть дійсне прізвище",
     ),
     "version": m0,
   };
