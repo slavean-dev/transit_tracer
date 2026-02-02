@@ -202,7 +202,6 @@ class OrderFormState extends State<OrderForm> {
               OrderDescriptionFormField(
                 theme: theme,
                 descriptionController: _descriptionController,
-                s: s,
               ),
               SizedBox(height: 16),
               WeightPicker(

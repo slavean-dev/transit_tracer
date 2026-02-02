@@ -8,15 +8,14 @@ class OrderDescriptionFormField extends StatelessWidget {
     super.key,
     required this.theme,
     required TextEditingController descriptionController,
-    required this.s,
   }) : _descriptionController = descriptionController;
 
   final ThemeData theme;
   final TextEditingController _descriptionController;
-  final S s;
 
   @override
   Widget build(BuildContext context) {
+    final s = S.of(context);
     return OrderFormField(
       keyboardType: null,
       inputFormatters: null,
