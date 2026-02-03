@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:transit_tracer/core/firebase_error_handler/error_translator/error_translator.dart';
+import 'package:transit_tracer/core/utils/app_snack_bar.dart';
 import 'package:transit_tracer/core/widgets/blur_loader/blur_loader.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
@@ -33,44 +34,12 @@ class EditOrderScreen extends StatelessWidget {
                 state.type,
               );
               if (error != null) {
-                ScaffoldMessenger.of(
-                  context,
-                ).showSnackBar(SnackBar(content: Text(error)));
+                AppSnackBar.showErrorMessage(context, error);
               }
             }
             if (state is StateUpdatePendingLater) {
               context.router.pop();
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(
-                  elevation: 0,
-                  behavior: SnackBarBehavior.floating,
-                  padding: EdgeInsets.zero,
-                  margin: EdgeInsets.only(left: 16, right: 16, bottom: 20),
-                  content: Padding(
-                    padding: const EdgeInsets.symmetric(
-                      vertical: 12,
-                      horizontal: 16,
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        const Icon(Icons.cloud_off_rounded, size: 28),
-                        SizedBox(width: 16),
-                        Expanded(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(s.offlineModeMessage),
-                              Text(s.offlineSaveMessage),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              );
+              AppSnackBar.showOfflineMessage(context);
             }
             if (state is OrderDataEditedSuccessfull) {
               context.router.pop();
