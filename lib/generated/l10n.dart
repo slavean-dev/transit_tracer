@@ -739,6 +739,16 @@ class S {
     return Intl.message('Edit', name: 'orderEdit', desc: '', args: []);
   }
 
+  /// `Order edited successfully`
+  String get orderEditSuccess {
+    return Intl.message(
+      'Order edited successfully',
+      name: 'orderEditSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Offline mode`
   String get offlineModeMessage {
     return Intl.message(

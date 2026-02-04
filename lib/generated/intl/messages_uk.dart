@@ -132,6 +132,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "Деталі замовлення",
     ),
     "orderEdit": MessageLookupByLibrary.simpleMessage("Редагування"),
+    "orderEditSuccess": MessageLookupByLibrary.simpleMessage(
+      "Замовлення змінено успішно",
+    ),
     "orderEditTitle": MessageLookupByLibrary.simpleMessage(
       "Редагування замовлення",
     ),

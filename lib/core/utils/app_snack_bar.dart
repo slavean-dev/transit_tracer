@@ -30,4 +30,15 @@ class AppSnackBar {
   static void showErrorMessage(BuildContext context, String message) {
     _show(context, SnackBarContent(icon: null, title: message, message: null));
   }
+
+  static void showSuccessMessage(BuildContext context, String message) {
+    _show(
+      context,
+      SnackBarContent(
+        icon: Icons.check_circle_outline,
+        title: message,
+        message: null,
+      ),
+    );
+  }
 }

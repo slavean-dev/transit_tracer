@@ -86,6 +86,8 @@
     "orderEditTitle": "Редагування замовлення",
     "orderEdit": "Редагування",
 
+    "orderEditSuccess": "Замовлення змінено успішно",
+
     "offlineModeMessage" : "Оффлайн режим",
     "offlineSaveMessage" : "Збережено локально, буде відправлено пізніше", 
 

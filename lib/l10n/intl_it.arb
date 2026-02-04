@@ -86,6 +86,8 @@
     "orderEditTitle": "Modifica ordine",
     "orderEdit": "Modifica",
 
+    "orderEditSuccess": "Ordine modificato con successo",
+
     "offlineModeMessage" : "Modalità offline",
     "offlineSaveMessage" : "Salvato localmente, verrà sincronizzato più tardi", 
 

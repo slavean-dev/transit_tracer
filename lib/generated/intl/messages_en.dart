@@ -124,6 +124,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderDeleteTitle": MessageLookupByLibrary.simpleMessage("Delete order"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage("Order details"),
     "orderEdit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "orderEditSuccess": MessageLookupByLibrary.simpleMessage(
+      "Order edited successfully",
+    ),
     "orderEditTitle": MessageLookupByLibrary.simpleMessage("Edit order"),
     "orderFieldCargo": MessageLookupByLibrary.simpleMessage(
       "Cargo description",

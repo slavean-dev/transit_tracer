@@ -43,6 +43,7 @@ class EditOrderScreen extends StatelessWidget {
             }
             if (state is OrderDataEditedSuccessfull) {
               context.router.pop();
+              AppSnackBar.showSuccessMessage(context, s.orderEditSuccess);
             }
           },
           child: BlocBuilder<OrderDetailsBloc, OrderDetailsState>(

@@ -86,7 +86,9 @@
 
     "orderEditTitle": "Edit order",
     "orderEdit": "Edit",
-
+    
+    "orderEditSuccess": "Order edited successfully",
+    
     "offlineModeMessage" : "Offline mode",
     "offlineSaveMessage" : "Saved locally, will sync later", 
 
