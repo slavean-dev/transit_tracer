@@ -78,10 +78,15 @@
     "btnOrderDelete": "Elimina",
     "btnOrderArchive": "Archiviare",
 
-    "orderDeleteTitle": "Elimina ordine",
-    "orderDeleteMessage": "Sei sicuro di voler eliminare questo ordine? \n Questa operazione non può essere annullata.",
-    "orderDeleteConfirm": "Elimina",
-    "orderDeleteCancel": "Annulla",
+    "dialogAtchiveTitle": "Archivia ordine",
+    "dialogAtchiveMessage": "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
+    "dialogAtchiveConfirm": "Archivia",
+
+    "dialogDeleteTitle": "Elimina ordine",
+    "dialogDeleteMessage": "Sei sicuro di voler eliminare questo ordine? \nQuesta operazione non può essere annullata.",
+    "dialogDeleteConfirm": "Elimina",
+
+    "dialogCancel": "Annulla",
 
     "orderEditTitle": "Modifica ordine",
     "orderEdit": "Modifica",

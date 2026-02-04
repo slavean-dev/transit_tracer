@@ -684,44 +684,69 @@ class S {
     return Intl.message('Archive', name: 'btnOrderArchive', desc: '', args: []);
   }
 
-  /// `Delete order`
-  String get orderDeleteTitle {
+  /// `Archive order`
+  String get dialogAtchiveTitle {
     return Intl.message(
-      'Delete order',
-      name: 'orderDeleteTitle',
+      'Archive order',
+      name: 'dialogAtchiveTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `Are you sure you want to delete this order? \n This action cannot be undone.`
-  String get orderDeleteMessage {
+  /// `Are you sure you want to archive this order? \nThis action cannot be undone.`
+  String get dialogAtchiveMessage {
     return Intl.message(
-      'Are you sure you want to delete this order? \n This action cannot be undone.',
-      name: 'orderDeleteMessage',
+      'Are you sure you want to archive this order? \nThis action cannot be undone.',
+      name: 'dialogAtchiveMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Archive`
+  String get dialogAtchiveConfirm {
+    return Intl.message(
+      'Archive',
+      name: 'dialogAtchiveConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete order`
+  String get dialogDeleteTitle {
+    return Intl.message(
+      'Delete order',
+      name: 'dialogDeleteTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this order? \nThis action cannot be undone.`
+  String get dialogDeleteMessage {
+    return Intl.message(
+      'Are you sure you want to delete this order? \nThis action cannot be undone.',
+      name: 'dialogDeleteMessage',
       desc: '',
       args: [],
     );
   }
 
   /// `Delete`
-  String get orderDeleteConfirm {
+  String get dialogDeleteConfirm {
     return Intl.message(
       'Delete',
-      name: 'orderDeleteConfirm',
+      name: 'dialogDeleteConfirm',
       desc: '',
       args: [],
     );
   }
 
   /// `Cancel`
-  String get orderDeleteCancel {
-    return Intl.message(
-      'Cancel',
-      name: 'orderDeleteCancel',
-      desc: '',
-      args: [],
-    );
+  String get dialogCancel {
+    return Intl.message('Cancel', name: 'dialogCancel', desc: '', args: []);
   }
 
   /// `Edit order`

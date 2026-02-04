@@ -50,6 +50,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Темна тема:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Дата"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Дата народження"),
+    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
+    ),
+    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Архівування замовлення",
+    ),
+    "dialogCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
+    "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Видалити"),
+    "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете видалити це замовлення? \nЦю дію не можна скасувати.",
+    ),
+    "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage(
+      "Видалити замовлення",
+    ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Немає аккаунту? Натисніть тут щоб створити!",
     ),
@@ -120,14 +135,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Створено"),
-    "orderDeleteCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
-    "orderDeleteConfirm": MessageLookupByLibrary.simpleMessage("Видалити"),
-    "orderDeleteMessage": MessageLookupByLibrary.simpleMessage(
-      "Ви впевнені, що хочете видалити це замовлення? \n Цю дію не можна скасувати.",
-    ),
-    "orderDeleteTitle": MessageLookupByLibrary.simpleMessage(
-      "Видалити замовлення",
-    ),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
       "Деталі замовлення",
     ),

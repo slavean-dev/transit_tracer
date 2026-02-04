@@ -78,10 +78,15 @@
     "btnOrderDelete": "Видалити",
     "btnOrderArchive": "Архівувати",
 
-    "orderDeleteTitle": "Видалити замовлення",
-    "orderDeleteMessage": "Ви впевнені, що хочете видалити це замовлення? \n Цю дію не можна скасувати.",
-    "orderDeleteConfirm": "Видалити",
-    "orderDeleteCancel": "Відміна",
+    "dialogAtchiveTitle": "Архівування замовлення",
+    "dialogAtchiveMessage": "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
+    "dialogAtchiveConfirm": "Архівувати",
+
+    "dialogDeleteTitle": "Видалити замовлення",
+    "dialogDeleteMessage": "Ви впевнені, що хочете видалити це замовлення? \nЦю дію не можна скасувати.",
+    "dialogDeleteConfirm": "Видалити",
+
+    "dialogCancel": "Відміна",
 
     "orderEditTitle": "Редагування замовлення",
     "orderEdit": "Редагування",

@@ -48,6 +48,17 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Dark theme:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Date"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
+    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Archive"),
+    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to archive this order? \nThis action cannot be undone.",
+    ),
+    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
+    "dialogCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Delete"),
+    "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this order? \nThis action cannot be undone.",
+    ),
+    "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Delete order"),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Don`t have Account? Tap here to create!",
     ),
@@ -116,12 +127,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Cargo"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Created"),
-    "orderDeleteCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
-    "orderDeleteConfirm": MessageLookupByLibrary.simpleMessage("Delete"),
-    "orderDeleteMessage": MessageLookupByLibrary.simpleMessage(
-      "Are you sure you want to delete this order? \n This action cannot be undone.",
-    ),
-    "orderDeleteTitle": MessageLookupByLibrary.simpleMessage("Delete order"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage("Order details"),
     "orderEdit": MessageLookupByLibrary.simpleMessage("Edit"),
     "orderEditSuccess": MessageLookupByLibrary.simpleMessage(

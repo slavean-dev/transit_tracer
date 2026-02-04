@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/app/router/router.dart';
+import 'package:transit_tracer/core/utils/app_dialog.dart';
 import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
@@ -39,8 +40,16 @@ class OrderActionSection extends StatelessWidget {
                 textColor: null,
                 backgroundColor: theme.colorScheme.surface,
                 onPressed: () {
-                  context.read<OrderDetailsBloc>().add(
-                    ArchiveOrder(oid: order.oid),
+                  AppDialog.showConfirm(
+                    context,
+                    title: s.dialogAtchiveTitle,
+                    message: s.dialogAtchiveMessage,
+                    confirmText: s.dialogAtchiveConfirm,
+                    onConfirm: () {
+                      context.read<OrderDetailsBloc>().add(
+                        ArchiveOrder(oid: order.oid),
+                      );
+                    },
                   );
                 },
               ),
@@ -53,28 +62,16 @@ class OrderActionSection extends StatelessWidget {
                 textColor: Colors.red,
                 backgroundColor: theme.colorScheme.surface,
                 onPressed: () {
-                  final blocContext = context.read<OrderDetailsBloc>();
-                  showDialog(
-                    context: context,
-                    builder: (context) => AlertDialog(
-                      title: Text(s.orderDeleteTitle),
-                      content: Text(s.orderDeleteMessage),
-                      actions: [
-                        TextButton(
-                          onPressed: () {
-                            Navigator.of(context).pop();
-                          },
-                          child: Text(s.orderDeleteCancel),
-                        ),
-                        TextButton(
-                          onPressed: () {
-                            blocContext.add(DeleteUserOrder(oid: order.oid));
-                            Navigator.of(context).pop();
-                          },
-                          child: Text(s.orderDeleteConfirm),
-                        ),
-                      ],
-                    ),
+                  AppDialog.showConfirm(
+                    context,
+                    title: s.dialogDeleteTitle,
+                    message: s.dialogDeleteMessage,
+                    confirmText: s.dialogDeleteConfirm,
+                    onConfirm: () {
+                      context.read<OrderDetailsBloc>().add(
+                        DeleteUserOrder(oid: order.oid),
+                      );
+                    },
                   );
                 },
               ),

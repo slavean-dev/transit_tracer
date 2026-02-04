@@ -28,7 +28,8 @@ class OrderDetailsScreen extends StatelessWidget {
           GetIt.I<OrderDetailsBloc>()..add(LoadOrderDetails(oid: oid)),
       child: BlocListener<OrderDetailsBloc, OrderDetailsState>(
         listener: (context, state) {
-          if (state is OrderDeletedSuccessfull) {
+          if (state is OrderDeletedSuccessfull ||
+              state is OrderArchiveSuccessfull) {
             context.router.pop();
           }
         },

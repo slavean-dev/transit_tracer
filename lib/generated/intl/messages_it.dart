@@ -50,6 +50,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Tema scuro:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Data"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Data di nascita"),
+    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Archivia"),
+    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
+    ),
+    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Archivia ordine",
+    ),
+    "dialogCancel": MessageLookupByLibrary.simpleMessage("Annulla"),
+    "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Elimina"),
+    "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
+      "Sei sicuro di voler eliminare questo ordine? \nQuesta operazione non può essere annullata.",
+    ),
+    "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Elimina ordine"),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Non hai un account? Clicca qui per crearne uno!",
     ),
@@ -124,12 +137,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Creato"),
-    "orderDeleteCancel": MessageLookupByLibrary.simpleMessage("Annulla"),
-    "orderDeleteConfirm": MessageLookupByLibrary.simpleMessage("Elimina"),
-    "orderDeleteMessage": MessageLookupByLibrary.simpleMessage(
-      "Sei sicuro di voler eliminare questo ordine? \n Questa operazione non può essere annullata.",
-    ),
-    "orderDeleteTitle": MessageLookupByLibrary.simpleMessage("Elimina ordine"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
       "Dettagli dell\'ordine",
     ),
