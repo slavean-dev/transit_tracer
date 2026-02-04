@@ -54,6 +54,18 @@ class OrderFormState extends State<OrderForm> {
 
   int _autoEpoch = 0;
 
+  bool get _isChanged {
+    if (widget.order == null) {
+      return true;
+    }
+    final order = widget.order!;
+    return fromCity?.placeId != order.from.placeId ||
+        toCity?.placeId != order.to.placeId ||
+        _descriptionController.text != order.description ||
+        weight != order.weight ||
+        _priceController.text != order.price;
+  }
+
   @override
   void initState() {
     _fromCityController = TextEditingController();
@@ -68,6 +80,12 @@ class OrderFormState extends State<OrderForm> {
       toCity = widget.order!.to;
       weight = widget.order!.weight;
     }
+
+    _descriptionController.addListener(() => setState(() {}));
+    _priceController.addListener(() => setState(() {}));
+
+    _fromCityController.addListener(() => setState(() {}));
+    _toCityController.addListener(() => setState(() {}));
     super.initState();
   }
 
@@ -209,7 +227,9 @@ class OrderFormState extends State<OrderForm> {
                 onSaved: (newValue) => weight = newValue!,
                 validator: (v) => OrderValidators.weight(v),
                 theme: theme,
-                onChange: (newValue) => weight = newValue,
+                onChange: (newValue) => setState(() {
+                  weight = newValue;
+                }),
               ),
               SizedBox(height: 16),
               OrderFormField(
@@ -227,27 +247,31 @@ class OrderFormState extends State<OrderForm> {
               SizedBox(height: 16),
               BaseButton(
                 text: widget.buttonText,
-                onPressed: () {
-                  FocusScope.of(context).unfocus();
-                  if (_formKey.currentState!.validate()) {
-                    if (fromCity == null || toCity == null || weight == null) {
-                      return;
-                    }
-                    widget.onSubmit(
-                      OrderFormData(
-                        widget.order?.uid,
-                        widget.order?.oid,
-                        widget.order?.status,
-                        widget.order?.createdAt,
-                        from: fromCity!,
-                        to: toCity!,
-                        description: _descriptionController.text,
-                        weight: weight!,
-                        price: _priceController.text,
-                      ),
-                    );
-                  }
-                },
+                onPressed: !_isChanged
+                    ? null
+                    : () {
+                        FocusScope.of(context).unfocus();
+                        if (_formKey.currentState!.validate()) {
+                          if (fromCity == null ||
+                              toCity == null ||
+                              weight == null) {
+                            return;
+                          }
+                          widget.onSubmit(
+                            OrderFormData(
+                              widget.order?.uid,
+                              widget.order?.oid,
+                              widget.order?.status,
+                              widget.order?.createdAt,
+                              from: fromCity!,
+                              to: toCity!,
+                              description: _descriptionController.text,
+                              weight: weight!,
+                              price: _priceController.text,
+                            ),
+                          );
+                        }
+                      },
               ),
               SizedBox(height: 10),
             ],
