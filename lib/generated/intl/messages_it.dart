@@ -58,11 +58,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "Archivia ordine",
     ),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Annulla"),
+    "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
+      "Sei sicuro di voler uscire?",
+    ),
+    "dialogConfirmExitTitle": MessageLookupByLibrary.simpleMessage(
+      "Conferma uscita",
+    ),
     "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Elimina"),
     "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
       "Sei sicuro di voler eliminare questo ordine? \nQuesta operazione non può essere annullata.",
     ),
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Elimina ordine"),
+    "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Esci"),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Non hai un account? Clicca qui per crearne uno!",
     ),

@@ -78,6 +78,10 @@
     "btnOrderDelete": "Видалити",
     "btnOrderArchive": "Архівувати",
 
+    "dialogConfirmExitTitle": "Вихід",
+    "dialogConfirmExitMessage": "Ви впевнені, що хочете вийти?",
+    "dialogExitConfirm": "Вихід",
+
     "dialogAtchiveTitle": "Архівування замовлення",
     "dialogAtchiveMessage": "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
     "dialogAtchiveConfirm": "Архівувати",

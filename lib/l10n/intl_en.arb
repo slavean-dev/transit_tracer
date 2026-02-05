@@ -78,6 +78,11 @@
     "btnOrderDelete": "Delete",
     "btnOrderArchive": "Archive",
 
+    "dialogConfirmExitTitle": "Confirm exit",
+    "dialogConfirmExitMessage": "Are you sure you want to exit?",
+    "dialogExitConfirm": "Exit",
+
+
     "dialogAtchiveTitle": "Archive order",
     "dialogAtchiveMessage": "Are you sure you want to archive this order? \nThis action cannot be undone.",
     "dialogAtchiveConfirm": "Archive",

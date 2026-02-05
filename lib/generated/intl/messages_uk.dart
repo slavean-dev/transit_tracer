@@ -58,6 +58,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "Архівування замовлення",
     ),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
+    "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете вийти?",
+    ),
+    "dialogConfirmExitTitle": MessageLookupByLibrary.simpleMessage("Вихід"),
     "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Видалити"),
     "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
       "Ви впевнені, що хочете видалити це замовлення? \nЦю дію не можна скасувати.",
@@ -65,6 +69,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage(
       "Видалити замовлення",
     ),
+    "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Вихід"),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Немає аккаунту? Натисніть тут щоб створити!",
     ),

@@ -54,11 +54,18 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to exit?",
+    ),
+    "dialogConfirmExitTitle": MessageLookupByLibrary.simpleMessage(
+      "Confirm exit",
+    ),
     "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Delete"),
     "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to delete this order? \nThis action cannot be undone.",
     ),
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Delete order"),
+    "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Exit"),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Don`t have Account? Tap here to create!",
     ),

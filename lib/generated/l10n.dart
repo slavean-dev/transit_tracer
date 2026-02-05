@@ -684,6 +684,31 @@ class S {
     return Intl.message('Archive', name: 'btnOrderArchive', desc: '', args: []);
   }
 
+  /// `Confirm exit`
+  String get dialogConfirmExitTitle {
+    return Intl.message(
+      'Confirm exit',
+      name: 'dialogConfirmExitTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to exit?`
+  String get dialogConfirmExitMessage {
+    return Intl.message(
+      'Are you sure you want to exit?',
+      name: 'dialogConfirmExitMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exit`
+  String get dialogExitConfirm {
+    return Intl.message('Exit', name: 'dialogExitConfirm', desc: '', args: []);
+  }
+
   /// `Archive order`
   String get dialogAtchiveTitle {
     return Intl.message(

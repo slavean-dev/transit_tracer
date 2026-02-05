@@ -78,6 +78,10 @@
     "btnOrderDelete": "Elimina",
     "btnOrderArchive": "Archiviare",
 
+    "dialogConfirmExitTitle": "Conferma uscita",
+    "dialogConfirmExitMessage": "Sei sicuro di voler uscire?",
+    "dialogExitConfirm": "Esci",
+
     "dialogAtchiveTitle": "Archivia ordine",
     "dialogAtchiveMessage": "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
     "dialogAtchiveConfirm": "Archivia",
