@@ -157,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderStatusInProgress": MessageLookupByLibrary.simpleMessage(
       "In progress",
     ),
+    "orderStatusSyncing": MessageLookupByLibrary.simpleMessage("Syncing..."),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Weight"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Orders"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(

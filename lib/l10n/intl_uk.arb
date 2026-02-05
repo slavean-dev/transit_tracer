@@ -64,6 +64,7 @@
     "contactCont": "Контакти",
 
     "orderDetailsTitle" : "Деталі замовлення",
+    "orderStatusSyncing" : "Синхронізація...",
     "orderStatusActive" : "Активний",
     "orderStatusInProgress" : "У процесі",
     "orderStatusCompleted" : "Завершено",

@@ -64,9 +64,8 @@ class OrderDataRepository implements AbstractOrderRepository {
         .orderBy('createdAt', descending: true)
         .snapshots()
         .map(
-          (snapshot) => snapshot.docs
-              .map((doc) => OrderData.fromJson(doc.data()))
-              .toList(),
+          (snapshot) =>
+              snapshot.docs.map((doc) => OrderData.fromFirestore(doc)).toList(),
         );
   }
 
@@ -85,8 +84,8 @@ class OrderDataRepository implements AbstractOrderRepository {
       return _firebaseFirestore
           .collection('orders')
           .doc(oid)
-          .snapshots()
-          .map((doc) => OrderData.fromJson(doc.data()!));
+          .snapshots(includeMetadataChanges: true)
+          .map((doc) => OrderData.fromFirestore(doc));
     } catch (e) {
       throw Exception(e);
     }

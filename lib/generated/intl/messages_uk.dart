@@ -163,6 +163,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderStatusArchived": MessageLookupByLibrary.simpleMessage("Архів"),
     "orderStatusCompleted": MessageLookupByLibrary.simpleMessage("Завершено"),
     "orderStatusInProgress": MessageLookupByLibrary.simpleMessage("У процесі"),
+    "orderStatusSyncing": MessageLookupByLibrary.simpleMessage(
+      "Синхронізація...",
+    ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Вага"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(

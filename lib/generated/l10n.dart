@@ -589,6 +589,16 @@ class S {
     );
   }
 
+  /// `Syncing...`
+  String get orderStatusSyncing {
+    return Intl.message(
+      'Syncing...',
+      name: 'orderStatusSyncing',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Active`
   String get orderStatusActive {
     return Intl.message(

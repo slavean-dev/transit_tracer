@@ -64,6 +64,7 @@
     "contactCont": "Contacts",
 
     "orderDetailsTitle" : "Order details",
+    "orderStatusSyncing" : "Syncing...",
     "orderStatusActive" : "Active",
     "orderStatusInProgress" : "In progress",
     "orderStatusCompleted" : "Completed",

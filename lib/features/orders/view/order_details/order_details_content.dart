@@ -19,7 +19,13 @@ class OrderDetailsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final orderStatus = getStatusStyle(order.status, context);
+    print("REBUILD: isPending = ${order.isPending}");
+    final orderStatus = getStatusStyle(
+      status: order.status,
+      context: context,
+      isPending: order.isPending,
+    );
+
     return SingleChildScrollView(
       child: Center(
         child: Padding(

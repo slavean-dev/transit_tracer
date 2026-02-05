@@ -3,9 +3,23 @@ import 'package:transit_tracer/features/orders/data/models/order_status/order_st
 import 'package:transit_tracer/features/orders/utils/order_status_mapper/model/order_status_ui.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
-OrderStatusUiModel getStatusStyle(OrderStatus status, BuildContext context) {
+OrderStatusUiModel getStatusStyle({
+  required OrderStatus status,
+  required BuildContext context,
+  bool isPending = false,
+}) {
   final isDark = Theme.of(context).brightness == Brightness.dark;
   final s = S.of(context);
+
+  if (isPending) {
+    return OrderStatusUiModel(
+      lable: s.orderStatusSyncing,
+      backgroundColor: isDark
+          ? Colors.orange.withValues(alpha: 0.15)
+          : Colors.orange.shade50,
+      textColor: isDark ? Colors.orangeAccent : Colors.orange.shade900,
+    );
+  }
   switch (status) {
     case OrderStatus.active:
       return OrderStatusUiModel(
