@@ -11,6 +11,7 @@ class WeightPicker extends StatelessWidget {
     required this.onSaved,
     required this.validator,
     this.initialValue,
+    required this.focusNode,
   });
 
   final WeightRange? initialValue;
@@ -19,11 +20,13 @@ class WeightPicker extends StatelessWidget {
   final ValueChanged<WeightRange?> onChange;
   final FormFieldSetter<WeightRange> onSaved;
   final FormFieldValidator<WeightRange> validator;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
     final S s = S.of(context);
     return DropdownButtonFormField<WeightRange>(
+      focusNode: focusNode,
       style: theme.textTheme.bodyMedium,
       initialValue: initialValue,
       decoration: InputDecoration(

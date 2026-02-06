@@ -23,6 +23,9 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
   late final TextEditingController _fromCityController;
   late final TextEditingController _toCityController;
 
+  final FocusNode _fromCityFocusNode = FocusNode();
+  final FocusNode _toCityFocusNode = FocusNode();
+
   CityPoint? fromCity;
   CityPoint? toCity;
 
@@ -105,6 +108,7 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                   ),
                   SizedBox(height: 10),
                   CityAutocompleteField(
+                    focusNode: _fromCityFocusNode,
                     onChanged: (_) => fromCity = null,
                     validator: (v) => AutocompleteValidate.city(v, fromCity),
 
@@ -119,6 +123,7 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                     icon: Icon(Icons.swap_vert),
                   ),
                   CityAutocompleteField(
+                    focusNode: _toCityFocusNode,
                     onChanged: (_) => toCity = null,
                     validator: (v) => AutocompleteValidate.city(v, toCity),
 

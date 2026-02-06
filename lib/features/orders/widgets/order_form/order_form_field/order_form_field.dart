@@ -14,6 +14,7 @@ class OrderFormField extends StatelessWidget {
     required this.validator,
     required this.keyboardType,
     required this.inputFormatters,
+    required this.focusNode,
   });
 
   final TextInputType? keyboardType;
@@ -26,6 +27,7 @@ class OrderFormField extends StatelessWidget {
   final String label;
   final String hint;
   final String? Function(String?)? validator;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
@@ -37,6 +39,7 @@ class OrderFormField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: TextFormField(
+          focusNode: focusNode,
           inputFormatters: inputFormatters,
           keyboardType: keyboardType,
           validator: validator,

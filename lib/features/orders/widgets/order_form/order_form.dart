@@ -50,6 +50,16 @@ class OrderFormState extends State<OrderForm> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  final FocusNode _fromCityFocusNode = FocusNode();
+
+  final FocusNode _toCityFocusNode = FocusNode();
+
+  final FocusNode _descriptionFocusNode = FocusNode();
+
+  final FocusNode _priceFocusNode = FocusNode();
+
+  final FocusNode _weightFocus = FocusNode();
+
   CityPoint? fromCity;
   CityPoint? toCity;
 
@@ -122,6 +132,18 @@ class OrderFormState extends State<OrderForm> {
     });
   }
 
+  void _scrollToError(FocusNode focusNode) {
+    focusNode.requestFocus();
+    if (focusNode.context != null) {
+      Scrollable.ensureVisible(
+        focusNode.context!,
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+        alignment: 0.3,
+      );
+    }
+  }
+
   @override
   void dispose() {
     _fromCityController.dispose();
@@ -173,6 +195,7 @@ class OrderFormState extends State<OrderForm> {
                 ),
                 SizedBox(height: 8),
                 CityAutocompleteField(
+                  focusNode: _fromCityFocusNode,
                   onPredictionWithCoordinatesReceived: (prediction) {
                     final placeId = prediction.placeId;
                     if (placeId == null || placeId.isEmpty) {
@@ -211,6 +234,7 @@ class OrderFormState extends State<OrderForm> {
                   ),
                 ),
                 CityAutocompleteField(
+                  focusNode: _toCityFocusNode,
                   onPredictionWithCoordinatesReceived: (prediction) {
                     final placeId = prediction.placeId;
                     if (placeId == null || placeId.isEmpty) {
@@ -242,11 +266,13 @@ class OrderFormState extends State<OrderForm> {
                 ),
                 SizedBox(height: 16),
                 OrderDescriptionFormField(
+                  descriptionFocusNode: _descriptionFocusNode,
                   theme: theme,
                   descriptionController: _descriptionController,
                 ),
                 SizedBox(height: 16),
                 WeightPicker(
+                  focusNode: _weightFocus,
                   initialValue: widget.order?.weight,
                   onSaved: (newValue) => weight = newValue!,
                   validator: (v) => OrderValidators.weight(v),
@@ -257,6 +283,7 @@ class OrderFormState extends State<OrderForm> {
                 ),
                 SizedBox(height: 16),
                 OrderFormField(
+                  focusNode: _priceFocusNode,
                   keyboardType: TextInputType.number,
                   inputFormatters: [FilteringTextInputFormatter.digitsOnly],
                   validator: (value) => OrderValidators.price(value),
@@ -275,28 +302,45 @@ class OrderFormState extends State<OrderForm> {
                       ? null
                       : () {
                           FocusScope.of(context).unfocus();
-                          if (_formKey.currentState!.validate()) {
-                            if (fromCity == null ||
-                                toCity == null ||
-                                weight == null) {
-                              return;
+
+                          final bool isFormValid = _formKey.currentState!
+                              .validate();
+
+                          if (!isFormValid ||
+                              fromCity == null ||
+                              toCity == null ||
+                              weight == null) {
+                            if (fromCity == null) {
+                              _scrollToError(_fromCityFocusNode);
+                            } else if (toCity == null) {
+                              _scrollToError(_toCityFocusNode);
+                            } else if (!_formKey.currentState!.validate()) {
+                              if (_descriptionController.text.isEmpty) {
+                                _scrollToError(_descriptionFocusNode);
+                              } else if (_priceController.text.isEmpty) {
+                                _scrollToError(_priceFocusNode);
+                              }
+                            } else if (weight == null) {
+                              _scrollToError(_weightFocus);
                             }
-                            widget.onSubmit(
-                              OrderFormData(
-                                widget.order?.uid,
-                                widget.order?.oid,
-                                widget.order?.status,
-                                widget.order?.createdAt,
-                                from: fromCity!,
-                                to: toCity!,
-                                description: _descriptionController.text,
-                                weight: weight!,
-                                price: _priceController.text,
-                              ),
-                            );
+                            return;
                           }
+                          widget.onSubmit(
+                            OrderFormData(
+                              widget.order?.uid,
+                              widget.order?.oid,
+                              widget.order?.status,
+                              widget.order?.createdAt,
+                              from: fromCity!,
+                              to: toCity!,
+                              description: _descriptionController.text,
+                              weight: weight!,
+                              price: _priceController.text,
+                            ),
+                          );
                         },
                 ),
+
                 SizedBox(height: 10),
               ],
             ),

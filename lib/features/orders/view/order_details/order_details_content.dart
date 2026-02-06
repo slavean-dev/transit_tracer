@@ -19,7 +19,6 @@ class OrderDetailsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print("REBUILD: isPending = ${order.isPending}");
     final orderStatus = getStatusStyle(
       status: order.status,
       context: context,

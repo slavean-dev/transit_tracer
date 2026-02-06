@@ -8,15 +8,19 @@ class OrderDescriptionFormField extends StatelessWidget {
     super.key,
     required this.theme,
     required TextEditingController descriptionController,
-  }) : _descriptionController = descriptionController;
+    required FocusNode descriptionFocusNode,
+  }) : _descriptionController = descriptionController,
+       _descriptionFocusNode = descriptionFocusNode;
 
   final ThemeData theme;
   final TextEditingController _descriptionController;
+  final FocusNode _descriptionFocusNode;
 
   @override
   Widget build(BuildContext context) {
     final s = S.of(context);
     return OrderFormField(
+      focusNode: _descriptionFocusNode,
       keyboardType: null,
       inputFormatters: null,
       validator: (value) => OrderValidators.description(value),

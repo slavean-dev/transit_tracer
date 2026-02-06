@@ -53,25 +53,27 @@ class EditOrderScreen extends StatelessWidget {
                   Scaffold(
                     appBar: AppBar(title: Text(s.orderEditTitle)),
                     body: Center(
-                      child: OrderForm(
-                        order: order,
-                        title: s.orderEdit,
-                        buttonText: s.btnOrderEdit,
-                        onSubmit: (form) {
-                          context.read<OrderDetailsBloc>().add(
-                            EditOrderData(
-                              from: form.from,
-                              to: form.to,
-                              description: form.description,
-                              weight: form.weight,
-                              price: form.price,
-                              uid: form.uid as String,
-                              oid: form.oid as String,
-                              status: form.isActive as OrderStatus,
-                              createdAt: form.createdAt as DateTime,
-                            ),
-                          );
-                        },
+                      child: SingleChildScrollView(
+                        child: OrderForm(
+                          order: order,
+                          title: s.orderEdit,
+                          buttonText: s.btnOrderEdit,
+                          onSubmit: (form) {
+                            context.read<OrderDetailsBloc>().add(
+                              EditOrderData(
+                                from: form.from,
+                                to: form.to,
+                                description: form.description,
+                                weight: form.weight,
+                                price: form.price,
+                                uid: form.uid as String,
+                                oid: form.oid as String,
+                                status: form.isActive as OrderStatus,
+                                createdAt: form.createdAt as DateTime,
+                              ),
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ),
