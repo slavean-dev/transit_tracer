@@ -21,7 +21,7 @@ class ProfilePopupMenu extends StatelessWidget {
           child: Row(
             children: [
               const Icon(Icons.edit),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(
                 S.of(context).editProfileDropMenu,
                 style: theme.textTheme.bodyMedium,
@@ -36,7 +36,7 @@ class ProfilePopupMenu extends StatelessWidget {
           child: Row(
             children: [
               const Icon(Icons.settings),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(S.of(context).settings, style: theme.textTheme.bodyMedium),
             ],
           ),
@@ -48,7 +48,7 @@ class ProfilePopupMenu extends StatelessWidget {
           child: Row(
             children: [
               const Icon(Icons.menu),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(S.of(context).aboutUsTitle),
             ],
           ),
@@ -60,7 +60,7 @@ class ProfilePopupMenu extends StatelessWidget {
           child: Row(
             children: [
               const Icon(Icons.logout),
-              SizedBox(width: 10),
+              const SizedBox(width: 10),
               Text(S.of(context).logout),
             ],
           ),

@@ -32,7 +32,7 @@ class OrderInfoCard extends StatelessWidget {
               //Text(order.oid)
             ],
           ),
-          Divider(),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -47,7 +47,7 @@ class OrderInfoCard extends StatelessWidget {
               ),
             ],
           ),
-          Divider(),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -60,7 +60,7 @@ class OrderInfoCard extends StatelessWidget {
               Text(WeightRangeMapper.label(s, order.weight)),
             ],
           ),
-          Divider(),
+          const Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [

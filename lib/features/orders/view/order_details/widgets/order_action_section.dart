@@ -54,7 +54,7 @@ class OrderActionSection extends StatelessWidget {
                 },
               ),
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             Expanded(
               child: ActionButton(
                 lable: s.btnOrderDelete,

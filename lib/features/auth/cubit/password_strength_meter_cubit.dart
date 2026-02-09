@@ -20,14 +20,26 @@ class PasswordStrengthMeterCubit extends Cubit<PasswordStrengthMeterState> {
         uppercaseCount <= 1 ||
         numberCount <= 2 ||
         specialCount <= 1) {
-      emit(PasswordStrengthMeterChecked(color: Color(0xFFE53935), level: 0.33));
+      emit(
+        const PasswordStrengthMeterChecked(
+          color: Color(0xFFE53935),
+          level: 0.33,
+        ),
+      );
     } else if (password.length <= 10 ||
         uppercaseCount <= 2 ||
         numberCount <= 4 ||
         specialCount <= 3) {
-      emit(PasswordStrengthMeterChecked(color: Color(0xFFFFA000), level: 0.66));
+      emit(
+        const PasswordStrengthMeterChecked(
+          color: Color(0xFFFFA000),
+          level: 0.66,
+        ),
+      );
     } else {
-      emit(PasswordStrengthMeterChecked(color: Color(0xFF66BB6A), level: 1));
+      emit(
+        const PasswordStrengthMeterChecked(color: Color(0xFF66BB6A), level: 1),
+      );
     }
   }
 }

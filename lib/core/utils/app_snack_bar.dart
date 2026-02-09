@@ -9,7 +9,7 @@ class AppSnackBar {
         elevation: 0,
         behavior: SnackBarBehavior.floating,
         padding: EdgeInsets.zero,
-        margin: EdgeInsets.only(left: 16, right: 16, bottom: 20),
+        margin: const EdgeInsets.only(left: 16, right: 16, bottom: 20),
         content: content,
       ),
     );

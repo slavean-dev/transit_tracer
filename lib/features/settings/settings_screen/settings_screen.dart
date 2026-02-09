@@ -30,7 +30,7 @@ class SettingsScreen extends StatelessWidget {
             return Column(
               children: [
                 ThemeSwitch(theme: theme, isDark: isDark),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 LanguageChange(theme: theme, langCode: langCode),
               ],
             );

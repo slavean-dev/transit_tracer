@@ -7,7 +7,7 @@ class AppUserState extends Equatable {
   final String? errorMassage;
 
   factory AppUserState.initial() {
-    return AppUserState(status: AppUserStatus.initial);
+    return const AppUserState(status: AppUserStatus.initial);
   }
 
   AppUserState copyWith({

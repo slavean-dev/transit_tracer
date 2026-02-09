@@ -75,7 +75,7 @@ class _RegisterFormState extends State<RegisterForm> {
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         UserRoleSelector(
           theme: theme,
           selected: _role,
@@ -85,7 +85,7 @@ class _RegisterFormState extends State<RegisterForm> {
             });
           },
         ),
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         AuthFormField(
           theme: theme,
           controller: nameController,
@@ -100,7 +100,7 @@ class _RegisterFormState extends State<RegisterForm> {
             invalidValue: S.of(context).validationInvalidName,
           ),
         ),
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         AuthFormField(
           theme: theme,
           controller: surnameController,
@@ -115,7 +115,7 @@ class _RegisterFormState extends State<RegisterForm> {
             invalidValue: S.of(context).validationInvalidSurname,
           ),
         ),
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         AuthFormField(
           externalError: widget.externalEmailError,
           theme: theme,
@@ -131,7 +131,7 @@ class _RegisterFormState extends State<RegisterForm> {
             invalidEmail: S.of(context).validationInvalidEmail,
           ),
         ),
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         AuthFormField(
           hint: S.of(context).phoneForm,
           validator: (value) => validatePhone(
@@ -149,7 +149,7 @@ class _RegisterFormState extends State<RegisterForm> {
           theme: theme,
         ),
 
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         AuthFormField(
           externalError: widget.externalPasswordError,
           theme: theme,
@@ -178,7 +178,7 @@ class _RegisterFormState extends State<RegisterForm> {
             invalidCpecChar: S.of(context).validationInvalidPasswordSpecChar,
           ),
         ),
-        SizedBox(height: 12),
+        const SizedBox(height: 12),
         AuthFormField(
           theme: theme,
           controller: passwordCoinfirmController,
@@ -222,11 +222,11 @@ class _RegisterFormState extends State<RegisterForm> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   LinearProgressIndicator(
                     color: color,
                     value: level,
-                    backgroundColor: Color(0xFF4A4A4C),
+                    backgroundColor: const Color(0xFF4A4A4C),
                   ),
                 ],
               ),

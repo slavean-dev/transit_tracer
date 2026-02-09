@@ -70,7 +70,7 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
     );
     if (!await networkChecker.isConnected) {
       repository.editOrderData(order);
-      await Future.delayed(Duration(seconds: 2));
+      await Future.delayed(const Duration(seconds: 2));
       emit(StateUpdatePendingLater());
       return;
     }

@@ -38,19 +38,19 @@ class ContactInfoContainer extends StatelessWidget {
                       S.of(context).email,
                       style: theme.textTheme.bodyMedium,
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       S.of(context).phone,
                       style: theme.textTheme.bodyMedium,
                     ),
                   ],
                 ),
-                SizedBox(width: 14),
+                const SizedBox(width: 14),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(userData.email, style: theme.textTheme.bodyMedium),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
                       userData.phoneNumber,
                       style: theme.textTheme.bodyMedium,

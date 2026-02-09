@@ -83,7 +83,7 @@ class _OrderCardState extends State<OrderCard> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -91,7 +91,7 @@ class _OrderCardState extends State<OrderCard> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('Cargo:'),
+                              const Text('Cargo:'),
                               Text(
                                 widget.order.description,
                                 style: widget.theme.textTheme.bodySmall
@@ -122,8 +122,8 @@ class _OrderCardState extends State<OrderCard> {
                               color: widget.theme.primaryColor,
                               borderRadius: BorderRadius.circular(18),
                             ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
+                            child: const Padding(
+                              padding: EdgeInsets.symmetric(
                                 vertical: 4,
                                 horizontal: 10,
                               ),

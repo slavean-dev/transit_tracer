@@ -60,7 +60,7 @@ class OrderSummaryHeader extends StatelessWidget {
               ),
             ],
           ),
-          Divider(),
+          const Divider(),
           Text(
             '₴ ${NumUtils().priceFormater(order.price)}',
             style: theme.textTheme.bodyMedium!.copyWith(

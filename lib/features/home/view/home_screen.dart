@@ -23,7 +23,7 @@ class HomeScreen extends StatelessWidget {
           BlocProvider(create: (context) => GetIt.I<OrdersBloc>()),
         ],
         child: AutoTabsRouter(
-          routes: [
+          routes: const [
             TransportSearchRoute(),
             AddOrderTabRouter(),
             OrdersListTabRouter(),
@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                     label: S.of(context).create,
                   ),
                   BottomNavigationBarItem(
-                    icon: Icon(Icons.menu),
+                    icon: const Icon(Icons.menu),
                     label: S.of(context).ordersTitle,
                   ),
                   BottomNavigationBarItem(

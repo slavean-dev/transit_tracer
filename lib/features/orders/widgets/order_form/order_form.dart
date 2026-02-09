@@ -198,7 +198,9 @@ class OrderFormState extends State<OrderForm> {
               AnimatedSize(
                 duration: const Duration(milliseconds: 300),
                 curve: Curves.easeInOut,
-                child: !isOnline ? NoInternetBanner() : const SizedBox.shrink(),
+                child: !isOnline
+                    ? const NoInternetBanner()
+                    : const SizedBox.shrink(),
               ),
 
               BaseContainer(
@@ -213,7 +215,7 @@ class OrderFormState extends State<OrderForm> {
                         style: theme.textTheme.titleLarge,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     CityAutocompleteField(
                       enabled: isOnline,
                       focusNode: _fromCityFocusNode,
@@ -286,13 +288,13 @@ class OrderFormState extends State<OrderForm> {
                       controller: _toCityController,
                       theme: theme,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     OrderDescriptionFormField(
                       descriptionFocusNode: _descriptionFocusNode,
                       theme: theme,
                       descriptionController: _descriptionController,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     WeightPicker(
                       focusNode: _weightFocus,
                       initialValue: widget.order?.weight,
@@ -303,7 +305,7 @@ class OrderFormState extends State<OrderForm> {
                         weight = newValue;
                       }),
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     OrderFormField(
                       focusNode: _priceFocusNode,
                       keyboardType: TextInputType.number,
@@ -317,7 +319,7 @@ class OrderFormState extends State<OrderForm> {
                       label: s.orderFieldPrice,
                       hint: s.orderFieldPriceHint,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     BaseButton(
                       text: widget.buttonText,
                       onPressed: !isButtonEnabled
@@ -363,7 +365,7 @@ class OrderFormState extends State<OrderForm> {
                             },
                     ),
 
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                   ],
                 ),
               ),

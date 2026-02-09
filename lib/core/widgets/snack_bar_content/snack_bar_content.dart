@@ -20,7 +20,7 @@ class SnackBarContent extends StatelessWidget {
         mainAxisSize: MainAxisSize.max,
         children: [
           if (icon != null) ...[Icon(icon, size: 28)],
-          SizedBox(width: 16),
+          const SizedBox(width: 16),
           Expanded(
             child: Column(
               mainAxisSize: MainAxisSize.min,

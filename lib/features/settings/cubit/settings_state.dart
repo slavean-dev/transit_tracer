@@ -19,14 +19,3 @@ class SettingsState {
     );
   }
 }
-
-// class SettingsInitial extends SettingsState {}
-
-// class SettingsDataLoaded extends SettingsState {
-//   const SettingsDataLoaded({required this.mode, required this.langCode});
-//   final ThemeMode mode;
-//   final String langCode;
-
-//   @override
-//   List<Object> get props => [mode, langCode];
-// }

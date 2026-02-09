@@ -40,7 +40,7 @@ class _LoginFormState extends State<LoginForm> {
             style: Theme.of(context).textTheme.headlineLarge,
           ),
         ),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         AuthFormField(
           externalError: widget.externalEmailError,
           theme: theme,
@@ -55,7 +55,7 @@ class _LoginFormState extends State<LoginForm> {
             emptyField: S.of(context).validationFormEmpty,
           ),
         ),
-        SizedBox(height: 14),
+        const SizedBox(height: 14),
         AuthFormField(
           externalError: widget.externalPasswordError,
           theme: theme,

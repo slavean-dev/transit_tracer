@@ -12,7 +12,7 @@ class BlurLoader extends StatelessWidget {
         absorbing: true,
         child: BackdropFilter(
           filter: ImageFilter.blur(sigmaX: 4, sigmaY: 4),
-          child: Center(child: CircularProgressIndicator()),
+          child: const Center(child: CircularProgressIndicator()),
         ),
       ),
     );

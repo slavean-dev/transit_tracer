@@ -32,7 +32,7 @@ class TransportResultsScreen extends StatelessWidget {
               minFontSize: 16,
             ),
             Text(date, style: theme.textTheme.bodyMedium),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
           ],
         ),
       ),
@@ -54,7 +54,7 @@ class TransportResultsScreen extends StatelessWidget {
                     showDialog(
                       context: context,
                       builder: (context) {
-                        return AlertDialog();
+                        return const AlertDialog();
                       },
                     );
                   },
@@ -78,27 +78,27 @@ class TransportResultsScreen extends StatelessWidget {
                           width: 80,
                           height: 80,
                         ),
-                        SizedBox(width: 8),
+                        const SizedBox(width: 8),
                         Expanded(
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               //Text('Frome → To'),
-                              Text('Date · Car'),
-                              Text('Load capacity: 1500kg'),
-                              Text('Driver : Name'),
+                              const Text('Date · Car'),
+                              const Text('Load capacity: 1500kg'),
+                              const Text('Driver : Name'),
                               Row(
                                 mainAxisAlignment:
                                     MainAxisAlignment.spaceBetween,
                                 children: [
-                                  Text('Prise:'),
+                                  const Text('Prise:'),
 
                                   ElevatedButton(
-                                    style: ButtonStyle(),
+                                    style: const ButtonStyle(),
                                     onPressed: () {
                                       //TODO
                                     },
-                                    child: Text('More'),
+                                    child: const Text('More'),
                                   ),
                                 ],
                               ),

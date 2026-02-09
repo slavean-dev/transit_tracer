@@ -106,7 +106,7 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                       style: theme.textTheme.titleLarge,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   CityAutocompleteField(
                     enabled: true,
                     focusNode: _fromCityFocusNode,
@@ -121,7 +121,7 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                     onPressed: () {
                       _swapCities();
                     },
-                    icon: Icon(Icons.swap_vert),
+                    icon: const Icon(Icons.swap_vert),
                   ),
                   CityAutocompleteField(
                     enabled: true,
@@ -133,14 +133,14 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                     controller: _toCityController,
                     theme: theme,
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   DateField(
                     title: S.of(context).dateLabel,
                     theme: theme,
                     dateLable: _dateLable,
                     onTap: _pickDate,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   BaseButton(
                     onPressed: () {
                       final from = _fromCityController.text;

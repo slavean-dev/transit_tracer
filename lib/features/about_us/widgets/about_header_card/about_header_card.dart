@@ -17,7 +17,7 @@ class AboutHeaderCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Center(
+            const Center(
               child: Image(
                 image: AssetImage(AssetsPath.transitTracerLogo),
                 width: 120,
@@ -28,9 +28,9 @@ class AboutHeaderCard extends StatelessWidget {
               S.of(context).transitTracerTitle,
               style: theme.textTheme.titleLarge,
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Text(S.of(context).aboutSubtitle, style: theme.textTheme.bodySmall),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
           ],
         ),
       ),

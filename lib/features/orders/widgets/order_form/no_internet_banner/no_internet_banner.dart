@@ -16,7 +16,7 @@ class NoInternetBanner extends StatelessWidget {
         child: Row(
           children: [
             Icon(Icons.wifi_off, color: theme.colorScheme.primary, size: 32),
-            SizedBox(width: 12),
+            const SizedBox(width: 12),
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

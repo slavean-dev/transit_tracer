@@ -30,7 +30,7 @@ class _OrdersListScreenState extends State<OrdersListScreen> {
         actions: [
           IconButton(
             onPressed: () {
-              context.router.push(ArchiveOrdersRoute());
+              context.router.push(const ArchiveOrdersRoute());
             },
             icon: const Icon(Icons.archive),
           ),
@@ -52,7 +52,7 @@ class _OrdersListScreenState extends State<OrdersListScreen> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: index == orders.length - 1
-                      ? EdgeInsets.only(bottom: 16)
+                      ? const EdgeInsets.only(bottom: 16)
                       : EdgeInsets.zero,
                   child: OrderCard(theme: theme, order: orders[index]),
                 );

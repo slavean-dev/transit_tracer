@@ -46,7 +46,7 @@ class OrderDetailsScreen extends StatelessWidget {
                   theme: theme,
                   order: order,
                 ),
-                _ => SizedBox(),
+                _ => const SizedBox(),
               };
             },
           ),
