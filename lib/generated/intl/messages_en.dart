@@ -150,6 +150,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Enter price"),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Cargo weight"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("Order ID"),
+    "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
+      "City selection fields are unavailable without an internet connection.",
+    ),
+    "orderOflineTitle": MessageLookupByLibrary.simpleMessage(
+      "No internet connection",
+    ),
     "orderPriceLabel": MessageLookupByLibrary.simpleMessage("Price"),
     "orderStatusActive": MessageLookupByLibrary.simpleMessage("Active"),
     "orderStatusArchived": MessageLookupByLibrary.simpleMessage("Archive"),

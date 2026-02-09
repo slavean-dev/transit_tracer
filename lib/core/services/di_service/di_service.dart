@@ -77,7 +77,10 @@ class DiService {
     );
 
     getIt.registerFactory(
-      () => SettingsCubit(getIt<AbstractSettingsRepository>()),
+      () => SettingsCubit(
+        getIt<AbstractSettingsRepository>(),
+        getIt<NetworkService>(),
+      ),
     );
 
     getIt.registerSingleton<AbstractAuthRepository>(

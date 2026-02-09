@@ -14,12 +14,16 @@ class CityAutocompleteField extends StatelessWidget {
     this.validator,
     this.onPredictionWithCoordinatesReceived,
     required this.focusNode,
+    required this.enabled,
+    this.onTap,
   });
 
   final String title;
   final TextEditingController controller;
   final ThemeData theme;
   final FocusNode focusNode;
+  final bool enabled;
+  final VoidCallback? onTap;
 
   final ValueChanged<Prediction>? onPredictionWithCoordinatesReceived;
   final ValueChanged<String?> onChanged;
@@ -37,6 +41,8 @@ class CityAutocompleteField extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 12),
         child: GooglePlacesAutoCompleteTextFormField(
+          onTap: onTap,
+          enabled: enabled,
           focusNode: focusNode,
           onPredictionWithCoordinatesReceived:
               onPredictionWithCoordinatesReceived,

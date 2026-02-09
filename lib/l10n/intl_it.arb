@@ -79,6 +79,9 @@
     "btnOrderDelete": "Elimina",
     "btnOrderArchive": "Archiviare",
 
+    "orderOflineTitle" : "Nessuna connessione a internet",
+    "orderOflineDescription" : "I campi di selezione delle città non sono disponibili senza connessione.",
+
     "dialogConfirmExitTitle": "Conferma uscita",
     "dialogConfirmExitMessage": "Sei sicuro di voler uscire?",
     "dialogExitConfirm": "Esci",

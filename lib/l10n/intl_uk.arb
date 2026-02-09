@@ -79,6 +79,9 @@
     "btnOrderDelete": "Видалити",
     "btnOrderArchive": "Архівувати",
 
+    "orderOflineTitle" : "Немає підключення до інтернету",
+    "orderOflineDescription" : "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
+
     "dialogConfirmExitTitle": "Вихід",
     "dialogConfirmExitMessage": "Ви впевнені, що хочете вийти?",
     "dialogExitConfirm": "Вихід",

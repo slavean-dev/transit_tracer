@@ -6,5 +6,5 @@ class NetworkService {
 
   Future<bool> get isConnected => _checker.hasInternetAccess;
 
-  // Stream<InternetStatus> get status => _checker.onStatusChange;
+  Stream<InternetStatus> get status => _checker.onStatusChange;
 }

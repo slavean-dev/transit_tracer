@@ -63,6 +63,9 @@
     "profileTitle": "Profile",
     "contactCont": "Contacts",
 
+    "orderOflineTitle" : "No internet connection",
+    "orderOflineDescription" : "City selection fields are unavailable without an internet connection.",
+
     "orderDetailsTitle" : "Order details",
     "orderStatusSyncing" : "Syncing...",
     "orderStatusActive" : "Active",

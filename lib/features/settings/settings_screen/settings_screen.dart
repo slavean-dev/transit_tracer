@@ -19,13 +19,14 @@ class SettingsScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: BlocBuilder<SettingsCubit, SettingsState>(
           builder: (context, state) {
-            late final bool isDark;
-            late final String langCode;
-            if (state is SettingsDataLoaded) {
-              isDark = state.mode == ThemeMode.dark;
-              langCode = state.langCode;
-            }
-
+            // late final bool isDark;
+            // late final String langCode;
+            // if (state is SettingsDataLoaded) {
+            //   isDark = state.mode == ThemeMode.dark;
+            //   langCode = state.langCode;
+            // }
+            final isDark = state.mode == ThemeMode.dark;
+            final langCode = state.langCode;
             return Column(
               children: [
                 ThemeSwitch(theme: theme, isDark: isDark),

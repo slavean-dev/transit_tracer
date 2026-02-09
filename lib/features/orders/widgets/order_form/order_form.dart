@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/core/utils/app_dialog.dart';
 import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
@@ -11,9 +12,11 @@ import 'package:transit_tracer/features/orders/data/models/city_point/city_point
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/features/orders/data/models/order_form_data/order_form_data.dart';
 import 'package:transit_tracer/features/orders/data/models/weight_range/weight_range.dart';
+import 'package:transit_tracer/features/orders/widgets/order_form/no_internet_banner/no_internet_banner.dart';
 import 'package:transit_tracer/features/orders/widgets/order_form/order_description_form_field/order_description_form_field.dart';
 import 'package:transit_tracer/features/orders/widgets/order_form/order_form_field/order_form_field.dart';
 import 'package:transit_tracer/features/orders/widgets/order_form/weight_picker/weight_picker.dart';
+import 'package:transit_tracer/features/settings/cubit/settings_cubit.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 class OrderForm extends StatefulWidget {
@@ -75,6 +78,10 @@ class OrderFormState extends State<OrderForm> {
         _descriptionController.text != order.description ||
         weight != order.weight ||
         _priceController.text != order.price;
+  }
+
+  bool get _isEditing {
+    return widget.order != null;
   }
 
   @override
@@ -157,6 +164,8 @@ class OrderFormState extends State<OrderForm> {
   Widget build(BuildContext context) {
     final ThemeData theme = Theme.of(context);
     final S s = S.of(context);
+    final isOnline = context.select((SettingsCubit c) => c.state.isOnline);
+    final isButtonEnabled = (isOnline || _isEditing) && _isChanged;
     return PopScope(
       canPop: !_isChanged,
       onPopInvokedWithResult: (bool didPop, dynamic result) async {
@@ -184,166 +193,181 @@ class OrderFormState extends State<OrderForm> {
         key: _formKey,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-          child: BaseContainer(
-            theme: theme,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Center(
-                  child: Text(widget.title, style: theme.textTheme.titleLarge),
-                ),
-                SizedBox(height: 8),
-                CityAutocompleteField(
-                  focusNode: _fromCityFocusNode,
-                  onPredictionWithCoordinatesReceived: (prediction) {
-                    final placeId = prediction.placeId;
-                    if (placeId == null || placeId.isEmpty) {
-                      return;
-                    }
+          child: Column(
+            children: [
+              AnimatedSize(
+                duration: const Duration(milliseconds: 300),
+                curve: Curves.easeInOut,
+                child: !isOnline ? NoInternetBanner() : const SizedBox.shrink(),
+              ),
 
-                    final lat = NumUtils().toDouble(prediction.lat);
-                    final lng = NumUtils().toDouble(prediction.lng);
+              BaseContainer(
+                theme: theme,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Center(
+                      child: Text(
+                        widget.title,
+                        style: theme.textTheme.titleLarge,
+                      ),
+                    ),
+                    SizedBox(height: 8),
+                    CityAutocompleteField(
+                      enabled: isOnline,
+                      focusNode: _fromCityFocusNode,
+                      onPredictionWithCoordinatesReceived: (prediction) {
+                        final placeId = prediction.placeId;
+                        if (placeId == null || placeId.isEmpty) {
+                          return;
+                        }
 
-                    if (lat == null || lng == null) {
-                      return;
-                    }
+                        final lat = NumUtils().toDouble(prediction.lat);
+                        final lng = NumUtils().toDouble(prediction.lng);
 
-                    setState(() {
-                      fromCity = CityPoint(
-                        name: _fromCityController.text,
-                        placeId: placeId,
-                        lat: lat,
-                        lng: lng,
-                      );
-                    });
-                  },
-                  key: ValueKey('from_$_autoEpoch'),
-                  onChanged: (_) => fromCity = null,
-                  validator: (v) => AutocompleteValidate.city(v, fromCity),
+                        if (lat == null || lng == null) {
+                          return;
+                        }
 
-                  title: s.fieldFrom,
-                  controller: _fromCityController,
-                  theme: theme,
-                ),
-
-                Center(
-                  child: IconButton(
-                    onPressed: () => _swapCities(),
-                    icon: const Icon(Icons.swap_vert),
-                  ),
-                ),
-                CityAutocompleteField(
-                  focusNode: _toCityFocusNode,
-                  onPredictionWithCoordinatesReceived: (prediction) {
-                    final placeId = prediction.placeId;
-                    if (placeId == null || placeId.isEmpty) {
-                      return;
-                    }
-
-                    final lat = NumUtils().toDouble(prediction.lat);
-                    final lng = NumUtils().toDouble(prediction.lng);
-
-                    if (lat == null || lng == null) {
-                      return;
-                    }
-
-                    setState(() {
-                      toCity = CityPoint(
-                        name: _toCityController.text,
-                        placeId: placeId,
-                        lat: lat,
-                        lng: lng,
-                      );
-                    });
-                  },
-                  key: ValueKey('to_$_autoEpoch'),
-                  onChanged: (_) => toCity = null,
-                  validator: (v) => AutocompleteValidate.city(v, toCity),
-                  title: s.fieldTo,
-                  controller: _toCityController,
-                  theme: theme,
-                ),
-                SizedBox(height: 16),
-                OrderDescriptionFormField(
-                  descriptionFocusNode: _descriptionFocusNode,
-                  theme: theme,
-                  descriptionController: _descriptionController,
-                ),
-                SizedBox(height: 16),
-                WeightPicker(
-                  focusNode: _weightFocus,
-                  initialValue: widget.order?.weight,
-                  onSaved: (newValue) => weight = newValue!,
-                  validator: (v) => OrderValidators.weight(v),
-                  theme: theme,
-                  onChange: (newValue) => setState(() {
-                    weight = newValue;
-                  }),
-                ),
-                SizedBox(height: 16),
-                OrderFormField(
-                  focusNode: _priceFocusNode,
-                  keyboardType: TextInputType.number,
-                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                  validator: (value) => OrderValidators.price(value),
-                  theme: theme,
-                  controller: _priceController,
-                  maxLines: 1,
-                  minLines: 1,
-                  maxLength: 50,
-                  label: s.orderFieldPrice,
-                  hint: s.orderFieldPriceHint,
-                ),
-                SizedBox(height: 16),
-                BaseButton(
-                  text: widget.buttonText,
-                  onPressed: !_isChanged
-                      ? null
-                      : () {
-                          FocusScope.of(context).unfocus();
-
-                          final bool isFormValid = _formKey.currentState!
-                              .validate();
-
-                          if (!isFormValid ||
-                              fromCity == null ||
-                              toCity == null ||
-                              weight == null) {
-                            if (fromCity == null) {
-                              _scrollToError(_fromCityFocusNode);
-                            } else if (toCity == null) {
-                              _scrollToError(_toCityFocusNode);
-                            } else if (!_formKey.currentState!.validate()) {
-                              if (_descriptionController.text.isEmpty) {
-                                _scrollToError(_descriptionFocusNode);
-                              } else if (_priceController.text.isEmpty) {
-                                _scrollToError(_priceFocusNode);
-                              }
-                            } else if (weight == null) {
-                              _scrollToError(_weightFocus);
-                            }
-                            return;
-                          }
-                          widget.onSubmit(
-                            OrderFormData(
-                              widget.order?.uid,
-                              widget.order?.oid,
-                              widget.order?.status,
-                              widget.order?.createdAt,
-                              from: fromCity!,
-                              to: toCity!,
-                              description: _descriptionController.text,
-                              weight: weight!,
-                              price: _priceController.text,
-                            ),
+                        setState(() {
+                          fromCity = CityPoint(
+                            name: _fromCityController.text,
+                            placeId: placeId,
+                            lat: lat,
+                            lng: lng,
                           );
-                        },
-                ),
+                        });
+                      },
+                      key: ValueKey('from_$_autoEpoch'),
+                      onChanged: (_) => fromCity = null,
+                      validator: (v) => AutocompleteValidate.city(v, fromCity),
 
-                SizedBox(height: 10),
-              ],
-            ),
+                      title: s.fieldFrom,
+                      controller: _fromCityController,
+                      theme: theme,
+                    ),
+
+                    Center(
+                      child: IconButton(
+                        onPressed: () => _swapCities(),
+                        icon: const Icon(Icons.swap_vert),
+                      ),
+                    ),
+                    CityAutocompleteField(
+                      enabled: isOnline,
+                      focusNode: _toCityFocusNode,
+                      onPredictionWithCoordinatesReceived: (prediction) {
+                        final placeId = prediction.placeId;
+                        if (placeId == null || placeId.isEmpty) {
+                          return;
+                        }
+
+                        final lat = NumUtils().toDouble(prediction.lat);
+                        final lng = NumUtils().toDouble(prediction.lng);
+
+                        if (lat == null || lng == null) {
+                          return;
+                        }
+
+                        setState(() {
+                          toCity = CityPoint(
+                            name: _toCityController.text,
+                            placeId: placeId,
+                            lat: lat,
+                            lng: lng,
+                          );
+                        });
+                      },
+                      key: ValueKey('to_$_autoEpoch'),
+                      onChanged: (_) => toCity = null,
+                      validator: (v) => AutocompleteValidate.city(v, toCity),
+                      title: s.fieldTo,
+                      controller: _toCityController,
+                      theme: theme,
+                    ),
+                    SizedBox(height: 16),
+                    OrderDescriptionFormField(
+                      descriptionFocusNode: _descriptionFocusNode,
+                      theme: theme,
+                      descriptionController: _descriptionController,
+                    ),
+                    SizedBox(height: 16),
+                    WeightPicker(
+                      focusNode: _weightFocus,
+                      initialValue: widget.order?.weight,
+                      onSaved: (newValue) => weight = newValue!,
+                      validator: (v) => OrderValidators.weight(v),
+                      theme: theme,
+                      onChange: (newValue) => setState(() {
+                        weight = newValue;
+                      }),
+                    ),
+                    SizedBox(height: 16),
+                    OrderFormField(
+                      focusNode: _priceFocusNode,
+                      keyboardType: TextInputType.number,
+                      inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      validator: (value) => OrderValidators.price(value),
+                      theme: theme,
+                      controller: _priceController,
+                      maxLines: 1,
+                      minLines: 1,
+                      maxLength: 50,
+                      label: s.orderFieldPrice,
+                      hint: s.orderFieldPriceHint,
+                    ),
+                    SizedBox(height: 16),
+                    BaseButton(
+                      text: widget.buttonText,
+                      onPressed: !isButtonEnabled
+                          ? null
+                          : () {
+                              FocusScope.of(context).unfocus();
+
+                              final bool isFormValid = _formKey.currentState!
+                                  .validate();
+
+                              if (!isFormValid ||
+                                  fromCity == null ||
+                                  toCity == null ||
+                                  weight == null) {
+                                if (fromCity == null) {
+                                  _scrollToError(_fromCityFocusNode);
+                                } else if (toCity == null) {
+                                  _scrollToError(_toCityFocusNode);
+                                } else if (!_formKey.currentState!.validate()) {
+                                  if (_descriptionController.text.isEmpty) {
+                                    _scrollToError(_descriptionFocusNode);
+                                  } else if (_priceController.text.isEmpty) {
+                                    _scrollToError(_priceFocusNode);
+                                  }
+                                } else if (weight == null) {
+                                  _scrollToError(_weightFocus);
+                                }
+                                return;
+                              }
+                              widget.onSubmit(
+                                OrderFormData(
+                                  widget.order?.uid,
+                                  widget.order?.oid,
+                                  widget.order?.status,
+                                  widget.order?.createdAt,
+                                  from: fromCity!,
+                                  to: toCity!,
+                                  description: _descriptionController.text,
+                                  weight: weight!,
+                                  price: _priceController.text,
+                                ),
+                              );
+                            },
+                    ),
+
+                    SizedBox(height: 10),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),

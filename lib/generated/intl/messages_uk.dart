@@ -158,6 +158,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Введіть ціну"),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID замовлення"),
+    "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
+      "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
+    ),
+    "orderOflineTitle": MessageLookupByLibrary.simpleMessage(
+      "Немає підключення до інтернету",
+    ),
     "orderPriceLabel": MessageLookupByLibrary.simpleMessage("Ціна"),
     "orderStatusActive": MessageLookupByLibrary.simpleMessage("Активний"),
     "orderStatusArchived": MessageLookupByLibrary.simpleMessage("Архів"),

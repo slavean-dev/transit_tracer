@@ -108,6 +108,7 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                   ),
                   SizedBox(height: 10),
                   CityAutocompleteField(
+                    enabled: true,
                     focusNode: _fromCityFocusNode,
                     onChanged: (_) => fromCity = null,
                     validator: (v) => AutocompleteValidate.city(v, fromCity),
@@ -123,6 +124,7 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                     icon: Icon(Icons.swap_vert),
                   ),
                   CityAutocompleteField(
+                    enabled: true,
                     focusNode: _toCityFocusNode,
                     onChanged: (_) => toCity = null,
                     validator: (v) => AutocompleteValidate.city(v, toCity),

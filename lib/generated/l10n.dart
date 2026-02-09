@@ -579,6 +579,26 @@ class S {
     return Intl.message('Contacts', name: 'contactCont', desc: '', args: []);
   }
 
+  /// `No internet connection`
+  String get orderOflineTitle {
+    return Intl.message(
+      'No internet connection',
+      name: 'orderOflineTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City selection fields are unavailable without an internet connection.`
+  String get orderOflineDescription {
+    return Intl.message(
+      'City selection fields are unavailable without an internet connection.',
+      name: 'orderOflineDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Order details`
   String get orderDetailsTitle {
     return Intl.message(
