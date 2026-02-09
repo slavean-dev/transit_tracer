@@ -29,8 +29,8 @@ class PersonalInfoContainer extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Text(S.of(context).dateOfBirth)],
                 ),
-                SizedBox(width: 14),
-                Column(
+                const SizedBox(width: 14),
+                const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [Text('October 26, 2002')],
                 ),

@@ -18,7 +18,7 @@ class ModalBottomSheet extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(15),
           topRight: Radius.circular(15),
         ),
@@ -41,7 +41,7 @@ class ModalBottomSheet extends StatelessWidget {
                 }
               },
             ),
-            Divider(),
+            const Divider(),
             ModalSheetListTile(
               theme: theme,
               title: S.of(context).takePhotoFromCamera,

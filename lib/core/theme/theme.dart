@@ -14,15 +14,15 @@ var darkTheme = ThemeData(
   scaffoldBackgroundColor: const Color(0xFF1E1F22),
 
   popupMenuTheme: PopupMenuThemeData(
-    color: Color(0xFF2C2C2C).withValues(alpha: 0.8),
+    color: const Color(0xFF2C2C2C).withValues(alpha: 0.8),
   ),
 
-  inputDecorationTheme: InputDecorationTheme(
+  inputDecorationTheme: const InputDecorationTheme(
     hintStyle: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
     labelStyle: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
   ),
 
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: Color(0xFF2A2B2F),
     foregroundColor: Colors.white,
     centerTitle: true,
@@ -31,21 +31,34 @@ var darkTheme = ThemeData(
 
   colorScheme: ColorScheme.fromSeed(
     seedColor: const Color(0xFFFFA632),
-    surface: Color(0xFF2A2B2F),
-    surfaceContainer: Color(0xFF3A3A40),
+    surface: const Color(0xFF2A2B2F),
+    surfaceContainer: const Color(0xFF3A3A40),
     onSurface: Colors.white,
     brightness: Brightness.dark,
   ),
 
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Color(0xFF2A2B2f),
-    selectedItemColor: const Color(0xFFFFA632),
+    selectedItemColor: Color(0xFFFFA632),
     unselectedItemColor: Colors.white54,
   ),
 
   textTheme: _baseTextTheme.apply(
     bodyColor: Colors.white,
     displayColor: Colors.white,
+  ),
+
+  iconTheme: const IconThemeData(color: Colors.white),
+
+  snackBarTheme: SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: const Color(0xFF2D3238),
+    contentTextStyle: const TextStyle(color: Colors.white, fontSize: 16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+      side: const BorderSide(color: Color(0xFF33373B), width: 1),
+    ),
+    elevation: 10,
   ),
 );
 
@@ -58,12 +71,12 @@ var lightTheme = ThemeData(
     color: Colors.white.withValues(alpha: 0.95),
   ),
 
-  inputDecorationTheme: InputDecorationTheme(
+  inputDecorationTheme: const InputDecorationTheme(
     hintStyle: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
     labelStyle: TextStyle(fontWeight: FontWeight.normal, fontSize: 16),
   ),
 
-  appBarTheme: AppBarTheme(
+  appBarTheme: const AppBarTheme(
     backgroundColor: Colors.white,
     foregroundColor: Colors.black,
 
@@ -74,20 +87,32 @@ var lightTheme = ThemeData(
   colorScheme: ColorScheme.fromSeed(
     seedColor: const Color(0xFFFFA632),
     surface: Colors.white,
-    surfaceContainer: Color(0xFFC8C8C8),
+    surfaceContainer: const Color(0xFFC8C8C8),
     onSurface: Colors.black,
     brightness: Brightness.light,
   ),
 
-  bottomNavigationBarTheme: BottomNavigationBarThemeData(
+  bottomNavigationBarTheme: const BottomNavigationBarThemeData(
     backgroundColor: Colors.white,
-    selectedItemColor: const Color(0xFFFFA632),
+    selectedItemColor: Color(0xFFFFA632),
     unselectedItemColor: Colors.black54,
   ),
+
+  iconTheme: const IconThemeData(color: Colors.black),
 
   textTheme: _baseTextTheme.apply(
     bodyColor: Colors.black,
     displayColor: Colors.black,
+  ),
+  snackBarTheme: SnackBarThemeData(
+    behavior: SnackBarBehavior.floating,
+    backgroundColor: Colors.white,
+    contentTextStyle: const TextStyle(color: Colors.black, fontSize: 16),
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(20),
+      side: BorderSide(color: Colors.grey.shade600, width: 1),
+    ),
+    elevation: 8,
   ),
 );
 

@@ -23,7 +23,7 @@ class DateField extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title),
-          SizedBox(height: 6),
+          const SizedBox(height: 6),
           GestureDetector(
             onTap: onTap,
             child: Container(

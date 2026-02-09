@@ -13,21 +13,33 @@ class PasswordStrengthMeterCubit extends Cubit<PasswordStrengthMeterState> {
     final int uppercaseCount = RegExp(r'[A-Z]').allMatches(password).length;
     final int numberCount = RegExp(r'\d').allMatches(password).length;
     final int specialCount = RegExp(
-      r'!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"\<>,\.\?\/\\',
+      r'[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"\<>,\.\?\/\\]',
     ).allMatches(password).length;
 
     if (password.length <= 8 ||
         uppercaseCount <= 1 ||
         numberCount <= 2 ||
         specialCount <= 1) {
-      emit(PasswordStrengthMeterChecked(color: Color(0xFFE53935), level: 0.33));
+      emit(
+        const PasswordStrengthMeterChecked(
+          color: Color(0xFFE53935),
+          level: 0.33,
+        ),
+      );
     } else if (password.length <= 10 ||
         uppercaseCount <= 2 ||
         numberCount <= 4 ||
         specialCount <= 3) {
-      emit(PasswordStrengthMeterChecked(color: Color(0xFFFFA000), level: 0.66));
+      emit(
+        const PasswordStrengthMeterChecked(
+          color: Color(0xFFFFA000),
+          level: 0.66,
+        ),
+      );
     } else {
-      emit(PasswordStrengthMeterChecked(color: Color(0xFF66BB6A), level: 1));
+      emit(
+        const PasswordStrengthMeterChecked(color: Color(0xFF66BB6A), level: 1),
+      );
     }
   }
 }

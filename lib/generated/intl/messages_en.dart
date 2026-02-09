@@ -33,20 +33,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutTheAppTitle": MessageLookupByLibrary.simpleMessage("About the app"),
     "aboutUsTitle": MessageLookupByLibrary.simpleMessage("About Us"),
     "above2000": MessageLookupByLibrary.simpleMessage("Over 2000 kg"),
-    "archiveTitle": MessageLookupByLibrary.simpleMessage("Arhive"),
+    "archiveTitle": MessageLookupByLibrary.simpleMessage("Arсhive"),
     "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
-    "bobottNavBarCreate": MessageLookupByLibrary.simpleMessage("Create"),
-    "bottNavBarOrders": MessageLookupByLibrary.simpleMessage("Orders"),
-    "bottNavBarProfile": MessageLookupByLibrary.simpleMessage("Profile"),
-    "bottNavBarSearch": MessageLookupByLibrary.simpleMessage("Search"),
-    "cargoDiscriptionHint": MessageLookupByLibrary.simpleMessage(
-      "Type, quantity, special requirements",
-    ),
-    "cargoDiscriptionLabel": MessageLookupByLibrary.simpleMessage(
-      "Cargo discription",
-    ),
-    "cargoWeightLabel": MessageLookupByLibrary.simpleMessage("Cargo weight"),
-    "cityFormHint": MessageLookupByLibrary.simpleMessage("Enter city"),
+    "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Open in map"),
+    "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archive"),
+    "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Delete"),
+    "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Edit order"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Client"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contacts"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -56,6 +48,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Dark theme:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Date"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
+    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Archive"),
+    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to archive this order? \nThis action cannot be undone.",
+    ),
+    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
+    "dialogCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to exit?",
+    ),
+    "dialogConfirmExitTitle": MessageLookupByLibrary.simpleMessage(
+      "Confirm exit",
+    ),
+    "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Delete"),
+    "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to delete this order? \nThis action cannot be undone.",
+    ),
+    "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Delete order"),
+    "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Exit"),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Don`t have Account? Tap here to create!",
     ),
@@ -66,44 +76,102 @@ class MessageLookup extends MessageLookupByLibrary {
     "editProfileDropMenu": MessageLookupByLibrary.simpleMessage("Edit profile"),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailForm": MessageLookupByLibrary.simpleMessage("Enter your Email"),
-    "firebaseValidationEmailInUse": MessageLookupByLibrary.simpleMessage(
+    "fieldFrom": MessageLookupByLibrary.simpleMessage("From"),
+    "fieldTo": MessageLookupByLibrary.simpleMessage("To"),
+    "firebaseErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
       "This email is already registered",
     ),
-    "firebaseValidationInvalidEmail": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorInvalidCredential": MessageLookupByLibrary.simpleMessage(
+      "Invalid credentials",
+    ),
+    "firebaseErrorInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Invalid email format",
     ),
-    "firebaseValidationSomethingWrong": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Network error. Please check your internet or try later.",
+    ),
+    "firebaseErrorNotFound": MessageLookupByLibrary.simpleMessage(
+      "Order not found. It might have been deleted.",
+    ),
+    "firebaseErrorPermissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Access denied. You don\'t have permission to edit this.",
+    ),
+    "firebaseErrorSomethingWrong": MessageLookupByLibrary.simpleMessage(
       "Something went wrong. Please try again",
     ),
-    "firebaseValidationUserNotFound": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorUnavailable": MessageLookupByLibrary.simpleMessage(
+      "Service unavailable. Please check your internet or try later.",
+    ),
+    "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "User with this email does not exist",
     ),
-    "firebaseValidationWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
       "Password is too weak",
     ),
-    "firebaseValidationWrongPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Incorrect password",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),
     "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 kg"),
-    "fromFormLable": MessageLookupByLibrary.simpleMessage("From"),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
-      "Have account? Tap here ro return!",
+      "Have account? Tap here to return!",
     ),
+    "hintEnterCity": MessageLookupByLibrary.simpleMessage("Enter city"),
     "languageDropMenu": MessageLookupByLibrary.simpleMessage("Language"),
     "logButton": MessageLookupByLibrary.simpleMessage("Login"),
     "loginForm": MessageLookupByLibrary.simpleMessage("Enter your Login"),
     "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
     "logout": MessageLookupByLibrary.simpleMessage("Logout"),
     "nameForm": MessageLookupByLibrary.simpleMessage("Enter your Name"),
+    "navCreate": MessageLookupByLibrary.simpleMessage("Create"),
+    "navOrders": MessageLookupByLibrary.simpleMessage("Orders"),
+    "navProfile": MessageLookupByLibrary.simpleMessage("Profile"),
+    "navSearch": MessageLookupByLibrary.simpleMessage("Search"),
+    "offlineModeMessage": MessageLookupByLibrary.simpleMessage("Offline mode"),
+    "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
+      "Saved locally, will sync later",
+    ),
+    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Cargo"),
+    "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Created"),
+    "orderDetailsTitle": MessageLookupByLibrary.simpleMessage("Order details"),
+    "orderEdit": MessageLookupByLibrary.simpleMessage("Edit"),
+    "orderEditSuccess": MessageLookupByLibrary.simpleMessage(
+      "Order edited successfully",
+    ),
+    "orderEditTitle": MessageLookupByLibrary.simpleMessage("Edit order"),
+    "orderFieldCargo": MessageLookupByLibrary.simpleMessage(
+      "Cargo description",
+    ),
+    "orderFieldCargoHint": MessageLookupByLibrary.simpleMessage(
+      "Type, quantity, special requirements",
+    ),
+    "orderFieldPrice": MessageLookupByLibrary.simpleMessage("Price"),
+    "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Enter price"),
+    "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Cargo weight"),
+    "orderIdLabel": MessageLookupByLibrary.simpleMessage("Order ID"),
+    "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
+      "City selection fields are unavailable without an internet connection.",
+    ),
+    "orderOflineTitle": MessageLookupByLibrary.simpleMessage(
+      "No internet connection",
+    ),
+    "orderPriceLabel": MessageLookupByLibrary.simpleMessage("Price"),
+    "orderStatusActive": MessageLookupByLibrary.simpleMessage("Active"),
+    "orderStatusArchived": MessageLookupByLibrary.simpleMessage("Archive"),
+    "orderStatusCompleted": MessageLookupByLibrary.simpleMessage("Completed"),
+    "orderStatusInProgress": MessageLookupByLibrary.simpleMessage(
+      "In progress",
+    ),
+    "orderStatusSyncing": MessageLookupByLibrary.simpleMessage("Syncing..."),
+    "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Weight"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Orders"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Make cargo delivery fast, accessible and trustworthy for everyone.",
     ),
     "ourMissionTitle": MessageLookupByLibrary.simpleMessage("Our Mission"),
-    "passwordCoinfirmForm": MessageLookupByLibrary.simpleMessage(
-      "Coinfirm your password",
+    "passwordConfirmForm": MessageLookupByLibrary.simpleMessage(
+      "Confirm your password",
     ),
     "passwordCreateForm": MessageLookupByLibrary.simpleMessage(
       "Create a password",
@@ -112,8 +180,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "personalInfoCont": MessageLookupByLibrary.simpleMessage("Personal info"),
     "phone": MessageLookupByLibrary.simpleMessage("Phone"),
     "phoneForm": MessageLookupByLibrary.simpleMessage("Enter your Phone"),
-    "priceFormHint": MessageLookupByLibrary.simpleMessage("Enter price"),
-    "priceFormLable": MessageLookupByLibrary.simpleMessage("Price"),
     "profileTitle": MessageLookupByLibrary.simpleMessage("Profile"),
     "registerButton": MessageLookupByLibrary.simpleMessage("Register"),
     "registrationTitle": MessageLookupByLibrary.simpleMessage("Registration"),
@@ -124,19 +190,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "takePhotoFromCamera": MessageLookupByLibrary.simpleMessage(
       "Take a photo from camera",
     ),
-    "toFormLable": MessageLookupByLibrary.simpleMessage("To"),
     "transitTracerTitle": MessageLookupByLibrary.simpleMessage("TransitTracer"),
     "upTo500kg": MessageLookupByLibrary.simpleMessage("Up to 500 kg"),
     "uploadPhotoFromGalery": MessageLookupByLibrary.simpleMessage(
       "Upload from gallery",
     ),
-    "validarionInvalidSurname": MessageLookupByLibrary.simpleMessage(
-      "Enter a valid surname",
-    ),
     "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
       "Field can`t be empty",
     ),
-    "validationInvalidCoinfirmPasswordDidntMatch":
+    "validationInvalidConfirmPasswordDidntMatch":
         MessageLookupByLibrary.simpleMessage("Passwords didn`t match"),
     "validationInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Enter a valid email",
@@ -158,6 +220,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "validationInvalidPhone": MessageLookupByLibrary.simpleMessage(
       "Enter a valid phone number",
+    ),
+    "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
+      "Enter a valid surname",
     ),
     "version": m0,
   };

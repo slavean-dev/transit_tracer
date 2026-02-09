@@ -25,12 +25,14 @@ class _TransitTracerAppState extends State<TransitTracerApp> {
   Widget build(BuildContext context) {
     return BlocBuilder<SettingsCubit, SettingsState>(
       builder: (context, state) {
-        ThemeMode themeMode = ThemeMode.system;
-        String langCode = 'en';
-        if (state is SettingsDataLoaded) {
-          themeMode = state.mode;
-          langCode = state.langCode;
-        }
+        // ThemeMode themeMode = ThemeMode.system;
+        // String langCode = 'en';
+        // if (state is SettingsDataLoaded) {
+        //   themeMode = state.mode;
+        //   langCode = state.langCode;
+        // }
+        final themeMode = state.mode;
+        final langCode = state.langCode;
         return MaterialApp.router(
           theme: lightTheme,
           darkTheme: darkTheme,

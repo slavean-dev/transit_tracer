@@ -164,20 +164,20 @@ class S {
     );
   }
 
-  /// `Coinfirm your password`
-  String get passwordCoinfirmForm {
+  /// `Confirm your password`
+  String get passwordConfirmForm {
     return Intl.message(
-      'Coinfirm your password',
-      name: 'passwordCoinfirmForm',
+      'Confirm your password',
+      name: 'passwordConfirmForm',
       desc: '',
       args: [],
     );
   }
 
-  /// `Have account? Tap here ro return!`
+  /// `Have account? Tap here to return!`
   String get haveAccTextButton {
     return Intl.message(
-      'Have account? Tap here ro return!',
+      'Have account? Tap here to return!',
       name: 'haveAccTextButton',
       desc: '',
       args: [],
@@ -210,10 +210,10 @@ class S {
   }
 
   /// `Enter a valid surname`
-  String get validarionInvalidSurname {
+  String get validationInvalidSurname {
     return Intl.message(
       'Enter a valid surname',
-      name: 'validarionInvalidSurname',
+      name: 'validationInvalidSurname',
       desc: '',
       args: [],
     );
@@ -280,103 +280,143 @@ class S {
   }
 
   /// `Passwords didn't match`
-  String get validationInvalidCoinfirmPasswordDidntMatch {
+  String get validationInvalidConfirmPasswordDidntMatch {
     return Intl.message(
       'Passwords didn`t match',
-      name: 'validationInvalidCoinfirmPasswordDidntMatch',
+      name: 'validationInvalidConfirmPasswordDidntMatch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Invalid credentials`
+  String get firebaseErrorInvalidCredential {
+    return Intl.message(
+      'Invalid credentials',
+      name: 'firebaseErrorInvalidCredential',
       desc: '',
       args: [],
     );
   }
 
   /// `This email is already registered`
-  String get firebaseValidationEmailInUse {
+  String get firebaseErrorEmailInUse {
     return Intl.message(
       'This email is already registered',
-      name: 'firebaseValidationEmailInUse',
+      name: 'firebaseErrorEmailInUse',
       desc: '',
       args: [],
     );
   }
 
   /// `Invalid email format`
-  String get firebaseValidationInvalidEmail {
+  String get firebaseErrorInvalidEmail {
     return Intl.message(
       'Invalid email format',
-      name: 'firebaseValidationInvalidEmail',
+      name: 'firebaseErrorInvalidEmail',
       desc: '',
       args: [],
     );
   }
 
   /// `Password is too weak`
-  String get firebaseValidationWeekPassword {
+  String get firebaseErrorWeekPassword {
     return Intl.message(
       'Password is too weak',
-      name: 'firebaseValidationWeekPassword',
+      name: 'firebaseErrorWeekPassword',
       desc: '',
       args: [],
     );
   }
 
   /// `User with this email does not exist`
-  String get firebaseValidationUserNotFound {
+  String get firebaseErrorUserNotFound {
     return Intl.message(
       'User with this email does not exist',
-      name: 'firebaseValidationUserNotFound',
+      name: 'firebaseErrorUserNotFound',
       desc: '',
       args: [],
     );
   }
 
   /// `Incorrect password`
-  String get firebaseValidationWrongPassword {
+  String get firebaseErrorWrongPassword {
     return Intl.message(
       'Incorrect password',
-      name: 'firebaseValidationWrongPassword',
+      name: 'firebaseErrorWrongPassword',
       desc: '',
       args: [],
     );
   }
 
   /// `Something went wrong. Please try again`
-  String get firebaseValidationSomethingWrong {
+  String get firebaseErrorSomethingWrong {
     return Intl.message(
       'Something went wrong. Please try again',
-      name: 'firebaseValidationSomethingWrong',
+      name: 'firebaseErrorSomethingWrong',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Access denied. You don't have permission to edit this.`
+  String get firebaseErrorPermissionDenied {
+    return Intl.message(
+      'Access denied. You don\'t have permission to edit this.',
+      name: 'firebaseErrorPermissionDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order not found. It might have been deleted.`
+  String get firebaseErrorNotFound {
+    return Intl.message(
+      'Order not found. It might have been deleted.',
+      name: 'firebaseErrorNotFound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Service unavailable. Please check your internet or try later.`
+  String get firebaseErrorUnavailable {
+    return Intl.message(
+      'Service unavailable. Please check your internet or try later.',
+      name: 'firebaseErrorUnavailable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Network error. Please check your internet or try later.`
+  String get firebaseErrorNetwork {
+    return Intl.message(
+      'Network error. Please check your internet or try later.',
+      name: 'firebaseErrorNetwork',
       desc: '',
       args: [],
     );
   }
 
   /// `Search`
-  String get bottNavBarSearch {
-    return Intl.message('Search', name: 'bottNavBarSearch', desc: '', args: []);
+  String get navSearch {
+    return Intl.message('Search', name: 'navSearch', desc: '', args: []);
   }
 
   /// `Create`
-  String get bobottNavBarCreate {
-    return Intl.message(
-      'Create',
-      name: 'bobottNavBarCreate',
-      desc: '',
-      args: [],
-    );
+  String get navCreate {
+    return Intl.message('Create', name: 'navCreate', desc: '', args: []);
   }
 
   /// `Orders`
-  String get bottNavBarOrders {
-    return Intl.message('Orders', name: 'bottNavBarOrders', desc: '', args: []);
+  String get navOrders {
+    return Intl.message('Orders', name: 'navOrders', desc: '', args: []);
   }
 
   /// `Profile`
-  String get bottNavBarProfile {
-    return Intl.message(
-      'Profile',
-      name: 'bottNavBarProfile',
-      desc: '',
-      args: [],
-    );
+  String get navProfile {
+    return Intl.message('Profile', name: 'navProfile', desc: '', args: []);
   }
 
   /// `Search Transport`
@@ -400,18 +440,23 @@ class S {
   }
 
   /// `From`
-  String get fromFormLable {
-    return Intl.message('From', name: 'fromFormLable', desc: '', args: []);
+  String get fieldFrom {
+    return Intl.message('From', name: 'fieldFrom', desc: '', args: []);
   }
 
   /// `To`
-  String get toFormLable {
-    return Intl.message('To', name: 'toFormLable', desc: '', args: []);
+  String get fieldTo {
+    return Intl.message('To', name: 'fieldTo', desc: '', args: []);
   }
 
   /// `Enter city`
-  String get cityFormHint {
-    return Intl.message('Enter city', name: 'cityFormHint', desc: '', args: []);
+  String get hintEnterCity {
+    return Intl.message(
+      'Enter city',
+      name: 'hintEnterCity',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Create order`
@@ -429,31 +474,31 @@ class S {
     return Intl.message('Create', name: 'create', desc: '', args: []);
   }
 
-  /// `Cargo discription`
-  String get cargoDiscriptionLabel {
+  /// `Cargo description`
+  String get orderFieldCargo {
     return Intl.message(
-      'Cargo discription',
-      name: 'cargoDiscriptionLabel',
+      'Cargo description',
+      name: 'orderFieldCargo',
       desc: '',
       args: [],
     );
   }
 
   /// `Type, quantity, special requirements`
-  String get cargoDiscriptionHint {
+  String get orderFieldCargoHint {
     return Intl.message(
       'Type, quantity, special requirements',
-      name: 'cargoDiscriptionHint',
+      name: 'orderFieldCargoHint',
       desc: '',
       args: [],
     );
   }
 
   /// `Cargo weight`
-  String get cargoWeightLabel {
+  String get orderFieldWeight {
     return Intl.message(
       'Cargo weight',
-      name: 'cargoWeightLabel',
+      name: 'orderFieldWeight',
       desc: '',
       args: [],
     );
@@ -500,15 +545,15 @@ class S {
   }
 
   /// `Price`
-  String get priceFormLable {
-    return Intl.message('Price', name: 'priceFormLable', desc: '', args: []);
+  String get orderFieldPrice {
+    return Intl.message('Price', name: 'orderFieldPrice', desc: '', args: []);
   }
 
   /// `Enter price`
-  String get priceFormHint {
+  String get orderFieldPriceHint {
     return Intl.message(
       'Enter price',
-      name: 'priceFormHint',
+      name: 'orderFieldPriceHint',
       desc: '',
       args: [],
     );
@@ -519,9 +564,9 @@ class S {
     return Intl.message('Orders', name: 'ordersTitle', desc: '', args: []);
   }
 
-  /// `Arhive`
+  /// `Arсhive`
   String get archiveTitle {
-    return Intl.message('Arhive', name: 'archiveTitle', desc: '', args: []);
+    return Intl.message('Arсhive', name: 'archiveTitle', desc: '', args: []);
   }
 
   /// `Profile`
@@ -532,6 +577,276 @@ class S {
   /// `Contacts`
   String get contactCont {
     return Intl.message('Contacts', name: 'contactCont', desc: '', args: []);
+  }
+
+  /// `No internet connection`
+  String get orderOflineTitle {
+    return Intl.message(
+      'No internet connection',
+      name: 'orderOflineTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City selection fields are unavailable without an internet connection.`
+  String get orderOflineDescription {
+    return Intl.message(
+      'City selection fields are unavailable without an internet connection.',
+      name: 'orderOflineDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Order details`
+  String get orderDetailsTitle {
+    return Intl.message(
+      'Order details',
+      name: 'orderDetailsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Syncing...`
+  String get orderStatusSyncing {
+    return Intl.message(
+      'Syncing...',
+      name: 'orderStatusSyncing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Active`
+  String get orderStatusActive {
+    return Intl.message(
+      'Active',
+      name: 'orderStatusActive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `In progress`
+  String get orderStatusInProgress {
+    return Intl.message(
+      'In progress',
+      name: 'orderStatusInProgress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Completed`
+  String get orderStatusCompleted {
+    return Intl.message(
+      'Completed',
+      name: 'orderStatusCompleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Archive`
+  String get orderStatusArchived {
+    return Intl.message(
+      'Archive',
+      name: 'orderStatusArchived',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Open in map`
+  String get btnOpenInMap {
+    return Intl.message(
+      'Open in map',
+      name: 'btnOpenInMap',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cargo`
+  String get orderCargoTitle {
+    return Intl.message('Cargo', name: 'orderCargoTitle', desc: '', args: []);
+  }
+
+  /// `Order ID`
+  String get orderIdLabel {
+    return Intl.message('Order ID', name: 'orderIdLabel', desc: '', args: []);
+  }
+
+  /// `Created`
+  String get orderCreatedDateLabel {
+    return Intl.message(
+      'Created',
+      name: 'orderCreatedDateLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Weight`
+  String get orderWeightLabel {
+    return Intl.message('Weight', name: 'orderWeightLabel', desc: '', args: []);
+  }
+
+  /// `Price`
+  String get orderPriceLabel {
+    return Intl.message('Price', name: 'orderPriceLabel', desc: '', args: []);
+  }
+
+  /// `Edit order`
+  String get btnOrderEdit {
+    return Intl.message('Edit order', name: 'btnOrderEdit', desc: '', args: []);
+  }
+
+  /// `Delete`
+  String get btnOrderDelete {
+    return Intl.message('Delete', name: 'btnOrderDelete', desc: '', args: []);
+  }
+
+  /// `Archive`
+  String get btnOrderArchive {
+    return Intl.message('Archive', name: 'btnOrderArchive', desc: '', args: []);
+  }
+
+  /// `Confirm exit`
+  String get dialogConfirmExitTitle {
+    return Intl.message(
+      'Confirm exit',
+      name: 'dialogConfirmExitTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to exit?`
+  String get dialogConfirmExitMessage {
+    return Intl.message(
+      'Are you sure you want to exit?',
+      name: 'dialogConfirmExitMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Exit`
+  String get dialogExitConfirm {
+    return Intl.message('Exit', name: 'dialogExitConfirm', desc: '', args: []);
+  }
+
+  /// `Archive order`
+  String get dialogAtchiveTitle {
+    return Intl.message(
+      'Archive order',
+      name: 'dialogAtchiveTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to archive this order? \nThis action cannot be undone.`
+  String get dialogAtchiveMessage {
+    return Intl.message(
+      'Are you sure you want to archive this order? \nThis action cannot be undone.',
+      name: 'dialogAtchiveMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Archive`
+  String get dialogAtchiveConfirm {
+    return Intl.message(
+      'Archive',
+      name: 'dialogAtchiveConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete order`
+  String get dialogDeleteTitle {
+    return Intl.message(
+      'Delete order',
+      name: 'dialogDeleteTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to delete this order? \nThis action cannot be undone.`
+  String get dialogDeleteMessage {
+    return Intl.message(
+      'Are you sure you want to delete this order? \nThis action cannot be undone.',
+      name: 'dialogDeleteMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Delete`
+  String get dialogDeleteConfirm {
+    return Intl.message(
+      'Delete',
+      name: 'dialogDeleteConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get dialogCancel {
+    return Intl.message('Cancel', name: 'dialogCancel', desc: '', args: []);
+  }
+
+  /// `Edit order`
+  String get orderEditTitle {
+    return Intl.message(
+      'Edit order',
+      name: 'orderEditTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Edit`
+  String get orderEdit {
+    return Intl.message('Edit', name: 'orderEdit', desc: '', args: []);
+  }
+
+  /// `Order edited successfully`
+  String get orderEditSuccess {
+    return Intl.message(
+      'Order edited successfully',
+      name: 'orderEditSuccess',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Offline mode`
+  String get offlineModeMessage {
+    return Intl.message(
+      'Offline mode',
+      name: 'offlineModeMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Saved locally, will sync later`
+  String get offlineSaveMessage {
+    return Intl.message(
+      'Saved locally, will sync later',
+      name: 'offlineSaveMessage',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Email`

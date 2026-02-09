@@ -35,18 +35,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "above2000": MessageLookupByLibrary.simpleMessage("Понад 2000 кг"),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Архів"),
     "avatar": MessageLookupByLibrary.simpleMessage("Аватар"),
-    "bobottNavBarCreate": MessageLookupByLibrary.simpleMessage("Створити"),
-    "bottNavBarOrders": MessageLookupByLibrary.simpleMessage("Замовлення"),
-    "bottNavBarProfile": MessageLookupByLibrary.simpleMessage("Профіль"),
-    "bottNavBarSearch": MessageLookupByLibrary.simpleMessage("Пошук"),
-    "cargoDiscriptionHint": MessageLookupByLibrary.simpleMessage(
-      "Тип, кількість, особливі вимоги",
+    "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Відкрити на карті"),
+    "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Видалити"),
+    "btnOrderEdit": MessageLookupByLibrary.simpleMessage(
+      "Редагувати замовлення",
     ),
-    "cargoDiscriptionLabel": MessageLookupByLibrary.simpleMessage(
-      "Опис вантажу",
-    ),
-    "cargoWeightLabel": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
-    "cityFormHint": MessageLookupByLibrary.simpleMessage("Введіть місто"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Клієнт"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Контакти"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -56,6 +50,26 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Темна тема:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Дата"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Дата народження"),
+    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
+    ),
+    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Архівування замовлення",
+    ),
+    "dialogCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
+    "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете вийти?",
+    ),
+    "dialogConfirmExitTitle": MessageLookupByLibrary.simpleMessage("Вихід"),
+    "dialogDeleteConfirm": MessageLookupByLibrary.simpleMessage("Видалити"),
+    "dialogDeleteMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете видалити це замовлення? \nЦю дію не можна скасувати.",
+    ),
+    "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage(
+      "Видалити замовлення",
+    ),
+    "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Вихід"),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Немає аккаунту? Натисніть тут щоб створити!",
     ),
@@ -68,43 +82,103 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "email": MessageLookupByLibrary.simpleMessage("Email"),
     "emailForm": MessageLookupByLibrary.simpleMessage("Введіть ваш Email"),
-    "firebaseValidationEmailInUse": MessageLookupByLibrary.simpleMessage(
+    "fieldFrom": MessageLookupByLibrary.simpleMessage("Звідки"),
+    "fieldTo": MessageLookupByLibrary.simpleMessage("Куди"),
+    "firebaseErrorEmailInUse": MessageLookupByLibrary.simpleMessage(
       "Ця електронна адреса вже зареєстрована",
     ),
-    "firebaseValidationInvalidEmail": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorInvalidCredential": MessageLookupByLibrary.simpleMessage(
+      "Недійсні дані",
+    ),
+    "firebaseErrorInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Недійсний формат електронної пошти",
     ),
-    "firebaseValidationSomethingWrong": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Помилка мережі. Перевірте підключення до Інтернету або спробуйте пізніше.",
+    ),
+    "firebaseErrorNotFound": MessageLookupByLibrary.simpleMessage(
+      "Замовлення не знайдено. Можливо було видалено.",
+    ),
+    "firebaseErrorPermissionDenied": MessageLookupByLibrary.simpleMessage(
+      "Доступ заборонений. Ви не маєте дозволу змінювати це.",
+    ),
+    "firebaseErrorSomethingWrong": MessageLookupByLibrary.simpleMessage(
       "Щось пішло не так. Спробуйте ще раз.",
     ),
-    "firebaseValidationUserNotFound": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorUnavailable": MessageLookupByLibrary.simpleMessage(
+      "Послуга недоступна. Перевірте ваше з\'єднання з інтернетом або спробуйте пізніше.",
+    ),
+    "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "Користувача з цією електронною адресою не існує",
     ),
-    "firebaseValidationWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
       "Пароль занадто слабкий",
     ),
-    "firebaseValidationWrongPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Невірний пароль",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 кг"),
     "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 кг"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 кг"),
-    "fromFormLable": MessageLookupByLibrary.simpleMessage("Звідки"),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
       "Маєте аккаунт? Натисніть тут щоб повернутись!",
     ),
+    "hintEnterCity": MessageLookupByLibrary.simpleMessage("Введіть місто"),
     "languageDropMenu": MessageLookupByLibrary.simpleMessage("Мова:"),
     "logButton": MessageLookupByLibrary.simpleMessage("Вхід"),
     "loginForm": MessageLookupByLibrary.simpleMessage("Введіть ваш Логін"),
     "loginTitle": MessageLookupByLibrary.simpleMessage("Логін"),
     "logout": MessageLookupByLibrary.simpleMessage("Вихід"),
     "nameForm": MessageLookupByLibrary.simpleMessage("Введіть ваше Ім\'я"),
+    "navCreate": MessageLookupByLibrary.simpleMessage("Створити"),
+    "navOrders": MessageLookupByLibrary.simpleMessage("Замовлення"),
+    "navProfile": MessageLookupByLibrary.simpleMessage("Профіль"),
+    "navSearch": MessageLookupByLibrary.simpleMessage("Пошук"),
+    "offlineModeMessage": MessageLookupByLibrary.simpleMessage("Оффлайн режим"),
+    "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
+      "Збережено локально, буде відправлено пізніше",
+    ),
+    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
+    "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Створено"),
+    "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
+      "Деталі замовлення",
+    ),
+    "orderEdit": MessageLookupByLibrary.simpleMessage("Редагування"),
+    "orderEditSuccess": MessageLookupByLibrary.simpleMessage(
+      "Замовлення змінено успішно",
+    ),
+    "orderEditTitle": MessageLookupByLibrary.simpleMessage(
+      "Редагування замовлення",
+    ),
+    "orderFieldCargo": MessageLookupByLibrary.simpleMessage("Опис вантажу"),
+    "orderFieldCargoHint": MessageLookupByLibrary.simpleMessage(
+      "Тип, кількість, особливі вимоги",
+    ),
+    "orderFieldPrice": MessageLookupByLibrary.simpleMessage("Ціна"),
+    "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Введіть ціну"),
+    "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
+    "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID замовлення"),
+    "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
+      "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
+    ),
+    "orderOflineTitle": MessageLookupByLibrary.simpleMessage(
+      "Немає підключення до інтернету",
+    ),
+    "orderPriceLabel": MessageLookupByLibrary.simpleMessage("Ціна"),
+    "orderStatusActive": MessageLookupByLibrary.simpleMessage("Активний"),
+    "orderStatusArchived": MessageLookupByLibrary.simpleMessage("Архів"),
+    "orderStatusCompleted": MessageLookupByLibrary.simpleMessage("Завершено"),
+    "orderStatusInProgress": MessageLookupByLibrary.simpleMessage("У процесі"),
+    "orderStatusSyncing": MessageLookupByLibrary.simpleMessage(
+      "Синхронізація...",
+    ),
+    "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Вага"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Зробити доставку вантажів швидкою, доступною та надійною для кожного.",
     ),
     "ourMissionTitle": MessageLookupByLibrary.simpleMessage("Наша місія"),
-    "passwordCoinfirmForm": MessageLookupByLibrary.simpleMessage(
+    "passwordConfirmForm": MessageLookupByLibrary.simpleMessage(
       "Підтвердіть пароль",
     ),
     "passwordCreateForm": MessageLookupByLibrary.simpleMessage(
@@ -116,8 +190,6 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "phone": MessageLookupByLibrary.simpleMessage("Телефон"),
     "phoneForm": MessageLookupByLibrary.simpleMessage("Введіть ваш телефон"),
-    "priceFormHint": MessageLookupByLibrary.simpleMessage("Введіть ціну"),
-    "priceFormLable": MessageLookupByLibrary.simpleMessage("Ціна"),
     "profileTitle": MessageLookupByLibrary.simpleMessage("Профіль"),
     "registerButton": MessageLookupByLibrary.simpleMessage("Зареєструвати"),
     "registrationTitle": MessageLookupByLibrary.simpleMessage("Реєстрація"),
@@ -130,19 +202,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "takePhotoFromCamera": MessageLookupByLibrary.simpleMessage(
       "Зробити фото з камери",
     ),
-    "toFormLable": MessageLookupByLibrary.simpleMessage("Куди"),
     "transitTracerTitle": MessageLookupByLibrary.simpleMessage("TransitTracer"),
     "upTo500kg": MessageLookupByLibrary.simpleMessage("До 500 кг"),
     "uploadPhotoFromGalery": MessageLookupByLibrary.simpleMessage(
       "Завантажити з галереї",
     ),
-    "validarionInvalidSurname": MessageLookupByLibrary.simpleMessage(
-      "Введіть дійсне прізвище",
-    ),
     "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
       "Поле не може бути порожнім",
     ),
-    "validationInvalidCoinfirmPasswordDidntMatch":
+    "validationInvalidConfirmPasswordDidntMatch":
         MessageLookupByLibrary.simpleMessage("Паролі не збігалися"),
     "validationInvalidEmail": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсну електронну адресу",
@@ -164,6 +232,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "validationInvalidPhone": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсний номер телефону",
+    ),
+    "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
+      "Введіть дійсне прізвище",
     ),
     "version": m0,
   };

@@ -25,10 +25,10 @@ class ContactsContainer extends StatelessWidget {
               ),
             ),
             Divider(color: theme.colorScheme.inverseSurface),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
             Row(
               children: [
-                Text('• '),
+                const Text('• '),
                 Expanded(
                   child: InkWell(
                     onTap: () async {
@@ -39,7 +39,7 @@ class ContactsContainer extends StatelessWidget {
 
                       await launchUrl(uri);
                     },
-                    child: Text(
+                    child: const Text(
                       SupEmail.supEmail,
                       style: TextStyle(
                         color: Colors.blueAccent,
@@ -52,17 +52,17 @@ class ContactsContainer extends StatelessWidget {
             ),
             Row(
               children: [
-                Text('• '),
+                const Text('• '),
                 Expanded(child: Text(S.of(context).version(AppInfo.version))),
               ],
             ),
             Row(
               children: [
-                Text('• '),
+                const Text('• '),
                 Expanded(child: Text(S.of(context).contactsRegions)),
               ],
             ),
-            SizedBox(height: 8),
+            const SizedBox(height: 8),
           ],
         ),
       ),

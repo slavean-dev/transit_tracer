@@ -23,6 +23,6 @@ class PasswordStrengthMeterChecked extends PasswordStrengthMeterState {
 }
 
 class PasswordFieldEmpty extends PasswordStrengthMeterState {
-  final Color color = Color(0xFF3A3A3C);
+  final Color color = const Color(0xFF3A3A3C);
   final double level = 0;
 }

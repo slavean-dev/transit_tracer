@@ -30,7 +30,7 @@ class UserRoleSelector extends StatelessWidget {
             isSelected: selected == UserRole.client,
             onTap: () => onChange(UserRole.client),
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: 8),
           RoleButton(
             theme: theme,
             lable: S.of(context).driverTab,

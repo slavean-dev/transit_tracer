@@ -2,11 +2,11 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:transit_tracer/core/models/auth_error_type/auth_error_type.dart';
+import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
 import 'package:transit_tracer/features/auth/view/auth_view.dart';
 import 'package:transit_tracer/features/auth/bloc/auth_bloc.dart';
 import 'package:transit_tracer/features/auth/cubit/password_strength_meter_cubit.dart';
-import 'package:transit_tracer/features/auth/widgets/blur_loader/blur_loader.dart';
+import 'package:transit_tracer/core/widgets/blur_loader/blur_loader.dart';
 
 @RoutePage()
 class AuthScreen extends StatefulWidget {
@@ -19,11 +19,11 @@ class AuthScreen extends StatefulWidget {
 class _AuthScreenState extends State<AuthScreen> {
   final _formKey = GlobalKey<FormState>();
 
-  AuthErrorType? loginEmailErrorType;
-  AuthErrorType? loginPasswordErrorType;
+  FirebaseErrorType? loginEmailErrorType;
+  FirebaseErrorType? loginPasswordErrorType;
 
-  AuthErrorType? registerEmailErrorType;
-  AuthErrorType? registerPasswordErrorType;
+  FirebaseErrorType? registerEmailErrorType;
+  FirebaseErrorType? registerPasswordErrorType;
 
   @override
   Widget build(BuildContext context) {

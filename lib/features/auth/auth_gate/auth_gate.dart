@@ -16,7 +16,9 @@ class AuthGate extends StatelessWidget {
       builder: (context, snapshot) {
         final user = snapshot.data;
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Scaffold(body: Center(child: CircularProgressIndicator()));
+          return const Scaffold(
+            body: Center(child: CircularProgressIndicator()),
+          );
         }
         return AutoRouter.declarative(
           routes: (_) => [

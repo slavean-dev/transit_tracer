@@ -20,7 +20,7 @@ void main() async {
   runApp(
     BlocProvider(
       create: (context) => GetIt.I<SettingsCubit>(),
-      child: TransitTracerApp(),
+      child: const TransitTracerApp(),
     ),
   );
 }

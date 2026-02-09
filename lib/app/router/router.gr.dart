@@ -92,18 +92,46 @@ class AuthRoute extends PageRouteInfo<void> {
 
 /// generated route for
 /// [CreateOrderScreen]
-class CreateOrderRoute extends PageRouteInfo<void> {
-  const CreateOrderRoute({List<PageRouteInfo>? children})
-    : super(CreateOrderRoute.name, initialChildren: children);
+class CreateOrderRoute extends PageRouteInfo<CreateOrderRouteArgs> {
+  CreateOrderRoute({Key? key, List<PageRouteInfo>? children})
+    : super(
+        CreateOrderRoute.name,
+        args: CreateOrderRouteArgs(key: key),
+        initialChildren: children,
+      );
 
   static const String name = 'CreateOrderRoute';
 
   static PageInfo page = PageInfo(
     name,
     builder: (data) {
-      return CreateOrderScreen();
+      final args = data.argsAs<CreateOrderRouteArgs>(
+        orElse: () => const CreateOrderRouteArgs(),
+      );
+      return CreateOrderScreen(key: args.key);
     },
   );
+}
+
+class CreateOrderRouteArgs {
+  const CreateOrderRouteArgs({this.key});
+
+  final Key? key;
+
+  @override
+  String toString() {
+    return 'CreateOrderRouteArgs{key: $key}';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! CreateOrderRouteArgs) return false;
+    return key == other.key;
+  }
+
+  @override
+  int get hashCode => key.hashCode;
 }
 
 /// generated route for
@@ -174,11 +202,16 @@ class HomeRoute extends PageRouteInfo<void> {
 class OrderDetailsRoute extends PageRouteInfo<OrderDetailsRouteArgs> {
   OrderDetailsRoute({
     Key? key,
-    required OrderData order,
+    required String oid,
+    required OrderData initialData,
     List<PageRouteInfo>? children,
   }) : super(
          OrderDetailsRoute.name,
-         args: OrderDetailsRouteArgs(key: key, order: order),
+         args: OrderDetailsRouteArgs(
+           key: key,
+           oid: oid,
+           initialData: initialData,
+         ),
          initialChildren: children,
        );
 
@@ -188,32 +221,44 @@ class OrderDetailsRoute extends PageRouteInfo<OrderDetailsRouteArgs> {
     name,
     builder: (data) {
       final args = data.argsAs<OrderDetailsRouteArgs>();
-      return OrderDetailsScreen(key: args.key, order: args.order);
+      return OrderDetailsScreen(
+        key: args.key,
+        oid: args.oid,
+        initialData: args.initialData,
+      );
     },
   );
 }
 
 class OrderDetailsRouteArgs {
-  const OrderDetailsRouteArgs({this.key, required this.order});
+  const OrderDetailsRouteArgs({
+    this.key,
+    required this.oid,
+    required this.initialData,
+  });
 
   final Key? key;
 
-  final OrderData order;
+  final String oid;
+
+  final OrderData initialData;
 
   @override
   String toString() {
-    return 'OrderDetailsRouteArgs{key: $key, order: $order}';
+    return 'OrderDetailsRouteArgs{key: $key, oid: $oid, initialData: $initialData}';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
     if (other is! OrderDetailsRouteArgs) return false;
-    return key == other.key && order == other.order;
+    return key == other.key &&
+        oid == other.oid &&
+        initialData == other.initialData;
   }
 
   @override
-  int get hashCode => key.hashCode ^ order.hashCode;
+  int get hashCode => key.hashCode ^ oid.hashCode ^ initialData.hashCode;
 }
 
 /// generated route for

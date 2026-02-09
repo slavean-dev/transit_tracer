@@ -29,10 +29,10 @@ class ProfileAvatar extends StatelessWidget {
               }
               return imageUrl != null
                   ? ClipOval(child: Image.network(imageUrl!))
-                  : Icon(
+                  : const Icon(
                       Icons.person,
                       size: 175,
-                      color: const Color.fromARGB(255, 134, 173, 241),
+                      color: Color.fromARGB(255, 134, 173, 241),
                     );
             },
           ),
@@ -59,7 +59,7 @@ class ProfileAvatar extends StatelessWidget {
                 shape: BoxShape.circle,
                 color: Theme.of(context).primaryColor,
               ),
-              padding: EdgeInsets.all(6),
+              padding: const EdgeInsets.all(6),
               child: Center(
                 child: Icon(
                   Icons.camera_alt,

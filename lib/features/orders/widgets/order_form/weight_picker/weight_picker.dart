@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/features/orders/models/weight_range/weight_range.dart';
+import 'package:transit_tracer/features/orders/data/models/weight_range/weight_range.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 import 'package:transit_tracer/presentation/mappers/weight_range_mapper.dart';
 
@@ -10,21 +10,27 @@ class WeightPicker extends StatelessWidget {
     required this.onChange,
     required this.onSaved,
     required this.validator,
+    this.initialValue,
+    required this.focusNode,
   });
+
+  final WeightRange? initialValue;
 
   final ThemeData theme;
   final ValueChanged<WeightRange?> onChange;
   final FormFieldSetter<WeightRange> onSaved;
   final FormFieldValidator<WeightRange> validator;
+  final FocusNode focusNode;
 
   @override
   Widget build(BuildContext context) {
     final S s = S.of(context);
     return DropdownButtonFormField<WeightRange>(
+      focusNode: focusNode,
       style: theme.textTheme.bodyMedium,
-      initialValue: null,
+      initialValue: initialValue,
       decoration: InputDecoration(
-        labelText: s.cargoWeightLabel,
+        labelText: s.orderFieldWeight,
         filled: true,
         fillColor: theme.colorScheme.surfaceContainer,
 

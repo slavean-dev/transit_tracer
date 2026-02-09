@@ -7,7 +7,7 @@ import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/core/widgets/city_autocomplete_field.dart';
 import 'package:transit_tracer/core/utils/string_utils.dart';
 import 'package:transit_tracer/core/validators/autocomplete_validate.dart';
-import 'package:transit_tracer/features/orders/models/city_point/city_point.dart';
+import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/transports/widgets/date_field/date_field.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
@@ -22,6 +22,9 @@ class TransportSearchPage extends StatefulWidget {
 class _TransportSearchPageState extends State<TransportSearchPage> {
   late final TextEditingController _fromCityController;
   late final TextEditingController _toCityController;
+
+  final FocusNode _fromCityFocusNode = FocusNode();
+  final FocusNode _toCityFocusNode = FocusNode();
 
   CityPoint? fromCity;
   CityPoint? toCity;
@@ -103,12 +106,14 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                       style: theme.textTheme.titleLarge,
                     ),
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                   CityAutocompleteField(
+                    enabled: true,
+                    focusNode: _fromCityFocusNode,
                     onChanged: (_) => fromCity = null,
                     validator: (v) => AutocompleteValidate.city(v, fromCity),
-                    //key: const ValueKey('from_field'),
-                    title: S.of(context).fromFormLable,
+
+                    title: S.of(context).fieldFrom,
                     controller: _fromCityController,
                     theme: theme,
                   ),
@@ -116,24 +121,26 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                     onPressed: () {
                       _swapCities();
                     },
-                    icon: Icon(Icons.swap_vert),
+                    icon: const Icon(Icons.swap_vert),
                   ),
                   CityAutocompleteField(
+                    enabled: true,
+                    focusNode: _toCityFocusNode,
                     onChanged: (_) => toCity = null,
                     validator: (v) => AutocompleteValidate.city(v, toCity),
-                    //key: const ValueKey('to_field'),
-                    title: S.of(context).toFormLable,
+
+                    title: S.of(context).fieldTo,
                     controller: _toCityController,
                     theme: theme,
                   ),
-                  SizedBox(height: 6),
+                  const SizedBox(height: 6),
                   DateField(
                     title: S.of(context).dateLabel,
                     theme: theme,
                     dateLable: _dateLable,
                     onTap: _pickDate,
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   BaseButton(
                     onPressed: () {
                       final from = _fromCityController.text;

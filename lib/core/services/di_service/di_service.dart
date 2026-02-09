@@ -6,13 +6,16 @@ import 'package:flutter/foundation.dart';
 import 'package:get_it/get_it.dart';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:transit_tracer/core/services/network_service/network_service.dart';
+import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/user/bloc/app_user_bloc.dart';
 import 'package:transit_tracer/core/data/repositories/media_repository/abstract_media_repository.dart';
 import 'package:transit_tracer/core/data/repositories/media_repository/firebase_media_repository.dart';
-import 'package:transit_tracer/features/orders/bloc/orders_bloc.dart';
-import 'package:transit_tracer/features/orders/order_data_repository/abstract_order_repository.dart';
-import 'package:transit_tracer/features/orders/order_data_repository/order_data_repository.dart';
+import 'package:transit_tracer/features/orders/bloc/orders_bloc/orders_bloc.dart';
+import 'package:transit_tracer/features/orders/data/order_data_repository/abstract_order_repository.dart';
+import 'package:transit_tracer/features/orders/data/order_data_repository/order_data_repository.dart';
 import 'package:transit_tracer/features/user/user_data_repository/abstract_user_data.dart';
 import 'package:transit_tracer/features/user/user_data_repository/user_data_repository.dart';
 import 'package:transit_tracer/features/settings/cubit/settings_cubit.dart';
@@ -34,6 +37,12 @@ import 'package:transit_tracer/core/services/media_service/media_service.dart';
 class DiService {
   void initDI(SharedPreferences prefs) async {
     final getIt = GetIt.I;
+
+    getIt.registerSingleton<InternetConnection>(InternetConnection());
+
+    getIt.registerSingleton<NetworkService>(
+      NetworkService(checker: getIt<InternetConnection>()),
+    );
 
     getIt.registerSingleton<AppRouter>(AppRouter());
 
@@ -68,7 +77,10 @@ class DiService {
     );
 
     getIt.registerFactory(
-      () => SettingsCubit(getIt<AbstractSettingsRepository>()),
+      () => SettingsCubit(
+        getIt<AbstractSettingsRepository>(),
+        getIt<NetworkService>(),
+      ),
     );
 
     getIt.registerSingleton<AbstractAuthRepository>(
@@ -104,6 +116,13 @@ class DiService {
       ProfileRepository(
         media: getIt<AbstractMediaRepository>(),
         userData: getIt<AbstractUserDataRepository>(),
+      ),
+    );
+
+    getIt.registerFactory(
+      () => OrderDetailsBloc(
+        getIt<AbstractOrderRepository>(),
+        getIt<NetworkService>(),
       ),
     );
 
