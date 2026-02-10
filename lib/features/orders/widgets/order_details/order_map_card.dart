@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/core/utils/map_launcher.dart';
+import 'package:transit_tracer/core/utils/maps/map_launcher.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
-import 'package:transit_tracer/features/orders/widgets/action_button/action_button.dart';
-import 'package:transit_tracer/features/orders/view/order_details/widgets/order_route_map_preview.dart';
+import 'package:transit_tracer/features/orders/widgets/common/action_button/action_button.dart';
+import 'package:transit_tracer/features/orders/widgets/order_details/order_route_map_preview.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 class OrderMapCard extends StatelessWidget {

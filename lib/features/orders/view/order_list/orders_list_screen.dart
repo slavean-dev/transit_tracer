@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/app/router/router.dart';
 import 'package:transit_tracer/features/orders/bloc/orders_bloc/orders_bloc.dart';
-import 'package:transit_tracer/features/orders/widgets/order_card/order_card.dart';
+import 'package:transit_tracer/features/orders/widgets/common/order_card/order_card.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 @RoutePage()

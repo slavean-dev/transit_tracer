@@ -2,11 +2,11 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/core/utils/app_dialog.dart';
+import 'package:transit_tracer/core/utils/ui/app_dialog.dart';
 import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
-import 'package:transit_tracer/features/orders/widgets/action_button/action_button.dart';
+import 'package:transit_tracer/features/orders/widgets/common/action_button/action_button.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 class OrderActionSection extends StatelessWidget {

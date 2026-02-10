@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/core/utils/date_time_utils.dart';
-import 'package:transit_tracer/core/utils/num_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/date_time_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/num_utils.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/generated/l10n.dart';
-import 'package:transit_tracer/presentation/mappers/weight_range_mapper.dart';
+import 'package:transit_tracer/core/utils/mappers/weight_range_mapper.dart';
 
 class OrderInfoCard extends StatelessWidget {
   const OrderInfoCard({super.key, required this.theme, required this.order});
