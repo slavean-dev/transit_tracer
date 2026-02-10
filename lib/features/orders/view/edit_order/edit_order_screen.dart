@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:transit_tracer/core/firebase_error_handler/error_translator/error_translator.dart';
-import 'package:transit_tracer/core/utils/app_snack_bar.dart';
+import 'package:transit_tracer/core/utils/ui/app_snack_bar.dart';
 import 'package:transit_tracer/core/widgets/blur_loader/blur_loader.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';

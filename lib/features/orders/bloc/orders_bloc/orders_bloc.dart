@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
-import 'package:transit_tracer/features/orders/data/models/weight_range/weight_range.dart';
+import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
 import 'package:transit_tracer/features/orders/data/order_data_repository/abstract_order_repository.dart';
 
 part 'orders_event.dart';

@@ -6,7 +6,7 @@ import 'package:transit_tracer/core/services/network_service/network_service.dar
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
-import 'package:transit_tracer/features/orders/data/models/weight_range/weight_range.dart';
+import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
 import 'package:transit_tracer/features/orders/data/order_data_repository/abstract_order_repository.dart';
 
 part 'order_details_event.dart';

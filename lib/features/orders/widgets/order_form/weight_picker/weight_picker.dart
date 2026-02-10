@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/features/orders/data/models/weight_range/weight_range.dart';
+import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
 import 'package:transit_tracer/generated/l10n.dart';
-import 'package:transit_tracer/presentation/mappers/weight_range_mapper.dart';
+import 'package:transit_tracer/core/utils/mappers/weight_range_mapper.dart';
 
 class WeightPicker extends StatelessWidget {
   const WeightPicker({

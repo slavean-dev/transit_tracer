@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/core/utils/num_utils.dart';
-import 'package:transit_tracer/core/utils/string_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/num_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/string_utils.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 
 class OrderCard extends StatefulWidget {

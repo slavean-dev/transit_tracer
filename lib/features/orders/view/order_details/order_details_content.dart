@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
-import 'package:transit_tracer/features/orders/utils/order_status_mapper/order_status_mapper.dart';
-import 'package:transit_tracer/features/orders/view/order_details/widgets/order_action_section.dart';
-import 'package:transit_tracer/features/orders/view/order_details/widgets/order_description_card.dart';
-import 'package:transit_tracer/features/orders/view/order_details/widgets/order_info_card.dart';
-import 'package:transit_tracer/features/orders/view/order_details/widgets/order_map_card.dart';
-import 'package:transit_tracer/features/orders/view/order_details/widgets/order_summary_header.dart';
+import 'package:transit_tracer/features/orders/presentation/order_status/order_status_mapper.dart';
+import 'package:transit_tracer/features/orders/widgets/order_details/order_action_section.dart';
+import 'package:transit_tracer/features/orders/widgets/order_details/order_description_card.dart';
+import 'package:transit_tracer/features/orders/widgets/order_details/order_info_card.dart';
+import 'package:transit_tracer/features/orders/widgets/order_details/order_map_card.dart';
+import 'package:transit_tracer/features/orders/widgets/order_details/order_summary_header.dart';
 
 class OrderDetailsContent extends StatelessWidget {
   const OrderDetailsContent({

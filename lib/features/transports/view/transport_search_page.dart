@@ -5,7 +5,7 @@ import 'package:transit_tracer/app/router/router.dart';
 import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/core/widgets/city_autocomplete_field.dart';
-import 'package:transit_tracer/core/utils/string_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/string_utils.dart';
 import 'package:transit_tracer/core/validators/autocomplete_validate.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/transports/widgets/date_field/date_field.dart';

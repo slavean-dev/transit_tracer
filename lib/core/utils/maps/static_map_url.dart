@@ -1,4 +1,4 @@
-import 'package:transit_tracer/core/utils/polyline_decode.dart';
+import 'package:transit_tracer/core/utils/mappers/polyline_decode.dart';
 
 class StaticMapUrl {
   static String buildRoutePreview({

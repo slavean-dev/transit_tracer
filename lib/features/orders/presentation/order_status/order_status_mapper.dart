@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
-import 'package:transit_tracer/features/orders/utils/order_status_mapper/model/order_status_ui.dart';
+import 'package:transit_tracer/features/orders/presentation/order_status/order_status_ui_model.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 OrderStatusUiModel getStatusStyle({

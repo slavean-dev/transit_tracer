@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:transit_tracer/core/services/network_service/network_service.dart';
 
-import 'package:transit_tracer/core/utils/polyline_decode.dart';
-import 'package:transit_tracer/core/utils/static_map_url.dart';
+import 'package:transit_tracer/core/utils/mappers/polyline_decode.dart';
+import 'package:transit_tracer/core/utils/maps/static_map_url.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/core/services/env_service/env_service.dart';
 import 'package:transit_tracer/core/services/google_route_service/google_route_service.dart';

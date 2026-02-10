@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/core/utils/num_utils.dart';
-import 'package:transit_tracer/core/utils/string_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/num_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/string_utils.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
-import 'package:transit_tracer/features/orders/utils/order_status_mapper/model/order_status_ui.dart';
+import 'package:transit_tracer/features/orders/presentation/order_status/order_status_ui_model.dart';
 
 class OrderSummaryHeader extends StatelessWidget {
   const OrderSummaryHeader({

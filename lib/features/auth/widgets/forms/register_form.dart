@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/core/utils/string_utils.dart';
+import 'package:transit_tracer/core/utils/formatters/string_utils.dart';
 import 'package:transit_tracer/core/validators/auth_validate.dart';
 import 'package:transit_tracer/features/auth/bloc/auth_bloc.dart';
 import 'package:transit_tracer/features/auth/cubit/password_strength_meter_cubit.dart';
