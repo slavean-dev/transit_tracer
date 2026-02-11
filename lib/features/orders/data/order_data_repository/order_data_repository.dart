@@ -52,17 +52,40 @@ class OrderDataRepository implements AbstractOrderRepository {
     }
   }
 
-  @override
-  Stream<List<OrderData>> getOrders() {
-    final currentUser = _firebaseAuth.currentUser;
-    if (currentUser == null) throw Exception('Unauthenticated');
-    final uid = currentUser.uid;
+  Query<Map<String, dynamic>> _getOrdersQuery({
+    required String uid,
+    required List<String> status,
+  }) {
     return _firebaseFirestore
         .collection('orders')
         .where('uid', isEqualTo: uid)
-        .where('status', whereIn: ['active', 'inProgress', 'completed'])
-        .orderBy('createdAt', descending: true)
-        .snapshots()
+        .where('status', whereIn: status)
+        .orderBy('createdAt', descending: true);
+  }
+
+  @override
+  Stream<List<OrderData>> getActiveOrders() {
+    final currentUser = _firebaseAuth.currentUser;
+    if (currentUser == null) throw Exception('Unauthenticated');
+    final uid = currentUser.uid;
+    return _getOrdersQuery(
+          uid: uid,
+          status: ['active', 'inProgress', 'completed'],
+        )
+        .snapshots(includeMetadataChanges: true)
+        .map(
+          (snapshot) =>
+              snapshot.docs.map((doc) => OrderData.fromFirestore(doc)).toList(),
+        );
+  }
+
+  @override
+  Stream<List<OrderData>> getArchivedOrders() {
+    final currentUser = _firebaseAuth.currentUser;
+    if (currentUser == null) throw Exception('Unauthenticated');
+    final uid = currentUser.uid;
+    return _getOrdersQuery(uid: uid, status: ['archived', 'completed'])
+        .snapshots(includeMetadataChanges: true)
         .map(
           (snapshot) =>
               snapshot.docs.map((doc) => OrderData.fromFirestore(doc)).toList(),

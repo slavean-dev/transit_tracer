@@ -13,12 +13,14 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
   OrdersBloc(this.repository) : super(OrdersInitial()) {
     on<SaveUserOrder>(_saveOrder);
 
-    on<LoadUserOrders>(_loadOrders);
+    on<LoadUserOrders>(_loadActiveOrders);
+
+    on<LoadArchivedOrders>(_loadArchivedOrders);
   }
 
   void _saveOrder(SaveUserOrder event, Emitter<OrdersState> emit) async {
     try {
-      emit(OrdersLoading());
+      emit(ActiveOrdersLoading());
       await repository.saveOrder(
         event.from,
         event.to,
@@ -32,23 +34,44 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
     }
   }
 
-  Future<void> _loadOrders(
+  Future<void> _loadActiveOrders(
     LoadUserOrders event,
     Emitter<OrdersState> emit,
   ) async {
     try {
-      emit(OrdersLoading());
+      emit(ActiveOrdersLoading());
       await emit.forEach<List<OrderData>>(
-        repository.getOrders(),
+        repository.getActiveOrders(),
         onData: (orders) {
           if (orders.isEmpty) {
-            return OrdersEmpty();
+            return ActiveOrdersEmpty();
           } else {
-            return OrdersLoaded(orders: orders);
+            return ActiveOrdersLoaded(orders: orders);
           }
         },
         onError: (error, stackTrace) =>
             OrderFailure(exception: error.toString()),
+      );
+    } catch (e) {
+      emit(OrderFailure(exception: e.toString()));
+    }
+  }
+
+  Future<void> _loadArchivedOrders(
+    LoadArchivedOrders event,
+    Emitter<OrdersState> emit,
+  ) async {
+    try {
+      emit(ArchiveOrdersLoading());
+      await emit.forEach(
+        repository.getArchivedOrders(),
+        onData: (orders) {
+          if (orders.isEmpty) {
+            return ArchiveOrdersEmpty();
+          } else {
+            return ArchiveOrdersLoaded(orders: orders);
+          }
+        },
       );
     } catch (e) {
       emit(OrderFailure(exception: e.toString()));

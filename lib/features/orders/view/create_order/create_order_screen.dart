@@ -56,7 +56,7 @@ class CreateOrderScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              if (state is OrdersLoading) const BlurLoader(),
+              if (state is ActiveOrdersLoading) const BlurLoader(),
             ],
           );
         },
