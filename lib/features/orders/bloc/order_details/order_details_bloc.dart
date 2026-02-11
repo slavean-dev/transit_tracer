@@ -24,7 +24,7 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
 
     on<EditOrderData>(_editOrder);
 
-    on<ArchiveOrder>(_archiveOrder);
+    on<ToggleArchiveStatus>(_toggleArchiveStatus);
   }
   void _deleteOrder(
     DeleteUserOrder event,
@@ -82,13 +82,21 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
     }
   }
 
-  void _archiveOrder(
-    ArchiveOrder event,
+  void _toggleArchiveStatus(
+    ToggleArchiveStatus event,
     Emitter<OrderDetailsState> emit,
   ) async {
     try {
       emit(OrderDetailsLoading());
-      await repository.archiveOrder(event.oid);
+      final bool willBeArchived = !event.order.isArchive;
+      final Map<String, dynamic> updates = {'isArchive': willBeArchived};
+
+      if (event.order.status != OrderStatus.completed) {
+        updates['status'] = willBeArchived
+            ? OrderStatus.archived.name
+            : OrderStatus.active.name;
+      }
+      await repository.toggleArchiveStatus(event.order.oid, updates);
       emit(OrderArchiveSuccessfull());
     } on FirebaseFailure catch (e) {
       emit(OrderDetailsFailure(exception: e.toString(), type: e.type));

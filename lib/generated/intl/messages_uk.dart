@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage(
       "Редагувати замовлення",
     ),
+    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Розархівувати"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Клієнт"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Контакти"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -50,11 +51,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Темна тема:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Дата"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Дата народження"),
-    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Архівувати"),
-    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
-      "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
+    "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете архівувати це замовлення? ",
     ),
-    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage(
       "Архівування замовлення",
     ),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
@@ -70,6 +71,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Видалити замовлення",
     ),
     "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Вихід"),
+    "dialogUnarchiveConfirm": MessageLookupByLibrary.simpleMessage(
+      "Розархівувати",
+    ),
+    "dialogUnarchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете розархівувати це замовлення? ",
+    ),
+    "dialogUnarchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Розархівування замовлення",
+    ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Немає аккаунту? Натисніть тут щоб створити!",
     ),

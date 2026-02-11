@@ -54,12 +54,12 @@ class OrderDataRepository implements AbstractOrderRepository {
 
   Query<Map<String, dynamic>> _getOrdersQuery({
     required String uid,
-    required List<String> status,
+    required bool isArchive,
   }) {
     return _firebaseFirestore
         .collection('orders')
         .where('uid', isEqualTo: uid)
-        .where('status', whereIn: status)
+        .where('isArchive', isEqualTo: isArchive)
         .orderBy('createdAt', descending: true);
   }
 
@@ -68,10 +68,7 @@ class OrderDataRepository implements AbstractOrderRepository {
     final currentUser = _firebaseAuth.currentUser;
     if (currentUser == null) throw Exception('Unauthenticated');
     final uid = currentUser.uid;
-    return _getOrdersQuery(
-          uid: uid,
-          status: ['active', 'inProgress', 'completed'],
-        )
+    return _getOrdersQuery(uid: uid, isArchive: false)
         .snapshots(includeMetadataChanges: true)
         .map(
           (snapshot) =>
@@ -84,7 +81,7 @@ class OrderDataRepository implements AbstractOrderRepository {
     final currentUser = _firebaseAuth.currentUser;
     if (currentUser == null) throw Exception('Unauthenticated');
     final uid = currentUser.uid;
-    return _getOrdersQuery(uid: uid, status: ['archived', 'completed'])
+    return _getOrdersQuery(uid: uid, isArchive: true)
         .snapshots(includeMetadataChanges: true)
         .map(
           (snapshot) =>
@@ -127,11 +124,12 @@ class OrderDataRepository implements AbstractOrderRepository {
   }
 
   @override
-  Future<void> archiveOrder(String oid) async {
+  Future<void> toggleArchiveStatus(
+    String oid,
+    Map<String, dynamic> updates,
+  ) async {
     try {
-      await _firebaseFirestore.collection('orders').doc(oid).update({
-        'status': OrderStatus.archived.name,
-      });
+      await _firebaseFirestore.collection('orders').doc(oid).update(updates);
     } catch (e) {
       throw Exception(e);
     }

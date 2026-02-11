@@ -41,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archiviare"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Elimina"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Modifica ordine"),
+    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Riarchivare"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Cliente"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contatti"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -50,11 +51,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Tema scuro:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Data"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Data di nascita"),
-    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Archivia"),
-    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Archivia"),
+    "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
       "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
     ),
-    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage(
       "Archivia ordine",
     ),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Annulla"),
@@ -70,6 +71,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Elimina ordine"),
     "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Esci"),
+    "dialogUnarchiveConfirm": MessageLookupByLibrary.simpleMessage(
+      "Riarchivare",
+    ),
+    "dialogUnarchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Sei sicuro di voler decomprimere questo ordine? ",
+    ),
+    "dialogUnarchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Archiviazione dell\'ordine",
+    ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Non hai un account? Clicca qui per crearne uno!",
     ),

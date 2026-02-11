@@ -81,15 +81,20 @@
     "btnOrderEdit": "Edit order",
     "btnOrderDelete": "Delete",
     "btnOrderArchive": "Archive",
+    "btnOrderUnarchive" : "Unarchive",
 
     "dialogConfirmExitTitle": "Confirm exit",
     "dialogConfirmExitMessage": "Are you sure you want to exit?",
     "dialogExitConfirm": "Exit",
 
 
-    "dialogAtchiveTitle": "Archive order",
-    "dialogAtchiveMessage": "Are you sure you want to archive this order? \nThis action cannot be undone.",
-    "dialogAtchiveConfirm": "Archive",
+    "dialogArchiveTitle": "Archive order",
+    "dialogArchiveMessage": "Are you sure you want to archive this order? \nThis action cannot be undone.",
+    "dialogArchiveConfirm": "Archive",
+
+    "dialogUnarchiveTitle": "Unarchiving an order",
+    "dialogUnarchiveMessage": "Are you sure you want to unarchive this order? ",
+    "dialogUnarchiveConfirm": "Unarchive",
 
 
     "dialogDeleteTitle": "Delete order",

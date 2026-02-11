@@ -78,6 +78,7 @@
     "btnOrderEdit": "Modifica ordine",
     "btnOrderDelete": "Elimina",
     "btnOrderArchive": "Archiviare",
+    "btnOrderUnarchive" : "Riarchivare",
 
     "orderOflineTitle" : "Nessuna connessione a internet",
     "orderOflineDescription" : "I campi di selezione delle città non sono disponibili senza connessione.",
@@ -86,9 +87,13 @@
     "dialogConfirmExitMessage": "Sei sicuro di voler uscire?",
     "dialogExitConfirm": "Esci",
 
-    "dialogAtchiveTitle": "Archivia ordine",
-    "dialogAtchiveMessage": "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
-    "dialogAtchiveConfirm": "Archivia",
+    "dialogArchiveTitle": "Archivia ordine",
+    "dialogArchiveMessage": "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
+    "dialogArchiveConfirm": "Archivia",
+
+    "dialogUnarchiveTitle": "Archiviazione dell'ordine",
+    "dialogUnarchiveMessage": "Sei sicuro di voler decomprimere questo ordine? ",
+    "dialogUnarchiveConfirm": "Riarchivare",
 
     "dialogDeleteTitle": "Elimina ordine",
     "dialogDeleteMessage": "Sei sicuro di voler eliminare questo ordine? \nQuesta operazione non può essere annullata.",

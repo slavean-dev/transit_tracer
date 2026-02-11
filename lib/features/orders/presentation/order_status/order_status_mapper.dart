@@ -39,7 +39,7 @@ OrderStatusUiModel getStatusStyle({
       );
     case OrderStatus.completed:
       return OrderStatusUiModel(
-        lable: s.orderStatusInProgress,
+        lable: s.orderStatusCompleted,
         backgroundColor: isDark
             ? const Color(0xFF94A3B8).withValues(alpha: 0.15)
             : const Color(0xFFF1F5F9),

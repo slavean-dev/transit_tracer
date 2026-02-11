@@ -61,11 +61,11 @@ class EditOrderData extends OrderDetailsEvent {
   ];
 }
 
-class ArchiveOrder extends OrderDetailsEvent {
-  const ArchiveOrder({required this.oid});
+class ToggleArchiveStatus extends OrderDetailsEvent {
+  const ToggleArchiveStatus({required this.order});
 
-  final String oid;
+  final OrderData order;
 
   @override
-  List<String> get props => [oid];
+  List<OrderData> get props => [order];
 }

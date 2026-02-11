@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archive"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Delete"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Edit order"),
+    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Unarchive"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Client"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contacts"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -48,11 +49,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Dark theme:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Date"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
-    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Archive"),
-    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Archive"),
+    "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to archive this order? \nThis action cannot be undone.",
     ),
-    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
+    "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to exit?",
@@ -66,6 +67,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Delete order"),
     "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Exit"),
+    "dialogUnarchiveConfirm": MessageLookupByLibrary.simpleMessage("Unarchive"),
+    "dialogUnarchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to unarchive this order? ",
+    ),
+    "dialogUnarchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Unarchiving an order",
+    ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Don`t have Account? Tap here to create!",
     ),

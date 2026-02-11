@@ -53,9 +53,9 @@ class OrderFormState extends State<OrderForm> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  final FocusNode _fromCityFocusNode = FocusNode();
+  FocusNode _fromCityFocusNode = FocusNode();
 
-  final FocusNode _toCityFocusNode = FocusNode();
+  FocusNode _toCityFocusNode = FocusNode();
 
   final FocusNode _descriptionFocusNode = FocusNode();
 
@@ -126,6 +126,10 @@ class OrderFormState extends State<OrderForm> {
     _toCityController = TextEditingController();
     _descriptionController.clear();
     _priceController.clear();
+
+    _fromCityFocusNode = FocusNode();
+    _toCityFocusNode = FocusNode();
+
     setState(() {
       fromCity = null;
       toCity = null;

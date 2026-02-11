@@ -78,6 +78,7 @@
     "btnOrderEdit": "Редагувати замовлення",
     "btnOrderDelete": "Видалити",
     "btnOrderArchive": "Архівувати",
+    "btnOrderUnarchive" : "Розархівувати",
 
     "orderOflineTitle" : "Немає підключення до інтернету",
     "orderOflineDescription" : "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
@@ -86,9 +87,13 @@
     "dialogConfirmExitMessage": "Ви впевнені, що хочете вийти?",
     "dialogExitConfirm": "Вихід",
 
-    "dialogAtchiveTitle": "Архівування замовлення",
-    "dialogAtchiveMessage": "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
-    "dialogAtchiveConfirm": "Архівувати",
+    "dialogArchiveTitle": "Архівування замовлення",
+    "dialogArchiveMessage": "Ви впевнені, що хочете архівувати це замовлення? ",
+    "dialogArchiveConfirm": "Архівувати",
+
+    "dialogUnarchiveTitle": "Розархівування замовлення",
+    "dialogUnarchiveMessage": "Ви впевнені, що хочете розархівувати це замовлення? ",
+    "dialogUnarchiveConfirm": "Розархівувати",
 
     "dialogDeleteTitle": "Видалити замовлення",
     "dialogDeleteMessage": "Ви впевнені, що хочете видалити це замовлення? \nЦю дію не можна скасувати.",

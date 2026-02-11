@@ -714,6 +714,16 @@ class S {
     return Intl.message('Archive', name: 'btnOrderArchive', desc: '', args: []);
   }
 
+  /// `Unarchive`
+  String get btnOrderUnarchive {
+    return Intl.message(
+      'Unarchive',
+      name: 'btnOrderUnarchive',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Confirm exit`
   String get dialogConfirmExitTitle {
     return Intl.message(
@@ -740,30 +750,60 @@ class S {
   }
 
   /// `Archive order`
-  String get dialogAtchiveTitle {
+  String get dialogArchiveTitle {
     return Intl.message(
       'Archive order',
-      name: 'dialogAtchiveTitle',
+      name: 'dialogArchiveTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Are you sure you want to archive this order? \nThis action cannot be undone.`
-  String get dialogAtchiveMessage {
+  String get dialogArchiveMessage {
     return Intl.message(
       'Are you sure you want to archive this order? \nThis action cannot be undone.',
-      name: 'dialogAtchiveMessage',
+      name: 'dialogArchiveMessage',
       desc: '',
       args: [],
     );
   }
 
   /// `Archive`
-  String get dialogAtchiveConfirm {
+  String get dialogArchiveConfirm {
     return Intl.message(
       'Archive',
-      name: 'dialogAtchiveConfirm',
+      name: 'dialogArchiveConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unarchiving an order`
+  String get dialogUnarchiveTitle {
+    return Intl.message(
+      'Unarchiving an order',
+      name: 'dialogUnarchiveTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to unarchive this order? `
+  String get dialogUnarchiveMessage {
+    return Intl.message(
+      'Are you sure you want to unarchive this order? ',
+      name: 'dialogUnarchiveMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unarchive`
+  String get dialogUnarchiveConfirm {
+    return Intl.message(
+      'Unarchive',
+      name: 'dialogUnarchiveConfirm',
       desc: '',
       args: [],
     );
