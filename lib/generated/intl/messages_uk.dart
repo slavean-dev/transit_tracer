@@ -182,6 +182,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderStatusSyncing": MessageLookupByLibrary.simpleMessage(
       "Синхронізація...",
     ),
+    "orderSyncPendingTooltip": MessageLookupByLibrary.simpleMessage(
+      "Замовлення буде синхронізовано при підключенні до інтернету",
+    ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Вага"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(

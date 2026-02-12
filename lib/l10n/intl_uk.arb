@@ -4,6 +4,7 @@
     "passwordForm": "Введіть ваш Пароль",
     "dontHaveAccButton": "Немає аккаунту? Натисніть тут щоб створити!",
     "logButton": "Вхід",
+
     "registrationTitle": "Реєстрація",
     "clientTab": "Клієнт",
     "driverTab": "Водій",
@@ -15,6 +16,7 @@
     "passwordConfirmForm": "Підтвердіть пароль",
     "haveAccTextButton": "Маєте аккаунт? Натисніть тут щоб повернутись!",
     "registerButton": "Зареєструвати",
+
     "validationFormEmpty": "Поле не може бути порожнім",
     "validationInvalidName": "Введіть дійсне ім'я",
     "validationInvalidSurname": "Введіть дійсне прізвище",
@@ -25,6 +27,7 @@
     "validationInvalidPasswordDigit": "Пароль повинен містити щонайменше одну цифру",
     "validationInvalidPasswordSpecChar": "Пароль повинен містити принаймні один спеціальний символ",
     "validationInvalidConfirmPasswordDidntMatch": "Паролі не збігалися",
+
     "firebaseErrorInvalidCredential" : "Недійсні дані",
     "firebaseErrorEmailInUse": "Ця електронна адреса вже зареєстрована",
     "firebaseErrorInvalidEmail": "Недійсний формат електронної пошти",
@@ -36,13 +39,18 @@
     "firebaseErrorNotFound" : "Замовлення не знайдено. Можливо було видалено.",
     "firebaseErrorUnavailable" : "Послуга недоступна. Перевірте ваше з'єднання з інтернетом або спробуйте пізніше.",
     "firebaseErrorNetwork" : "Помилка мережі. Перевірте підключення до Інтернету або спробуйте пізніше.",
+
     "navSearch": "Пошук",
     "navCreate": "Створити",
     "navOrders": "Замовлення",
     "navProfile": "Профіль",
+
     "searchTitle": "Пошук транспорта",
     "search": "Пошук",
     "dateLabel": "Дата",
+
+    "orderSyncPendingTooltip" : "Замовлення буде синхронізовано при підключенні до інтернету",
+
     "fieldFrom": "Звідки",
     "fieldTo": "Куди",
     "hintEnterCity": "Введіть місто",
@@ -58,6 +66,7 @@
     "above2000": "Понад 2000 кг",
     "orderFieldPrice": "Ціна",
     "orderFieldPriceHint": "Введіть ціну",
+
     "ordersTitle": "Замовлення",
     "archiveTitle": "Архів",
     "profileTitle": "Профіль",

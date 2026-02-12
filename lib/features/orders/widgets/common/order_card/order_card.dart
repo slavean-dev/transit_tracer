@@ -4,6 +4,7 @@ import 'package:transit_tracer/app/router/router.dart';
 import 'package:transit_tracer/core/utils/formatters/num_utils.dart';
 import 'package:transit_tracer/core/utils/formatters/string_utils.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
+import 'package:transit_tracer/generated/l10n.dart';
 
 class OrderCard extends StatefulWidget {
   const OrderCard({super.key, required this.theme, required this.order});
@@ -32,6 +33,8 @@ class _OrderCardState extends State<OrderCard> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
+    final s = S.of(context);
     return Padding(
       padding: const EdgeInsets.only(top: 16, right: 24, left: 24),
       child: GestureDetector(
@@ -62,26 +65,58 @@ class _OrderCardState extends State<OrderCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    RichText(
-                      text: TextSpan(
-                        style: widget.theme.textTheme.bodyMedium,
-                        children: [
-                          TextSpan(
-                            text: cityCutter(widget.order.from.name),
-                            style: widget.theme.textTheme.titleMedium,
-                          ),
-                          TextSpan(
-                            text: '→',
-                            style: widget.theme.textTheme.titleLarge?.copyWith(
-                              color: widget.theme.colorScheme.primary,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: RichText(
+                            text: TextSpan(
+                              style: widget.theme.textTheme.bodyMedium,
+                              children: [
+                                TextSpan(
+                                  text: cityCutter(widget.order.from.name),
+                                  style: widget.theme.textTheme.titleMedium,
+                                ),
+                                TextSpan(
+                                  text: '→',
+                                  style: widget.theme.textTheme.titleLarge
+                                      ?.copyWith(
+                                        color: widget.theme.colorScheme.primary,
+                                      ),
+                                ),
+                                TextSpan(
+                                  text: cityCutter(widget.order.to.name),
+                                  style: widget.theme.textTheme.titleMedium,
+                                ),
+                              ],
                             ),
                           ),
-                          TextSpan(
-                            text: cityCutter(widget.order.to.name),
-                            style: widget.theme.textTheme.titleMedium,
-                          ),
-                        ],
-                      ),
+                        ),
+                        widget.order.isPending
+                            ? Tooltip(
+                                constraints: BoxConstraints(maxWidth: 270),
+                                message: s.orderSyncPendingTooltip,
+                                waitDuration: const Duration(milliseconds: 400),
+
+                                padding: const EdgeInsets.symmetric(
+                                  vertical: 8,
+                                  horizontal: 12,
+                                ),
+                                textStyle: theme.textTheme.bodySmall?.copyWith(
+                                  fontSize: 14,
+                                ),
+                                decoration: BoxDecoration(
+                                  color: theme.colorScheme.surfaceContainer,
+                                  borderRadius: BorderRadius.circular(12),
+                                ),
+                                child: Icon(
+                                  Icons.cloud_upload_outlined,
+                                  size: 24,
+                                  color: theme.hintColor.withValues(alpha: 0.3),
+                                ),
+                              )
+                            : SizedBox.shrink(),
+                      ],
                     ),
                     const SizedBox(height: 16),
                     Row(

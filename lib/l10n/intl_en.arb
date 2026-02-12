@@ -4,6 +4,7 @@
     "passwordForm": "Enter your Password",
     "dontHaveAccButton": "Don`t have Account? Tap here to create!",
     "logButton": "Login",
+
     "registrationTitle": "Registration",
     "clientTab": "Client",
     "driverTab": "Driver",
@@ -15,6 +16,7 @@
     "passwordConfirmForm": "Confirm your password",
     "haveAccTextButton": "Have account? Tap here to return!",
     "registerButton": "Register",
+
     "validationFormEmpty": "Field can`t be empty",
     "validationInvalidName": "Enter a valid name",
     "validationInvalidSurname": "Enter a valid surname",
@@ -36,13 +38,16 @@
     "firebaseErrorNotFound" : "Order not found. It might have been deleted.",
     "firebaseErrorUnavailable" : "Service unavailable. Please check your internet or try later.",
     "firebaseErrorNetwork" : "Network error. Please check your internet or try later.",
+
     "navSearch": "Search",
     "navCreate": "Create",
     "navOrders": "Orders",
     "navProfile": "Profile",
+
     "searchTitle": "Search Transport",
     "search": "Search",
     "dateLabel": "Date",
+
     "fieldFrom": "From",
     "fieldTo": "To",
     "hintEnterCity": "Enter city",
@@ -58,10 +63,13 @@
     "above2000": "Over 2000 kg",
     "orderFieldPrice": "Price",
     "orderFieldPriceHint": "Enter price",
+
     "ordersTitle": "Orders",
     "archiveTitle": "Arсhive",
     "profileTitle": "Profile",
     "contactCont": "Contacts",
+
+    "orderSyncPendingTooltip" : "This order will sync when internet connection is available",
 
     "orderOflineTitle" : "No internet connection",
     "orderOflineDescription" : "City selection fields are unavailable without an internet connection.",

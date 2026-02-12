@@ -579,6 +579,16 @@ class S {
     return Intl.message('Contacts', name: 'contactCont', desc: '', args: []);
   }
 
+  /// `This order will sync when internet connection is available`
+  String get orderSyncPendingTooltip {
+    return Intl.message(
+      'This order will sync when internet connection is available',
+      name: 'orderSyncPendingTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No internet connection`
   String get orderOflineTitle {
     return Intl.message(

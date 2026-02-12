@@ -188,6 +188,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderStatusSyncing": MessageLookupByLibrary.simpleMessage(
       "Sincronizzazione...",
     ),
+    "orderSyncPendingTooltip": MessageLookupByLibrary.simpleMessage(
+      "L’ordine verrà sincronizzato quando sarà disponibile la connessione Internet",
+    ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Peso"),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Ordine"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
