@@ -1,4 +1,6 @@
 {
+    "cargoTitle" : "Вантаж",
+
     "loginTitle": "Логін",
     "loginForm": "Введіть ваш Логін",
     "passwordForm": "Введіть ваш Пароль",
@@ -51,6 +53,8 @@
 
     "orderSyncPendingTooltip" : "Замовлення буде синхронізовано при підключенні до інтернету",
 
+    "btnOrderCardDetails" : "Деталі",
+
     "fieldFrom": "Звідки",
     "fieldTo": "Куди",
     "hintEnterCity": "Введіть місто",
@@ -79,7 +83,6 @@
     "orderStatusCompleted" : "Завершено",
     "orderStatusArchived" : "Архів",
     "btnOpenInMap": "Відкрити на карті",
-    "orderCargoTitle" : "Вантаж",
     "orderIdLabel": "ID замовлення",
     "orderCreatedDateLabel": "Створено",
     "orderWeightLabel": "Вага",

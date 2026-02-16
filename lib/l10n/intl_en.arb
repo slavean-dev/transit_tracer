@@ -1,4 +1,6 @@
 {
+    "cargoTitle" : "Cargo",
+
     "loginTitle": "Login",
     "loginForm": "Enter your Login",
     "passwordForm": "Enter your Password",
@@ -71,6 +73,8 @@
 
     "orderSyncPendingTooltip" : "This order will sync when internet connection is available",
 
+    "btnOrderCardDetails" : "Details",
+
     "orderOflineTitle" : "No internet connection",
     "orderOflineDescription" : "City selection fields are unavailable without an internet connection.",
 
@@ -81,7 +85,6 @@
     "orderStatusCompleted" : "Completed",
     "orderStatusArchived" : "Archive",
     "btnOpenInMap": "Open in map",
-    "orderCargoTitle" : "Cargo",
     "orderIdLabel": "Order ID",
     "orderCreatedDateLabel": "Created",
     "orderWeightLabel": "Weight",

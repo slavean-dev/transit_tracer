@@ -22,7 +22,7 @@ class OrderDescriptionCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(s.orderCargoTitle, style: theme.textTheme.titleMedium),
+          Text(s.cargoTitle, style: theme.textTheme.titleMedium),
           Text(
             order.description,
             style: theme.textTheme.bodyMedium!.copyWith(color: theme.hintColor),

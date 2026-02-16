@@ -39,9 +39,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Apri sulla mappa"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archiviare"),
+    "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Dettagli"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Elimina"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Modifica ordine"),
     "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Riarchivare"),
+    "cargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Cliente"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contatti"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -152,7 +154,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
       "Salvato localmente, verrà sincronizzato più tardi",
     ),
-    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Creato"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
       "Dettagli dell\'ordine",

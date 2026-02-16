@@ -37,11 +37,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "avatar": MessageLookupByLibrary.simpleMessage("Аватар"),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Відкрити на карті"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Деталі"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Видалити"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage(
       "Редагувати замовлення",
     ),
     "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Розархівувати"),
+    "cargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Клієнт"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Контакти"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -148,7 +150,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
       "Збережено локально, буде відправлено пізніше",
     ),
-    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Створено"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
       "Деталі замовлення",

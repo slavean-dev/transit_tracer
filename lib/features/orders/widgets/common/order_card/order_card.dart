@@ -1,10 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/core/utils/formatters/num_utils.dart';
-import 'package:transit_tracer/core/utils/formatters/string_utils.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
-import 'package:transit_tracer/generated/l10n.dart';
+import 'package:transit_tracer/features/orders/widgets/common/order_card/order_card_header/order_card_header.dart';
+import 'package:transit_tracer/features/orders/widgets/common/order_card/order_card_info_section/order_card_info_section.dart';
 
 class OrderCard extends StatefulWidget {
   const OrderCard({super.key, required this.theme, required this.order});
@@ -33,8 +32,6 @@ class _OrderCardState extends State<OrderCard> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
-    final s = S.of(context);
     return Padding(
       padding: const EdgeInsets.only(top: 16, right: 24, left: 24),
       child: GestureDetector(
@@ -65,115 +62,9 @@ class _OrderCardState extends State<OrderCard> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: RichText(
-                            text: TextSpan(
-                              style: widget.theme.textTheme.bodyMedium,
-                              children: [
-                                TextSpan(
-                                  text: cityCutter(widget.order.from.name),
-                                  style: widget.theme.textTheme.titleMedium,
-                                ),
-                                TextSpan(
-                                  text: '→',
-                                  style: widget.theme.textTheme.titleLarge
-                                      ?.copyWith(
-                                        color: widget.theme.colorScheme.primary,
-                                      ),
-                                ),
-                                TextSpan(
-                                  text: cityCutter(widget.order.to.name),
-                                  style: widget.theme.textTheme.titleMedium,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        widget.order.isPending
-                            ? Tooltip(
-                                constraints: BoxConstraints(maxWidth: 270),
-                                message: s.orderSyncPendingTooltip,
-                                waitDuration: const Duration(milliseconds: 400),
-
-                                padding: const EdgeInsets.symmetric(
-                                  vertical: 8,
-                                  horizontal: 12,
-                                ),
-                                textStyle: theme.textTheme.bodySmall?.copyWith(
-                                  fontSize: 14,
-                                ),
-                                decoration: BoxDecoration(
-                                  color: theme.colorScheme.surfaceContainer,
-                                  borderRadius: BorderRadius.circular(12),
-                                ),
-                                child: Icon(
-                                  Icons.cloud_upload_outlined,
-                                  size: 24,
-                                  color: theme.hintColor.withValues(alpha: 0.3),
-                                ),
-                              )
-                            : SizedBox.shrink(),
-                      ],
-                    ),
+                    OrderCardHeader(order: widget.order),
                     const SizedBox(height: 16),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              const Text('Cargo:'),
-                              Text(
-                                widget.order.description,
-                                style: widget.theme.textTheme.bodySmall
-                                    ?.copyWith(
-                                      color: widget
-                                          .theme
-                                          .colorScheme
-                                          .onSurfaceVariant,
-                                    ),
-                                maxLines: 1,
-                                overflow: TextOverflow.ellipsis,
-                              ),
-                              Text(
-                                '₴ ${NumUtils().priceFormater(widget.order.price)}',
-                                style: widget.theme.textTheme.bodyMedium
-                                    ?.copyWith(
-                                      color: widget.theme.primaryColor,
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(left: 10),
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: widget.theme.primaryColor,
-                              borderRadius: BorderRadius.circular(18),
-                            ),
-                            child: const Padding(
-                              padding: EdgeInsets.symmetric(
-                                vertical: 4,
-                                horizontal: 10,
-                              ),
-                              child: Text(
-                                'More ›',
-                                style: TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                    OrderCardInfoSection(order: widget.order),
                   ],
                 ),
               ),

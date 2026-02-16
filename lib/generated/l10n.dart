@@ -54,6 +54,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Cargo`
+  String get cargoTitle {
+    return Intl.message('Cargo', name: 'cargoTitle', desc: '', args: []);
+  }
+
   /// `Login`
   String get loginTitle {
     return Intl.message('Login', name: 'loginTitle', desc: '', args: []);
@@ -589,6 +594,16 @@ class S {
     );
   }
 
+  /// `Details`
+  String get btnOrderCardDetails {
+    return Intl.message(
+      'Details',
+      name: 'btnOrderCardDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No internet connection`
   String get orderOflineTitle {
     return Intl.message(
@@ -677,11 +692,6 @@ class S {
       desc: '',
       args: [],
     );
-  }
-
-  /// `Cargo`
-  String get orderCargoTitle {
-    return Intl.message('Cargo', name: 'orderCargoTitle', desc: '', args: []);
   }
 
   /// `Order ID`
