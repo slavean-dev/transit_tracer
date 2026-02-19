@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/services/geo_service/geo_service.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
@@ -10,7 +11,9 @@ part 'orders_state.dart';
 
 class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
   final AbstractOrderRepository repository;
-  OrdersBloc(this.repository) : super(OrdersInitial()) {
+  final GeoService geoService;
+
+  OrdersBloc(this.repository, this.geoService) : super(OrdersInitial()) {
     on<SaveUserOrder>(_saveOrder);
 
     on<LoadUserOrders>(_loadActiveOrders);
@@ -21,9 +24,16 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
   void _saveOrder(SaveUserOrder event, Emitter<OrdersState> emit) async {
     try {
       emit(ActiveOrdersLoading());
+      final results = await Future.wait([
+        _getCityTranslation(event.from.placeId),
+        _getCityTranslation(event.to.placeId),
+      ]);
+
+      final from = event.from.copyWith(localizedNames: results[0]);
+      final to = event.to.copyWith(localizedNames: results[1]);
       await repository.saveOrder(
-        event.from,
-        event.to,
+        from,
+        to,
         event.description,
         event.weight,
         event.price,
@@ -31,6 +41,19 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
       emit(OrderSavedSuccessfull());
     } catch (e) {
       emit(OrderFailure(exception: e.toString()));
+    }
+  }
+
+  Future<Map<String, String>> _getCityTranslation(String placeId) async {
+    try {
+      final resilts = await Future.wait([
+        geoService.getLocaliredPlaceName(placeId, 'en'),
+        geoService.getLocaliredPlaceName(placeId, 'uk'),
+        geoService.getLocaliredPlaceName(placeId, 'it'),
+      ]);
+      return {'en': resilts[0], 'uk': resilts[1], 'it': resilts[2]};
+    } catch (e) {
+      return {};
     }
   }
 

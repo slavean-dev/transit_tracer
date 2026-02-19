@@ -11,6 +11,7 @@ class OrderCardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = S.of(context);
     final theme = Theme.of(context);
+    final String currentLanguage = Localizations.localeOf(context).languageCode;
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -20,7 +21,11 @@ class OrderCardHeader extends StatelessWidget {
               style: theme.textTheme.bodyMedium,
               children: [
                 TextSpan(
-                  text: cityCutter(order.from.name),
+                  text: cityCutter(
+                    (order.from.localizedNames[currentLanguage] ?? '').isEmpty
+                        ? order.from.name
+                        : order.from.localizedNames[currentLanguage]!,
+                  ),
                   style: theme.textTheme.titleMedium,
                 ),
                 TextSpan(
@@ -30,7 +35,11 @@ class OrderCardHeader extends StatelessWidget {
                   ),
                 ),
                 TextSpan(
-                  text: cityCutter(order.to.name),
+                  text: cityCutter(
+                    (order.to.localizedNames[currentLanguage] ?? '').isEmpty
+                        ? order.to.name
+                        : order.to.localizedNames[currentLanguage]!,
+                  ),
                   style: theme.textTheme.titleMedium,
                 ),
               ],
