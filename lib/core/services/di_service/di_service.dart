@@ -130,6 +130,7 @@ class DiService {
       () => OrderDetailsBloc(
         getIt<AbstractOrderRepository>(),
         getIt<NetworkService>(),
+        getIt<GeoService>(),
       ),
     );
 

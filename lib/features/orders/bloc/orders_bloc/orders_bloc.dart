@@ -46,12 +46,12 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
 
   Future<Map<String, String>> _getCityTranslation(String placeId) async {
     try {
-      final resilts = await Future.wait([
+      final results = await Future.wait([
         geoService.getLocaliredPlaceName(placeId, 'en'),
         geoService.getLocaliredPlaceName(placeId, 'uk'),
         geoService.getLocaliredPlaceName(placeId, 'it'),
       ]);
-      return {'en': resilts[0], 'uk': resilts[1], 'it': resilts[2]};
+      return {'en': results[0], 'uk': results[1], 'it': results[2]};
     } catch (e) {
       return {};
     }
