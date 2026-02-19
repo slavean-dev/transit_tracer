@@ -35,8 +35,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "aboutUsTitle": MessageLookupByLibrary.simpleMessage("Chi siamo"),
     "above2000": MessageLookupByLibrary.simpleMessage("Oltre 2000 kg"),
+    "archiveOrderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "L\'archivio è vuoto",
+    ),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Archivio"),
     "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
+    "btnBackToOrdersList": MessageLookupByLibrary.simpleMessage(
+      "Torna all\'elenco degli ordini",
+    ),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Apri sulla mappa"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archiviare"),
     "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Dettagli"),
@@ -175,6 +181,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Peso del carico"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID ordine"),
+    "orderListEmpty": MessageLookupByLibrary.simpleMessage("Non hai ordini"),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "I campi di selezione delle città non sono disponibili senza connessione.",
     ),

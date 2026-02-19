@@ -1,7 +1,11 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/app/router/router.dart';
+import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/features/orders/bloc/orders_bloc/orders_bloc.dart';
 import 'package:transit_tracer/features/orders/widgets/common/order_card/order_card.dart';
+import 'package:transit_tracer/generated/l10n.dart';
 
 class OrdersListView extends StatelessWidget {
   const OrdersListView({super.key, this.isArchived = false});
@@ -11,6 +15,7 @@ class OrdersListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final s = S.of(context);
     return BlocBuilder<OrdersBloc, OrdersState>(
       buildWhen: (previous, current) {
         if (isArchived) {
@@ -41,8 +46,42 @@ class OrdersListView extends StatelessWidget {
               );
             },
           ),
-          ActiveOrdersEmpty() || ArchiveOrdersEmpty() => const Center(
-            child: Text('You don`t have orders'),
+          ActiveOrdersEmpty() || ArchiveOrdersEmpty() => Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.local_shipping_outlined,
+                  size: 100,
+                  color: theme.iconTheme.color?.withValues(alpha: 0.5),
+                ),
+                Text(
+                  state is ActiveOrdersEmpty
+                      ? s.orderListEmpty
+                      : s.archiveOrderListEmpty,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 40,
+                    vertical: 10,
+                  ),
+                  child: BaseButton(
+                    onPressed: () {
+                      if (state is ActiveOrdersEmpty) {
+                        context.router.replaceAll([
+                          const HomeRoute(children: [AddOrderTabRouter()]),
+                        ]);
+                      } else {
+                        context.router.replaceAll([OrdersListRoute()]);
+                      }
+                    },
+                    text: state is ActiveOrdersEmpty
+                        ? s.createTitle
+                        : s.btnBackToOrdersList,
+                  ),
+                ),
+              ],
+            ),
           ),
           OrderFailure(exception: final exception) => Center(
             child: Text('Somethisg went wrong \n Log: $exception'),

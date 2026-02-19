@@ -73,6 +73,10 @@
 
     "orderSyncPendingTooltip" : "L’ordine verrà sincronizzato quando sarà disponibile la connessione Internet",
 
+    "orderListEmpty" : "Non hai ordini",
+    "archiveOrderListEmpty" : "L'archivio è vuoto",
+    "btnBackToOrdersList" : "Torna all'elenco degli ordini",
+
     "btnOrderCardDetails" : "Dettagli",
 
     "orderDetailsTitle" : "Dettagli dell'ordine",

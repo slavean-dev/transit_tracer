@@ -33,8 +33,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutTheAppTitle": MessageLookupByLibrary.simpleMessage("About the app"),
     "aboutUsTitle": MessageLookupByLibrary.simpleMessage("About Us"),
     "above2000": MessageLookupByLibrary.simpleMessage("Over 2000 kg"),
+    "archiveOrderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Archive is empty",
+    ),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Arсhive"),
     "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
+    "btnBackToOrdersList": MessageLookupByLibrary.simpleMessage(
+      "Back to orders",
+    ),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Open in map"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archive"),
     "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Details"),
@@ -159,6 +165,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Enter price"),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Cargo weight"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("Order ID"),
+    "orderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "You don`t have orders",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "City selection fields are unavailable without an internet connection.",
     ),

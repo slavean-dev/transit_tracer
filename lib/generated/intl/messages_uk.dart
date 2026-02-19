@@ -33,8 +33,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutTheAppTitle": MessageLookupByLibrary.simpleMessage("Про додаток"),
     "aboutUsTitle": MessageLookupByLibrary.simpleMessage("Про нас"),
     "above2000": MessageLookupByLibrary.simpleMessage("Понад 2000 кг"),
+    "archiveOrderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Архів порожній",
+    ),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Архів"),
     "avatar": MessageLookupByLibrary.simpleMessage("Аватар"),
+    "btnBackToOrdersList": MessageLookupByLibrary.simpleMessage(
+      "Назад до списку замовлень",
+    ),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Відкрити на карті"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Архівувати"),
     "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Деталі"),
@@ -169,6 +175,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Введіть ціну"),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID замовлення"),
+    "orderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "У вас немає замовлень",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
     ),

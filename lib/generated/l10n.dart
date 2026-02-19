@@ -594,6 +594,36 @@ class S {
     );
   }
 
+  /// `You don't have orders`
+  String get orderListEmpty {
+    return Intl.message(
+      'You don`t have orders',
+      name: 'orderListEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Archive is empty`
+  String get archiveOrderListEmpty {
+    return Intl.message(
+      'Archive is empty',
+      name: 'archiveOrderListEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to orders`
+  String get btnBackToOrdersList {
+    return Intl.message(
+      'Back to orders',
+      name: 'btnBackToOrdersList',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Details`
   String get btnOrderCardDetails {
     return Intl.message(

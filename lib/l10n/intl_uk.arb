@@ -53,6 +53,10 @@
 
     "orderSyncPendingTooltip" : "Замовлення буде синхронізовано при підключенні до інтернету",
 
+    "orderListEmpty" : "У вас немає замовлень",
+    "archiveOrderListEmpty" : "Архів порожній",
+    "btnBackToOrdersList" : "Назад до списку замовлень",
+
     "btnOrderCardDetails" : "Деталі",
 
     "fieldFrom": "Звідки",

@@ -73,6 +73,10 @@
 
     "orderSyncPendingTooltip" : "This order will sync when internet connection is available",
 
+    "orderListEmpty" : "You don`t have orders",
+    "archiveOrderListEmpty" : "Archive is empty",
+    "btnBackToOrdersList" : "Back to orders",
+
     "btnOrderCardDetails" : "Details",
 
     "orderOflineTitle" : "No internet connection",
