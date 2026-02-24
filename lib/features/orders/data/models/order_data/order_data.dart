@@ -47,16 +47,24 @@ class OrderData {
   factory OrderData.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>? ?? {};
     return OrderData(
-      uid: data['uid'] as String,
-      oid: data['oid'] as String,
-      from: CityPoint.fromJson(data['from'] as Map<String, dynamic>),
-      to: CityPoint.fromJson(data['to'] as Map<String, dynamic>),
-      description: data['description'] as String,
-      weight: WeightRange.values.byName(data['weight']),
-      price: data['price'] as String,
-      status: OrderStatus.values.byName(data['status']),
-      createdAt: DateTime.parse(data['createdAt'] as String),
-      isArchive: data['isArchive'] as bool,
+      uid: data['uid'] as String? ?? '',
+      oid: data['oid'] as String? ?? '',
+      from: CityPoint.fromJson(data['from'] as Map<String, dynamic>? ?? {}),
+      to: CityPoint.fromJson(data['to'] as Map<String, dynamic>? ?? {}),
+      description: data['description'] as String? ?? '',
+      weight: WeightRange.values.firstWhere(
+        (e) => e.name == data['weight'],
+        orElse: () => WeightRange.upTo500,
+      ),
+      price: data['price'] as String? ?? '',
+      status: OrderStatus.values.firstWhere(
+        (e) => e.name == data['status'],
+        orElse: () => OrderStatus.active,
+      ),
+      createdAt: data['createdAt'] != null
+          ? DateTime.tryParse(data['createdAt'] as String) ?? DateTime.now()
+          : DateTime.now(),
+      isArchive: data['isArchive'] as bool? ?? false,
       isPending: doc.metadata.hasPendingWrites,
     );
   }

@@ -18,7 +18,7 @@ class CreateOrderScreen extends StatelessWidget {
     final S s = S.of(context);
     return BlocListener<OrdersBloc, OrdersState>(
       listener: (context, state) {
-        if (state is OrderSavedSuccessfull) {
+        if (state.ordersStatus == OrderStateStatus.success) {
           _orderFormKey.currentState?.resetFormAfterSuccess();
           context.router.replaceAll([
             const HomeRoute(
@@ -56,7 +56,8 @@ class CreateOrderScreen extends StatelessWidget {
                   ),
                 ),
               ),
-              if (state is ActiveOrdersLoading) const BlurLoader(),
+              if (state.ordersStatus == OrderStateStatus.loading)
+                const BlurLoader(),
             ],
           );
         },

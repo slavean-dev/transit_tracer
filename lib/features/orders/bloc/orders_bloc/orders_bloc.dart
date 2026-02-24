@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
+import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
 import 'package:transit_tracer/core/services/geo_service/geo_service.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
@@ -13,7 +15,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
   final AbstractOrderRepository repository;
   final GeoService geoService;
 
-  OrdersBloc(this.repository, this.geoService) : super(OrdersInitial()) {
+  OrdersBloc(this.repository, this.geoService) : super(OrdersState()) {
     on<SaveUserOrder>(_saveOrder);
 
     on<LoadUserOrders>(_loadActiveOrders);
@@ -23,7 +25,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
 
   void _saveOrder(SaveUserOrder event, Emitter<OrdersState> emit) async {
     try {
-      emit(ActiveOrdersLoading());
+      emit(state.copyWith(ordersStatus: OrderStateStatus.loading));
       final results = await Future.wait([
         _getCityTranslation(event.from.placeId),
         _getCityTranslation(event.to.placeId),
@@ -38,9 +40,15 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
         event.weight,
         event.price,
       );
-      emit(OrderSavedSuccessfull());
-    } catch (e) {
-      emit(OrderFailure(exception: e.toString()));
+      emit(state.copyWith(ordersStatus: OrderStateStatus.success));
+    } on FirebaseFailure catch (e) {
+      emit(
+        state.copyWith(
+          ordersStatus: OrderStateStatus.error,
+          type: e.type,
+          error: e.toString(),
+        ),
+      );
     }
   }
 
@@ -62,21 +70,36 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
     Emitter<OrdersState> emit,
   ) async {
     try {
-      emit(ActiveOrdersLoading());
+      emit(state.copyWith(activeStatus: OrderStateStatus.loading));
       await emit.forEach<List<OrderData>>(
         repository.getActiveOrders(),
         onData: (orders) {
           if (orders.isEmpty) {
-            return ActiveOrdersEmpty();
+            return state.copyWith(activeStatus: OrderStateStatus.empty);
           } else {
-            return ActiveOrdersLoaded(orders: orders);
+            return state.copyWith(
+              activeStatus: OrderStateStatus.loaded,
+              activeOrders: orders,
+            );
           }
         },
-        onError: (error, stackTrace) =>
-            OrderFailure(exception: error.toString()),
+        onError: (error, stackTrace) {
+          return state.copyWith(
+            activeStatus: OrderStateStatus.error,
+            type: error is FirebaseFailure
+                ? error.type
+                : FirebaseErrorType.unknown,
+          );
+        },
       );
-    } catch (e) {
-      emit(OrderFailure(exception: e.toString()));
+    } on FirebaseFailure catch (e) {
+      emit(
+        state.copyWith(
+          activeStatus: OrderStateStatus.error,
+          type: e.type,
+          error: e.toString(),
+        ),
+      );
     }
   }
 
@@ -85,19 +108,36 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
     Emitter<OrdersState> emit,
   ) async {
     try {
-      emit(ArchiveOrdersLoading());
+      emit(state.copyWith(archiveStatus: OrderStateStatus.loading));
       await emit.forEach(
         repository.getArchivedOrders(),
         onData: (orders) {
           if (orders.isEmpty) {
-            return ArchiveOrdersEmpty();
+            return state.copyWith(archiveStatus: OrderStateStatus.empty);
           } else {
-            return ArchiveOrdersLoaded(orders: orders);
+            return state.copyWith(
+              archiveOrders: orders,
+              archiveStatus: OrderStateStatus.loaded,
+            );
           }
         },
+        onError: (error, stackTrace) {
+          return state.copyWith(
+            archiveStatus: OrderStateStatus.error,
+            type: error is FirebaseFailure
+                ? error.type
+                : FirebaseErrorType.unknown,
+          );
+        },
       );
-    } catch (e) {
-      emit(OrderFailure(exception: e.toString()));
+    } on FirebaseFailure catch (e) {
+      emit(
+        state.copyWith(
+          archiveStatus: OrderStateStatus.error,
+          type: e.type,
+          error: e.toString(),
+        ),
+      );
     }
   }
 }

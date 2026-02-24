@@ -2,6 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:transit_tracer/core/firebase_error_handler/error_translator/error_translator.dart';
+import 'package:transit_tracer/core/utils/ui/app_snack_bar.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/features/orders/view/order_details/order_details_content.dart';
@@ -34,18 +36,32 @@ class OrderDetailsScreen extends StatelessWidget {
         },
         child: Scaffold(
           appBar: AppBar(title: Text(s.orderDetailsTitle)),
-          body: BlocBuilder<OrderDetailsBloc, OrderDetailsState>(
-            builder: (context, state) {
-              return switch (state) {
-                OrderDetailsInitial() || OrderDetailsLoading() =>
-                  OrderDetailsContent(theme: theme, order: initialData),
-                OrderDetailsLoaded(order: final order) => OrderDetailsContent(
-                  theme: theme,
-                  order: order,
-                ),
-                _ => const SizedBox(),
-              };
+          body: BlocListener<OrderDetailsBloc, OrderDetailsState>(
+            listener: (context, state) {
+              if (state is OrderDetailsFailure) {
+                final error = ErrorTranslator.translate(context, state.type);
+                if (error != null) {
+                  AppSnackBar.showErrorMessage(context, error);
+                }
+              }
             },
+            child: BlocBuilder<OrderDetailsBloc, OrderDetailsState>(
+              buildWhen: (previous, current) =>
+                  current is OrderDetailsLoaded ||
+                  current is OrderDetailsLoading ||
+                  current is OrderDetailsInitial,
+              builder: (context, state) {
+                return switch (state) {
+                  OrderDetailsInitial() || OrderDetailsLoading() =>
+                    OrderDetailsContent(theme: theme, order: initialData),
+                  OrderDetailsLoaded(order: final order) => OrderDetailsContent(
+                    theme: theme,
+                    order: order,
+                  ),
+                  _ => const SizedBox(),
+                };
+              },
+            ),
           ),
         ),
       ),

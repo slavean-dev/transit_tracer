@@ -74,8 +74,13 @@
     "orderSyncPendingTooltip" : "L’ordine verrà sincronizzato quando sarà disponibile la connessione Internet",
 
     "orderListEmpty" : "Non hai ordini",
+    "orderListOfline" : "Gli ordini potrebbero non apparire a causa di problemi di rete.",
     "archiveOrderListEmpty" : "L'archivio è vuoto",
     "btnBackToOrdersList" : "Torna all'elenco degli ordini",
+
+    "ordersListErrorTitle" : "Qualcosa è andato storto",
+    "ordersListErrorMessage" : "Non siamo in grado di caricare gli ordini",
+    "btnTryAgain" : "Riprova",
 
     "btnOrderCardDetails" : "Dettagli",
 

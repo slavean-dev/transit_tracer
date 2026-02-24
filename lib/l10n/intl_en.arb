@@ -74,8 +74,13 @@
     "orderSyncPendingTooltip" : "This order will sync when internet connection is available",
 
     "orderListEmpty" : "You don`t have orders",
+    "orderListOfline" : "Orders may not be appearing due to connection issues.",
     "archiveOrderListEmpty" : "Archive is empty",
     "btnBackToOrdersList" : "Back to orders",
+
+    "ordersListErrorTitle" : "Something went wrong",
+    "ordersListErrorMessage" : "We couldn't load your orders",
+    "btnTryAgain" : "Try again",
 
     "btnOrderCardDetails" : "Details",
 

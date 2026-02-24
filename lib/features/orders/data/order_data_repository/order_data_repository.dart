@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/material.dart';
+import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_errors.dart';
+import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
 import 'package:transit_tracer/features/orders/data/order_data_repository/abstract_order_repository.dart';
@@ -45,10 +46,8 @@ class OrderDataRepository implements AbstractOrderRepository {
           .collection('orders')
           .doc(oid)
           .set(orderData.toJson());
-    } catch (e, s) {
-      debugPrint('saveOrder error: $e');
-      debugPrintStack(stackTrace: s);
-      rethrow;
+    } on FirebaseException catch (e) {
+      throw FirebaseFailure(null, type: FirebaseAuthErrors.map(e.code));
     }
   }
 
@@ -73,7 +72,15 @@ class OrderDataRepository implements AbstractOrderRepository {
         .map(
           (snapshot) =>
               snapshot.docs.map((doc) => OrderData.fromFirestore(doc)).toList(),
-        );
+        )
+        .handleError((error) {
+          if (error is FirebaseException) {
+            throw FirebaseFailure(
+              error.message,
+              type: FirebaseAuthErrors.map(error.code),
+            );
+          }
+        });
   }
 
   @override
@@ -86,29 +93,43 @@ class OrderDataRepository implements AbstractOrderRepository {
         .map(
           (snapshot) =>
               snapshot.docs.map((doc) => OrderData.fromFirestore(doc)).toList(),
-        );
+        )
+        .handleError((error) {
+          if (error is FirebaseException) {
+            throw FirebaseFailure(
+              error.message,
+              type: FirebaseAuthErrors.map(error.code),
+            );
+          }
+        });
   }
 
   @override
   Future<void> deleteOrder(String oid) async {
     try {
       await _firebaseFirestore.collection('orders').doc(oid).delete();
-    } catch (e) {
-      throw Exception(e.toString());
+    } on FirebaseException catch (e) {
+      throw FirebaseFailure(null, type: FirebaseAuthErrors.map(e.code));
     }
   }
 
   @override
   Stream<OrderData> getOrderById(String oid) {
-    try {
-      return _firebaseFirestore
-          .collection('orders')
-          .doc(oid)
-          .snapshots(includeMetadataChanges: true)
-          .map((doc) => OrderData.fromFirestore(doc));
-    } catch (e) {
-      throw Exception(e);
-    }
+    return _firebaseFirestore
+        .collection('orders')
+        .doc(oid)
+        .snapshots(includeMetadataChanges: true)
+        .map((doc) {
+          return OrderData.fromFirestore(doc);
+        })
+        .handleError((error) {
+          if (error is FirebaseException) {
+            throw FirebaseFailure(
+              error.message,
+              type: FirebaseAuthErrors.map(error.code),
+            );
+          }
+        });
   }
 
   @override
@@ -118,8 +139,8 @@ class OrderDataRepository implements AbstractOrderRepository {
           .collection('orders')
           .doc(order.oid)
           .update(order.toJson());
-    } catch (e) {
-      throw Exception(e);
+    } on FirebaseException catch (e) {
+      throw FirebaseFailure(null, type: FirebaseAuthErrors.map(e.code));
     }
   }
 
@@ -130,8 +151,8 @@ class OrderDataRepository implements AbstractOrderRepository {
   ) async {
     try {
       await _firebaseFirestore.collection('orders').doc(oid).update(updates);
-    } catch (e) {
-      throw Exception(e);
+    } on FirebaseException catch (e) {
+      throw FirebaseFailure(null, type: FirebaseAuthErrors.map(e.code));
     }
   }
 }

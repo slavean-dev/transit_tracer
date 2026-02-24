@@ -34,6 +34,7 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
   ) async {
     try {
       await repository.deleteOrder(event.oid);
+      emit(OrderDeletedSuccessfull());
     } on FirebaseFailure catch (e) {
       emit(OrderDetailsFailure(exception: e.toString(), type: e.type));
     }
@@ -50,7 +51,6 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
         onData: (order) {
           return OrderDetailsLoaded(order: order);
         },
-        onError: (error, stackTrace) => OrderDeletedSuccessfull(),
       );
     } on FirebaseFailure catch (e) {
       emit(OrderDetailsFailure(exception: e.toString(), type: e.type));
@@ -58,35 +58,36 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
   }
 
   void _editOrder(EditOrderData event, Emitter<OrderDetailsState> emit) async {
-    emit(OrderDetailsLoading());
-    Map<String, String> fromNames = event.from.localizedNames;
-    Map<String, String> toNames = event.to.localizedNames;
-    if (event.oldFromCityId != event.from.placeId) {
-      fromNames = await _getCityTranslation(event.from.placeId);
-    }
-    if (event.oldToCityId != event.to.placeId) {
-      toNames = await _getCityTranslation(event.to.placeId);
-    }
-    final from = event.from.copyWith(localizedNames: fromNames);
-    final to = event.to.copyWith(localizedNames: toNames);
-    final order = OrderData(
-      from: from,
-      to: to,
-      description: event.description,
-      weight: event.weight,
-      price: event.price,
-      uid: event.uid,
-      oid: event.oid,
-      status: event.status,
-      createdAt: event.createdAt,
-    );
-    if (!await networkChecker.isConnected) {
-      repository.editOrderData(order);
-      await Future.delayed(const Duration(seconds: 2));
-      emit(StateUpdatePendingLater());
-      return;
-    }
     try {
+      emit(OrderDetailsLoading());
+      Map<String, String> fromNames = event.from.localizedNames;
+      Map<String, String> toNames = event.to.localizedNames;
+      if (event.oldFromCityId != event.from.placeId) {
+        fromNames = await _getCityTranslation(event.from.placeId);
+      }
+      if (event.oldToCityId != event.to.placeId) {
+        toNames = await _getCityTranslation(event.to.placeId);
+      }
+      final from = event.from.copyWith(localizedNames: fromNames);
+      final to = event.to.copyWith(localizedNames: toNames);
+      final order = OrderData(
+        from: from,
+        to: to,
+        description: event.description,
+        weight: event.weight,
+        price: event.price,
+        uid: event.uid,
+        oid: event.oid,
+        status: event.status,
+        createdAt: event.createdAt,
+      );
+      if (!await networkChecker.isConnected) {
+        repository.editOrderData(order);
+        await Future.delayed(const Duration(seconds: 2));
+        emit(StateUpdatePendingLater());
+        return;
+      }
+
       await repository.editOrderData(order);
       emit(OrderDataEditedSuccessfull());
     } on FirebaseFailure catch (e) {

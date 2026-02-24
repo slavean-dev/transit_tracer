@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Редагувати замовлення",
     ),
     "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Розархівувати"),
+    "btnTryAgain": MessageLookupByLibrary.simpleMessage("Спробувати ще раз"),
     "cargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Клієнт"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Контакти"),
@@ -178,6 +179,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderListEmpty": MessageLookupByLibrary.simpleMessage(
       "У вас немає замовлень",
     ),
+    "orderListOfline": MessageLookupByLibrary.simpleMessage(
+      "Схоже, ви офлайн, тому список може бути неповним.",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
     ),
@@ -196,6 +200,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "Замовлення буде синхронізовано при підключенні до інтернету",
     ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Вага"),
+    "ordersListErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "Ми не можемо завантажити ваші замовлення",
+    ),
+    "ordersListErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Щось пішло не так",
+    ),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Зробити доставку вантажів швидкою, доступною та надійною для кожного.",

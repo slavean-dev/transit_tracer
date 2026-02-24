@@ -47,6 +47,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Delete"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Edit order"),
     "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Unarchive"),
+    "btnTryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
     "cargoTitle": MessageLookupByLibrary.simpleMessage("Cargo"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Client"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contacts"),
@@ -168,6 +169,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderListEmpty": MessageLookupByLibrary.simpleMessage(
       "You don`t have orders",
     ),
+    "orderListOfline": MessageLookupByLibrary.simpleMessage(
+      "Orders may not be appearing due to connection issues.",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "City selection fields are unavailable without an internet connection.",
     ),
@@ -186,6 +190,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "This order will sync when internet connection is available",
     ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Weight"),
+    "ordersListErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "We couldn\'t load your orders",
+    ),
+    "ordersListErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong",
+    ),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Orders"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Make cargo delivery fast, accessible and trustworthy for everyone.",

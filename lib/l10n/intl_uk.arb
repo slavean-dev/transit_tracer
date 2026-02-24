@@ -54,8 +54,13 @@
     "orderSyncPendingTooltip" : "Замовлення буде синхронізовано при підключенні до інтернету",
 
     "orderListEmpty" : "У вас немає замовлень",
+    "orderListOfline" : "Схоже, ви офлайн, тому список може бути неповним.",
     "archiveOrderListEmpty" : "Архів порожній",
     "btnBackToOrdersList" : "Назад до списку замовлень",
+
+    "ordersListErrorTitle" : "Щось пішло не так",
+    "ordersListErrorMessage" : "Ми не можемо завантажити ваші замовлення",
+    "btnTryAgain" :  "Спробувати ще раз",
 
     "btnOrderCardDetails" : "Деталі",
 

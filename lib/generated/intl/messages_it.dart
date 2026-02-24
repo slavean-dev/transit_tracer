@@ -49,6 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Elimina"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Modifica ordine"),
     "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Riarchivare"),
+    "btnTryAgain": MessageLookupByLibrary.simpleMessage("Riprova"),
     "cargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Cliente"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contatti"),
@@ -182,6 +183,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Peso del carico"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID ordine"),
     "orderListEmpty": MessageLookupByLibrary.simpleMessage("Non hai ordini"),
+    "orderListOfline": MessageLookupByLibrary.simpleMessage(
+      "Gli ordini potrebbero non apparire a causa di problemi di rete.",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "I campi di selezione delle città non sono disponibili senza connessione.",
     ),
@@ -200,6 +204,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "L’ordine verrà sincronizzato quando sarà disponibile la connessione Internet",
     ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Peso"),
+    "ordersListErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "Non siamo in grado di caricare gli ordini",
+    ),
+    "ordersListErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Qualcosa è andato storto",
+    ),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Ordine"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Rendi la consegna delle merci veloce, accessibile e affidabile per tutti.",

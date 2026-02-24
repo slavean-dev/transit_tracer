@@ -604,6 +604,16 @@ class S {
     );
   }
 
+  /// `Orders may not be appearing due to connection issues.`
+  String get orderListOfline {
+    return Intl.message(
+      'Orders may not be appearing due to connection issues.',
+      name: 'orderListOfline',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Archive is empty`
   String get archiveOrderListEmpty {
     return Intl.message(
@@ -622,6 +632,31 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `Something went wrong`
+  String get ordersListErrorTitle {
+    return Intl.message(
+      'Something went wrong',
+      name: 'ordersListErrorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We couldn't load your orders`
+  String get ordersListErrorMessage {
+    return Intl.message(
+      'We couldn\'t load your orders',
+      name: 'ordersListErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get btnTryAgain {
+    return Intl.message('Try again', name: 'btnTryAgain', desc: '', args: []);
   }
 
   /// `Details`
