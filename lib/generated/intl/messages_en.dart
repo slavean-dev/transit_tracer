@@ -33,12 +33,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutTheAppTitle": MessageLookupByLibrary.simpleMessage("About the app"),
     "aboutUsTitle": MessageLookupByLibrary.simpleMessage("About Us"),
     "above2000": MessageLookupByLibrary.simpleMessage("Over 2000 kg"),
+    "archiveOrderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Archive is empty",
+    ),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Arсhive"),
     "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
+    "btnBackToOrdersList": MessageLookupByLibrary.simpleMessage(
+      "Back to orders",
+    ),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Open in map"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archive"),
+    "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Details"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Delete"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Edit order"),
+    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Unarchive"),
+    "btnTryAgain": MessageLookupByLibrary.simpleMessage("Try again"),
+    "cargoTitle": MessageLookupByLibrary.simpleMessage("Cargo"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Client"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contacts"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -48,11 +58,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Dark theme:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Date"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
-    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Archive"),
-    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Archive"),
+    "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to archive this order? \nThis action cannot be undone.",
     ),
-    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
+    "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
     "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
       "Are you sure you want to exit?",
@@ -66,6 +76,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Delete order"),
     "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Exit"),
+    "dialogUnarchiveConfirm": MessageLookupByLibrary.simpleMessage("Unarchive"),
+    "dialogUnarchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Are you sure you want to unarchive this order? ",
+    ),
+    "dialogUnarchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Unarchiving an order",
+    ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Don`t have Account? Tap here to create!",
     ),
@@ -132,7 +149,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
       "Saved locally, will sync later",
     ),
-    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Cargo"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Created"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage("Order details"),
     "orderEdit": MessageLookupByLibrary.simpleMessage("Edit"),
@@ -150,6 +166,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Enter price"),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Cargo weight"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("Order ID"),
+    "orderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "You don`t have orders",
+    ),
+    "orderListOfline": MessageLookupByLibrary.simpleMessage(
+      "Orders may not be appearing due to connection issues.",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "City selection fields are unavailable without an internet connection.",
     ),
@@ -164,7 +186,16 @@ class MessageLookup extends MessageLookupByLibrary {
       "In progress",
     ),
     "orderStatusSyncing": MessageLookupByLibrary.simpleMessage("Syncing..."),
+    "orderSyncPendingTooltip": MessageLookupByLibrary.simpleMessage(
+      "This order will sync when internet connection is available",
+    ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Weight"),
+    "ordersListErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "We couldn\'t load your orders",
+    ),
+    "ordersListErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong",
+    ),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Orders"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Make cargo delivery fast, accessible and trustworthy for everyone.",

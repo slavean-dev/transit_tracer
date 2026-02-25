@@ -35,12 +35,22 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "aboutUsTitle": MessageLookupByLibrary.simpleMessage("Chi siamo"),
     "above2000": MessageLookupByLibrary.simpleMessage("Oltre 2000 kg"),
+    "archiveOrderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "L\'archivio è vuoto",
+    ),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Archivio"),
     "avatar": MessageLookupByLibrary.simpleMessage("Avatar"),
+    "btnBackToOrdersList": MessageLookupByLibrary.simpleMessage(
+      "Torna all\'elenco degli ordini",
+    ),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Apri sulla mappa"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Archiviare"),
+    "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Dettagli"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Elimina"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Modifica ordine"),
+    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Riarchivare"),
+    "btnTryAgain": MessageLookupByLibrary.simpleMessage("Riprova"),
+    "cargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Cliente"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Contatti"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -50,11 +60,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Tema scuro:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Data"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Data di nascita"),
-    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Archivia"),
-    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Archivia"),
+    "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
       "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
     ),
-    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage(
       "Archivia ordine",
     ),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Annulla"),
@@ -70,6 +80,15 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Elimina ordine"),
     "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Esci"),
+    "dialogUnarchiveConfirm": MessageLookupByLibrary.simpleMessage(
+      "Riarchivare",
+    ),
+    "dialogUnarchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Sei sicuro di voler decomprimere questo ordine? ",
+    ),
+    "dialogUnarchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Archiviazione dell\'ordine",
+    ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Non hai un account? Clicca qui per crearne uno!",
     ),
@@ -142,7 +161,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
       "Salvato localmente, verrà sincronizzato più tardi",
     ),
-    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Creato"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
       "Dettagli dell\'ordine",
@@ -164,6 +182,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Peso del carico"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID ordine"),
+    "orderListEmpty": MessageLookupByLibrary.simpleMessage("Non hai ordini"),
+    "orderListOfline": MessageLookupByLibrary.simpleMessage(
+      "Gli ordini potrebbero non apparire a causa di problemi di rete.",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "I campi di selezione delle città non sono disponibili senza connessione.",
     ),
@@ -178,7 +200,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderStatusSyncing": MessageLookupByLibrary.simpleMessage(
       "Sincronizzazione...",
     ),
+    "orderSyncPendingTooltip": MessageLookupByLibrary.simpleMessage(
+      "L’ordine verrà sincronizzato quando sarà disponibile la connessione Internet",
+    ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Peso"),
+    "ordersListErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "Non siamo in grado di caricare gli ordini",
+    ),
+    "ordersListErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Qualcosa è andato storto",
+    ),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Ordine"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Rendi la consegna delle merci veloce, accessibile e affidabile per tutti.",

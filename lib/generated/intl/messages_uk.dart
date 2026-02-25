@@ -33,14 +33,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "aboutTheAppTitle": MessageLookupByLibrary.simpleMessage("Про додаток"),
     "aboutUsTitle": MessageLookupByLibrary.simpleMessage("Про нас"),
     "above2000": MessageLookupByLibrary.simpleMessage("Понад 2000 кг"),
+    "archiveOrderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Архів порожній",
+    ),
     "archiveTitle": MessageLookupByLibrary.simpleMessage("Архів"),
     "avatar": MessageLookupByLibrary.simpleMessage("Аватар"),
+    "btnBackToOrdersList": MessageLookupByLibrary.simpleMessage(
+      "Назад до списку замовлень",
+    ),
     "btnOpenInMap": MessageLookupByLibrary.simpleMessage("Відкрити на карті"),
     "btnOrderArchive": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Деталі"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Видалити"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage(
       "Редагувати замовлення",
     ),
+    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Розархівувати"),
+    "btnTryAgain": MessageLookupByLibrary.simpleMessage("Спробувати ще раз"),
+    "cargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Клієнт"),
     "contactCont": MessageLookupByLibrary.simpleMessage("Контакти"),
     "contactsRegions": MessageLookupByLibrary.simpleMessage("EU / IT / UA"),
@@ -50,11 +60,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Темна тема:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Дата"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Дата народження"),
-    "dialogAtchiveConfirm": MessageLookupByLibrary.simpleMessage("Архівувати"),
-    "dialogAtchiveMessage": MessageLookupByLibrary.simpleMessage(
-      "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
+    "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Архівувати"),
+    "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете архівувати це замовлення? ",
     ),
-    "dialogAtchiveTitle": MessageLookupByLibrary.simpleMessage(
+    "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage(
       "Архівування замовлення",
     ),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
@@ -70,6 +80,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "Видалити замовлення",
     ),
     "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Вихід"),
+    "dialogUnarchiveConfirm": MessageLookupByLibrary.simpleMessage(
+      "Розархівувати",
+    ),
+    "dialogUnarchiveMessage": MessageLookupByLibrary.simpleMessage(
+      "Ви впевнені, що хочете розархівувати це замовлення? ",
+    ),
+    "dialogUnarchiveTitle": MessageLookupByLibrary.simpleMessage(
+      "Розархівування замовлення",
+    ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
       "Немає аккаунту? Натисніть тут щоб створити!",
     ),
@@ -138,7 +157,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
       "Збережено локально, буде відправлено пізніше",
     ),
-    "orderCargoTitle": MessageLookupByLibrary.simpleMessage("Вантаж"),
     "orderCreatedDateLabel": MessageLookupByLibrary.simpleMessage("Створено"),
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
       "Деталі замовлення",
@@ -158,6 +176,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderFieldPriceHint": MessageLookupByLibrary.simpleMessage("Введіть ціну"),
     "orderFieldWeight": MessageLookupByLibrary.simpleMessage("Вага вантажу"),
     "orderIdLabel": MessageLookupByLibrary.simpleMessage("ID замовлення"),
+    "orderListEmpty": MessageLookupByLibrary.simpleMessage(
+      "У вас немає замовлень",
+    ),
+    "orderListOfline": MessageLookupByLibrary.simpleMessage(
+      "Схоже, ви офлайн, тому список може бути неповним.",
+    ),
     "orderOflineDescription": MessageLookupByLibrary.simpleMessage(
       "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
     ),
@@ -172,7 +196,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderStatusSyncing": MessageLookupByLibrary.simpleMessage(
       "Синхронізація...",
     ),
+    "orderSyncPendingTooltip": MessageLookupByLibrary.simpleMessage(
+      "Замовлення буде синхронізовано при підключенні до інтернету",
+    ),
     "orderWeightLabel": MessageLookupByLibrary.simpleMessage("Вага"),
+    "ordersListErrorMessage": MessageLookupByLibrary.simpleMessage(
+      "Ми не можемо завантажити ваші замовлення",
+    ),
+    "ordersListErrorTitle": MessageLookupByLibrary.simpleMessage(
+      "Щось пішло не так",
+    ),
     "ordersTitle": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "ourMissionContent": MessageLookupByLibrary.simpleMessage(
       "Зробити доставку вантажів швидкою, доступною та надійною для кожного.",

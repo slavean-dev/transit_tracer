@@ -1,9 +1,12 @@
 {
+    "cargoTitle" : "Carico",
+
     "loginTitle": "Login",
     "loginForm": "Inserisci il tuo login",
     "passwordForm": "Inserisci la tua password",
     "dontHaveAccButton": "Non hai un account? Clicca qui per crearne uno!",
     "logButton": "Uscita",
+
     "registrationTitle": "Registrazione",
     "clientTab": "Cliente",
     "driverTab": "Autista",
@@ -15,6 +18,7 @@
     "passwordConfirmForm": "Conferma password",
     "haveAccTextButton": "Hai già un account? Clicca qui per tornare!",
     "registerButton": "Registro",
+
     "validationFormEmpty": "Il campo non può essere vuoto",
     "validationInvalidName": "Inserisci un nome valido",
     "validationInvalidSurname": "Inserisci un cognome valido",
@@ -25,6 +29,7 @@
     "validationInvalidPasswordDigit": "La password deve contenere almeno una cifra",
     "validationInvalidPasswordSpecChar": "La password deve contenere almeno un carattere speciale",
     "validationInvalidConfirmPasswordDidntMatch": "Le password non corrispondono",
+
     "firebaseErrorInvalidCredential" : "Credenziali non valide",
     "firebaseErrorEmailInUse": "Questa email è già registrata",
     "firebaseErrorInvalidEmail": "Formato email non valido",
@@ -36,13 +41,16 @@
     "firebaseErrorNotFound" : "Ordine non trovato. Può essere stato cancellato.",
     "firebaseErrorUnavailable" : "Servizio non disponibile. Controlla la tua connessione o riprova più tardi.",
     "firebaseErrorNetwork" : "Errore di rete. Controlla la tua connessione o riprova più tardi.",
+
     "navSearch": "Ricerca",
     "navCreate": "Creare",
     "navOrders": "Ordine",
     "navProfile": "Profilo",
+
     "searchTitle": "Cerca trasporti",
     "search": "Ricerca",
     "dateLabel": "Data",
+
     "fieldFrom": "Da dove",
     "fieldTo": "Dove",
     "hintEnterCity": "Inserisci città",
@@ -63,6 +71,19 @@
     "profileTitle": "Profilo",
     "contactCont": "Contatti",
 
+    "orderSyncPendingTooltip" : "L’ordine verrà sincronizzato quando sarà disponibile la connessione Internet",
+
+    "orderListEmpty" : "Non hai ordini",
+    "orderListOfline" : "Gli ordini potrebbero non apparire a causa di problemi di rete.",
+    "archiveOrderListEmpty" : "L'archivio è vuoto",
+    "btnBackToOrdersList" : "Torna all'elenco degli ordini",
+
+    "ordersListErrorTitle" : "Qualcosa è andato storto",
+    "ordersListErrorMessage" : "Non siamo in grado di caricare gli ordini",
+    "btnTryAgain" : "Riprova",
+
+    "btnOrderCardDetails" : "Dettagli",
+
     "orderDetailsTitle" : "Dettagli dell'ordine",
     "orderStatusSyncing" : "Sincronizzazione...",
     "orderStatusActive" : "Attivo",
@@ -70,7 +91,6 @@
     "orderStatusCompleted" : "Completato",
     "orderStatusArchived" : "Archivio",
     "btnOpenInMap": "Apri sulla mappa",
-    "orderCargoTitle" : "Carico",
     "orderIdLabel": "ID ordine",
     "orderCreatedDateLabel": "Creato",
     "orderWeightLabel": "Peso",
@@ -78,6 +98,7 @@
     "btnOrderEdit": "Modifica ordine",
     "btnOrderDelete": "Elimina",
     "btnOrderArchive": "Archiviare",
+    "btnOrderUnarchive" : "Riarchivare",
 
     "orderOflineTitle" : "Nessuna connessione a internet",
     "orderOflineDescription" : "I campi di selezione delle città non sono disponibili senza connessione.",
@@ -86,9 +107,13 @@
     "dialogConfirmExitMessage": "Sei sicuro di voler uscire?",
     "dialogExitConfirm": "Esci",
 
-    "dialogAtchiveTitle": "Archivia ordine",
-    "dialogAtchiveMessage": "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
-    "dialogAtchiveConfirm": "Archivia",
+    "dialogArchiveTitle": "Archivia ordine",
+    "dialogArchiveMessage": "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
+    "dialogArchiveConfirm": "Archivia",
+
+    "dialogUnarchiveTitle": "Archiviazione dell'ordine",
+    "dialogUnarchiveMessage": "Sei sicuro di voler decomprimere questo ordine? ",
+    "dialogUnarchiveConfirm": "Riarchivare",
 
     "dialogDeleteTitle": "Elimina ordine",
     "dialogDeleteMessage": "Sei sicuro di voler eliminare questo ordine? \nQuesta operazione non può essere annullata.",

@@ -8,6 +8,7 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:transit_tracer/core/services/geo_service/geo_service.dart';
 import 'package:transit_tracer/core/services/network_service/network_service.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/user/bloc/app_user_bloc.dart';
@@ -110,7 +111,13 @@ class DiService {
       ),
     );
 
-    getIt.registerFactory(() => OrdersBloc(getIt<AbstractOrderRepository>()));
+    getIt.registerSingleton<GeoService>(
+      GeoService(getIt<EnvService>().autocompleteApiKey),
+    );
+
+    getIt.registerFactory(
+      () => OrdersBloc(getIt<AbstractOrderRepository>(), getIt<GeoService>()),
+    );
 
     getIt.registerSingleton<AbstractProfileRepository>(
       ProfileRepository(
@@ -123,6 +130,7 @@ class DiService {
       () => OrderDetailsBloc(
         getIt<AbstractOrderRepository>(),
         getIt<NetworkService>(),
+        getIt<GeoService>(),
       ),
     );
 

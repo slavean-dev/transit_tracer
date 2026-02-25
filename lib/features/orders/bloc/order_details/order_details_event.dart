@@ -26,6 +26,8 @@ class LoadOrderDetails extends OrderDetailsEvent {
 
 class EditOrderData extends OrderDetailsEvent {
   const EditOrderData({
+    required this.oldFromCityId,
+    required this.oldToCityId,
     required this.from,
     required this.to,
     required this.description,
@@ -36,6 +38,9 @@ class EditOrderData extends OrderDetailsEvent {
     required this.status,
     required this.createdAt,
   });
+
+  final String oldFromCityId;
+  final String oldToCityId;
 
   final CityPoint from;
   final CityPoint to;
@@ -49,6 +54,8 @@ class EditOrderData extends OrderDetailsEvent {
 
   @override
   List<Object> get props => [
+    oldFromCityId,
+    oldToCityId,
     from,
     to,
     description,
@@ -61,11 +68,11 @@ class EditOrderData extends OrderDetailsEvent {
   ];
 }
 
-class ArchiveOrder extends OrderDetailsEvent {
-  const ArchiveOrder({required this.oid});
+class ToggleArchiveStatus extends OrderDetailsEvent {
+  const ToggleArchiveStatus({required this.order});
 
-  final String oid;
+  final OrderData order;
 
   @override
-  List<String> get props => [oid];
+  List<OrderData> get props => [order];
 }

@@ -9,6 +9,8 @@ sealed class OrdersEvent extends Equatable {
 
 class LoadUserOrders extends OrdersEvent {}
 
+class LoadArchivedOrders extends OrdersEvent {}
+
 class SaveUserOrder extends OrdersEvent {
   const SaveUserOrder({
     required this.from,

@@ -54,6 +54,11 @@ class S {
     return Localizations.of<S>(context, S);
   }
 
+  /// `Cargo`
+  String get cargoTitle {
+    return Intl.message('Cargo', name: 'cargoTitle', desc: '', args: []);
+  }
+
   /// `Login`
   String get loginTitle {
     return Intl.message('Login', name: 'loginTitle', desc: '', args: []);
@@ -579,6 +584,91 @@ class S {
     return Intl.message('Contacts', name: 'contactCont', desc: '', args: []);
   }
 
+  /// `This order will sync when internet connection is available`
+  String get orderSyncPendingTooltip {
+    return Intl.message(
+      'This order will sync when internet connection is available',
+      name: 'orderSyncPendingTooltip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You don't have orders`
+  String get orderListEmpty {
+    return Intl.message(
+      'You don`t have orders',
+      name: 'orderListEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Orders may not be appearing due to connection issues.`
+  String get orderListOfline {
+    return Intl.message(
+      'Orders may not be appearing due to connection issues.',
+      name: 'orderListOfline',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Archive is empty`
+  String get archiveOrderListEmpty {
+    return Intl.message(
+      'Archive is empty',
+      name: 'archiveOrderListEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Back to orders`
+  String get btnBackToOrdersList {
+    return Intl.message(
+      'Back to orders',
+      name: 'btnBackToOrdersList',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong`
+  String get ordersListErrorTitle {
+    return Intl.message(
+      'Something went wrong',
+      name: 'ordersListErrorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We couldn't load your orders`
+  String get ordersListErrorMessage {
+    return Intl.message(
+      'We couldn\'t load your orders',
+      name: 'ordersListErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Try again`
+  String get btnTryAgain {
+    return Intl.message('Try again', name: 'btnTryAgain', desc: '', args: []);
+  }
+
+  /// `Details`
+  String get btnOrderCardDetails {
+    return Intl.message(
+      'Details',
+      name: 'btnOrderCardDetails',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No internet connection`
   String get orderOflineTitle {
     return Intl.message(
@@ -669,11 +759,6 @@ class S {
     );
   }
 
-  /// `Cargo`
-  String get orderCargoTitle {
-    return Intl.message('Cargo', name: 'orderCargoTitle', desc: '', args: []);
-  }
-
   /// `Order ID`
   String get orderIdLabel {
     return Intl.message('Order ID', name: 'orderIdLabel', desc: '', args: []);
@@ -714,6 +799,16 @@ class S {
     return Intl.message('Archive', name: 'btnOrderArchive', desc: '', args: []);
   }
 
+  /// `Unarchive`
+  String get btnOrderUnarchive {
+    return Intl.message(
+      'Unarchive',
+      name: 'btnOrderUnarchive',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Confirm exit`
   String get dialogConfirmExitTitle {
     return Intl.message(
@@ -740,30 +835,60 @@ class S {
   }
 
   /// `Archive order`
-  String get dialogAtchiveTitle {
+  String get dialogArchiveTitle {
     return Intl.message(
       'Archive order',
-      name: 'dialogAtchiveTitle',
+      name: 'dialogArchiveTitle',
       desc: '',
       args: [],
     );
   }
 
   /// `Are you sure you want to archive this order? \nThis action cannot be undone.`
-  String get dialogAtchiveMessage {
+  String get dialogArchiveMessage {
     return Intl.message(
       'Are you sure you want to archive this order? \nThis action cannot be undone.',
-      name: 'dialogAtchiveMessage',
+      name: 'dialogArchiveMessage',
       desc: '',
       args: [],
     );
   }
 
   /// `Archive`
-  String get dialogAtchiveConfirm {
+  String get dialogArchiveConfirm {
     return Intl.message(
       'Archive',
-      name: 'dialogAtchiveConfirm',
+      name: 'dialogArchiveConfirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unarchiving an order`
+  String get dialogUnarchiveTitle {
+    return Intl.message(
+      'Unarchiving an order',
+      name: 'dialogUnarchiveTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to unarchive this order? `
+  String get dialogUnarchiveMessage {
+    return Intl.message(
+      'Are you sure you want to unarchive this order? ',
+      name: 'dialogUnarchiveMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unarchive`
+  String get dialogUnarchiveConfirm {
+    return Intl.message(
+      'Unarchive',
+      name: 'dialogUnarchiveConfirm',
       desc: '',
       args: [],
     );

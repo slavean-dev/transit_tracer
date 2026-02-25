@@ -1,9 +1,12 @@
 {
+    "cargoTitle" : "Cargo",
+
     "loginTitle": "Login",
     "loginForm": "Enter your Login",
     "passwordForm": "Enter your Password",
     "dontHaveAccButton": "Don`t have Account? Tap here to create!",
     "logButton": "Login",
+
     "registrationTitle": "Registration",
     "clientTab": "Client",
     "driverTab": "Driver",
@@ -15,6 +18,7 @@
     "passwordConfirmForm": "Confirm your password",
     "haveAccTextButton": "Have account? Tap here to return!",
     "registerButton": "Register",
+
     "validationFormEmpty": "Field can`t be empty",
     "validationInvalidName": "Enter a valid name",
     "validationInvalidSurname": "Enter a valid surname",
@@ -36,13 +40,16 @@
     "firebaseErrorNotFound" : "Order not found. It might have been deleted.",
     "firebaseErrorUnavailable" : "Service unavailable. Please check your internet or try later.",
     "firebaseErrorNetwork" : "Network error. Please check your internet or try later.",
+
     "navSearch": "Search",
     "navCreate": "Create",
     "navOrders": "Orders",
     "navProfile": "Profile",
+
     "searchTitle": "Search Transport",
     "search": "Search",
     "dateLabel": "Date",
+
     "fieldFrom": "From",
     "fieldTo": "To",
     "hintEnterCity": "Enter city",
@@ -58,10 +65,24 @@
     "above2000": "Over 2000 kg",
     "orderFieldPrice": "Price",
     "orderFieldPriceHint": "Enter price",
+
     "ordersTitle": "Orders",
     "archiveTitle": "Arсhive",
     "profileTitle": "Profile",
     "contactCont": "Contacts",
+
+    "orderSyncPendingTooltip" : "This order will sync when internet connection is available",
+
+    "orderListEmpty" : "You don`t have orders",
+    "orderListOfline" : "Orders may not be appearing due to connection issues.",
+    "archiveOrderListEmpty" : "Archive is empty",
+    "btnBackToOrdersList" : "Back to orders",
+
+    "ordersListErrorTitle" : "Something went wrong",
+    "ordersListErrorMessage" : "We couldn't load your orders",
+    "btnTryAgain" : "Try again",
+
+    "btnOrderCardDetails" : "Details",
 
     "orderOflineTitle" : "No internet connection",
     "orderOflineDescription" : "City selection fields are unavailable without an internet connection.",
@@ -73,7 +94,6 @@
     "orderStatusCompleted" : "Completed",
     "orderStatusArchived" : "Archive",
     "btnOpenInMap": "Open in map",
-    "orderCargoTitle" : "Cargo",
     "orderIdLabel": "Order ID",
     "orderCreatedDateLabel": "Created",
     "orderWeightLabel": "Weight",
@@ -81,15 +101,20 @@
     "btnOrderEdit": "Edit order",
     "btnOrderDelete": "Delete",
     "btnOrderArchive": "Archive",
+    "btnOrderUnarchive" : "Unarchive",
 
     "dialogConfirmExitTitle": "Confirm exit",
     "dialogConfirmExitMessage": "Are you sure you want to exit?",
     "dialogExitConfirm": "Exit",
 
 
-    "dialogAtchiveTitle": "Archive order",
-    "dialogAtchiveMessage": "Are you sure you want to archive this order? \nThis action cannot be undone.",
-    "dialogAtchiveConfirm": "Archive",
+    "dialogArchiveTitle": "Archive order",
+    "dialogArchiveMessage": "Are you sure you want to archive this order? \nThis action cannot be undone.",
+    "dialogArchiveConfirm": "Archive",
+
+    "dialogUnarchiveTitle": "Unarchiving an order",
+    "dialogUnarchiveMessage": "Are you sure you want to unarchive this order? ",
+    "dialogUnarchiveConfirm": "Unarchive",
 
 
     "dialogDeleteTitle": "Delete order",

@@ -36,18 +36,26 @@ class OrderActionSection extends StatelessWidget {
             Expanded(
               child: ActionButton(
                 theme: theme,
-                lable: s.btnOrderArchive,
+                lable: order.isArchive
+                    ? s.btnOrderUnarchive
+                    : s.btnOrderArchive,
                 textColor: null,
                 backgroundColor: theme.colorScheme.surface,
                 onPressed: () {
                   AppDialog.showConfirm(
                     context,
-                    title: s.dialogAtchiveTitle,
-                    message: s.dialogAtchiveMessage,
-                    confirmText: s.dialogAtchiveConfirm,
+                    title: order.isArchive
+                        ? s.dialogUnarchiveTitle
+                        : s.dialogArchiveTitle,
+                    message: order.isArchive
+                        ? s.dialogUnarchiveMessage
+                        : s.dialogArchiveMessage,
+                    confirmText: order.isArchive
+                        ? s.dialogUnarchiveConfirm
+                        : s.dialogArchiveConfirm,
                     onConfirm: () {
                       context.read<OrderDetailsBloc>().add(
-                        ArchiveOrder(oid: order.oid),
+                        ToggleArchiveStatus(order: order),
                       );
                     },
                   );

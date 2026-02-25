@@ -10,9 +10,10 @@ abstract class AbstractOrderRepository {
     WeightRange weight,
     String price,
   );
-  Stream<List<OrderData>> getOrders();
+  Stream<List<OrderData>> getActiveOrders();
+  Stream<List<OrderData>> getArchivedOrders();
   Future<void> deleteOrder(String oid);
   Stream<OrderData> getOrderById(String oid);
   Future<void> editOrderData(OrderData order);
-  Future<void> archiveOrder(String oid);
+  Future<void> toggleArchiveStatus(String oid, Map<String, dynamic> updates);
 }

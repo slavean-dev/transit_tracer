@@ -1,9 +1,12 @@
 {
+    "cargoTitle" : "Вантаж",
+
     "loginTitle": "Логін",
     "loginForm": "Введіть ваш Логін",
     "passwordForm": "Введіть ваш Пароль",
     "dontHaveAccButton": "Немає аккаунту? Натисніть тут щоб створити!",
     "logButton": "Вхід",
+
     "registrationTitle": "Реєстрація",
     "clientTab": "Клієнт",
     "driverTab": "Водій",
@@ -15,6 +18,7 @@
     "passwordConfirmForm": "Підтвердіть пароль",
     "haveAccTextButton": "Маєте аккаунт? Натисніть тут щоб повернутись!",
     "registerButton": "Зареєструвати",
+
     "validationFormEmpty": "Поле не може бути порожнім",
     "validationInvalidName": "Введіть дійсне ім'я",
     "validationInvalidSurname": "Введіть дійсне прізвище",
@@ -25,6 +29,7 @@
     "validationInvalidPasswordDigit": "Пароль повинен містити щонайменше одну цифру",
     "validationInvalidPasswordSpecChar": "Пароль повинен містити принаймні один спеціальний символ",
     "validationInvalidConfirmPasswordDidntMatch": "Паролі не збігалися",
+
     "firebaseErrorInvalidCredential" : "Недійсні дані",
     "firebaseErrorEmailInUse": "Ця електронна адреса вже зареєстрована",
     "firebaseErrorInvalidEmail": "Недійсний формат електронної пошти",
@@ -36,13 +41,29 @@
     "firebaseErrorNotFound" : "Замовлення не знайдено. Можливо було видалено.",
     "firebaseErrorUnavailable" : "Послуга недоступна. Перевірте ваше з'єднання з інтернетом або спробуйте пізніше.",
     "firebaseErrorNetwork" : "Помилка мережі. Перевірте підключення до Інтернету або спробуйте пізніше.",
+
     "navSearch": "Пошук",
     "navCreate": "Створити",
     "navOrders": "Замовлення",
     "navProfile": "Профіль",
+
     "searchTitle": "Пошук транспорта",
     "search": "Пошук",
     "dateLabel": "Дата",
+
+    "orderSyncPendingTooltip" : "Замовлення буде синхронізовано при підключенні до інтернету",
+
+    "orderListEmpty" : "У вас немає замовлень",
+    "orderListOfline" : "Схоже, ви офлайн, тому список може бути неповним.",
+    "archiveOrderListEmpty" : "Архів порожній",
+    "btnBackToOrdersList" : "Назад до списку замовлень",
+
+    "ordersListErrorTitle" : "Щось пішло не так",
+    "ordersListErrorMessage" : "Ми не можемо завантажити ваші замовлення",
+    "btnTryAgain" :  "Спробувати ще раз",
+
+    "btnOrderCardDetails" : "Деталі",
+
     "fieldFrom": "Звідки",
     "fieldTo": "Куди",
     "hintEnterCity": "Введіть місто",
@@ -58,6 +79,7 @@
     "above2000": "Понад 2000 кг",
     "orderFieldPrice": "Ціна",
     "orderFieldPriceHint": "Введіть ціну",
+
     "ordersTitle": "Замовлення",
     "archiveTitle": "Архів",
     "profileTitle": "Профіль",
@@ -70,7 +92,6 @@
     "orderStatusCompleted" : "Завершено",
     "orderStatusArchived" : "Архів",
     "btnOpenInMap": "Відкрити на карті",
-    "orderCargoTitle" : "Вантаж",
     "orderIdLabel": "ID замовлення",
     "orderCreatedDateLabel": "Створено",
     "orderWeightLabel": "Вага",
@@ -78,6 +99,7 @@
     "btnOrderEdit": "Редагувати замовлення",
     "btnOrderDelete": "Видалити",
     "btnOrderArchive": "Архівувати",
+    "btnOrderUnarchive" : "Розархівувати",
 
     "orderOflineTitle" : "Немає підключення до інтернету",
     "orderOflineDescription" : "Поля вибору міст тимчасово недоступні. \nПеревірте підключення до мережі.",
@@ -86,9 +108,13 @@
     "dialogConfirmExitMessage": "Ви впевнені, що хочете вийти?",
     "dialogExitConfirm": "Вихід",
 
-    "dialogAtchiveTitle": "Архівування замовлення",
-    "dialogAtchiveMessage": "Ви впевнені, що хочете архівувати це замовлення? \nЦю дію не можна скасувати.",
-    "dialogAtchiveConfirm": "Архівувати",
+    "dialogArchiveTitle": "Архівування замовлення",
+    "dialogArchiveMessage": "Ви впевнені, що хочете архівувати це замовлення? ",
+    "dialogArchiveConfirm": "Архівувати",
+
+    "dialogUnarchiveTitle": "Розархівування замовлення",
+    "dialogUnarchiveMessage": "Ви впевнені, що хочете розархівувати це замовлення? ",
+    "dialogUnarchiveConfirm": "Розархівувати",
 
     "dialogDeleteTitle": "Видалити замовлення",
     "dialogDeleteMessage": "Ви впевнені, що хочете видалити це замовлення? \nЦю дію не можна скасувати.",
