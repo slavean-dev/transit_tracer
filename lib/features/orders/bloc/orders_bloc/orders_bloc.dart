@@ -71,18 +71,19 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
   ) async {
     try {
       emit(state.copyWith(activeStatus: OrderStateStatus.loading));
-      await emit.forEach<List<OrderData>>(
+      final streamTask = emit.forEach<List<OrderData>>(
         repository.getActiveOrders(),
         onData: (orders) {
-          if (orders.isEmpty) {
-            return state.copyWith(activeStatus: OrderStateStatus.empty);
-          } else {
+          if (orders.isNotEmpty) {
             return state.copyWith(
               activeStatus: OrderStateStatus.loaded,
               activeOrders: orders,
             );
           }
+
+          return state.copyWith(activeOrders: orders);
         },
+
         onError: (error, stackTrace) {
           return state.copyWith(
             activeStatus: OrderStateStatus.error,
@@ -92,6 +93,14 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
           );
         },
       );
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      if (state.activeStatus == OrderStateStatus.loading &&
+          state.activeOrders.isEmpty) {
+        emit(state.copyWith(activeStatus: OrderStateStatus.empty));
+      }
+
+      await streamTask;
     } on FirebaseFailure catch (e) {
       emit(
         state.copyWith(
@@ -109,17 +118,18 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
   ) async {
     try {
       emit(state.copyWith(archiveStatus: OrderStateStatus.loading));
-      await emit.forEach(
+
+      final streamTask = emit.forEach<List<OrderData>>(
         repository.getArchivedOrders(),
         onData: (orders) {
-          if (orders.isEmpty) {
-            return state.copyWith(archiveStatus: OrderStateStatus.empty);
-          } else {
+          if (orders.isNotEmpty) {
             return state.copyWith(
-              archiveOrders: orders,
               archiveStatus: OrderStateStatus.loaded,
+              archiveOrders: orders,
             );
           }
+
+          return state.copyWith(archiveOrders: orders);
         },
         onError: (error, stackTrace) {
           return state.copyWith(
@@ -130,6 +140,15 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
           );
         },
       );
+
+      await Future.delayed(const Duration(milliseconds: 500));
+
+      if (state.archiveStatus == OrderStateStatus.loading &&
+          state.archiveOrders.isEmpty) {
+        emit(state.copyWith(archiveStatus: OrderStateStatus.empty));
+      }
+
+      await streamTask;
     } on FirebaseFailure catch (e) {
       emit(
         state.copyWith(
