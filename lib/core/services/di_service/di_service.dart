@@ -8,8 +8,13 @@ import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:transit_tracer/core/services/geo_service/geo_service.dart';
+import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
+import 'package:transit_tracer/core/data/repositories/geo_repository/geo_repository.dart';
+import 'package:transit_tracer/core/services/geo_api_service/geo_api_service.dart';
 import 'package:transit_tracer/core/services/network_service/network_service.dart';
+import 'package:transit_tracer/features/city_autocomplete/bloc/city_autocomplete_bloc.dart';
+import 'package:transit_tracer/features/city_autocomplete/data/repository/abstract_autocomplete_repository.dart';
+import 'package:transit_tracer/features/city_autocomplete/data/repository/autocomplete_repository.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
 import 'package:transit_tracer/features/user/bloc/app_user_bloc.dart';
 import 'package:transit_tracer/core/data/repositories/media_repository/abstract_media_repository.dart';
@@ -103,6 +108,17 @@ class DiService {
         firebaseFirestore: getIt<FirebaseFirestore>(),
       ),
     );
+    getIt.registerSingleton<GeoApiService>(
+      GeoApiService(getIt<EnvService>().autocompleteApiKey),
+    );
+
+    getIt.registerSingleton<AbstractAutocompleteRepository>(
+      AutocompleteRepository(geoService: getIt<GeoApiService>()),
+    );
+
+    getIt.registerFactory(
+      () => CityAutocompleteBloc(getIt<AbstractAutocompleteRepository>()),
+    );
 
     getIt.registerSingleton<AbstractOrderRepository>(
       OrderDataRepository(
@@ -110,13 +126,15 @@ class DiService {
         firebaseFirestore: getIt<FirebaseFirestore>(),
       ),
     );
-
-    getIt.registerSingleton<GeoService>(
-      GeoService(getIt<EnvService>().autocompleteApiKey),
+    getIt.registerSingleton<AbstractGeoRepository>(
+      GeoRepository(geoService: getIt<GeoApiService>()),
     );
 
     getIt.registerFactory(
-      () => OrdersBloc(getIt<AbstractOrderRepository>(), getIt<GeoService>()),
+      () => OrdersBloc(
+        getIt<AbstractOrderRepository>(),
+        getIt<AbstractGeoRepository>(),
+      ),
     );
 
     getIt.registerSingleton<AbstractProfileRepository>(
@@ -130,7 +148,7 @@ class DiService {
       () => OrderDetailsBloc(
         getIt<AbstractOrderRepository>(),
         getIt<NetworkService>(),
-        getIt<GeoService>(),
+        getIt<AbstractGeoRepository>(),
       ),
     );
 

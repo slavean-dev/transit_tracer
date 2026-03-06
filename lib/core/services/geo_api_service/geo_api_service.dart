@@ -1,11 +1,50 @@
 import 'package:dio/dio.dart';
 
-class GeoService {
-  GeoService(this.apiKey);
+class GeoApiService {
+  GeoApiService(this.apiKey);
   final String apiKey;
   final Dio _dio = Dio();
 
-  Future<String> getLocaliredPlaceName(
+  Future<Response<dynamic>> searchCities({
+    required String query,
+    required String langCode,
+    int limit = 5,
+  }) async {
+    final url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+    final response = await _dio.get(
+      url,
+      queryParameters: {
+        'input': query,
+        'types': '(cities)',
+        'language': langCode,
+        'components': 'country:ua',
+        'limit': limit,
+        'key': apiKey,
+      },
+    );
+
+    return response;
+  }
+
+  Future<Response<dynamic>> getPlaceDetails(
+    String placeId,
+    String langCode,
+  ) async {
+    final url = 'https://maps.googleapis.com/maps/api/place/details/json';
+    final response = await _dio.get(
+      url,
+      queryParameters: {
+        'place_id': placeId,
+        'fields': 'name,geometry,address_components',
+        'language': langCode,
+        'key': apiKey,
+      },
+    );
+
+    return response;
+  }
+
+  Future<String> getLocalizedPlaceName(
     String placeId,
     String languageCode,
   ) async {
@@ -37,7 +76,7 @@ class GeoService {
           if (types.contains('administrative_area_level_1')) {
             region = com['long_name'];
           }
-          if (types.contains(country)) {
+          if (types.contains('country')) {
             country = com['long_name'];
           }
         }

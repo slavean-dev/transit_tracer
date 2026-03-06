@@ -61,10 +61,10 @@ class EditOrderScreen extends StatelessWidget {
                           onSubmit: (form) {
                             context.read<OrderDetailsBloc>().add(
                               EditOrderData(
-                                oldFromCityId: order.from.placeId,
-                                oldToCityId: order.to.placeId,
-                                from: form.from,
-                                to: form.to,
+                                oldFrom: order.from,
+                                oldTo: order.to,
+                                fromSuggestion: form.fromSuggestion,
+                                toSuggestion: form.toSuggestion,
                                 description: form.description,
                                 weight: form.weight,
                                 price: form.price,

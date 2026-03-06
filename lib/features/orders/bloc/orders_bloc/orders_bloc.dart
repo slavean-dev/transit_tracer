@@ -1,8 +1,9 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
 import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
-import 'package:transit_tracer/core/services/geo_service/geo_service.dart';
+import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
@@ -13,9 +14,9 @@ part 'orders_state.dart';
 
 class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
   final AbstractOrderRepository repository;
-  final GeoService geoService;
+  final AbstractGeoRepository geoRepository;
 
-  OrdersBloc(this.repository, this.geoService) : super(OrdersState()) {
+  OrdersBloc(this.repository, this.geoRepository) : super(OrdersState()) {
     on<SaveUserOrder>(_saveOrder);
 
     on<LoadUserOrders>(_loadActiveOrders);
@@ -27,12 +28,24 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
     try {
       emit(state.copyWith(ordersStatus: OrderStateStatus.loading));
       final results = await Future.wait([
-        _getCityTranslation(event.from.placeId),
-        _getCityTranslation(event.to.placeId),
+        geoRepository.getCityFullBundle(event.from.placeId),
+        geoRepository.getCityFullBundle(event.to.placeId),
       ]);
 
-      final from = event.from.copyWith(localizedNames: results[0]);
-      final to = event.to.copyWith(localizedNames: results[1]);
+      final from = CityPoint(
+        name: event.from.cityName,
+        placeId: event.from.placeId,
+        lat: results[0].$2['lat'] ?? 0.0,
+        lng: results[0].$2['lng'] ?? 0,
+        localizedNames: results[0].$1,
+      );
+      final to = CityPoint(
+        name: event.to.cityName,
+        placeId: event.to.placeId,
+        lat: results[1].$2['lat'] ?? 0.0,
+        lng: results[1].$2['lng'] ?? 0,
+        localizedNames: results[1].$1,
+      );
       await repository.saveOrder(
         from,
         to,
@@ -49,19 +62,6 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
           error: e.toString(),
         ),
       );
-    }
-  }
-
-  Future<Map<String, String>> _getCityTranslation(String placeId) async {
-    try {
-      final results = await Future.wait([
-        geoService.getLocaliredPlaceName(placeId, 'en'),
-        geoService.getLocaliredPlaceName(placeId, 'uk'),
-        geoService.getLocaliredPlaceName(placeId, 'it'),
-      ]);
-      return {'en': results[0], 'uk': results[1], 'it': results[2]};
-    } catch (e) {
-      return {};
     }
   }
 

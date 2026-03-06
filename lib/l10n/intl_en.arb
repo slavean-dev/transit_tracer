@@ -52,6 +52,7 @@
 
     "fieldFrom": "From",
     "fieldTo": "To",
+    "suggestionListEmpty" : "No suggestions found",
     "hintEnterCity": "Enter city",
     "createTitle": "Create order",
     "create": "Create",

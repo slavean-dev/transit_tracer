@@ -32,6 +32,7 @@
 
     "firebaseErrorInvalidCredential" : "Credenziali non valide",
     "firebaseErrorEmailInUse": "Questa email è già registrata",
+    "suggestionListEmpty" : "Nessuna suggerimento trovato",
     "firebaseErrorInvalidEmail": "Formato email non valido",
     "firebaseErrorWeekPassword": "La password è troppo debole",
     "firebaseErrorUserNotFound": "L'utente con questa email non esiste",

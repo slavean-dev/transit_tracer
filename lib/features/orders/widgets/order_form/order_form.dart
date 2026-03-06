@@ -4,11 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/core/utils/ui/app_dialog.dart';
 import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
-import 'package:transit_tracer/core/widgets/city_autocomplete_field.dart';
-import 'package:transit_tracer/core/utils/formatters/num_utils.dart';
 import 'package:transit_tracer/core/validators/autocomplete_validate.dart';
 import 'package:transit_tracer/core/validators/order_validators.dart';
-import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
+import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
+import 'package:transit_tracer/features/city_autocomplete/widget/custom_autocomplete_city.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/features/orders/data/models/order_form_data/order_form_data.dart';
 import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
@@ -41,9 +40,9 @@ class OrderForm extends StatefulWidget {
 }
 
 class OrderFormState extends State<OrderForm> {
-  late TextEditingController _fromCityController;
+  final TextEditingController _fromCityController = TextEditingController();
 
-  late TextEditingController _toCityController;
+  final TextEditingController _toCityController = TextEditingController();
 
   final TextEditingController _descriptionController = TextEditingController();
 
@@ -53,9 +52,9 @@ class OrderFormState extends State<OrderForm> {
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  FocusNode _fromCityFocusNode = FocusNode();
+  final FocusNode _fromCityFocusNode = FocusNode();
 
-  FocusNode _toCityFocusNode = FocusNode();
+  final FocusNode _toCityFocusNode = FocusNode();
 
   final FocusNode _descriptionFocusNode = FocusNode();
 
@@ -63,18 +62,16 @@ class OrderFormState extends State<OrderForm> {
 
   final FocusNode _weightFocus = FocusNode();
 
-  CityPoint? fromCity;
-  CityPoint? toCity;
-
-  int _autoEpoch = 0;
+  CitySuggestion? fromSuggestion;
+  CitySuggestion? toSuggestion;
 
   bool get _isChanged {
     if (widget.order == null) {
       return true;
     }
     final order = widget.order!;
-    return fromCity?.placeId != order.from.placeId ||
-        toCity?.placeId != order.to.placeId ||
+    return fromSuggestion?.placeId != order.from.placeId ||
+        toSuggestion?.placeId != order.to.placeId ||
         _descriptionController.text != order.description ||
         weight != order.weight ||
         _priceController.text != order.price;
@@ -86,16 +83,19 @@ class OrderFormState extends State<OrderForm> {
 
   @override
   void initState() {
-    _fromCityController = TextEditingController();
-    _toCityController = TextEditingController();
-
     if (widget.order != null) {
       _fromCityController.text = widget.order!.from.name;
       _toCityController.text = widget.order!.to.name;
       _descriptionController.text = widget.order!.description;
       _priceController.text = widget.order!.price;
-      fromCity = widget.order!.from;
-      toCity = widget.order!.to;
+      fromSuggestion = CitySuggestion(
+        cityName: widget.order!.from.name,
+        placeId: widget.order!.from.placeId,
+      );
+      toSuggestion = CitySuggestion(
+        cityName: widget.order!.to.name,
+        placeId: widget.order!.to.placeId,
+      );
       weight = widget.order!.weight;
     }
 
@@ -110,9 +110,9 @@ class OrderFormState extends State<OrderForm> {
   void _swapCities() {
     setState(() {
       final city = _toCityController.text;
-      final cityId = fromCity;
-      fromCity = toCity;
-      toCity = cityId;
+      final tempSuggestion = fromSuggestion;
+      fromSuggestion = toSuggestion;
+      toSuggestion = tempSuggestion;
       _toCityController.text = _fromCityController.text;
       _fromCityController.text = city;
     });
@@ -122,24 +122,15 @@ class OrderFormState extends State<OrderForm> {
     FocusManager.instance.primaryFocus?.unfocus();
 
     _formKey.currentState!.reset();
-    _fromCityController = TextEditingController();
-    _toCityController = TextEditingController();
+    _fromCityController.clear();
+    _toCityController.clear();
     _descriptionController.clear();
     _priceController.clear();
 
-    _fromCityFocusNode = FocusNode();
-    _toCityFocusNode = FocusNode();
-
     setState(() {
-      fromCity = null;
-      toCity = null;
+      fromSuggestion = null;
+      toSuggestion = null;
       weight = null;
-    });
-    Future.delayed(const Duration(milliseconds: 900), () {
-      if (!mounted) return;
-      setState(() {
-        _autoEpoch++;
-      });
     });
   }
 
@@ -208,7 +199,6 @@ class OrderFormState extends State<OrderForm> {
               ),
 
               BaseContainer(
-                theme: theme,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisSize: MainAxisSize.min,
@@ -219,78 +209,36 @@ class OrderFormState extends State<OrderForm> {
                         style: theme.textTheme.titleLarge,
                       ),
                     ),
-                    const SizedBox(height: 8),
-                    CityAutocompleteField(
-                      enabled: isOnline,
-                      focusNode: _fromCityFocusNode,
-                      onPredictionWithCoordinatesReceived: (prediction) {
-                        final placeId = prediction.placeId;
-                        if (placeId == null || placeId.isEmpty) {
-                          return;
-                        }
-
-                        final lat = NumUtils().toDouble(prediction.lat);
-                        final lng = NumUtils().toDouble(prediction.lng);
-
-                        if (lat == null || lng == null) {
-                          return;
-                        }
-
-                        setState(() {
-                          fromCity = CityPoint(
-                            name: _fromCityController.text,
-                            placeId: placeId,
-                            lat: lat,
-                            lng: lng,
-                          );
-                        });
-                      },
-                      key: ValueKey('from_$_autoEpoch'),
-                      onChanged: (_) => fromCity = null,
-                      validator: (v) => AutocompleteValidate.city(v, fromCity),
-
-                      title: s.fieldFrom,
+                    CustomAutocompleteCity(
                       controller: _fromCityController,
-                      theme: theme,
+                      focusNode: _fromCityFocusNode,
+                      lable: s.fieldFrom,
+                      enabled: isOnline,
+                      validator: (v) =>
+                          AutocompleteValidate.city(v, fromSuggestion),
+                      onChanged: (_) => fromSuggestion = null,
+                      onCitySelected: (value) {
+                        fromSuggestion = value;
+                      },
                     ),
-
+                    const SizedBox(height: 8),
                     Center(
                       child: IconButton(
                         onPressed: () => _swapCities(),
                         icon: const Icon(Icons.swap_vert),
                       ),
                     ),
-                    CityAutocompleteField(
-                      enabled: isOnline,
-                      focusNode: _toCityFocusNode,
-                      onPredictionWithCoordinatesReceived: (prediction) {
-                        final placeId = prediction.placeId;
-                        if (placeId == null || placeId.isEmpty) {
-                          return;
-                        }
-
-                        final lat = NumUtils().toDouble(prediction.lat);
-                        final lng = NumUtils().toDouble(prediction.lng);
-
-                        if (lat == null || lng == null) {
-                          return;
-                        }
-
-                        setState(() {
-                          toCity = CityPoint(
-                            name: _toCityController.text,
-                            placeId: placeId,
-                            lat: lat,
-                            lng: lng,
-                          );
-                        });
-                      },
-                      key: ValueKey('to_$_autoEpoch'),
-                      onChanged: (_) => toCity = null,
-                      validator: (v) => AutocompleteValidate.city(v, toCity),
-                      title: s.fieldTo,
+                    CustomAutocompleteCity(
                       controller: _toCityController,
-                      theme: theme,
+                      focusNode: _toCityFocusNode,
+                      onChanged: (_) => toSuggestion = null,
+                      onCitySelected: (value) {
+                        toSuggestion = value;
+                      },
+                      lable: s.fieldTo,
+                      enabled: isOnline,
+                      validator: (v) =>
+                          AutocompleteValidate.city(v, toSuggestion),
                     ),
                     const SizedBox(height: 16),
                     OrderDescriptionFormField(
@@ -335,12 +283,12 @@ class OrderFormState extends State<OrderForm> {
                                   .validate();
 
                               if (!isFormValid ||
-                                  fromCity == null ||
-                                  toCity == null ||
+                                  fromSuggestion == null ||
+                                  toSuggestion == null ||
                                   weight == null) {
-                                if (fromCity == null) {
+                                if (fromSuggestion == null) {
                                   _scrollToError(_fromCityFocusNode);
-                                } else if (toCity == null) {
+                                } else if (toSuggestion == null) {
                                   _scrollToError(_toCityFocusNode);
                                 } else if (!_formKey.currentState!.validate()) {
                                   if (_descriptionController.text.isEmpty) {
@@ -359,8 +307,9 @@ class OrderFormState extends State<OrderForm> {
                                   widget.order?.oid,
                                   widget.order?.status,
                                   widget.order?.createdAt,
-                                  from: fromCity!,
-                                  to: toCity!,
+
+                                  fromSuggestion: fromSuggestion!,
+                                  toSuggestion: toSuggestion!,
                                   description: _descriptionController.text,
                                   weight: weight!,
                                   price: _priceController.text,

@@ -1,4 +1,4 @@
-import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
+import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
 import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
 
@@ -8,14 +8,15 @@ class OrderFormData {
     this.oid,
     this.isActive,
     this.createdAt, {
-    required this.from,
-    required this.to,
+    required this.fromSuggestion,
+    required this.toSuggestion,
     required this.description,
     required this.weight,
     required this.price,
   });
-  final CityPoint from;
-  final CityPoint to;
+  final CitySuggestion fromSuggestion;
+  final CitySuggestion toSuggestion;
+
   final String description;
   final WeightRange weight;
   final String price;

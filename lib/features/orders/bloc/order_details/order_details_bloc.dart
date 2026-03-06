@@ -1,9 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
 import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
-import 'package:transit_tracer/core/services/geo_service/geo_service.dart';
 import 'package:transit_tracer/core/services/network_service/network_service.dart';
+import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
@@ -16,9 +17,9 @@ part 'order_details_state.dart';
 class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
   final AbstractOrderRepository repository;
   final NetworkService networkChecker;
-  final GeoService geoService;
+  final AbstractGeoRepository geoRepository;
 
-  OrderDetailsBloc(this.repository, this.networkChecker, this.geoService)
+  OrderDetailsBloc(this.repository, this.networkChecker, this.geoRepository)
     : super(OrderDetailsInitial()) {
     on<DeleteUserOrder>(_deleteOrder);
 
@@ -60,16 +61,38 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
   void _editOrder(EditOrderData event, Emitter<OrderDetailsState> emit) async {
     try {
       emit(OrderDetailsLoading());
-      Map<String, String> fromNames = event.from.localizedNames;
-      Map<String, String> toNames = event.to.localizedNames;
-      if (event.oldFromCityId != event.from.placeId) {
-        fromNames = await _getCityTranslation(event.from.placeId);
+      (Map<String, String>, Map<String, double>) fromData = (
+        event.oldFrom.localizedNames,
+        {'lat': event.oldFrom.lat, 'lng': event.oldFrom.lng},
+      );
+      (Map<String, String>, Map<String, double>) toData = (
+        event.oldTo.localizedNames,
+        {'lat': event.oldTo.lat, 'lng': event.oldTo.lng},
+      );
+      if (event.oldFrom.placeId != event.fromSuggestion.placeId) {
+        fromData = await geoRepository.getCityFullBundle(
+          event.fromSuggestion.placeId,
+        );
       }
-      if (event.oldToCityId != event.to.placeId) {
-        toNames = await _getCityTranslation(event.to.placeId);
+      if (event.oldTo.placeId != event.toSuggestion.placeId) {
+        toData = await geoRepository.getCityFullBundle(
+          event.toSuggestion.placeId,
+        );
       }
-      final from = event.from.copyWith(localizedNames: fromNames);
-      final to = event.to.copyWith(localizedNames: toNames);
+      final from = CityPoint(
+        name: event.fromSuggestion.cityName,
+        placeId: event.fromSuggestion.placeId,
+        lat: fromData.$2['lat'] ?? 0.0,
+        lng: fromData.$2['lng'] ?? 0.0,
+        localizedNames: fromData.$1,
+      );
+      final to = CityPoint(
+        name: event.toSuggestion.cityName,
+        placeId: event.toSuggestion.placeId,
+        lat: toData.$2['lat'] ?? 0.0,
+        lng: toData.$2['lng'] ?? 0.0,
+        localizedNames: toData.$1,
+      );
       final order = OrderData(
         from: from,
         to: to,
@@ -92,19 +115,6 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
       emit(OrderDataEditedSuccessfull());
     } on FirebaseFailure catch (e) {
       emit(OrderDetailsFailure(exception: e.toString(), type: e.type));
-    }
-  }
-
-  Future<Map<String, String>> _getCityTranslation(String placeId) async {
-    try {
-      final results = await Future.wait([
-        geoService.getLocaliredPlaceName(placeId, 'en'),
-        geoService.getLocaliredPlaceName(placeId, 'uk'),
-        geoService.getLocaliredPlaceName(placeId, 'it'),
-      ]);
-      return {'en': results[0], 'uk': results[1], 'it': results[2]};
-    } catch (e) {
-      return {};
     }
   }
 

@@ -17,7 +17,6 @@ class OrderDescriptionCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final s = S.of(context);
     return BaseContainer(
-      theme: theme,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,

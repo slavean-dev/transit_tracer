@@ -239,6 +239,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Ricerca"),
     "searchTitle": MessageLookupByLibrary.simpleMessage("Cerca trasporti"),
     "settings": MessageLookupByLibrary.simpleMessage("Impostazioni"),
+    "suggestionListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Nessuna suggerimento trovato",
+    ),
     "surnameForm": MessageLookupByLibrary.simpleMessage(
       "Inserisci il tuo cognome",
     ),

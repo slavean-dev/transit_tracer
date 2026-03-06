@@ -66,6 +66,7 @@
 
     "fieldFrom": "Звідки",
     "fieldTo": "Куди",
+    "suggestionListEmpty" : "Не знайдено пропозицій",
     "hintEnterCity": "Введіть місто",
     "createTitle": "Створити замовлення",
     "create": "Створити",

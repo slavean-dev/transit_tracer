@@ -44,8 +44,8 @@ class CreateOrderScreen extends StatelessWidget {
                       onSubmit: (value) {
                         context.read<OrdersBloc>().add(
                           SaveUserOrder(
-                            from: value.from,
-                            to: value.to,
+                            from: value.fromSuggestion,
+                            to: value.toSuggestion,
                             description: value.description,
                             weight: value.weight,
                             price: value.price,

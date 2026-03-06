@@ -229,6 +229,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Пошук"),
     "searchTitle": MessageLookupByLibrary.simpleMessage("Пошук транспорта"),
     "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
+    "suggestionListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Не знайдено пропозицій",
+    ),
     "surnameForm": MessageLookupByLibrary.simpleMessage(
       "Введіть ваше Прізвище",
     ),

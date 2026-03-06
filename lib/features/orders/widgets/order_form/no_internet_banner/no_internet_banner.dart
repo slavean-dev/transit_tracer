@@ -12,7 +12,6 @@ class NoInternetBanner extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: BaseContainer(
-        theme: theme,
         child: Row(
           children: [
             Icon(Icons.wifi_off, color: theme.colorScheme.primary, size: 32),

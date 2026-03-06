@@ -32,27 +32,25 @@ class OrderFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
         color: theme.colorScheme.surfaceContainer,
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
-        child: TextFormField(
-          focusNode: focusNode,
-          inputFormatters: inputFormatters,
-          keyboardType: keyboardType,
-          validator: validator,
-          decoration: InputDecoration(
-            labelText: label,
-            hintText: hint,
-            counterText: '',
-          ),
-          controller: controller,
-          maxLines: maxLines,
-          minLines: minLines,
-          maxLength: maxLength,
+      child: TextFormField(
+        focusNode: focusNode,
+        inputFormatters: inputFormatters,
+        keyboardType: keyboardType,
+        validator: validator,
+        decoration: InputDecoration(
+          labelText: label,
+          hintText: hint,
+          counterText: '',
         ),
+        controller: controller,
+        maxLines: maxLines,
+        minLines: minLines,
+        maxLength: maxLength,
       ),
     );
   }

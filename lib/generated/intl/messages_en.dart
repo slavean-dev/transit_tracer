@@ -217,6 +217,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Search"),
     "searchTitle": MessageLookupByLibrary.simpleMessage("Search Transport"),
     "settings": MessageLookupByLibrary.simpleMessage("Settings"),
+    "suggestionListEmpty": MessageLookupByLibrary.simpleMessage(
+      "No suggestions found",
+    ),
     "surnameForm": MessageLookupByLibrary.simpleMessage("Enter your Surname"),
     "takePhotoFromCamera": MessageLookupByLibrary.simpleMessage(
       "Take a photo from camera",

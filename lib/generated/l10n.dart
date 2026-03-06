@@ -454,6 +454,16 @@ class S {
     return Intl.message('To', name: 'fieldTo', desc: '', args: []);
   }
 
+  /// `No suggestions found`
+  String get suggestionListEmpty {
+    return Intl.message(
+      'No suggestions found',
+      name: 'suggestionListEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Enter city`
   String get hintEnterCity {
     return Intl.message(

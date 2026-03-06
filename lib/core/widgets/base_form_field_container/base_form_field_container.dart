@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class BaseContainer extends StatelessWidget {
-  const BaseContainer({super.key, required this.child});
+class BaseFormFieldContainer extends StatelessWidget {
+  const BaseFormFieldContainer({super.key, required this.child});
 
   final Widget child;
 
@@ -9,14 +9,12 @@ class BaseContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: theme.colorScheme.surface,
+        color: theme.colorScheme.surfaceContainer,
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-        child: child,
-      ),
+      child: child,
     );
   }
 }
