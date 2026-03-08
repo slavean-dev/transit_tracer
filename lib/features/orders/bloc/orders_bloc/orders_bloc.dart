@@ -1,8 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
-import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
-import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_failure.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/geo_error_type/geo_error_type.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_data/order_data.dart';
@@ -26,7 +28,14 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
 
   void _saveOrder(SaveUserOrder event, Emitter<OrdersState> emit) async {
     try {
-      emit(state.copyWith(ordersStatus: OrderStateStatus.loading));
+      emit(
+        state.copyWith(
+          ordersStatus: OrderStateStatus.loading,
+          geoType: null,
+          firebaseType: null,
+          error: null,
+        ),
+      );
       final results = await Future.wait([
         geoRepository.getCityFullBundle(event.from.placeId),
         geoRepository.getCityFullBundle(event.to.placeId),
@@ -58,8 +67,16 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
       emit(
         state.copyWith(
           ordersStatus: OrderStateStatus.error,
-          type: e.type,
+          firebaseType: e.type,
           error: e.toString(),
+        ),
+      );
+    } on GeoFailure catch (e) {
+      emit(
+        state.copyWith(
+          ordersStatus: OrderStateStatus.error,
+          geoType: e.type,
+          error: e.message,
         ),
       );
     }
@@ -87,7 +104,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
         onError: (error, stackTrace) {
           return state.copyWith(
             activeStatus: OrderStateStatus.error,
-            type: error is FirebaseFailure
+            firebaseType: error is FirebaseFailure
                 ? error.type
                 : FirebaseErrorType.unknown,
           );
@@ -105,7 +122,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
       emit(
         state.copyWith(
           activeStatus: OrderStateStatus.error,
-          type: e.type,
+          firebaseType: e.type,
           error: e.toString(),
         ),
       );
@@ -134,7 +151,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
         onError: (error, stackTrace) {
           return state.copyWith(
             archiveStatus: OrderStateStatus.error,
-            type: error is FirebaseFailure
+            firebaseType: error is FirebaseFailure
                 ? error.type
                 : FirebaseErrorType.unknown,
           );
@@ -153,7 +170,7 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
       emit(
         state.copyWith(
           archiveStatus: OrderStateStatus.error,
-          type: e.type,
+          firebaseType: e.type,
           error: e.toString(),
         ),
       );

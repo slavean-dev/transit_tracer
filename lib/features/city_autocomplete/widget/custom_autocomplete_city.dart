@@ -18,7 +18,9 @@ class CustomAutocompleteCity extends StatefulWidget {
     this.validator,
     this.enabled,
     this.onChanged,
+    this.limit = 5,
   });
+  final int? limit;
 
   final Function(CitySuggestion) onCitySelected;
 
@@ -115,7 +117,13 @@ class _CustomAutocompleteCityState extends State<CustomAutocompleteCity> {
         _hideOverlay();
         return;
       }
-      _bloc.add(LoadCitySuggestions(query: query, langCode: langCode));
+      _bloc.add(
+        LoadCitySuggestions(
+          query: query,
+          langCode: langCode,
+          limit: widget.limit,
+        ),
+      );
       _showOverlay(context);
     });
   }

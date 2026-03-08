@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
-import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/features/user/models/user_role/user_role.dart';
 import 'package:transit_tracer/features/auth/auth_repository/abstract_auth_repository.dart';
 

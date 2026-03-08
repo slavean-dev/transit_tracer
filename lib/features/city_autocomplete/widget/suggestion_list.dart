@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/geo_error_translator/geo_error_translator.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/features/city_autocomplete/bloc/city_autocomplete_bloc.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
@@ -76,6 +77,11 @@ class SuggestionsList extends StatelessWidget {
           }
           if (state is CityAutocompleteEmpty) {
             return Center(child: Text(s.suggestionListEmpty));
+          }
+          if (state is CityAutocompleteError) {
+            final String error =
+                GeoErrorTranslator.translate(context, state.type) ?? '';
+            return Center(child: Text(error));
           }
           return SizedBox.shrink();
         },

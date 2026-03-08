@@ -131,6 +131,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),
     "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 kg"),
+    "geoErrorApiLimit": MessageLookupByLibrary.simpleMessage(
+      "The service is temporarily unavailable. Please try again in a minute.",
+    ),
+    "geoErrorDenied": MessageLookupByLibrary.simpleMessage(
+      "Map service error. We are already fixing it.",
+    ),
+    "geoErrorInvalidRequest": MessageLookupByLibrary.simpleMessage(
+      "Something went wrong with the search. Please try again.",
+    ),
+    "geoErrorUnknown": MessageLookupByLibrary.simpleMessage(
+      "Unexpected error. Please try later.",
+    ),
+    "geoErrorZeroResults": MessageLookupByLibrary.simpleMessage(
+      "Could not retrieve details for this location. Please try selecting another one.",
+    ),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
       "Have account? Tap here to return!",
     ),

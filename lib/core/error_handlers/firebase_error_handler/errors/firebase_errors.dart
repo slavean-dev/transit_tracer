@@ -1,5 +1,5 @@
 import 'package:transit_tracer/core/constants/firebase_errors_codes.dart';
-import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
 
 class FirebaseAuthErrors {
   static FirebaseErrorType map(String code) {

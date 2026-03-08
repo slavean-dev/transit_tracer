@@ -29,6 +29,7 @@
     "validationInvalidPasswordDigit": "Password must contain at least one digit",
     "validationInvalidPasswordSpecChar": "Password must contain at least one special character",
     "validationInvalidConfirmPasswordDidntMatch": "Passwords didn`t match",
+
     "firebaseErrorInvalidCredential" : "Invalid credentials",
     "firebaseErrorEmailInUse": "This email is already registered",
     "firebaseErrorInvalidEmail": "Invalid email format",
@@ -40,6 +41,12 @@
     "firebaseErrorNotFound" : "Order not found. It might have been deleted.",
     "firebaseErrorUnavailable" : "Service unavailable. Please check your internet or try later.",
     "firebaseErrorNetwork" : "Network error. Please check your internet or try later.",
+
+    "geoErrorZeroResults" : "Could not retrieve details for this location. Please try selecting another one.",
+    "geoErrorApiLimit" : "The service is temporarily unavailable. Please try again in a minute.",
+    "geoErrorDenied" : "Map service error. We are already fixing it.",
+    "geoErrorInvalidRequest" : "Something went wrong with the search. Please try again.",
+    "geoErrorUnknown" : "Unexpected error. Please try later.",
 
     "navSearch": "Search",
     "navCreate": "Create",

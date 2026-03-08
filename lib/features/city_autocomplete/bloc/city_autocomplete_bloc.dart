@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_failure.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/geo_error_type/geo_error_type.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/repository/abstract_autocomplete_repository.dart';
 
@@ -22,16 +24,22 @@ class CityAutocompleteBloc
     try {
       emit(CityAutocompleteLoading());
       final suggestion = await repository.getSuggestions(
-        event.query,
-        event.langCode,
+        query: event.query,
+        langCode: event.langCode,
+
+        limit: event.limit,
       );
       if (suggestion.isEmpty) {
         emit(CityAutocompleteEmpty());
         return;
       }
       emit(CityAutocompleteLoaded(suggestions: suggestion));
+    } on GeoFailure catch (e) {
+      emit(CityAutocompleteError(error: e.message, type: e.type));
     } catch (e) {
-      emit(CityAutocompleteError(error: e.toString()));
+      emit(
+        CityAutocompleteError(error: e.toString(), type: GeoErrorType.unknown),
+      );
     }
   }
 

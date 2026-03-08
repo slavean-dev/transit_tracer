@@ -2,7 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:transit_tracer/core/firebase_error_handler/error_translator/error_translator.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/error_translator/error_translator.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/geo_error_translator/geo_error_translator.dart';
 import 'package:transit_tracer/core/utils/ui/app_snack_bar.dart';
 import 'package:transit_tracer/core/widgets/blur_loader/blur_loader.dart';
 import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
@@ -29,12 +30,23 @@ class EditOrderScreen extends StatelessWidget {
         child: BlocListener<OrderDetailsBloc, OrderDetailsState>(
           listener: (context, state) {
             if (state is OrderDetailsFailure) {
-              final String? error = ErrorTranslator.translate(
-                context,
-                state.type,
-              );
-              if (error != null) {
-                AppSnackBar.showErrorMessage(context, error);
+              if (state.firebaseType != null) {
+                final error = ErrorTranslator.translate(
+                  context,
+                  state.firebaseType,
+                );
+                if (error != null) {
+                  AppSnackBar.showErrorMessage(context, error);
+                }
+              }
+              if (state.geoType != null) {
+                final error = GeoErrorTranslator.translate(
+                  context,
+                  state.geoType,
+                );
+                if (error != null) {
+                  AppSnackBar.showErrorMessage(context, error);
+                }
               }
             }
             if (state is StateUpdatePendingLater) {

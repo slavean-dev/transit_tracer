@@ -1,8 +1,10 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
-import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
-import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_failure.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/geo_error_type/geo_error_type.dart';
 import 'package:transit_tracer/core/services/network_service/network_service.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
@@ -37,7 +39,13 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
       await repository.deleteOrder(event.oid);
       emit(OrderDeletedSuccessfull());
     } on FirebaseFailure catch (e) {
-      emit(OrderDetailsFailure(exception: e.toString(), type: e.type));
+      emit(
+        OrderDetailsFailure(
+          exception: e.toString(),
+          firebaseType: e.type,
+          geoType: null,
+        ),
+      );
     }
   }
 
@@ -54,7 +62,13 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
         },
       );
     } on FirebaseFailure catch (e) {
-      emit(OrderDetailsFailure(exception: e.toString(), type: e.type));
+      emit(
+        OrderDetailsFailure(
+          exception: e.toString(),
+          firebaseType: e.type,
+          geoType: null,
+        ),
+      );
     }
   }
 
@@ -114,7 +128,21 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
       await repository.editOrderData(order);
       emit(OrderDataEditedSuccessfull());
     } on FirebaseFailure catch (e) {
-      emit(OrderDetailsFailure(exception: e.toString(), type: e.type));
+      emit(
+        OrderDetailsFailure(
+          exception: e.toString(),
+          firebaseType: e.type,
+          geoType: null,
+        ),
+      );
+    } on GeoFailure catch (e) {
+      emit(
+        OrderDetailsFailure(
+          exception: e.message ?? '',
+          geoType: e.type,
+          firebaseType: null,
+        ),
+      );
     }
   }
 
@@ -135,7 +163,13 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
       await repository.toggleArchiveStatus(event.order.oid, updates);
       emit(OrderArchiveSuccessfull());
     } on FirebaseFailure catch (e) {
-      emit(OrderDetailsFailure(exception: e.toString(), type: e.type));
+      emit(
+        OrderDetailsFailure(
+          exception: e.toString(),
+          firebaseType: e.type,
+          geoType: null,
+        ),
+      );
     }
   }
 }

@@ -1,5 +1,7 @@
 import 'package:transit_tracer/core/data/models/city_details/city_details.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_errors_to_type.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_failure.dart';
 import 'package:transit_tracer/core/services/geo_api_service/geo_api_service.dart';
 
 class GeoRepository implements AbstractGeoRepository {
@@ -11,17 +13,20 @@ class GeoRepository implements AbstractGeoRepository {
     try {
       final response = await geoService.getPlaceDetails(placeId, langCode);
 
-      if (response.statusCode == 200) {
-        if (response.data['status'] == 'OK') {
+      if (response.statusCode == 200 && response.data != null) {
+        final String status = response.data['status'] ?? '';
+
+        if (status == 'OK') {
           return CityDetails.fromJson(response.data);
-        } else {
-          throw Exception('Google API Error: ${response.data['status']}');
         }
+
+        throw Exception(status);
       }
 
-      throw Exception('Google API Error: ${response.data['status']}');
+      throw Exception('Server Error: ${response.statusCode}');
     } catch (e) {
-      rethrow;
+      final type = GeoErrorsToType.map(e);
+      throw GeoFailure(e.toString(), type: type);
     }
   }
 
@@ -45,7 +50,7 @@ class GeoRepository implements AbstractGeoRepository {
         {'lat': results[0].lat, 'lng': results[0].lng},
       );
     } catch (e) {
-      return (<String, String>{}, <String, double>{});
+      rethrow;
     }
   }
 }

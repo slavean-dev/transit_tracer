@@ -2,6 +2,9 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:transit_tracer/app/router/router.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/error_translator/error_translator.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/geo_error_translator/geo_error_translator.dart';
+import 'package:transit_tracer/core/utils/ui/app_snack_bar.dart';
 import 'package:transit_tracer/core/widgets/blur_loader/blur_loader.dart';
 import 'package:transit_tracer/features/orders/bloc/orders_bloc/orders_bloc.dart';
 import 'package:transit_tracer/features/orders/widgets/order_form/order_form.dart';
@@ -18,6 +21,18 @@ class CreateOrderScreen extends StatelessWidget {
     final S s = S.of(context);
     return BlocListener<OrdersBloc, OrdersState>(
       listener: (context, state) {
+        if (state.ordersStatus == OrderStateStatus.error) {
+          if (state.firebaseType != null) {
+            final error =
+                ErrorTranslator.translate(context, state.firebaseType) ?? '';
+            AppSnackBar.showErrorMessage(context, error);
+          }
+          if (state.geoType != null) {
+            final error =
+                GeoErrorTranslator.translate(context, state.geoType) ?? '';
+            AppSnackBar.showErrorMessage(context, error);
+          }
+        }
         if (state.ordersStatus == OrderStateStatus.success) {
           _orderFormKey.currentState?.resetFormAfterSuccess();
           context.router.replaceAll([

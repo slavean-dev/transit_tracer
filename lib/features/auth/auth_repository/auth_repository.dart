@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
-import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_errors.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_errors.dart';
 import 'package:transit_tracer/features/user/models/user_data/user_data.dart';
 import 'package:transit_tracer/features/user/models/user_role/user_role.dart';
 

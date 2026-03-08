@@ -22,9 +22,10 @@ class CityAutocompleteLoaded extends CityAutocompleteState {
 class CityAutocompleteEmpty extends CityAutocompleteState {}
 
 class CityAutocompleteError extends CityAutocompleteState {
-  const CityAutocompleteError({required this.error});
-  final String error;
+  const CityAutocompleteError({required this.type, required this.error});
+  final GeoErrorType type;
+  final String? error;
 
   @override
-  List<Object> get props => [error];
+  List<Object> get props => [error ?? '', type];
 }
