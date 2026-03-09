@@ -80,7 +80,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             style: theme.textTheme.titleLarge,
                           ),
                           BaseContainer(
-                            theme: theme,
                             child: Text(
                               userData.role.name.sentenceCase,
                               style: theme.textTheme.bodyMedium,

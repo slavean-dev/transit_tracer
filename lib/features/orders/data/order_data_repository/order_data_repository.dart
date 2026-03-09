@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_errors.dart';
-import 'package:transit_tracer/core/firebase_error_handler/errors/firebase_failure.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_errors.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
 import 'package:transit_tracer/features/orders/data/order_data_repository/abstract_order_repository.dart';

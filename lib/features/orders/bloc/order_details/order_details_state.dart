@@ -4,7 +4,7 @@ sealed class OrderDetailsState extends Equatable {
   const OrderDetailsState();
 
   @override
-  List<Object> get props => [];
+  List<Object?> get props => [];
 }
 
 final class OrderDetailsInitial extends OrderDetailsState {}
@@ -23,12 +23,17 @@ class OrderDetailsLoaded extends OrderDetailsState {
 }
 
 class OrderDetailsFailure extends OrderDetailsState {
-  const OrderDetailsFailure({required this.exception, required this.type});
+  const OrderDetailsFailure({
+    required this.exception,
+    this.firebaseType,
+    this.geoType,
+  });
   final String exception;
-  final FirebaseErrorType type;
+  final FirebaseErrorType? firebaseType;
+  final GeoErrorType? geoType;
 
   @override
-  List<Object> get props => [exception, type];
+  List<Object?> get props => [exception, firebaseType, geoType];
 }
 
 class OrderDataEditedSuccessfull extends OrderDetailsState {}

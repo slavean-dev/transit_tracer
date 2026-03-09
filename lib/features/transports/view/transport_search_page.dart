@@ -6,7 +6,6 @@ import 'package:transit_tracer/core/widgets/base_button.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/core/widgets/city_autocomplete_field.dart';
 import 'package:transit_tracer/core/utils/formatters/string_utils.dart';
-import 'package:transit_tracer/core/validators/autocomplete_validate.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/transports/widgets/date_field/date_field.dart';
 import 'package:transit_tracer/generated/l10n.dart';
@@ -94,7 +93,6 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: BaseContainer(
-            theme: theme,
             child: Padding(
               padding: const EdgeInsets.only(bottom: 12),
               child: Column(
@@ -111,8 +109,8 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                     enabled: true,
                     focusNode: _fromCityFocusNode,
                     onChanged: (_) => fromCity = null,
-                    validator: (v) => AutocompleteValidate.city(v, fromCity),
 
+                    //validator: (v) => AutocompleteValidate.city(v, fromCity),
                     title: S.of(context).fieldFrom,
                     controller: _fromCityController,
                     theme: theme,
@@ -127,8 +125,8 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                     enabled: true,
                     focusNode: _toCityFocusNode,
                     onChanged: (_) => toCity = null,
-                    validator: (v) => AutocompleteValidate.city(v, toCity),
 
+                    //validator: (v) => AutocompleteValidate.city(v, toCity),
                     title: S.of(context).fieldTo,
                     controller: _toCityController,
                     theme: theme,

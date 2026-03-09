@@ -21,7 +21,6 @@ class OrderSummaryHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     final String currentLanguage = Localizations.localeOf(context).languageCode;
     return BaseContainer(
-      theme: theme,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [

@@ -10,7 +10,6 @@ class PersonalInfoContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseContainer(
-      theme: theme,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

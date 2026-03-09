@@ -141,6 +141,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),
     "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 kg"),
+    "geoErrorApiLimit": MessageLookupByLibrary.simpleMessage(
+      "Il servizio è temporaneamente non disponibile. Riprova tra un minuto.",
+    ),
+    "geoErrorDenied": MessageLookupByLibrary.simpleMessage(
+      "Errore nel servizio mappe. Stiamo già provvedendo a risolverlo.",
+    ),
+    "geoErrorInvalidRequest": MessageLookupByLibrary.simpleMessage(
+      "Si è verificato un errore durante la ricerca. Riprova.",
+    ),
+    "geoErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Connessione internet assente. Controlla le tue impostazioni.",
+    ),
+    "geoErrorUnknown": MessageLookupByLibrary.simpleMessage(
+      "Errore imprevisto. Riprova più tardi.",
+    ),
+    "geoErrorZeroResults": MessageLookupByLibrary.simpleMessage(
+      "Impossibile recuperare i dettagli per questa posizione. Prova a selezionarne un\'altra.",
+    ),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
       "Hai già un account? Clicca qui per tornare!",
     ),
@@ -239,6 +257,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Ricerca"),
     "searchTitle": MessageLookupByLibrary.simpleMessage("Cerca trasporti"),
     "settings": MessageLookupByLibrary.simpleMessage("Impostazioni"),
+    "suggestionListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Nessuna suggerimento trovato",
+    ),
     "surnameForm": MessageLookupByLibrary.simpleMessage(
       "Inserisci il tuo cognome",
     ),

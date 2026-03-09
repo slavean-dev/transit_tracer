@@ -139,6 +139,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 кг"),
     "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 кг"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 кг"),
+    "geoErrorApiLimit": MessageLookupByLibrary.simpleMessage(
+      "Сервіс тимчасово недоступний. Спробуйте ще раз за хвилину.",
+    ),
+    "geoErrorDenied": MessageLookupByLibrary.simpleMessage(
+      "Помилка сервісу карт. Ми вже працюємо над виправленням.",
+    ),
+    "geoErrorInvalidRequest": MessageLookupByLibrary.simpleMessage(
+      "Щось пішло не так під час пошуку. Спробуйте ще раз.",
+    ),
+    "geoErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Відсутній зв’язок з інтернетом. Перевірте з’єднання.",
+    ),
+    "geoErrorUnknown": MessageLookupByLibrary.simpleMessage(
+      "Непередбачена помилка. Спробуйте пізніше.",
+    ),
+    "geoErrorZeroResults": MessageLookupByLibrary.simpleMessage(
+      "Не вдалося отримати дані про це місце. Спробуйте вибрати інше.",
+    ),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
       "Маєте аккаунт? Натисніть тут щоб повернутись!",
     ),
@@ -229,6 +247,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "search": MessageLookupByLibrary.simpleMessage("Пошук"),
     "searchTitle": MessageLookupByLibrary.simpleMessage("Пошук транспорта"),
     "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
+    "suggestionListEmpty": MessageLookupByLibrary.simpleMessage(
+      "Не знайдено пропозицій",
+    ),
     "surnameForm": MessageLookupByLibrary.simpleMessage(
       "Введіть ваше Прізвище",
     ),

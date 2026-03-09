@@ -404,6 +404,66 @@ class S {
     );
   }
 
+  /// `No internet connection. Please check your settings.`
+  String get geoErrorNetwork {
+    return Intl.message(
+      'No internet connection. Please check your settings.',
+      name: 'geoErrorNetwork',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Could not retrieve details for this location. Please try selecting another one.`
+  String get geoErrorZeroResults {
+    return Intl.message(
+      'Could not retrieve details for this location. Please try selecting another one.',
+      name: 'geoErrorZeroResults',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `The service is temporarily unavailable. Please try again in a minute.`
+  String get geoErrorApiLimit {
+    return Intl.message(
+      'The service is temporarily unavailable. Please try again in a minute.',
+      name: 'geoErrorApiLimit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Map service error. We are already fixing it.`
+  String get geoErrorDenied {
+    return Intl.message(
+      'Map service error. We are already fixing it.',
+      name: 'geoErrorDenied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong with the search. Please try again.`
+  String get geoErrorInvalidRequest {
+    return Intl.message(
+      'Something went wrong with the search. Please try again.',
+      name: 'geoErrorInvalidRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Unexpected error. Please try later.`
+  String get geoErrorUnknown {
+    return Intl.message(
+      'Unexpected error. Please try later.',
+      name: 'geoErrorUnknown',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Search`
   String get navSearch {
     return Intl.message('Search', name: 'navSearch', desc: '', args: []);
@@ -452,6 +512,16 @@ class S {
   /// `To`
   String get fieldTo {
     return Intl.message('To', name: 'fieldTo', desc: '', args: []);
+  }
+
+  /// `No suggestions found`
+  String get suggestionListEmpty {
+    return Intl.message(
+      'No suggestions found',
+      name: 'suggestionListEmpty',
+      desc: '',
+      args: [],
+    );
   }
 
   /// `Enter city`

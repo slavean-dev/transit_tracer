@@ -19,8 +19,8 @@ class SaveUserOrder extends OrdersEvent {
     required this.weight,
     required this.price,
   });
-  final CityPoint from;
-  final CityPoint to;
+  final CitySuggestion from;
+  final CitySuggestion to;
   final String description;
   final WeightRange weight;
   final String price;

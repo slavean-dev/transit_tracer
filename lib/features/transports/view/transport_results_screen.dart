@@ -70,7 +70,6 @@ class TransportResultsScreen extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.only(left: 24, right: 24, top: 16),
                   child: BaseContainer(
-                    theme: theme,
                     child: Row(
                       children: [
                         Image.asset(

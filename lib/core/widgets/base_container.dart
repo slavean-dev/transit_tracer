@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 
 class BaseContainer extends StatelessWidget {
-  const BaseContainer({super.key, required this.theme, required this.child});
-
-  final ThemeData theme;
+  const BaseContainer({super.key, required this.child});
 
   final Widget child;
 
   @override
   Widget build(BuildContext context) {
+    final theme = Theme.of(context);
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),

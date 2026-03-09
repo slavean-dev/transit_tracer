@@ -32,6 +32,7 @@
 
     "firebaseErrorInvalidCredential" : "Credenziali non valide",
     "firebaseErrorEmailInUse": "Questa email è già registrata",
+    "suggestionListEmpty" : "Nessuna suggerimento trovato",
     "firebaseErrorInvalidEmail": "Formato email non valido",
     "firebaseErrorWeekPassword": "La password è troppo debole",
     "firebaseErrorUserNotFound": "L'utente con questa email non esiste",
@@ -41,6 +42,13 @@
     "firebaseErrorNotFound" : "Ordine non trovato. Può essere stato cancellato.",
     "firebaseErrorUnavailable" : "Servizio non disponibile. Controlla la tua connessione o riprova più tardi.",
     "firebaseErrorNetwork" : "Errore di rete. Controlla la tua connessione o riprova più tardi.",
+
+    "geoErrorNetwork" : "Connessione internet assente. Controlla le tue impostazioni.",
+    "geoErrorZeroResults" : "Impossibile recuperare i dettagli per questa posizione. Prova a selezionarne un'altra.",
+    "geoErrorApiLimit" : "Il servizio è temporaneamente non disponibile. Riprova tra un minuto.",
+    "geoErrorDenied" : "Errore nel servizio mappe. Stiamo già provvedendo a risolverlo.",
+    "geoErrorInvalidRequest" : "Si è verificato un errore durante la ricerca. Riprova.",
+    "geoErrorUnknown" : "Errore imprevisto. Riprova più tardi.",
 
     "navSearch": "Ricerca",
     "navCreate": "Creare",

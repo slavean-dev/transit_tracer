@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:transit_tracer/core/firebase_error_handler/error_translator/error_translator.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/error_translator/error_translator.dart';
 import 'package:transit_tracer/core/utils/ui/app_snack_bar.dart';
 import 'package:transit_tracer/features/orders/bloc/orders_bloc/orders_bloc.dart';
 import 'package:transit_tracer/features/orders/widgets/common/order_card/order_card.dart';
@@ -32,8 +32,9 @@ class OrdersListView extends StatelessWidget {
         final currentStatus = isArchived
             ? state.archiveStatus
             : state.activeStatus;
-        if (currentStatus == OrderStateStatus.error && state.type != null) {
-          final error = ErrorTranslator.translate(context, state.type);
+        if (currentStatus == OrderStateStatus.error &&
+            state.firebaseType != null) {
+          final error = ErrorTranslator.translate(context, state.firebaseType);
           if (error != null) {
             AppSnackBar.showErrorMessage(context, error);
           }

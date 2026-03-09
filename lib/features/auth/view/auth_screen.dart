@@ -2,7 +2,7 @@ import 'package:auto_route/annotations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
-import 'package:transit_tracer/core/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
+import 'package:transit_tracer/core/error_handlers/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
 import 'package:transit_tracer/features/auth/view/auth_view.dart';
 import 'package:transit_tracer/features/auth/bloc/auth_bloc.dart';
 import 'package:transit_tracer/features/auth/cubit/password_strength_meter_cubit.dart';

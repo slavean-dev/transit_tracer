@@ -12,7 +12,6 @@ class OurMissionContainer extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 20, left: 24, right: 24),
       child: BaseContainer(
-        theme: theme,
         child: Column(
           children: [
             Center(
