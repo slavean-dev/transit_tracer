@@ -53,4 +53,32 @@ class GeoRepository implements AbstractGeoRepository {
       rethrow;
     }
   }
+
+  Future<String?> fetchEncodedPolyline({
+    required double fromLat,
+    required double fromLng,
+    required double toLat,
+    required double toLng,
+  }) async {
+    try {
+      final response = await geoService.getRoute(
+        fromLat: fromLat,
+        fromLng: fromLng,
+        toLat: toLat,
+        toLng: toLng,
+      );
+
+      final data = response.data;
+      if (data == null) return null;
+
+      final routes = (data['routes'] as List?) ?? const [];
+      if (routes.isEmpty) return null;
+
+      final overview =
+          routes.first['overview_polyline'] as Map<String, dynamic>;
+      return overview['points'] as String?;
+    } catch (e) {
+      return null;
+    }
+  }
 }

@@ -37,7 +37,6 @@ import 'package:transit_tracer/features/profile/repository/profile_repository.da
 import 'package:transit_tracer/app/router/router.dart';
 import 'package:transit_tracer/core/services/app_info/app_info.dart';
 import 'package:transit_tracer/core/services/env_service/env_service.dart';
-import 'package:transit_tracer/core/services/google_route_service/google_route_service.dart';
 import 'package:transit_tracer/core/services/media_service/media_service.dart';
 
 class DiService {
@@ -67,13 +66,6 @@ class DiService {
     );
 
     getIt.registerLazySingleton<Dio>(() => Dio());
-
-    getIt.registerSingleton<GoogleRouteService>(
-      GoogleRouteService(
-        dio: getIt<Dio>(),
-        apiKey: getIt<EnvService>().autocompleteApiKey,
-      ),
-    );
 
     getIt.registerSingleton<AbstractSettingsRepository>(
       SettingsRepository(

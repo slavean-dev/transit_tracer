@@ -43,4 +43,22 @@ class GeoApiService {
 
     return response;
   }
+
+  Future<Response<dynamic>> getRoute({
+    required double fromLat,
+    required double fromLng,
+    required double toLat,
+    required double toLng,
+  }) async {
+    final response = await _dio.get<Map<String, dynamic>>(
+      'https://maps.googleapis.com/maps/api/directions/json',
+      queryParameters: {
+        'origin': '$fromLat,$fromLng',
+        'destination': '$toLat,$toLng',
+        'mode': 'driving',
+        'key': apiKey,
+      },
+    );
+    return response;
+  }
 }
