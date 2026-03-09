@@ -148,6 +148,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "geoErrorInvalidRequest": MessageLookupByLibrary.simpleMessage(
       "Щось пішло не так під час пошуку. Спробуйте ще раз.",
     ),
+    "geoErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "Відсутній зв’язок з інтернетом. Перевірте з’єднання.",
+    ),
     "geoErrorUnknown": MessageLookupByLibrary.simpleMessage(
       "Непередбачена помилка. Спробуйте пізніше.",
     ),

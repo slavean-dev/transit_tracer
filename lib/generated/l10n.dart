@@ -404,6 +404,16 @@ class S {
     );
   }
 
+  /// `No internet connection. Please check your settings.`
+  String get geoErrorNetwork {
+    return Intl.message(
+      'No internet connection. Please check your settings.',
+      name: 'geoErrorNetwork',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Could not retrieve details for this location. Please try selecting another one.`
   String get geoErrorZeroResults {
     return Intl.message(

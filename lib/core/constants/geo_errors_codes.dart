@@ -9,3 +9,9 @@ class GeoErrorsCodes {
 
   static const String unknownError = 'UNKNOWN_ERROR';
 }
+
+class GeoNetworkPatterns {
+  static const socket = 'socketexception';
+  static const connection = 'connection failed';
+  static const network = 'network_error';
+}

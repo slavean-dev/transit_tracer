@@ -43,6 +43,7 @@
     "firebaseErrorUnavailable" : "Servizio non disponibile. Controlla la tua connessione o riprova più tardi.",
     "firebaseErrorNetwork" : "Errore di rete. Controlla la tua connessione o riprova più tardi.",
 
+    "geoErrorNetwork" : "Connessione internet assente. Controlla le tue impostazioni.",
     "geoErrorZeroResults" : "Impossibile recuperare i dettagli per questa posizione. Prova a selezionarne un'altra.",
     "geoErrorApiLimit" : "Il servizio è temporaneamente non disponibile. Riprova tra un minuto.",
     "geoErrorDenied" : "Errore nel servizio mappe. Stiamo già provvedendo a risolverlo.",

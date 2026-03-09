@@ -7,6 +7,8 @@ class GeoErrorTranslator {
     if (type == null) return null;
     final s = S.of(context);
     switch (type) {
+      case GeoErrorType.network:
+        return s.geoErrorNetwork;
       case GeoErrorType.apiLimit:
         return s.geoErrorApiLimit;
       case GeoErrorType.denied:

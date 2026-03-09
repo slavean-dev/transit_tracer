@@ -140,6 +140,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "geoErrorInvalidRequest": MessageLookupByLibrary.simpleMessage(
       "Something went wrong with the search. Please try again.",
     ),
+    "geoErrorNetwork": MessageLookupByLibrary.simpleMessage(
+      "No internet connection. Please check your settings.",
+    ),
     "geoErrorUnknown": MessageLookupByLibrary.simpleMessage(
       "Unexpected error. Please try later.",
     ),

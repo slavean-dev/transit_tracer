@@ -42,6 +42,7 @@
     "firebaseErrorUnavailable" : "Service unavailable. Please check your internet or try later.",
     "firebaseErrorNetwork" : "Network error. Please check your internet or try later.",
 
+    "geoErrorNetwork" : "No internet connection. Please check your settings.",
     "geoErrorZeroResults" : "Could not retrieve details for this location. Please try selecting another one.",
     "geoErrorApiLimit" : "The service is temporarily unavailable. Please try again in a minute.",
     "geoErrorDenied" : "Map service error. We are already fixing it.",
