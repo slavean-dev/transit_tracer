@@ -1,4 +1,4 @@
-import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_errors_to_type.dart';
+import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_errors_parser.dart';
 import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_failure.dart';
 import 'package:transit_tracer/core/services/geo_api_service/geo_api_service.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/model/city_suggestion/city_suggestion.dart';
@@ -29,7 +29,7 @@ class AutocompleteRepository implements AbstractAutocompleteRepository {
         throw Exception(response.data['status']);
       }
     } catch (e) {
-      final type = GeoErrorsToType.map(e);
+      final type = GeoErrorsParser.map(e);
       throw GeoFailure(e.toString(), type: type);
     }
   }
