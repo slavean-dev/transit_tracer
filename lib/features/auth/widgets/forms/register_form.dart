@@ -94,11 +94,8 @@ class _RegisterFormState extends State<RegisterForm> {
           obscureText: false,
           type: TextInputType.name,
           hint: S.of(context).nameForm,
-          validator: (value) => validateName(
-            value,
-            emptyField: S.of(context).validationFormEmpty,
-            invalidValue: S.of(context).validationInvalidName,
-          ),
+          validator: (value) =>
+              AuthValidator.validateName(value)?.toText(context),
         ),
         const SizedBox(height: 12),
         AuthFormField(
@@ -109,11 +106,8 @@ class _RegisterFormState extends State<RegisterForm> {
           obscureText: false,
           type: TextInputType.name,
           hint: S.of(context).surnameForm,
-          validator: (value) => validateName(
-            value,
-            emptyField: S.of(context).validationFormEmpty,
-            invalidValue: S.of(context).validationInvalidSurname,
-          ),
+          validator: (value) =>
+              AuthValidator.validateName(value)?.toText(context),
         ),
         const SizedBox(height: 12),
         AuthFormField(
@@ -125,20 +119,14 @@ class _RegisterFormState extends State<RegisterForm> {
           obscureText: false,
           type: TextInputType.emailAddress,
           hint: S.of(context).emailForm,
-          validator: (value) => validateEmail(
-            value,
-            emptyField: S.of(context).validationFormEmpty,
-            invalidEmail: S.of(context).validationInvalidEmail,
-          ),
+          validator: (value) =>
+              AuthValidator.validateEmail(value)?.toText(context),
         ),
         const SizedBox(height: 12),
         AuthFormField(
           hint: S.of(context).phoneForm,
-          validator: (value) => validatePhone(
-            value,
-            emptyField: S.of(context).validationFormEmpty,
-            invalidPhone: S.of(context).validationInvalidPhone,
-          ),
+          validator: (value) =>
+              AuthValidator.validatePhone(value)?.toText(context),
           maxLength: 9,
           prefix: _dialCode,
           type: TextInputType.phone,
@@ -169,14 +157,8 @@ class _RegisterFormState extends State<RegisterForm> {
           obscureText: _obscurePassword,
           type: TextInputType.visiblePassword,
           hint: S.of(context).passwordCreateForm,
-          validator: (value) => validatePassword(
-            value,
-            emptyField: S.of(context).validationFormEmpty,
-            inavildLenth: S.of(context).validationInvalidPasswordLenth,
-            invalidUppercase: S.of(context).validationInvalidPasswordUppercase,
-            invalidDigit: S.of(context).validationInvalidPasswordDigit,
-            invalidCpecChar: S.of(context).validationInvalidPasswordSpecChar,
-          ),
+          validator: (value) =>
+              AuthValidator.validatePassword(value)?.toText(context),
         ),
         const SizedBox(height: 12),
         AuthFormField(
@@ -197,14 +179,10 @@ class _RegisterFormState extends State<RegisterForm> {
           obscureText: _obscureCoinfirm,
           type: TextInputType.visiblePassword,
           hint: S.of(context).passwordConfirmForm,
-          validator: (value) => validateCoinfirmPassword(
+          validator: (value) => AuthValidator.validateCoinfirmPassword(
             value,
             passwordController.text,
-            emptyField: S.of(context).validationFormEmpty,
-            passwordsDidntMatch: S
-                .of(context)
-                .validationInvalidConfirmPasswordDidntMatch,
-          ),
+          )?.toText(context),
         ),
         BlocBuilder<PasswordStrengthMeterCubit, PasswordStrengthMeterState>(
           builder: (context, state) {

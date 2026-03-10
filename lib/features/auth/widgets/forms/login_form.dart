@@ -50,10 +50,8 @@ class _LoginFormState extends State<LoginForm> {
           type: TextInputType.emailAddress,
           obscureText: false,
           hint: S.of(context).loginForm,
-          validator: (value) => validateRequired(
-            value,
-            emptyField: S.of(context).validationFormEmpty,
-          ),
+          validator: (value) =>
+              AuthValidator.validateRequired(value)?.toText(context),
         ),
         const SizedBox(height: 14),
         AuthFormField(
@@ -75,10 +73,8 @@ class _LoginFormState extends State<LoginForm> {
           type: TextInputType.visiblePassword,
           obscureText: _obscure,
           hint: S.of(context).passwordForm,
-          validator: (value) => validateRequired(
-            value,
-            emptyField: S.of(context).validationFormEmpty,
-          ),
+          validator: (value) =>
+              AuthValidator.validateRequired(value)?.toText(context),
         ),
         TextButton(
           onPressed: () {
