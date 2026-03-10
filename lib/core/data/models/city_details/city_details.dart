@@ -1,3 +1,4 @@
+import 'package:transit_tracer/core/constants/google_api_constants.dart';
 import 'package:transit_tracer/core/utils/formatters/num_utils.dart';
 
 class CityDetails {
@@ -12,37 +13,39 @@ class CityDetails {
   final double lng;
 
   factory CityDetails.fromJson(Map<String, dynamic> json) {
-    final result = json['result'] ?? {};
-    final components = result['address_components'] as List<dynamic>;
+    final result = json[GoogleApiConstants.results] ?? {};
+    final components =
+        result[GoogleApiConstants.adressComponents] as List<dynamic>;
 
     String city = '';
     String region = '';
     String country = '';
 
     for (var com in components) {
-      final types = com['types'] as List<dynamic>;
-      if (types.contains('locality')) {
-        city = com['long_name'];
+      final types = com[GoogleApiConstants.types] as List<dynamic>;
+      if (types.contains(GoogleApiConstants.locality)) {
+        city = com[GoogleApiConstants.longName];
       }
-      if (types.contains('administrative_area_level_1')) {
-        region = com['long_name'];
+      if (types.contains(GoogleApiConstants.adminAreaLevel1)) {
+        region = com[GoogleApiConstants.longName];
       }
-      if (types.contains('country')) {
-        country = com['long_name'];
+      if (types.contains(GoogleApiConstants.country)) {
+        country = com[GoogleApiConstants.longName];
       }
     }
-    final fullAdress = [
+    final fullAddress = [
       city,
       region,
       country,
     ].where((s) => s.isNotEmpty).join(', ');
 
-    final location = result['geometry']['location'];
+    final location =
+        result[GoogleApiConstants.geometry][GoogleApiConstants.location];
 
     return CityDetails(
-      localizedName: fullAdress,
-      lat: NumUtils().toDouble(location['lat']) ?? 0.0,
-      lng: NumUtils().toDouble(location['lng']) ?? 0.0,
+      localizedName: fullAddress,
+      lat: NumUtils().toDouble(location[GoogleApiConstants.lat]) ?? 0.0,
+      lng: NumUtils().toDouble(location[GoogleApiConstants.lng]) ?? 0.0,
     );
   }
 }

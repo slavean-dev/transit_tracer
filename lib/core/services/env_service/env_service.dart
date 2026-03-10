@@ -1,11 +1,12 @@
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:transit_tracer/core/constants/google_api_constants.dart';
 
 class EnvService {
-  String? _autocompleteApiKey;
+  String? _googlePlacesApiKey;
 
   void initEnv() {
-    _autocompleteApiKey = dotenv.env["AUTOCOPLETE_API_KEY"];
+    _googlePlacesApiKey = dotenv.env[EnvKeys.googlePlacesApiKey];
   }
 
-  String get autocompleteApiKey => _autocompleteApiKey ?? '';
+  String get googlePlacesApiKey => _googlePlacesApiKey ?? '';
 }

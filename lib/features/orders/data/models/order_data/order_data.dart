@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
 import 'package:transit_tracer/features/orders/data/models/order_status/order_status.dart';
 import 'package:transit_tracer/core/data/models/weight_range/weight_range.dart';
@@ -31,40 +32,45 @@ class OrderData {
 
   Map<String, dynamic> toJson() {
     return {
-      'oid': oid,
-      'uid': uid,
-      'from': from.toJson(),
-      'to': to.toJson(),
-      'description': description,
-      'weight': weight.name,
-      'price': price,
-      'createdAt': createdAt.toIso8601String(),
-      'isArchive': isArchive,
-      'status': status.name,
+      FirebaseConstants.oid: oid,
+      FirebaseConstants.uid: uid,
+      FirebaseConstants.from: from.toJson(),
+      FirebaseConstants.to: to.toJson(),
+      FirebaseConstants.description: description,
+      FirebaseConstants.weight: weight.name,
+      FirebaseConstants.price: price,
+      FirebaseConstants.createdAt: createdAt.toIso8601String(),
+      FirebaseConstants.isArchive: isArchive,
+      FirebaseConstants.status: status.name,
     };
   }
 
   factory OrderData.fromFirestore(DocumentSnapshot doc) {
     final data = doc.data() as Map<String, dynamic>? ?? {};
     return OrderData(
-      uid: data['uid'] as String? ?? '',
-      oid: data['oid'] as String? ?? '',
-      from: CityPoint.fromJson(data['from'] as Map<String, dynamic>? ?? {}),
-      to: CityPoint.fromJson(data['to'] as Map<String, dynamic>? ?? {}),
-      description: data['description'] as String? ?? '',
+      uid: data[FirebaseConstants.uid] as String? ?? '',
+      oid: data[FirebaseConstants.oid] as String? ?? '',
+      from: CityPoint.fromJson(
+        data[FirebaseConstants.from] as Map<String, dynamic>? ?? {},
+      ),
+      to: CityPoint.fromJson(
+        data[FirebaseConstants.to] as Map<String, dynamic>? ?? {},
+      ),
+      description: data[FirebaseConstants.description] as String? ?? '',
       weight: WeightRange.values.firstWhere(
-        (e) => e.name == data['weight'],
+        (e) => e.name == data[FirebaseConstants.weight],
         orElse: () => WeightRange.upTo500,
       ),
-      price: data['price'] as String? ?? '',
+      price: data[FirebaseConstants.price] as String? ?? '',
       status: OrderStatus.values.firstWhere(
-        (e) => e.name == data['status'],
+        (e) => e.name == data[FirebaseConstants.status],
         orElse: () => OrderStatus.active,
       ),
-      createdAt: data['createdAt'] != null
-          ? DateTime.tryParse(data['createdAt'] as String) ?? DateTime.now()
+      createdAt: data[FirebaseConstants.isArchive] != null
+          ? DateTime.tryParse(data[FirebaseConstants.createdAt] as String) ??
+                DateTime.now()
           : DateTime.now(),
-      isArchive: data['isArchive'] as bool? ?? false,
+      isArchive: data[FirebaseConstants.isArchive] as bool? ?? false,
       isPending: doc.metadata.hasPendingWrites,
     );
   }

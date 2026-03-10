@@ -1,3 +1,4 @@
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
 import 'package:transit_tracer/features/user/models/user_role/user_role.dart';
 
 class UserData {
@@ -23,28 +24,30 @@ class UserData {
 
   Map<String, dynamic> toMap() {
     return {
-      'uid': uid,
-      'name': name,
-      'surname': surname,
-      'email': email,
-      'phone': phoneNumber,
-      'password': password,
-      'role': role.name,
-      'createdAt': DateTime.now().toIso8601String(),
-      'imageUrl': imageUrl,
+      FirebaseConstants.uid: uid,
+      FirebaseConstants.name: name,
+      FirebaseConstants.surname: surname,
+      FirebaseConstants.email: email,
+      FirebaseConstants.phone: phoneNumber,
+      FirebaseConstants.password: password,
+      FirebaseConstants.role: role.name,
+      FirebaseConstants.createdAt: DateTime.now().toIso8601String(),
+      FirebaseConstants.imageUrl: imageUrl,
     };
   }
 
   factory UserData.fromMap(Map<String, dynamic> map) {
     return UserData(
-      name: map['name'] as String,
-      surname: map['surname'] as String,
-      email: map['email'] as String,
-      phoneNumber: map['phone'] as String,
-      password: map['password'] as String,
-      role: UserRole.values.firstWhere((r) => r.name == map['role'] as String),
-      uid: map['uid'] as String,
-      imageUrl: map['imageUrl'] as String?,
+      name: map[FirebaseConstants.name] as String,
+      surname: map[FirebaseConstants.surname] as String,
+      email: map[FirebaseConstants.email] as String,
+      phoneNumber: map[FirebaseConstants.phone] as String,
+      password: map[FirebaseConstants.password] as String,
+      role: UserRole.values.firstWhere(
+        (r) => r.name == map[FirebaseConstants.role] as String,
+      ),
+      uid: map[FirebaseConstants.uid] as String,
+      imageUrl: map[FirebaseConstants.imageUrl] as String?,
     );
   }
 }

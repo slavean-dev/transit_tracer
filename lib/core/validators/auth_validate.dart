@@ -1,4 +1,5 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:transit_tracer/core/constants/app_regex.dart';
 
 bool isNotEmpty(String? value) {
   return value != null && value.trim().isNotEmpty;
@@ -33,7 +34,7 @@ String? validateName(
   if (!isNotEmpty(value)) {
     return emptyField;
   }
-  final reg = RegExp(r"[A-Za-zА-Яа-яІіЇїЄє]{2,}$");
+  final reg = AppRegex.name;
   if (!reg.hasMatch(value!.trim())) {
     return invalidValue;
   }
@@ -45,7 +46,7 @@ String? validatePhone(
   required String emptyField,
   required String invalidPhone,
 }) {
-  final digits = value?.replaceAll(RegExp(r'\D'), '') ?? '';
+  final digits = value?.replaceAll(AppRegex.nonDigits, '') ?? '';
   if (digits.isEmpty) return emptyField;
   if (digits.length != 9) return invalidPhone;
   return null;
@@ -66,15 +67,13 @@ String? validatePassword(
   if (password.length < 8) {
     return inavildLenth;
   }
-  if (!RegExp(r'[A-Z]').hasMatch(password)) {
+  if (!AppRegex.upperCase.hasMatch(password)) {
     return invalidUppercase;
   }
-  if (!RegExp(r'[0-9]').hasMatch(password)) {
+  if (!AppRegex.passwordDigit.hasMatch(password)) {
     return invalidDigit;
   }
-  if (!RegExp(
-    r'[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"\<>,\.\?\/\\]',
-  ).hasMatch(password)) {
+  if (!AppRegex.passwordSpecialChar.hasMatch(password)) {
     return invalidCpecChar;
   }
   return null;

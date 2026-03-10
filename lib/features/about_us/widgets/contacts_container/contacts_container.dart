@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:transit_tracer/core/constants/sup_email.dart';
+import 'package:transit_tracer/core/constants/app_constants.dart';
 import 'package:transit_tracer/core/widgets/base_container.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 import 'package:transit_tracer/core/services/app_info/app_info.dart';

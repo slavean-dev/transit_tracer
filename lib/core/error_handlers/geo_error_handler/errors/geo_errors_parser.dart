@@ -1,4 +1,4 @@
-import 'package:transit_tracer/core/constants/geo_errors_codes.dart';
+import 'package:transit_tracer/core/constants/google_api_constants.dart';
 import 'package:transit_tracer/core/error_handlers/geo_error_handler/geo_error_type/geo_error_type.dart';
 
 class GeoErrorsParser {

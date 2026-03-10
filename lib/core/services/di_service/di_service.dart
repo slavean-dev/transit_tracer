@@ -101,7 +101,7 @@ class DiService {
       ),
     );
     getIt.registerSingleton<GeoApiService>(
-      GeoApiService(getIt<EnvService>().autocompleteApiKey),
+      GeoApiService(getIt<EnvService>().googlePlacesApiKey),
     );
 
     getIt.registerSingleton<AbstractAutocompleteRepository>(

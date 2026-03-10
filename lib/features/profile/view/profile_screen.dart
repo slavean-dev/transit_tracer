@@ -48,6 +48,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 return const Center(child: CircularProgressIndicator());
               case AppUserStatus.failure:
                 return Center(
+                  // TODO: localize
                   child: Text(state.errorMassage ?? 'Failed to load user data'),
                 );
               case AppUserStatus.unauthorized:

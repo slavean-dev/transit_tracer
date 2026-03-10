@@ -31,7 +31,7 @@ class CityAutocompleteField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final apiKey = GetIt.I<EnvService>().autocompleteApiKey;
+    final apiKey = GetIt.I<EnvService>().googlePlacesApiKey;
     final locale = Localizations.localeOf(context);
     return Container(
       decoration: BoxDecoration(

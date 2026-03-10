@@ -1,3 +1,5 @@
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
+
 class CityPoint {
   CityPoint({
     required this.name,
@@ -23,18 +25,20 @@ class CityPoint {
   }
 
   Map<String, dynamic> toJson() => {
-    'name': name,
-    'placeId': placeId,
-    'lat': lat,
-    'lng': lng,
-    'localizedNames': localizedNames,
+    FirebaseConstants.name: name,
+    FirebaseConstants.placeId: placeId,
+    FirebaseConstants.lat: lat,
+    FirebaseConstants.lng: lng,
+    FirebaseConstants.localizedNames: localizedNames,
   };
 
   factory CityPoint.fromJson(Map<String, dynamic> json) => CityPoint(
-    name: json['name'] as String,
-    placeId: json['placeId'] as String,
-    lat: (json['lat'] as num).toDouble(),
-    lng: (json['lng'] as num).toDouble(),
-    localizedNames: Map<String, String>.from(json['localizedNames'] ?? {}),
+    name: json[FirebaseConstants.name] as String,
+    placeId: json[FirebaseConstants.placeId] as String,
+    lat: (json[FirebaseConstants.lat] as num).toDouble(),
+    lng: (json[FirebaseConstants.lng] as num).toDouble(),
+    localizedNames: Map<String, String>.from(
+      json[FirebaseConstants.localizedNames] ?? {},
+    ),
   );
 }

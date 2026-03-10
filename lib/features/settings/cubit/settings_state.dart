@@ -3,7 +3,7 @@ part of 'settings_cubit.dart';
 class SettingsState {
   const SettingsState({
     this.mode = ThemeMode.system,
-    this.langCode = 'en',
+    this.langCode = AppConfig.defaultLangCode,
     this.isOnline = true,
   });
 

@@ -1,3 +1,5 @@
+import 'package:transit_tracer/core/constants/app_regex.dart';
+
 class NumUtils {
   double? toDouble(dynamic v) {
     if (v == null) return null;
@@ -8,7 +10,7 @@ class NumUtils {
   }
 
   String priceFormater(String price) {
-    final digits = price.replaceAll(RegExp(r'\D'), '');
+    final digits = price.replaceAll(AppRegex.nonDigits, '');
     if (digits.length <= 3) return digits;
 
     final parts = <String>[];

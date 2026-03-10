@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
 import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_errors.dart';
 import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/features/orders/data/models/city_point/city_point.dart';
@@ -30,6 +31,7 @@ class OrderDataRepository implements AbstractOrderRepository {
     try {
       final currentUser = _firebaseAuth.currentUser;
       final oid = const Uuid().v4();
+      // TODO: Replace with custom AppException
       if (currentUser == null) throw Exception('Unauthenticated');
       final orderData = OrderData(
         uid: currentUser.uid,
@@ -43,7 +45,7 @@ class OrderDataRepository implements AbstractOrderRepository {
         createdAt: DateTime.now(),
       );
       await _firebaseFirestore
-          .collection('orders')
+          .collection(FirebaseCollections.orders)
           .doc(oid)
           .set(orderData.toJson());
     } on FirebaseException catch (e) {
@@ -56,10 +58,10 @@ class OrderDataRepository implements AbstractOrderRepository {
     required bool isArchive,
   }) {
     return _firebaseFirestore
-        .collection('orders')
-        .where('uid', isEqualTo: uid)
-        .where('isArchive', isEqualTo: isArchive)
-        .orderBy('createdAt', descending: true);
+        .collection(FirebaseCollections.orders)
+        .where(FirebaseConstants.uid, isEqualTo: uid)
+        .where(FirebaseConstants.isArchive, isEqualTo: isArchive)
+        .orderBy(FirebaseConstants.createdAt, descending: true);
   }
 
   @override
@@ -107,7 +109,10 @@ class OrderDataRepository implements AbstractOrderRepository {
   @override
   Future<void> deleteOrder(String oid) async {
     try {
-      await _firebaseFirestore.collection('orders').doc(oid).delete();
+      await _firebaseFirestore
+          .collection(FirebaseCollections.orders)
+          .doc(oid)
+          .delete();
     } on FirebaseException catch (e) {
       throw FirebaseFailure(null, type: FirebaseAuthErrors.map(e.code));
     }
@@ -116,7 +121,7 @@ class OrderDataRepository implements AbstractOrderRepository {
   @override
   Stream<OrderData> getOrderById(String oid) {
     return _firebaseFirestore
-        .collection('orders')
+        .collection(FirebaseCollections.orders)
         .doc(oid)
         .snapshots(includeMetadataChanges: true)
         .map((doc) {
@@ -136,7 +141,7 @@ class OrderDataRepository implements AbstractOrderRepository {
   Future<void> editOrderData(OrderData order) async {
     try {
       await _firebaseFirestore
-          .collection('orders')
+          .collection(FirebaseCollections.orders)
           .doc(order.oid)
           .update(order.toJson());
     } on FirebaseException catch (e) {
@@ -150,7 +155,10 @@ class OrderDataRepository implements AbstractOrderRepository {
     Map<String, dynamic> updates,
   ) async {
     try {
-      await _firebaseFirestore.collection('orders').doc(oid).update(updates);
+      await _firebaseFirestore
+          .collection(FirebaseCollections.orders)
+          .doc(oid)
+          .update(updates);
     } on FirebaseException catch (e) {
       throw FirebaseFailure(null, type: FirebaseAuthErrors.map(e.code));
     }

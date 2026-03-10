@@ -58,7 +58,7 @@ class _OrderRouteMapPreviewState extends State<OrderRouteMapPreview> {
 
     final connectivity = GetIt.I<NetworkService>();
     final svc = GetIt.I<GeoRepository>();
-    final apiKey = GetIt.I<EnvService>().autocompleteApiKey;
+    final apiKey = GetIt.I<EnvService>().googlePlacesApiKey;
 
     final hasInternet = await connectivity.isConnected;
 
@@ -170,6 +170,7 @@ class _OrderRouteMapPreviewState extends State<OrderRouteMapPreview> {
         ),
         const SizedBox(height: 4),
         Text(
+          // TODO: localize
           'Map unavailable offline',
           style: widget.theme.textTheme.bodySmall?.copyWith(
             color: widget.theme.colorScheme.onSurfaceVariant,

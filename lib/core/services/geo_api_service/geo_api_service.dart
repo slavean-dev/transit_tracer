@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:transit_tracer/core/constants/google_api_constants.dart';
 
 class GeoApiService {
   GeoApiService(this.apiKey);
@@ -10,16 +11,16 @@ class GeoApiService {
     required String langCode,
     int? limit,
   }) async {
-    final url = 'https://maps.googleapis.com/maps/api/place/autocomplete/json';
+    final url = GoogleApiConstants.autocompleteUrl;
     final response = await _dio.get(
       url,
       queryParameters: {
-        'input': query,
-        'types': '(cities)',
-        'language': langCode,
-        'components': 'country:ua',
-        'limit': limit,
-        'key': apiKey,
+        GoogleApiConstants.inputParam: query,
+        GoogleApiConstants.typesParam: GoogleApiConstants.citiesType,
+        GoogleApiConstants.languageParam: langCode,
+        GoogleApiConstants.componentsParam: GoogleApiConstants.defaultCountry,
+        GoogleApiConstants.limitParam: limit,
+        GoogleApiConstants.keyParam: apiKey,
       },
     );
 
@@ -30,14 +31,14 @@ class GeoApiService {
     String placeId,
     String langCode,
   ) async {
-    final url = 'https://maps.googleapis.com/maps/api/place/details/json';
+    final url = GoogleApiConstants.placeDetailsUrl;
     final response = await _dio.get(
       url,
       queryParameters: {
-        'place_id': placeId,
-        'fields': 'name,geometry,address_components',
-        'language': langCode,
-        'key': apiKey,
+        GoogleApiConstants.placeIdParam: placeId,
+        GoogleApiConstants.fieldsParam: GoogleApiConstants.detailsFields,
+        GoogleApiConstants.languageParam: langCode,
+        GoogleApiConstants.keyParam: apiKey,
       },
     );
 

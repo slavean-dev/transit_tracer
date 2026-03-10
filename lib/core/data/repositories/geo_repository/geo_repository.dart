@@ -1,3 +1,5 @@
+import 'package:transit_tracer/core/constants/app_constants.dart';
+import 'package:transit_tracer/core/constants/google_api_constants.dart';
 import 'package:transit_tracer/core/data/models/city_details/city_details.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
 import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_errors_parser.dart';
@@ -14,16 +16,18 @@ class GeoRepository implements AbstractGeoRepository {
       final response = await geoService.getPlaceDetails(placeId, langCode);
 
       if (response.statusCode == 200 && response.data != null) {
-        final String status = response.data['status'] ?? '';
+        final String status = response.data[GoogleApiConstants.status] ?? '';
 
-        if (status == 'OK') {
+        if (status == GoogleApiConstants.statusOk) {
           return CityDetails.fromJson(response.data);
         }
 
         throw Exception(status);
       }
 
-      throw Exception('Server Error: ${response.statusCode}');
+      throw Exception(
+        '${GoogleApiConstants.serverErrorPrefix} ${response.statusCode}',
+      );
     } catch (e) {
       final type = GeoErrorsParser.map(e);
       throw GeoFailure(e.toString(), type: type);
@@ -35,20 +39,25 @@ class GeoRepository implements AbstractGeoRepository {
     String placeId,
   ) async {
     try {
-      final results = await Future.wait([
-        getPlaceDetails(placeId, 'en'),
-        getPlaceDetails(placeId, 'uk'),
-        getPlaceDetails(placeId, 'it'),
-      ]);
+      final requests = AppConfig.supportedLanguages.map((lang) {
+        return getPlaceDetails(placeId, lang.code);
+      }).toList();
 
-      return (
-        {
-          'en': results[0].localizedName,
-          'uk': results[1].localizedName,
-          'it': results[2].localizedName,
-        },
-        {'lat': results[0].lat, 'lng': results[0].lng},
-      );
+      final results = await Future.wait(requests);
+
+      final nameByLang = <String, String>{};
+      for (var i = 0; i < AppConfig.supportedLanguages.length; i++) {
+        final langCode = AppConfig.supportedLanguages[i].code;
+        nameByLang[langCode] = results[i].localizedName;
+      }
+
+      final firstResult = results.first;
+      final coordinates = {
+        GoogleApiConstants.lat: firstResult.lat,
+        GoogleApiConstants.lng: firstResult.lng,
+      };
+
+      return (nameByLang, coordinates);
     } catch (e) {
       rethrow;
     }

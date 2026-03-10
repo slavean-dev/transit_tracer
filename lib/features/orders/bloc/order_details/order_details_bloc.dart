@@ -1,5 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
+import 'package:transit_tracer/core/constants/google_api_constants.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
 import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/core/error_handlers/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
@@ -77,11 +79,17 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
       emit(OrderDetailsLoading());
       (Map<String, String>, Map<String, double>) fromData = (
         event.oldFrom.localizedNames,
-        {'lat': event.oldFrom.lat, 'lng': event.oldFrom.lng},
+        {
+          GoogleApiConstants.lat: event.oldFrom.lat,
+          GoogleApiConstants.lng: event.oldFrom.lng,
+        },
       );
       (Map<String, String>, Map<String, double>) toData = (
         event.oldTo.localizedNames,
-        {'lat': event.oldTo.lat, 'lng': event.oldTo.lng},
+        {
+          GoogleApiConstants.lat: event.oldTo.lat,
+          GoogleApiConstants.lng: event.oldTo.lng,
+        },
       );
       if (event.oldFrom.placeId != event.fromSuggestion.placeId) {
         fromData = await geoRepository.getCityFullBundle(
@@ -96,15 +104,15 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
       final from = CityPoint(
         name: event.fromSuggestion.cityName,
         placeId: event.fromSuggestion.placeId,
-        lat: fromData.$2['lat'] ?? 0.0,
-        lng: fromData.$2['lng'] ?? 0.0,
+        lat: fromData.$2[FirebaseConstants.lat] ?? 0.0,
+        lng: fromData.$2[FirebaseConstants.lng] ?? 0.0,
         localizedNames: fromData.$1,
       );
       final to = CityPoint(
         name: event.toSuggestion.cityName,
         placeId: event.toSuggestion.placeId,
-        lat: toData.$2['lat'] ?? 0.0,
-        lng: toData.$2['lng'] ?? 0.0,
+        lat: toData.$2[FirebaseConstants.lat] ?? 0.0,
+        lng: toData.$2[FirebaseConstants.lng] ?? 0.0,
         localizedNames: toData.$1,
       );
       final order = OrderData(
@@ -153,10 +161,12 @@ class OrderDetailsBloc extends Bloc<OrderDetailsEvent, OrderDetailsState> {
     try {
       emit(OrderDetailsLoading());
       final bool willBeArchived = !event.order.isArchive;
-      final Map<String, dynamic> updates = {'isArchive': willBeArchived};
+      final Map<String, dynamic> updates = {
+        FirebaseConstants.isArchive: willBeArchived,
+      };
 
       if (event.order.status != OrderStatus.completed) {
-        updates['status'] = willBeArchived
+        updates[FirebaseConstants.status] = willBeArchived
             ? OrderStatus.archived.name
             : OrderStatus.active.name;
       }

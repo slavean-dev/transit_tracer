@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
 import 'package:transit_tracer/features/user/user_data_repository/abstract_user_data.dart';
 import 'package:transit_tracer/features/user/models/user_data/user_data.dart';
 
@@ -16,7 +17,7 @@ class UserDataRepository implements AbstractUserDataRepository {
   Future<UserData> loadUserData() async {
     final currentUser = _firebaseAuth.currentUser;
     final doc = await _firebaseFirestore
-        .collection('users')
+        .collection(FirebaseCollections.users)
         .doc(currentUser!.uid)
         .get();
     return UserData.fromMap(doc.data()!);
@@ -27,8 +28,9 @@ class UserDataRepository implements AbstractUserDataRepository {
     required String uid,
     required String url,
   }) async {
-    await _firebaseFirestore.collection('users').doc(uid).update({
-      'imageUrl': url,
-    });
+    await _firebaseFirestore
+        .collection(FirebaseCollections.users)
+        .doc(uid)
+        .update({FirebaseConstants.imageUrl: url});
   }
 }
