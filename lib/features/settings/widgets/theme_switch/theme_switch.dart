@@ -16,7 +16,7 @@ class ThemeSwitch extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(S.of(context).darkThemeSwith),
+          Text(S.of(context).darkThemeSwitch),
           Switch(
             activeThumbColor: theme.primaryColor,
             activeTrackColor: theme.colorScheme.surfaceContainer,

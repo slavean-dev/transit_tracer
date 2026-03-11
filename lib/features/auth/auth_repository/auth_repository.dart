@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
 import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_failure.dart';
 import 'package:transit_tracer/core/error_handlers/firebase_error_handler/errors/firebase_errors.dart';
 import 'package:transit_tracer/features/user/models/user_data/user_data.dart';
@@ -45,7 +46,10 @@ class AuthRepository implements AbstractAuthRepository {
         uid: uid,
       );
 
-      await firestore.collection('users').doc(uid).set(userData.toMap());
+      await firestore
+          .collection(FirebaseCollections.users)
+          .doc(uid)
+          .set(userData.toMap());
     } on FirebaseAuthException catch (e) {
       throw FirebaseFailure(null, type: FirebaseAuthErrors.map(e.code));
     }

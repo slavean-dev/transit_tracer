@@ -23,7 +23,7 @@ class OrderDescriptionFormField extends StatelessWidget {
       focusNode: _descriptionFocusNode,
       keyboardType: null,
       inputFormatters: null,
-      validator: (value) => OrderValidators.description(value),
+      validator: (value) => OrderValidators.description(value)?.toText(context),
       theme: theme,
       controller: _descriptionController,
       label: s.orderFieldCargo,

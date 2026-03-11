@@ -11,7 +11,7 @@ class WeightRangeMapper {
       case WeightRange.from1000to1500:
         return s.from1000To1500;
       case WeightRange.from1500to2000:
-        return s.from1500to2000;
+        return s.from1500To2000;
       case WeightRange.above2000:
         return s.above2000;
     }

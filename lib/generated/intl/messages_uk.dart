@@ -57,7 +57,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactsTitle": MessageLookupByLibrary.simpleMessage("Контакти"),
     "create": MessageLookupByLibrary.simpleMessage("Створити"),
     "createTitle": MessageLookupByLibrary.simpleMessage("Створити замовлення"),
-    "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Темна тема:"),
+    "darkThemeSwitch": MessageLookupByLibrary.simpleMessage("Темна тема:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Дата"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Дата народження"),
     "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Архівувати"),
@@ -67,7 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage(
       "Архівування замовлення",
     ),
-    "dialogCancel": MessageLookupByLibrary.simpleMessage("Відміна"),
+    "dialogCancel": MessageLookupByLibrary.simpleMessage("Скасувати"),
     "dialogConfirmExitMessage": MessageLookupByLibrary.simpleMessage(
       "Ви впевнені, що хочете вийти?",
     ),
@@ -90,7 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Розархівування замовлення",
     ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
-      "Немає аккаунту? Натисніть тут щоб створити!",
+      "Немає акаунту? Створити акаунт",
     ),
     "driverTab": MessageLookupByLibrary.simpleMessage("Водій"),
     "dropMenuItemEng": MessageLookupByLibrary.simpleMessage("Англійська"),
@@ -130,14 +130,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "Користувача з цією електронною адресою не існує",
     ),
-    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeakPassword": MessageLookupByLibrary.simpleMessage(
       "Пароль занадто слабкий",
     ),
     "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Невірний пароль",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 кг"),
-    "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 кг"),
+    "from1500To2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 кг"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 кг"),
     "geoErrorApiLimit": MessageLookupByLibrary.simpleMessage(
       "Сервіс тимчасово недоступний. Спробуйте ще раз за хвилину.",
@@ -158,7 +158,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Не вдалося отримати дані про це місце. Спробуйте вибрати інше.",
     ),
     "haveAccTextButton": MessageLookupByLibrary.simpleMessage(
-      "Маєте аккаунт? Натисніть тут щоб повернутись!",
+      "Маєте акаунт? Натисніть тут щоб повернутись!",
     ),
     "hintEnterCity": MessageLookupByLibrary.simpleMessage("Введіть місто"),
     "languageDropMenu": MessageLookupByLibrary.simpleMessage("Мова:"),
@@ -171,7 +171,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "navOrders": MessageLookupByLibrary.simpleMessage("Замовлення"),
     "navProfile": MessageLookupByLibrary.simpleMessage("Профіль"),
     "navSearch": MessageLookupByLibrary.simpleMessage("Пошук"),
-    "offlineModeMessage": MessageLookupByLibrary.simpleMessage("Оффлайн режим"),
+    "offlineModeMessage": MessageLookupByLibrary.simpleMessage("Офлайн режим"),
     "offlineSaveMessage": MessageLookupByLibrary.simpleMessage(
       "Збережено локально, буде відправлено пізніше",
     ),
@@ -179,7 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "orderDetailsTitle": MessageLookupByLibrary.simpleMessage(
       "Деталі замовлення",
     ),
-    "orderEdit": MessageLookupByLibrary.simpleMessage("Редагування"),
+    "orderEdit": MessageLookupByLibrary.simpleMessage("Редагувати"),
     "orderEditSuccess": MessageLookupByLibrary.simpleMessage(
       "Замовлення змінено успішно",
     ),
@@ -245,7 +245,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "registerButton": MessageLookupByLibrary.simpleMessage("Зареєструвати"),
     "registrationTitle": MessageLookupByLibrary.simpleMessage("Реєстрація"),
     "search": MessageLookupByLibrary.simpleMessage("Пошук"),
-    "searchTitle": MessageLookupByLibrary.simpleMessage("Пошук транспорта"),
+    "searchTitle": MessageLookupByLibrary.simpleMessage("Пошук транспорту"),
     "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
     "suggestionListEmpty": MessageLookupByLibrary.simpleMessage(
       "Не знайдено пропозицій",
@@ -261,8 +261,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "uploadPhotoFromGalery": MessageLookupByLibrary.simpleMessage(
       "Завантажити з галереї",
     ),
-    "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
-      "Поле не може бути порожнім",
+    "validationCityRequired": MessageLookupByLibrary.simpleMessage(
+      "Місто обов\'язкове для заповнення",
+    ),
+    "validationCityTooShort": MessageLookupByLibrary.simpleMessage(
+      "Назва міста занадто коротка",
     ),
     "validationInvalidConfirmPasswordDidntMatch":
         MessageLookupByLibrary.simpleMessage("Паролі не збігалися"),
@@ -272,15 +275,19 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidName": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсне ім\'я",
     ),
+    "validationInvalidNumber": MessageLookupByLibrary.simpleMessage(
+      "Будь ласка, введіть коректне число",
+    ),
     "validationInvalidPasswordDigit": MessageLookupByLibrary.simpleMessage(
       "Пароль повинен містити щонайменше одну цифру",
     ),
-    "validationInvalidPasswordLenth": MessageLookupByLibrary.simpleMessage(
+    "validationInvalidPasswordLength": MessageLookupByLibrary.simpleMessage(
       "Пароль має містити щонайменше 8 символів",
     ),
-    "validationInvalidPasswordSpecChar": MessageLookupByLibrary.simpleMessage(
-      "Пароль повинен містити принаймні один спеціальний символ",
-    ),
+    "validationInvalidPasswordSpecialChar":
+        MessageLookupByLibrary.simpleMessage(
+          "Пароль повинен містити принаймні один спеціальний символ",
+        ),
     "validationInvalidPasswordUppercase": MessageLookupByLibrary.simpleMessage(
       "Пароль повинен містити хоча б одну велику літеру",
     ),
@@ -289,6 +296,24 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсне прізвище",
+    ),
+    "validationPriceLimit": MessageLookupByLibrary.simpleMessage(
+      "Ціна занадто велика (макс. 1 000 000)",
+    ),
+    "validationPriceZero": MessageLookupByLibrary.simpleMessage(
+      "Ціна має бути більшою за 0",
+    ),
+    "validationRequired": MessageLookupByLibrary.simpleMessage(
+      "Це поле обов\'язкове для заповнення",
+    ),
+    "validationSelectFromSuggestion": MessageLookupByLibrary.simpleMessage(
+      "Будь ласка, оберіть місто зі списку",
+    ),
+    "validationSelectWeight": MessageLookupByLibrary.simpleMessage(
+      "Будь ласка, оберіть вагу вантажу",
+    ),
+    "validationTooShort": MessageLookupByLibrary.simpleMessage(
+      "Введене значення занадто коротке",
     ),
     "version": m0,
   };

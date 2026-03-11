@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/animation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:transit_tracer/core/constants/app_regex.dart';
 
 part 'password_strength_meter_state.dart';
 
@@ -10,11 +11,11 @@ class PasswordStrengthMeterCubit extends Cubit<PasswordStrengthMeterState> {
   void passwordFieldEmpty() => emit(PasswordFieldEmpty());
 
   void checkPassword(String password) {
-    final int uppercaseCount = RegExp(r'[A-Z]').allMatches(password).length;
-    final int numberCount = RegExp(r'\d').allMatches(password).length;
-    final int specialCount = RegExp(
-      r'[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"\<>,\.\?\/\\]',
-    ).allMatches(password).length;
+    final int uppercaseCount = AppRegex.upperCase.allMatches(password).length;
+    final int numberCount = AppRegex.nums.allMatches(password).length;
+    final int specialCount = AppRegex.passwordSpecialChar
+        .allMatches(password)
+        .length;
 
     if (password.length <= 8 ||
         uppercaseCount <= 1 ||

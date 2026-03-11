@@ -1,30 +1,30 @@
-import 'package:transit_tracer/core/constants/firebase_errors_codes.dart';
+import 'package:transit_tracer/core/constants/firebase_constants.dart';
 import 'package:transit_tracer/core/error_handlers/firebase_error_handler/firebase_error_type/firebase_error_type.dart';
 
 class FirebaseAuthErrors {
   static FirebaseErrorType map(String code) {
     switch (code) {
-      case FirebaseErrors.emailInUse:
+      case FirebaseErrorsCodes.emailInUse:
         return FirebaseErrorType.emailAlreadyInUse;
-      case FirebaseErrors.invalidEmail:
+      case FirebaseErrorsCodes.invalidEmail:
         return FirebaseErrorType.invalidEmail;
-      case FirebaseErrors.weekPassword:
+      case FirebaseErrorsCodes.weekPassword:
         return FirebaseErrorType.weakPassword;
-      case FirebaseErrors.userNotFound:
+      case FirebaseErrorsCodes.userNotFound:
         return FirebaseErrorType.userNotFound;
-      case FirebaseErrors.wrongPassword:
+      case FirebaseErrorsCodes.wrongPassword:
         return FirebaseErrorType.wrongPassword;
-      case FirebaseErrors.invalidCredential:
+      case FirebaseErrorsCodes.invalidCredential:
         return FirebaseErrorType.invalidCredential;
-      case FirebaseErrors.tooManyRequests:
+      case FirebaseErrorsCodes.tooManyRequests:
         return FirebaseErrorType.toManyRequests;
-      case FirebaseErrors.primissionDenied:
+      case FirebaseErrorsCodes.primissionDenied:
         return FirebaseErrorType.primissionDenied;
-      case FirebaseErrors.notFound:
+      case FirebaseErrorsCodes.notFound:
         return FirebaseErrorType.notFound;
-      case FirebaseErrors.unavailable:
+      case FirebaseErrorsCodes.unavailable:
         return FirebaseErrorType.unavailable;
-      case FirebaseErrors.networkError:
+      case FirebaseErrorsCodes.networkError:
         return FirebaseErrorType.networkError;
       default:
         return FirebaseErrorType.unknown;

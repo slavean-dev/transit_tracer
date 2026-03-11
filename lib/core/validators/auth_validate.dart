@@ -1,96 +1,105 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/widgets.dart';
+import 'package:transit_tracer/core/constants/app_regex.dart';
+import 'package:transit_tracer/generated/l10n.dart';
 
-bool isNotEmpty(String? value) {
-  return value != null && value.trim().isNotEmpty;
+enum AuthValidationError {
+  empty,
+  invalidEmail,
+  invalidName,
+  invalidPhone,
+  tooShort,
+  noUppercase,
+  noDigit,
+  noSpecialChar,
+  mismatch,
 }
 
-String? validateRequired(String? value, {required String emptyField}) {
-  if (!isNotEmpty(value)) {
-    return emptyField;
+class AuthValidator {
+  static AuthValidationError? validateRequired(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return AuthValidationError.empty;
+    }
+    return null;
   }
-  return null;
+
+  static AuthValidationError? validateEmail(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return AuthValidationError.empty;
+    }
+    if (!EmailValidator.validate(value)) {
+      return AuthValidationError.invalidEmail;
+    }
+    return null;
+  }
+
+  static AuthValidationError? validateName(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return AuthValidationError.empty;
+    }
+    final reg = AppRegex.name;
+    if (!reg.hasMatch(value.trim())) {
+      return AuthValidationError.invalidName;
+    }
+    return null;
+  }
+
+  static AuthValidationError? validatePhone(String? value) {
+    final digits = value?.replaceAll(AppRegex.nonDigits, '') ?? '';
+    if (digits.isEmpty) return AuthValidationError.empty;
+    if (digits.length != 9) return AuthValidationError.invalidPhone;
+    return null;
+  }
+
+  static AuthValidationError? validatePassword(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return AuthValidationError.empty;
+    }
+    final password = value.trim();
+    if (password.length < 8) {
+      return AuthValidationError.tooShort;
+    }
+    if (!AppRegex.upperCase.hasMatch(password)) {
+      return AuthValidationError.noUppercase;
+    }
+    if (!AppRegex.passwordDigit.hasMatch(password)) {
+      return AuthValidationError.noDigit;
+    }
+    if (!AppRegex.passwordSpecialChar.hasMatch(password)) {
+      return AuthValidationError.noSpecialChar;
+    }
+    return null;
+  }
+
+  static AuthValidationError? validateCoinfirmPassword(
+    String? value,
+    String originalPassword,
+  ) {
+    if (value == null || value.trim().isEmpty) {
+      return AuthValidationError.empty;
+    }
+    if (value.trim() != originalPassword.trim()) {
+      return AuthValidationError.mismatch;
+    }
+    return null;
+  }
 }
 
-String? validateEmail(
-  String? value, {
-  required String emptyField,
-  required String invalidEmail,
-}) {
-  if (!isNotEmpty(value)) {
-    return emptyField;
+extension AuthValidationErrorX on AuthValidationError {
+  String toText(BuildContext context) {
+    final s = S.of(context);
+    return switch (this) {
+      AuthValidationError.empty => s.validationRequired,
+      AuthValidationError.invalidEmail => s.validationInvalidEmail,
+      AuthValidationError.invalidName => s.validationInvalidName,
+      AuthValidationError.invalidPhone => s.validationInvalidPhone,
+      AuthValidationError.tooShort => s.validationInvalidPasswordLength,
+      AuthValidationError.noUppercase => s.validationInvalidPasswordUppercase,
+      AuthValidationError.noDigit => s.validationInvalidPasswordDigit,
+      AuthValidationError.noSpecialChar =>
+        s.validationInvalidPasswordSpecialChar,
+      AuthValidationError.mismatch =>
+        s.validationInvalidConfirmPasswordDidntMatch,
+    };
   }
-  if (!EmailValidator.validate(value!)) {
-    return invalidEmail;
-  }
-  return null;
-}
-
-String? validateName(
-  String? value, {
-  required String emptyField,
-  required String invalidValue,
-}) {
-  if (!isNotEmpty(value)) {
-    return emptyField;
-  }
-  final reg = RegExp(r"[A-Za-zА-Яа-яІіЇїЄє]{2,}$");
-  if (!reg.hasMatch(value!.trim())) {
-    return invalidValue;
-  }
-  return null;
-}
-
-String? validatePhone(
-  String? value, {
-  required String emptyField,
-  required String invalidPhone,
-}) {
-  final digits = value?.replaceAll(RegExp(r'\D'), '') ?? '';
-  if (digits.isEmpty) return emptyField;
-  if (digits.length != 9) return invalidPhone;
-  return null;
-}
-
-String? validatePassword(
-  String? value, {
-  required String emptyField,
-  required String inavildLenth,
-  required String invalidUppercase,
-  required String invalidDigit,
-  required String invalidCpecChar,
-}) {
-  if (!isNotEmpty(value)) {
-    return emptyField;
-  }
-  final password = value!.trim();
-  if (password.length < 8) {
-    return inavildLenth;
-  }
-  if (!RegExp(r'[A-Z]').hasMatch(password)) {
-    return invalidUppercase;
-  }
-  if (!RegExp(r'[0-9]').hasMatch(password)) {
-    return invalidDigit;
-  }
-  if (!RegExp(
-    r'[!@#\$%\^&\*\(\)_\+\-=\{\}\[\]:;"\<>,\.\?\/\\]',
-  ).hasMatch(password)) {
-    return invalidCpecChar;
-  }
-  return null;
-}
-
-String? validateCoinfirmPassword(
-  String? value,
-  String originalPassword, {
-  required String emptyField,
-  required String passwordsDidntMatch,
-}) {
-  if (!isNotEmpty(value)) {
-    return emptyField;
-  }
-  if (value!.trim() != originalPassword.trim()) {
-    return passwordsDidntMatch;
-  }
-  return null;
 }

@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:transit_tracer/core/constants/app_constants.dart';
 import 'package:transit_tracer/features/settings/settings_repository/abstract_settings_repository.dart';
 
 class SettingsRepository implements AbstractSettingsRepository {
@@ -11,19 +12,17 @@ class SettingsRepository implements AbstractSettingsRepository {
   });
   final SharedPreferences sharedPreferences;
   final PlatformDispatcher dispatcher;
-  static const _themeKey = 'theme_mode';
-  static const _langKey = 'lang_code';
 
   @override
   Future<ThemeMode> loadThemeMode() async {
-    final values = sharedPreferences.getString(_themeKey);
+    final values = sharedPreferences.getString(StorageConstants.themeKey);
 
     switch (values) {
-      case 'light':
+      case AppConfig.themeLight:
         return ThemeMode.light;
-      case 'dark':
+      case AppConfig.themeDark:
         return ThemeMode.dark;
-      case 'system':
+      case AppConfig.themeSystem:
       default:
         return ThemeMode.system;
     }
@@ -32,33 +31,29 @@ class SettingsRepository implements AbstractSettingsRepository {
   @override
   Future<void> saveThemeMode(ThemeMode mode) async {
     final value = switch (mode) {
-      ThemeMode.light => 'light',
-      ThemeMode.dark => 'dark',
-      ThemeMode.system => 'system',
+      ThemeMode.light => AppConfig.themeLight,
+      ThemeMode.dark => AppConfig.themeDark,
+      ThemeMode.system => AppConfig.themeSystem,
     };
 
-    await sharedPreferences.setString(_themeKey, value);
+    await sharedPreferences.setString(StorageConstants.themeKey, value);
   }
 
   @override
   Future<String> loadLangCode() async {
-    String? values = sharedPreferences.getString(_langKey);
+    final savedValue = sharedPreferences.getString(StorageConstants.langKey);
 
-    values ??= dispatcher.locale.languageCode;
+    final valueToCheck = savedValue ?? dispatcher.locale.languageCode;
 
-    switch (values) {
-      case 'it':
-        return 'it';
-      case 'uk':
-        return 'uk';
-      case 'en':
-      default:
-        return 'en';
-    }
+    final isSupported = AppConfig.supportedLanguages.any(
+      (lang) => lang.code == valueToCheck,
+    );
+
+    return isSupported ? valueToCheck : AppConfig.defaultLangCode;
   }
 
   @override
   Future<void> saveLocale(String langCode) async {
-    await sharedPreferences.setString(_langKey, langCode);
+    await sharedPreferences.setString(StorageConstants.langKey, langCode);
   }
 }

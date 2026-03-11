@@ -214,8 +214,10 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _fromCityFocusNode,
                       lable: s.fieldFrom,
                       enabled: isOnline,
-                      validator: (v) =>
-                          AutocompleteValidate.city(v, fromSuggestion),
+                      validator: (v) => AutocompleteValidate.city(
+                        v,
+                        fromSuggestion,
+                      )?.toText(context),
                       onChanged: (_) => fromSuggestion = null,
                       onCitySelected: (value) {
                         fromSuggestion = value;
@@ -237,8 +239,10 @@ class OrderFormState extends State<OrderForm> {
                       },
                       lable: s.fieldTo,
                       enabled: isOnline,
-                      validator: (v) =>
-                          AutocompleteValidate.city(v, toSuggestion),
+                      validator: (v) => AutocompleteValidate.city(
+                        v,
+                        toSuggestion,
+                      )?.toText(context),
                     ),
                     const SizedBox(height: 16),
                     OrderDescriptionFormField(
@@ -251,7 +255,8 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _weightFocus,
                       initialValue: widget.order?.weight,
                       onSaved: (newValue) => weight = newValue!,
-                      validator: (v) => OrderValidators.weight(v),
+                      validator: (v) =>
+                          OrderValidators.weight(v)?.toText(context),
                       theme: theme,
                       onChange: (newValue) => setState(() {
                         weight = newValue;
@@ -262,7 +267,8 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _priceFocusNode,
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      validator: (value) => OrderValidators.price(value),
+                      validator: (value) =>
+                          OrderValidators.price(value)?.toText(context),
                       theme: theme,
                       controller: _priceController,
                       maxLines: 1,
