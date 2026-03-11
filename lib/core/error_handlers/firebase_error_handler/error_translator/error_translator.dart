@@ -15,7 +15,7 @@ class ErrorTranslator {
       case FirebaseErrorType.invalidEmail:
         return s.firebaseErrorInvalidEmail;
       case FirebaseErrorType.weakPassword:
-        return s.firebaseErrorWeekPassword;
+        return s.firebaseErrorWeakPassword;
       case FirebaseErrorType.userNotFound:
         return s.firebaseErrorUserNotFound;
       case FirebaseErrorType.wrongPassword:

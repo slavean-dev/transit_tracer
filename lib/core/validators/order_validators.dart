@@ -40,7 +40,7 @@ extension OrderValidationErrorX on OrderValidationError {
   String toText(BuildContext context) {
     final s = S.of(context);
     return switch (this) {
-      OrderValidationError.empty => s.validationFormEmpty,
+      OrderValidationError.empty => s.validationRequired,
       OrderValidationError.toShort => s.validationTooShort,
       OrderValidationError.invalidNumber => s.validationInvalidNumber,
       OrderValidationError.priceZero => s.validationPriceZero,

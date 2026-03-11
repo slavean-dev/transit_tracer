@@ -48,7 +48,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "btnOrderCardDetails": MessageLookupByLibrary.simpleMessage("Dettagli"),
     "btnOrderDelete": MessageLookupByLibrary.simpleMessage("Elimina"),
     "btnOrderEdit": MessageLookupByLibrary.simpleMessage("Modifica ordine"),
-    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Riarchivare"),
+    "btnOrderUnarchive": MessageLookupByLibrary.simpleMessage("Ripristina"),
     "btnTryAgain": MessageLookupByLibrary.simpleMessage("Riprova"),
     "cargoTitle": MessageLookupByLibrary.simpleMessage("Carico"),
     "clientTab": MessageLookupByLibrary.simpleMessage("Cliente"),
@@ -57,12 +57,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactsTitle": MessageLookupByLibrary.simpleMessage("Contatti"),
     "create": MessageLookupByLibrary.simpleMessage("Creare"),
     "createTitle": MessageLookupByLibrary.simpleMessage("Crea un ordine"),
-    "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Tema scuro:"),
+    "darkThemeSwitch": MessageLookupByLibrary.simpleMessage("Tema scuro:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Data"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Data di nascita"),
     "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Archivia"),
     "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
-      "Sei sicuro di voler archiviare questo ordine? \nQuesta azione non può essere annullata.",
+      "Sei sicuro di voler archiviare questo ordine?",
     ),
     "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage(
       "Archivia ordine",
@@ -81,10 +81,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "dialogDeleteTitle": MessageLookupByLibrary.simpleMessage("Elimina ordine"),
     "dialogExitConfirm": MessageLookupByLibrary.simpleMessage("Esci"),
     "dialogUnarchiveConfirm": MessageLookupByLibrary.simpleMessage(
-      "Riarchivare",
+      "Ripristina",
     ),
     "dialogUnarchiveMessage": MessageLookupByLibrary.simpleMessage(
-      "Sei sicuro di voler decomprimere questo ordine? ",
+      "Sei sicuro di voler ripristinare questo ordine? ",
     ),
     "dialogUnarchiveTitle": MessageLookupByLibrary.simpleMessage(
       "Archiviazione dell\'ordine",
@@ -132,14 +132,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "L\'utente con questa email non esiste",
     ),
-    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeakPassword": MessageLookupByLibrary.simpleMessage(
       "La password è troppo debole",
     ),
     "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Password errata",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),
-    "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
+    "from1500To2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 kg"),
     "geoErrorApiLimit": MessageLookupByLibrary.simpleMessage(
       "Il servizio è temporaneamente non disponibile. Riprova tra un minuto.",
@@ -164,13 +164,13 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "hintEnterCity": MessageLookupByLibrary.simpleMessage("Inserisci città"),
     "languageDropMenu": MessageLookupByLibrary.simpleMessage("Lingua:"),
-    "logButton": MessageLookupByLibrary.simpleMessage("Uscita"),
+    "logButton": MessageLookupByLibrary.simpleMessage("Accedi"),
     "loginForm": MessageLookupByLibrary.simpleMessage("Inserisci il tuo login"),
     "loginTitle": MessageLookupByLibrary.simpleMessage("Login"),
-    "logout": MessageLookupByLibrary.simpleMessage("Entrata"),
+    "logout": MessageLookupByLibrary.simpleMessage("Esci"),
     "nameForm": MessageLookupByLibrary.simpleMessage("Inserisci il tuo nome"),
     "navCreate": MessageLookupByLibrary.simpleMessage("Creare"),
-    "navOrders": MessageLookupByLibrary.simpleMessage("Ordine"),
+    "navOrders": MessageLookupByLibrary.simpleMessage("Ordini"),
     "navProfile": MessageLookupByLibrary.simpleMessage("Profilo"),
     "navSearch": MessageLookupByLibrary.simpleMessage("Ricerca"),
     "offlineModeMessage": MessageLookupByLibrary.simpleMessage(
@@ -252,7 +252,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Inserisci la tua telefono",
     ),
     "profileTitle": MessageLookupByLibrary.simpleMessage("Profilo"),
-    "registerButton": MessageLookupByLibrary.simpleMessage("Registro"),
+    "registerButton": MessageLookupByLibrary.simpleMessage("Registrati"),
     "registrationTitle": MessageLookupByLibrary.simpleMessage("Registrazione"),
     "search": MessageLookupByLibrary.simpleMessage("Ricerca"),
     "searchTitle": MessageLookupByLibrary.simpleMessage("Cerca trasporti"),
@@ -277,9 +277,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationCityTooShort": MessageLookupByLibrary.simpleMessage(
       "Il nome della città è troppo corto",
     ),
-    "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
-      "Il campo non può essere vuoto",
-    ),
     "validationInvalidConfirmPasswordDidntMatch":
         MessageLookupByLibrary.simpleMessage("Le password non corrispondono"),
     "validationInvalidEmail": MessageLookupByLibrary.simpleMessage(
@@ -294,17 +291,18 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidPasswordDigit": MessageLookupByLibrary.simpleMessage(
       "La password deve contenere almeno una cifra",
     ),
-    "validationInvalidPasswordLenth": MessageLookupByLibrary.simpleMessage(
+    "validationInvalidPasswordLength": MessageLookupByLibrary.simpleMessage(
       "La password deve essere lunga almeno 8 caratteri",
     ),
-    "validationInvalidPasswordSpecChar": MessageLookupByLibrary.simpleMessage(
-      "La password deve contenere almeno un carattere speciale",
-    ),
+    "validationInvalidPasswordSpecialChar":
+        MessageLookupByLibrary.simpleMessage(
+          "La password deve contenere almeno un carattere speciale",
+        ),
     "validationInvalidPasswordUppercase": MessageLookupByLibrary.simpleMessage(
       "La password deve contenere almeno una lettera maiuscola",
     ),
     "validationInvalidPhone": MessageLookupByLibrary.simpleMessage(
-      "Inserisci un numero di telefono valido",
+      "Inserisci il tuo telefono",
     ),
     "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
       "Inserisci un cognome valido",

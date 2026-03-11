@@ -84,10 +84,10 @@ class S {
     );
   }
 
-  /// `Don't have Account? Tap here to create!`
+  /// `Don't have an Account? Tap here to create!`
   String get dontHaveAccButton {
     return Intl.message(
-      'Don`t have Account? Tap here to create!',
+      'Don`t have an Account? Tap here to create!',
       name: 'dontHaveAccButton',
       desc: '',
       args: [],
@@ -194,16 +194,6 @@ class S {
     return Intl.message('Register', name: 'registerButton', desc: '', args: []);
   }
 
-  /// `Field can't be empty`
-  String get validationFormEmpty {
-    return Intl.message(
-      'Field can`t be empty',
-      name: 'validationFormEmpty',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Enter a valid name`
   String get validationInvalidName {
     return Intl.message(
@@ -245,10 +235,10 @@ class S {
   }
 
   /// `Password must be at least 8 characters long`
-  String get validationInvalidPasswordLenth {
+  String get validationInvalidPasswordLength {
     return Intl.message(
       'Password must be at least 8 characters long',
-      name: 'validationInvalidPasswordLenth',
+      name: 'validationInvalidPasswordLength',
       desc: '',
       args: [],
     );
@@ -275,10 +265,10 @@ class S {
   }
 
   /// `Password must contain at least one special character`
-  String get validationInvalidPasswordSpecChar {
+  String get validationInvalidPasswordSpecialChar {
     return Intl.message(
       'Password must contain at least one special character',
-      name: 'validationInvalidPasswordSpecChar',
+      name: 'validationInvalidPasswordSpecialChar',
       desc: '',
       args: [],
     );
@@ -415,10 +405,10 @@ class S {
   }
 
   /// `Password is too weak`
-  String get firebaseErrorWeekPassword {
+  String get firebaseErrorWeakPassword {
     return Intl.message(
       'Password is too weak',
-      name: 'firebaseErrorWeekPassword',
+      name: 'firebaseErrorWeakPassword',
       desc: '',
       args: [],
     );
@@ -695,10 +685,10 @@ class S {
   }
 
   /// `1500 - 2000 kg`
-  String get from1500to2000 {
+  String get from1500To2000 {
     return Intl.message(
       '1500 - 2000 kg',
-      name: 'from1500to2000',
+      name: 'from1500To2000',
       desc: '',
       args: [],
     );
@@ -1004,10 +994,10 @@ class S {
     );
   }
 
-  /// `Are you sure you want to archive this order? \nThis action cannot be undone.`
+  /// `Are you sure you want to archive this order?`
   String get dialogArchiveMessage {
     return Intl.message(
-      'Are you sure you want to archive this order? \nThis action cannot be undone.',
+      'Are you sure you want to archive this order?',
       name: 'dialogArchiveMessage',
       desc: '',
       args: [],
@@ -1210,10 +1200,10 @@ class S {
   }
 
   /// `Dark theme:`
-  String get darkThemeSwith {
+  String get darkThemeSwitch {
     return Intl.message(
       'Dark theme:',
-      name: 'darkThemeSwith',
+      name: 'darkThemeSwitch',
       desc: '',
       args: [],
     );

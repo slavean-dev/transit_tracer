@@ -89,14 +89,15 @@ extension AuthValidationErrorX on AuthValidationError {
   String toText(BuildContext context) {
     final s = S.of(context);
     return switch (this) {
-      AuthValidationError.empty => s.validationFormEmpty,
+      AuthValidationError.empty => s.validationRequired,
       AuthValidationError.invalidEmail => s.validationInvalidEmail,
       AuthValidationError.invalidName => s.validationInvalidName,
       AuthValidationError.invalidPhone => s.validationInvalidPhone,
-      AuthValidationError.tooShort => s.validationInvalidPasswordLenth,
+      AuthValidationError.tooShort => s.validationInvalidPasswordLength,
       AuthValidationError.noUppercase => s.validationInvalidPasswordUppercase,
       AuthValidationError.noDigit => s.validationInvalidPasswordDigit,
-      AuthValidationError.noSpecialChar => s.validationInvalidPasswordSpecChar,
+      AuthValidationError.noSpecialChar =>
+        s.validationInvalidPasswordSpecialChar,
       AuthValidationError.mismatch =>
         s.validationInvalidConfirmPasswordDidntMatch,
     };

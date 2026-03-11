@@ -55,12 +55,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "contactsTitle": MessageLookupByLibrary.simpleMessage("Contacts"),
     "create": MessageLookupByLibrary.simpleMessage("Create"),
     "createTitle": MessageLookupByLibrary.simpleMessage("Create order"),
-    "darkThemeSwith": MessageLookupByLibrary.simpleMessage("Dark theme:"),
+    "darkThemeSwitch": MessageLookupByLibrary.simpleMessage("Dark theme:"),
     "dateLabel": MessageLookupByLibrary.simpleMessage("Date"),
     "dateOfBirth": MessageLookupByLibrary.simpleMessage("Date of birth"),
     "dialogArchiveConfirm": MessageLookupByLibrary.simpleMessage("Archive"),
     "dialogArchiveMessage": MessageLookupByLibrary.simpleMessage(
-      "Are you sure you want to archive this order? \nThis action cannot be undone.",
+      "Are you sure you want to archive this order?",
     ),
     "dialogArchiveTitle": MessageLookupByLibrary.simpleMessage("Archive order"),
     "dialogCancel": MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -84,7 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "Unarchiving an order",
     ),
     "dontHaveAccButton": MessageLookupByLibrary.simpleMessage(
-      "Don`t have Account? Tap here to create!",
+      "Don`t have an Account? Tap here to create!",
     ),
     "driverTab": MessageLookupByLibrary.simpleMessage("Driver"),
     "dropMenuItemEng": MessageLookupByLibrary.simpleMessage("English"),
@@ -122,14 +122,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "firebaseErrorUserNotFound": MessageLookupByLibrary.simpleMessage(
       "User with this email does not exist",
     ),
-    "firebaseErrorWeekPassword": MessageLookupByLibrary.simpleMessage(
+    "firebaseErrorWeakPassword": MessageLookupByLibrary.simpleMessage(
       "Password is too weak",
     ),
     "firebaseErrorWrongPassword": MessageLookupByLibrary.simpleMessage(
       "Incorrect password",
     ),
     "from1000To1500": MessageLookupByLibrary.simpleMessage("1000 - 1500 kg"),
-    "from1500to2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
+    "from1500To2000": MessageLookupByLibrary.simpleMessage("1500 - 2000 kg"),
     "from500To1000": MessageLookupByLibrary.simpleMessage("500 - 1000 kg"),
     "geoErrorApiLimit": MessageLookupByLibrary.simpleMessage(
       "The service is temporarily unavailable. Please try again in a minute.",
@@ -253,9 +253,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationCityTooShort": MessageLookupByLibrary.simpleMessage(
       "City name is too short",
     ),
-    "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
-      "Field can`t be empty",
-    ),
     "validationInvalidConfirmPasswordDidntMatch":
         MessageLookupByLibrary.simpleMessage("Passwords didn`t match"),
     "validationInvalidEmail": MessageLookupByLibrary.simpleMessage(
@@ -270,12 +267,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidPasswordDigit": MessageLookupByLibrary.simpleMessage(
       "Password must contain at least one digit",
     ),
-    "validationInvalidPasswordLenth": MessageLookupByLibrary.simpleMessage(
+    "validationInvalidPasswordLength": MessageLookupByLibrary.simpleMessage(
       "Password must be at least 8 characters long",
     ),
-    "validationInvalidPasswordSpecChar": MessageLookupByLibrary.simpleMessage(
-      "Password must contain at least one special character",
-    ),
+    "validationInvalidPasswordSpecialChar":
+        MessageLookupByLibrary.simpleMessage(
+          "Password must contain at least one special character",
+        ),
     "validationInvalidPasswordUppercase": MessageLookupByLibrary.simpleMessage(
       "Password must contain at least one uppercase letter",
     ),
