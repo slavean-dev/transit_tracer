@@ -214,8 +214,10 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _fromCityFocusNode,
                       lable: s.fieldFrom,
                       enabled: isOnline,
-                      validator: (v) =>
-                          AutocompleteValidate.city(v, fromSuggestion),
+                      validator: (v) => AutocompleteValidate.city(
+                        v,
+                        fromSuggestion,
+                      )?.toText(context),
                       onChanged: (_) => fromSuggestion = null,
                       onCitySelected: (value) {
                         fromSuggestion = value;
@@ -237,8 +239,10 @@ class OrderFormState extends State<OrderForm> {
                       },
                       lable: s.fieldTo,
                       enabled: isOnline,
-                      validator: (v) =>
-                          AutocompleteValidate.city(v, toSuggestion),
+                      validator: (v) => AutocompleteValidate.city(
+                        v,
+                        toSuggestion,
+                      )?.toText(context),
                     ),
                     const SizedBox(height: 16),
                     OrderDescriptionFormField(

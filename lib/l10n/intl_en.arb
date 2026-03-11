@@ -30,6 +30,11 @@
     "validationInvalidPasswordSpecChar": "Password must contain at least one special character",
     "validationInvalidConfirmPasswordDidntMatch": "Passwords didn`t match",
 
+    "validationCityRequired" : "City is required",
+    "validationCityTooShort" : "City name is too short",
+    "validationSelectFromSuggestion" : "Please select a city from the list",
+
+
     "firebaseErrorInvalidCredential" : "Invalid credentials",
     "firebaseErrorEmailInUse": "This email is already registered",
     "firebaseErrorInvalidEmail": "Invalid email format",

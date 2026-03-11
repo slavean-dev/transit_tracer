@@ -30,6 +30,10 @@
     "validationInvalidPasswordSpecChar": "La password deve contenere almeno un carattere speciale",
     "validationInvalidConfirmPasswordDidntMatch": "Le password non corrispondono",
 
+    "validationCityRequired" : "La città è obbligatoria",
+    "validationCityTooShort" : "Il nome della città è troppo corto",
+    "validationSelectFromSuggestion" : "Per favore, seleziona una città dalla lista",
+
     "firebaseErrorInvalidCredential" : "Credenziali non valide",
     "firebaseErrorEmailInUse": "Questa email è già registrata",
     "suggestionListEmpty" : "Nessuna suggerimento trovato",

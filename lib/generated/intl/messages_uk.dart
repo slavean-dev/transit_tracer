@@ -261,6 +261,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "uploadPhotoFromGalery": MessageLookupByLibrary.simpleMessage(
       "Завантажити з галереї",
     ),
+    "validationCityRequired": MessageLookupByLibrary.simpleMessage(
+      "Місто обов\'язкове для заповнення",
+    ),
+    "validationCityTooShort": MessageLookupByLibrary.simpleMessage(
+      "Назва міста занадто коротка",
+    ),
     "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
       "Поле не може бути порожнім",
     ),
@@ -289,6 +295,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсне прізвище",
+    ),
+    "validationSelectFromSuggestion": MessageLookupByLibrary.simpleMessage(
+      "Будь ласка, оберіть місто зі списку",
     ),
     "version": m0,
   };

@@ -30,6 +30,11 @@
     "validationInvalidPasswordSpecChar": "Пароль повинен містити принаймні один спеціальний символ",
     "validationInvalidConfirmPasswordDidntMatch": "Паролі не збігалися",
 
+    "validationCityRequired" : "Місто обов'язкове для заповнення",
+    "validationCityTooShort" : "Назва міста занадто коротка",
+    "validationSelectFromSuggestion" : "Будь ласка, оберіть місто зі списку",
+
+
     "firebaseErrorInvalidCredential" : "Недійсні дані",
     "firebaseErrorEmailInUse": "Ця електронна адреса вже зареєстрована",
     "firebaseErrorInvalidEmail": "Недійсний формат електронної пошти",

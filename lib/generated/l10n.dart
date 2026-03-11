@@ -294,6 +294,36 @@ class S {
     );
   }
 
+  /// `City is required`
+  String get validationCityRequired {
+    return Intl.message(
+      'City is required',
+      name: 'validationCityRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City name is too short`
+  String get validationCityTooShort {
+    return Intl.message(
+      'City name is too short',
+      name: 'validationCityTooShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select a city from the list`
+  String get validationSelectFromSuggestion {
+    return Intl.message(
+      'Please select a city from the list',
+      name: 'validationSelectFromSuggestion',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Invalid credentials`
   String get firebaseErrorInvalidCredential {
     return Intl.message(

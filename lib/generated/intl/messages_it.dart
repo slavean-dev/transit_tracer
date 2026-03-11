@@ -271,6 +271,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "uploadPhotoFromGalery": MessageLookupByLibrary.simpleMessage(
       "Carica dalla galleria",
     ),
+    "validationCityRequired": MessageLookupByLibrary.simpleMessage(
+      "La città è obbligatoria",
+    ),
+    "validationCityTooShort": MessageLookupByLibrary.simpleMessage(
+      "Il nome della città è troppo corto",
+    ),
     "validationFormEmpty": MessageLookupByLibrary.simpleMessage(
       "Il campo non può essere vuoto",
     ),
@@ -299,6 +305,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
       "Inserisci un cognome valido",
+    ),
+    "validationSelectFromSuggestion": MessageLookupByLibrary.simpleMessage(
+      "Per favore, seleziona una città dalla lista",
     ),
     "version": m0,
   };
