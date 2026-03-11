@@ -255,7 +255,8 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _weightFocus,
                       initialValue: widget.order?.weight,
                       onSaved: (newValue) => weight = newValue!,
-                      validator: (v) => OrderValidators.weight(v),
+                      validator: (v) =>
+                          OrderValidators.weight(v)?.toText(context),
                       theme: theme,
                       onChange: (newValue) => setState(() {
                         weight = newValue;
@@ -266,7 +267,8 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _priceFocusNode,
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                      validator: (value) => OrderValidators.price(value),
+                      validator: (value) =>
+                          OrderValidators.price(value)?.toText(context),
                       theme: theme,
                       controller: _priceController,
                       maxLines: 1,

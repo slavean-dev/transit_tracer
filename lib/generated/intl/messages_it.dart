@@ -288,6 +288,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidName": MessageLookupByLibrary.simpleMessage(
       "Inserisci un nome valido",
     ),
+    "validationInvalidNumber": MessageLookupByLibrary.simpleMessage(
+      "Per favore, inserisci un numero valido",
+    ),
     "validationInvalidPasswordDigit": MessageLookupByLibrary.simpleMessage(
       "La password deve contenere almeno una cifra",
     ),
@@ -306,8 +309,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
       "Inserisci un cognome valido",
     ),
+    "validationPriceLimit": MessageLookupByLibrary.simpleMessage(
+      "Il prezzo è troppo alto (max 1.000.000)",
+    ),
+    "validationPriceZero": MessageLookupByLibrary.simpleMessage(
+      "Il prezzo deve essere maggiore di 0",
+    ),
+    "validationRequired": MessageLookupByLibrary.simpleMessage(
+      "Questo campo è obbligatorio",
+    ),
     "validationSelectFromSuggestion": MessageLookupByLibrary.simpleMessage(
       "Per favore, seleziona una città dalla lista",
+    ),
+    "validationSelectWeight": MessageLookupByLibrary.simpleMessage(
+      "Per favore, seleziona il peso del carico",
+    ),
+    "validationTooShort": MessageLookupByLibrary.simpleMessage(
+      "Il valore inserito è troppo corto",
     ),
     "version": m0,
   };

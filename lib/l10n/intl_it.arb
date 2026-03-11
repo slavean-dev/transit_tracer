@@ -34,6 +34,13 @@
     "validationCityTooShort" : "Il nome della città è troppo corto",
     "validationSelectFromSuggestion" : "Per favore, seleziona una città dalla lista",
 
+    "validationRequired": "Questo campo è obbligatorio",
+    "validationTooShort": "Il valore inserito è troppo corto",
+    "validationInvalidNumber": "Per favore, inserisci un numero valido",
+    "validationPriceZero": "Il prezzo deve essere maggiore di 0",
+    "validationPriceLimit": "Il prezzo è troppo alto (max 1.000.000)",
+    "validationSelectWeight": "Per favore, seleziona il peso del carico",
+
     "firebaseErrorInvalidCredential" : "Credenziali non valide",
     "firebaseErrorEmailInUse": "Questa email è già registrata",
     "suggestionListEmpty" : "Nessuna suggerimento trovato",

@@ -34,6 +34,12 @@
     "validationCityTooShort" : "Назва міста занадто коротка",
     "validationSelectFromSuggestion" : "Будь ласка, оберіть місто зі списку",
 
+    "validationRequired": "Це поле обов'язкове для заповнення",
+    "validationTooShort": "Введене значення занадто коротке",
+    "validationInvalidNumber": "Будь ласка, введіть коректне число",
+    "validationPriceZero": "Ціна має бути більшою за 0",
+    "validationPriceLimit": "Ціна занадто велика (макс. 1 000 000)",
+    "validationSelectWeight": "Будь ласка, оберіть вагу вантажу",
 
     "firebaseErrorInvalidCredential" : "Недійсні дані",
     "firebaseErrorEmailInUse": "Ця електронна адреса вже зареєстрована",

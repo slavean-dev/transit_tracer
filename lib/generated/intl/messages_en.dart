@@ -264,6 +264,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidName": MessageLookupByLibrary.simpleMessage(
       "Enter a valid name",
     ),
+    "validationInvalidNumber": MessageLookupByLibrary.simpleMessage(
+      "Please enter a valid number",
+    ),
     "validationInvalidPasswordDigit": MessageLookupByLibrary.simpleMessage(
       "Password must contain at least one digit",
     ),
@@ -282,8 +285,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
       "Enter a valid surname",
     ),
+    "validationPriceLimit": MessageLookupByLibrary.simpleMessage(
+      "Price is too large (max 1,000,000)",
+    ),
+    "validationPriceZero": MessageLookupByLibrary.simpleMessage(
+      "Price must be greater than 0",
+    ),
+    "validationRequired": MessageLookupByLibrary.simpleMessage(
+      "This field is required",
+    ),
     "validationSelectFromSuggestion": MessageLookupByLibrary.simpleMessage(
       "Please select a city from the list",
+    ),
+    "validationSelectWeight": MessageLookupByLibrary.simpleMessage(
+      "Please select cargo weight",
+    ),
+    "validationTooShort": MessageLookupByLibrary.simpleMessage(
+      "Input is too short",
     ),
     "version": m0,
   };

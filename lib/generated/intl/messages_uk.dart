@@ -278,6 +278,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidName": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсне ім\'я",
     ),
+    "validationInvalidNumber": MessageLookupByLibrary.simpleMessage(
+      "Будь ласка, введіть коректне число",
+    ),
     "validationInvalidPasswordDigit": MessageLookupByLibrary.simpleMessage(
       "Пароль повинен містити щонайменше одну цифру",
     ),
@@ -296,8 +299,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "validationInvalidSurname": MessageLookupByLibrary.simpleMessage(
       "Введіть дійсне прізвище",
     ),
+    "validationPriceLimit": MessageLookupByLibrary.simpleMessage(
+      "Ціна занадто велика (макс. 1 000 000)",
+    ),
+    "validationPriceZero": MessageLookupByLibrary.simpleMessage(
+      "Ціна має бути більшою за 0",
+    ),
+    "validationRequired": MessageLookupByLibrary.simpleMessage(
+      "Це поле обов\'язкове для заповнення",
+    ),
     "validationSelectFromSuggestion": MessageLookupByLibrary.simpleMessage(
       "Будь ласка, оберіть місто зі списку",
+    ),
+    "validationSelectWeight": MessageLookupByLibrary.simpleMessage(
+      "Будь ласка, оберіть вагу вантажу",
+    ),
+    "validationTooShort": MessageLookupByLibrary.simpleMessage(
+      "Введене значення занадто коротке",
     ),
     "version": m0,
   };

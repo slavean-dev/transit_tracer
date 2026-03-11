@@ -324,6 +324,66 @@ class S {
     );
   }
 
+  /// `This field is required`
+  String get validationRequired {
+    return Intl.message(
+      'This field is required',
+      name: 'validationRequired',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Input is too short`
+  String get validationTooShort {
+    return Intl.message(
+      'Input is too short',
+      name: 'validationTooShort',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter a valid number`
+  String get validationInvalidNumber {
+    return Intl.message(
+      'Please enter a valid number',
+      name: 'validationInvalidNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price must be greater than 0`
+  String get validationPriceZero {
+    return Intl.message(
+      'Price must be greater than 0',
+      name: 'validationPriceZero',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Price is too large (max 1,000,000)`
+  String get validationPriceLimit {
+    return Intl.message(
+      'Price is too large (max 1,000,000)',
+      name: 'validationPriceLimit',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select cargo weight`
+  String get validationSelectWeight {
+    return Intl.message(
+      'Please select cargo weight',
+      name: 'validationSelectWeight',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Invalid credentials`
   String get firebaseErrorInvalidCredential {
     return Intl.message(
