@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
-import 'package:transit_tracer/core/data/repositories/geo_repository/geo_repository.dart';
+import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
 import 'package:transit_tracer/core/services/network_service/network_service.dart';
 
 import 'package:transit_tracer/core/utils/mappers/polyline_decode.dart';
@@ -57,7 +57,7 @@ class _OrderRouteMapPreviewState extends State<OrderRouteMapPreview> {
     });
 
     final connectivity = GetIt.I<NetworkService>();
-    final svc = GetIt.I<GeoRepository>();
+    final svc = GetIt.I<AbstractGeoRepository>();
     final apiKey = GetIt.I<EnvService>().googlePlacesApiKey;
 
     final hasInternet = await connectivity.isConnected;

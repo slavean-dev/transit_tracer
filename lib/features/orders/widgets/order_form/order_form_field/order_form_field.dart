@@ -15,6 +15,7 @@ class OrderFormField extends StatelessWidget {
     required this.keyboardType,
     required this.inputFormatters,
     required this.focusNode,
+    this.autovalidateMode,
   });
 
   final TextInputType? keyboardType;
@@ -26,6 +27,7 @@ class OrderFormField extends StatelessWidget {
   final int maxLength;
   final String label;
   final String hint;
+  final AutovalidateMode? autovalidateMode;
   final String? Function(String?)? validator;
   final FocusNode focusNode;
 
@@ -41,6 +43,7 @@ class OrderFormField extends StatelessWidget {
         focusNode: focusNode,
         inputFormatters: inputFormatters,
         keyboardType: keyboardType,
+        autovalidateMode: autovalidateMode,
         validator: validator,
         decoration: InputDecoration(
           labelText: label,

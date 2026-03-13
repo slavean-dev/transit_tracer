@@ -97,9 +97,12 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
               activeStatus: OrderStateStatus.loaded,
               activeOrders: orders,
             );
+          } else {
+            return state.copyWith(
+              activeStatus: OrderStateStatus.empty,
+              activeOrders: orders,
+            );
           }
-
-          return state.copyWith(activeOrders: orders);
         },
 
         onError: (error, stackTrace) {
@@ -145,9 +148,12 @@ class OrdersBloc extends Bloc<OrdersEvent, OrdersState> {
               archiveStatus: OrderStateStatus.loaded,
               archiveOrders: orders,
             );
+          } else {
+            return state.copyWith(
+              archiveStatus: OrderStateStatus.empty,
+              archiveOrders: orders,
+            );
           }
-
-          return state.copyWith(archiveOrders: orders);
         },
         onError: (error, stackTrace) {
           return state.copyWith(
