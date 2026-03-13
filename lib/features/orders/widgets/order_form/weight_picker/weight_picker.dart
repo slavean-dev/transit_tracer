@@ -12,6 +12,7 @@ class WeightPicker extends StatelessWidget {
     required this.validator,
     this.initialValue,
     required this.focusNode,
+    this.autovalidateMode,
   });
 
   final WeightRange? initialValue;
@@ -19,6 +20,7 @@ class WeightPicker extends StatelessWidget {
   final ThemeData theme;
   final ValueChanged<WeightRange?> onChange;
   final FormFieldSetter<WeightRange> onSaved;
+  final AutovalidateMode? autovalidateMode;
   final FormFieldValidator<WeightRange> validator;
   final FocusNode focusNode;
 
@@ -69,6 +71,7 @@ class WeightPicker extends StatelessWidget {
       ],
       onSaved: onSaved,
       onChanged: onChange,
+      autovalidateMode: autovalidateMode,
       validator: validator,
     );
   }

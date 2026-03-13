@@ -63,6 +63,7 @@ class GeoRepository implements AbstractGeoRepository {
     }
   }
 
+  @override
   Future<String?> fetchEncodedPolyline({
     required double fromLat,
     required double fromLng,

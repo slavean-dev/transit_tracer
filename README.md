@@ -65,28 +65,50 @@ lib/
  │    ├── profile/    # User settings and profile data
  │    └── settings/   # Localization and theme toggling
  └── l10n/            # Localization files (.arb)
-
+```
 ---
 
-## 📸 Application Demo
+## 📱 App Showcase
 
 <p align="center">
-  <img src=".github\assets\auth_validation_demo.gif" width="350" alt="Auth & Validation Demo">
+  Explore the core features of the application through these interactive demos.
 </p>
 
-<p align="center">
-  <i>Example: Comprehensive form validation and Firebase Auth flow.</i>
-</p>
+<div align="center">
 
----
+<table>
+  <tr>
+    <td align="center">
+      🔐 <b>Authentication</b><br>
+      <img src=".github/assets/auth_validation_demo.gif" width="300" style="border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15);" />
+      <br><i>Firebase Auth & Validation</i>
+    </td>
+    <td width="200"></td> <!-- Отступ между GIF -->
+    <td align="center">
+      📦 <b>Order Creation</b><br>
+      <img src=".github/assets/add_orders_validation_demo.gif" width="300" style="border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15);" />
+      <br><i>Smart Form Handling</i>
+    </td>
+  </tr>
+</table>
 
-## 🚀 Getting Started
+<br>
 
-1. **Clone the repository:**
-   git clone https://github.com/slavean-dev/transit_tracer
+<table>
+  <tr>
+    <td align="center">
+      🔄 <b>Lifecycle & CRUD</b><br>
+      <img src=".github/assets/order_details_edit_archivate_unarchivate_delete_demo.gif" width="300" style="border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15);" />
+      <br><i>Edit, Archive & Delete</i>
+    </td>
+    <td width="200"></td> <!-- Отступ между GIF -->
+    <td align="center">
+      👤 <b>Profile & System</b><br>
+      <img src=".github/assets/profile_settings_aboutus_logout_demo.gif" width="300" style="border-radius:12px; box-shadow:0 6px 12px rgba(0,0,0,0.15);" />
+      <br><i>User Settings & Logout</i>
+    </td>
+  </tr>
+</table>
 
-2. **Install dependencies:**
-   flutter pub get
+</div>
 
-3. **Generate Routes:**
-   dart run build_runner build --delete-conflicting-outputs

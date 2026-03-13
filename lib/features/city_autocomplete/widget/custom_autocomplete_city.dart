@@ -19,10 +19,13 @@ class CustomAutocompleteCity extends StatefulWidget {
     this.enabled,
     this.onChanged,
     this.limit = 5,
+    this.autovalidateMode,
   });
   final int? limit;
 
   final Function(CitySuggestion) onCitySelected;
+
+  final AutovalidateMode? autovalidateMode;
 
   final TextEditingController controller;
   final FocusNode focusNode;
@@ -148,6 +151,7 @@ class _CustomAutocompleteCityState extends State<CustomAutocompleteCity> {
                       labelText: widget.lable,
                       counterText: '',
                     ),
+                    autovalidateMode: widget.autovalidateMode,
                     validator: widget.validator,
                     onChanged: (value) {
                       if (value.isEmpty) return;

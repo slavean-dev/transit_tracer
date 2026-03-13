@@ -45,45 +45,47 @@ class SuggestionsList extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: BlocBuilder<CityAutocompleteBloc, CityAutocompleteState>(
         builder: (context, state) {
+          late final Widget child;
+
           if (state is CityAutocompleteLoading) {
-            return const LinearProgressIndicator();
+            child = const LinearProgressIndicator();
           }
           if (state is CityAutocompleteLoaded) {
-            return TapRegion(
-              onTapOutside: (event) {
-                _handleTapOutside(state, context);
-              },
-              child: BaseContainer(
-                child: ListView.builder(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  itemCount: state.suggestions.length,
-                  itemBuilder: (context, index) {
-                    final suggestion = state.suggestions[index];
-                    return ListTile(
-                      title: Text(suggestion.cityName),
-                      onTap: () {
-                        controller.text = suggestion.cityName;
+            child = BaseContainer(
+              child: ListView.builder(
+                padding: EdgeInsets.zero,
+                shrinkWrap: true,
+                itemCount: state.suggestions.length,
+                itemBuilder: (context, index) {
+                  final suggestion = state.suggestions[index];
+                  return ListTile(
+                    title: Text(suggestion.cityName),
+                    onTap: () {
+                      controller.text = suggestion.cityName;
 
-                        onCitySelected(suggestion);
-                        hideOverlay();
-                        focusNode.unfocus();
-                      },
-                    );
-                  },
-                ),
+                      onCitySelected(suggestion);
+                      hideOverlay();
+                      focusNode.unfocus();
+                    },
+                  );
+                },
               ),
             );
           }
           if (state is CityAutocompleteEmpty) {
-            return Center(child: Text(s.suggestionListEmpty));
+            child = Center(child: Text(s.suggestionListEmpty));
           }
           if (state is CityAutocompleteError) {
             final String error =
                 GeoErrorTranslator.translate(context, state.type) ?? '';
-            return Center(child: Text(error));
+            child = Center(child: Text(error));
           }
-          return SizedBox.shrink();
+          return TapRegion(
+            onTapOutside: (event) {
+              _handleTapOutside(state, context);
+            },
+            child: child,
+          );
         },
       ),
     );

@@ -5,4 +5,10 @@ abstract class AbstractGeoRepository {
   Future<(Map<String, String>, Map<String, double>)> getCityFullBundle(
     String placeId,
   );
+  Future<String?> fetchEncodedPolyline({
+    required double fromLat,
+    required double fromLng,
+    required double toLat,
+    required double toLng,
+  });
 }

@@ -40,6 +40,8 @@ class OrderForm extends StatefulWidget {
 }
 
 class OrderFormState extends State<OrderForm> {
+  final String? fronErrorText = null;
+
   final TextEditingController _fromCityController = TextEditingController();
 
   final TextEditingController _toCityController = TextEditingController();
@@ -214,11 +216,14 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _fromCityFocusNode,
                       lable: s.fieldFrom,
                       enabled: isOnline,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (v) => AutocompleteValidate.city(
                         v,
                         fromSuggestion,
                       )?.toText(context),
-                      onChanged: (_) => fromSuggestion = null,
+                      onChanged: (value) {
+                        fromSuggestion = null;
+                      },
                       onCitySelected: (value) {
                         fromSuggestion = value;
                       },
@@ -233,6 +238,7 @@ class OrderFormState extends State<OrderForm> {
                     CustomAutocompleteCity(
                       controller: _toCityController,
                       focusNode: _toCityFocusNode,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       onChanged: (_) => toSuggestion = null,
                       onCitySelected: (value) {
                         toSuggestion = value;
@@ -255,6 +261,7 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _weightFocus,
                       initialValue: widget.order?.weight,
                       onSaved: (newValue) => weight = newValue!,
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (v) =>
                           OrderValidators.weight(v)?.toText(context),
                       theme: theme,
@@ -267,6 +274,7 @@ class OrderFormState extends State<OrderForm> {
                       focusNode: _priceFocusNode,
                       keyboardType: TextInputType.number,
                       inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                      autovalidateMode: AutovalidateMode.onUserInteraction,
                       validator: (value) =>
                           OrderValidators.price(value)?.toText(context),
                       theme: theme,
