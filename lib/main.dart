@@ -11,8 +11,8 @@ import 'package:transit_tracer/core/services/di_service/di_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await dotenv.load(fileName: '.env');
-  await Firebase.initializeApp();
+  //await dotenv.load(fileName: '.env');
+  //await Firebase.initializeApp();
   await GetIt.I.reset(dispose: true);
   final prefs = await SharedPreferences.getInstance();
   DiService().initDI(prefs);
