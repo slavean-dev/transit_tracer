@@ -1,11 +1,14 @@
 import 'package:dio/dio.dart';
 import 'package:transit_tracer/core/constants/google_api_constants.dart';
+import 'package:transit_tracer/core/services/geo_api_service/abstract_geo_service.dart';
 
-class GeoApiService {
+class GeoApiService implements AbstractGeoService {
   GeoApiService(this.apiKey);
+
   final String apiKey;
   final Dio _dio = Dio();
 
+  @override
   Future<Response<dynamic>> searchCities({
     required String query,
     required String langCode,
@@ -27,6 +30,7 @@ class GeoApiService {
     return response;
   }
 
+  @override
   Future<Response<dynamic>> getPlaceDetails(
     String placeId,
     String langCode,
@@ -45,6 +49,7 @@ class GeoApiService {
     return response;
   }
 
+  @override
   Future<Response<dynamic>> getRoute({
     required double fromLat,
     required double fromLng,

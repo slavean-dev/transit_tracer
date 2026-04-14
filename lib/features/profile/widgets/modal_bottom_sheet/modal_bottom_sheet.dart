@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:transit_tracer/core/services/media_service/abstract_media_service.dart';
 
 import 'package:transit_tracer/features/profile/cubit/profile_cubit.dart';
 import 'package:transit_tracer/features/profile/widgets/modal_sheet_list_tile/modal_sheet_list_tile.dart';
 import 'package:transit_tracer/generated/l10n.dart';
-import 'package:transit_tracer/core/services/media_service/media_service.dart';
 
 class ModalBottomSheet extends StatelessWidget {
   const ModalBottomSheet({super.key, required this.theme, required this.uid});
@@ -14,7 +14,7 @@ class ModalBottomSheet extends StatelessWidget {
   final String uid;
   @override
   Widget build(BuildContext context) {
-    final MediaService picker = GetIt.I<MediaService>();
+    final AbstractMediaService picker = GetIt.I<AbstractMediaService>();
     return Container(
       decoration: BoxDecoration(
         color: theme.colorScheme.surface,

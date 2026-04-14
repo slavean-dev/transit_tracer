@@ -4,11 +4,11 @@ import 'package:transit_tracer/core/data/models/city_details/city_details.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
 import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_errors_parser.dart';
 import 'package:transit_tracer/core/error_handlers/geo_error_handler/errors/geo_failure.dart';
-import 'package:transit_tracer/core/services/geo_api_service/geo_api_service.dart';
+import 'package:transit_tracer/core/services/geo_api_service/abstract_geo_service.dart';
 
 class GeoRepository implements AbstractGeoRepository {
   GeoRepository({required this.geoService});
-  final GeoApiService geoService;
+  final AbstractGeoService geoService;
 
   @override
   Future<CityDetails> getPlaceDetails(String placeId, String langCode) async {

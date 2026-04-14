@@ -10,16 +10,22 @@ import 'package:internet_connection_checker_plus/internet_connection_checker_plu
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/abstract_geo_repository.dart';
 import 'package:transit_tracer/core/data/repositories/geo_repository/geo_repository.dart';
+import 'package:transit_tracer/core/services/geo_api_service/abstract_geo_service.dart';
 import 'package:transit_tracer/core/services/geo_api_service/geo_api_service.dart';
+import 'package:transit_tracer/core/services/media_service/abstract_media_service.dart';
+import 'package:transit_tracer/core/services/network_service/abstract_network_service.dart';
 import 'package:transit_tracer/core/services/network_service/network_service.dart';
 import 'package:transit_tracer/features/city_autocomplete/bloc/city_autocomplete_bloc.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/repository/abstract_autocomplete_repository.dart';
 import 'package:transit_tracer/features/city_autocomplete/data/repository/autocomplete_repository.dart';
-import 'package:transit_tracer/features/orders/bloc/order_details/order_details_bloc.dart';
+import 'package:transit_tracer/features/orders/presentation/screens/archive_orders/bloc/archive_orders_bloc.dart';
+import 'package:transit_tracer/features/orders/presentation/screens/create_order/bloc/create_order_bloc.dart';
+import 'package:transit_tracer/features/orders/presentation/screens/edit_order/bloc/edit_order_bloc.dart';
+import 'package:transit_tracer/features/orders/presentation/screens/order_details/bloc/order_details_bloc.dart';
+import 'package:transit_tracer/features/orders/presentation/screens/order_list/bloc/orders_list_bloc.dart';
 import 'package:transit_tracer/features/user/bloc/app_user_bloc.dart';
 import 'package:transit_tracer/core/data/repositories/media_repository/abstract_media_repository.dart';
 import 'package:transit_tracer/core/data/repositories/media_repository/firebase_media_repository.dart';
-import 'package:transit_tracer/features/orders/bloc/orders_bloc/orders_bloc.dart';
 import 'package:transit_tracer/features/orders/data/order_data_repository/abstract_order_repository.dart';
 import 'package:transit_tracer/features/orders/data/order_data_repository/order_data_repository.dart';
 import 'package:transit_tracer/features/user/user_data_repository/abstract_user_data.dart';
@@ -45,7 +51,7 @@ class DiService {
 
     getIt.registerSingleton<InternetConnection>(InternetConnection());
 
-    getIt.registerSingleton<NetworkService>(
+    getIt.registerSingleton<AbstractNetworkService>(
       NetworkService(checker: getIt<InternetConnection>()),
     );
 
@@ -77,7 +83,7 @@ class DiService {
     getIt.registerFactory(
       () => SettingsCubit(
         getIt<AbstractSettingsRepository>(),
-        getIt<NetworkService>(),
+        getIt<AbstractNetworkService>(),
       ),
     );
 
@@ -100,12 +106,12 @@ class DiService {
         firebaseFirestore: getIt<FirebaseFirestore>(),
       ),
     );
-    getIt.registerSingleton<GeoApiService>(
+    getIt.registerSingleton<AbstractGeoService>(
       GeoApiService(getIt<EnvService>().googlePlacesApiKey),
     );
 
     getIt.registerSingleton<AbstractAutocompleteRepository>(
-      AutocompleteRepository(geoService: getIt<GeoApiService>()),
+      AutocompleteRepository(geoService: getIt<AbstractGeoService>()),
     );
 
     getIt.registerFactory(
@@ -119,14 +125,22 @@ class DiService {
       ),
     );
     getIt.registerSingleton<AbstractGeoRepository>(
-      GeoRepository(geoService: getIt<GeoApiService>()),
+      GeoRepository(geoService: getIt<AbstractGeoService>()),
     );
 
     getIt.registerFactory(
-      () => OrdersBloc(
-        getIt<AbstractOrderRepository>(),
-        getIt<AbstractGeoRepository>(),
+      () => CreateOrderBloc(
+        repository: getIt<AbstractOrderRepository>(),
+        geoRepository: getIt<AbstractGeoRepository>(),
       ),
+    );
+
+    getIt.registerFactory(
+      () => OrdersListBloc(repository: getIt<AbstractOrderRepository>()),
+    );
+
+    getIt.registerFactory(
+      () => ArchiveOrdersBloc(repository: getIt<AbstractOrderRepository>()),
     );
 
     getIt.registerSingleton<AbstractProfileRepository>(
@@ -139,8 +153,16 @@ class DiService {
     getIt.registerFactory(
       () => OrderDetailsBloc(
         getIt<AbstractOrderRepository>(),
-        getIt<NetworkService>(),
+        getIt<AbstractNetworkService>(),
         getIt<AbstractGeoRepository>(),
+      ),
+    );
+
+    getIt.registerFactory(
+      () => EditOrderBloc(
+        repository: getIt<AbstractOrderRepository>(),
+        geoRepository: getIt<AbstractGeoRepository>(),
+        networkChecker: getIt<AbstractNetworkService>(),
       ),
     );
 
@@ -154,7 +176,7 @@ class DiService {
     getIt.registerLazySingleton<ImagePicker>(() => ImagePicker());
     getIt.registerLazySingleton<ImageCropper>(() => ImageCropper());
 
-    getIt.registerLazySingleton<MediaService>(
+    getIt.registerLazySingleton<AbstractMediaService>(
       () => MediaService(
         picker: getIt<ImagePicker>(),
         cropper: getIt<ImageCropper>(),

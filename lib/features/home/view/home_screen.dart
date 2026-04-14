@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:transit_tracer/features/user/bloc/app_user_bloc.dart';
 import 'package:transit_tracer/app/router/router.dart';
-import 'package:transit_tracer/features/orders/bloc/orders_bloc/orders_bloc.dart';
 import 'package:transit_tracer/generated/l10n.dart';
 
 @RoutePage()
@@ -18,10 +17,7 @@ class HomeScreen extends StatelessWidget {
         FocusScope.of(context).unfocus();
       },
       child: MultiBlocProvider(
-        providers: [
-          BlocProvider(create: (context) => GetIt.I<AppUserBloc>()),
-          BlocProvider(create: (context) => GetIt.I<OrdersBloc>()),
-        ],
+        providers: [BlocProvider(create: (context) => GetIt.I<AppUserBloc>())],
         child: AutoTabsRouter(
           routes: const [
             TransportSearchRoute(),
