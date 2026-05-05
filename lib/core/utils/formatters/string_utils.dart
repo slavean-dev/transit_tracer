@@ -1,9 +1,11 @@
-String capitalize(String input) {
-  if (input.isEmpty) return input;
-  return input[0].toUpperCase() + input.substring(1).toLowerCase();
-}
+extension StringX on String {
+  String capitalize() {
+    if (isEmpty) return this;
+    return this[0].toUpperCase() + substring(1).toLowerCase();
+  }
 
-String cityCutter(String input) {
-  if (input.isEmpty) return input;
-  return input.split(',').first.trim();
+  String cityCutter() {
+    if (isEmpty) return this;
+    return split(',').first.trim();
+  }
 }

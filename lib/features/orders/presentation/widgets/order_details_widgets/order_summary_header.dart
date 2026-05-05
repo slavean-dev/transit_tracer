@@ -42,12 +42,11 @@ class OrderSummaryHeader extends StatelessWidget {
                   style: theme.textTheme.bodyMedium,
                   children: [
                     TextSpan(
-                      text: cityCutter(
-                        (order.from.localizedNames[currentLanguage] ?? '')
-                                .isEmpty
-                            ? order.from.name
-                            : order.from.localizedNames[currentLanguage]!,
-                      ),
+                      text:
+                          (order.from.localizedNames[currentLanguage] ??
+                                  order.from.name)
+                              .cityCutter(),
+
                       style: theme.textTheme.titleMedium,
                     ),
                     TextSpan(
@@ -57,11 +56,10 @@ class OrderSummaryHeader extends StatelessWidget {
                       ),
                     ),
                     TextSpan(
-                      text: cityCutter(
-                        (order.to.localizedNames[currentLanguage] ?? '').isEmpty
-                            ? order.to.name
-                            : order.to.localizedNames[currentLanguage]!,
-                      ),
+                      text:
+                          (order.to.localizedNames[currentLanguage] ??
+                                  order.to.name)
+                              .cityCutter(),
                       style: theme.textTheme.titleMedium,
                     ),
                   ],

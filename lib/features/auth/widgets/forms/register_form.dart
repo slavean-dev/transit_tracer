@@ -222,8 +222,8 @@ class _RegisterFormState extends State<RegisterForm> {
             if (widget.formKey.currentState?.validate() ?? true) {
               context.read<AuthBloc>().add(
                 RegisterUser(
-                  name: capitalize(nameController.text.trim()),
-                  surname: capitalize(surnameController.text.trim()),
+                  name: nameController.text.trim().capitalize(),
+                  surname: surnameController.text.trim().capitalize(),
                   email: emailController.text.trim(),
                   phone: fullPhone,
                   password: passwordController.text.trim(),

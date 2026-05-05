@@ -145,8 +145,8 @@ class _TransportSearchPageState extends State<TransportSearchPage> {
                       final to = _toCityController.text;
                       context.router.push(
                         TransportResultsRoute(
-                          frome: cityCutter(from),
-                          to: cityCutter(to),
+                          frome: from.cityCutter(),
+                          to: to.cityCutter(),
                           date: _dateLable,
                         ),
                       );
